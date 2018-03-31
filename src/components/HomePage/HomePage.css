@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+.bodyclass {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Roboto"; }
+  .bodyclass .content {
+    background-image: url(../../img/bg.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100vh; }
+    .bodyclass .content .logindetails {
+      display: inline-block;
+      position: relative;
+      flex-direction: column;
+      width: 300px;
+      position: relative;
+      z-index: 2;
+      left: 66%;
+      top: 250px; }
+      .bodyclass .content .logindetails .information {
+        margin: 30px;
+        border-bottom: 1px solid #07819d; }
+        .bodyclass .content .logindetails .information input[type="text"] {
+          border: none;
+          width: 100%; }
+        .bodyclass .content .logindetails .information input::placeholder {
+          color: #07819d; }
+      .bodyclass .content .logindetails .forgot {
+        position: relative;
+        bottom: 20px;
+        left: 170px; }
+        .bodyclass .content .logindetails .forgot a {
+          color: #07819d;
+          text-decoration: none;
+          font-size: 0.85em; }
+      .bodyclass .content .logindetails input[type="button"] {
+        padding: 5.3% 15%;
+        text-align: center;
+        background-color: #ee4998;
+        border: none;
+        border-radius: 40px;
+        color: white;
+        margin: 0px 0 0 20px; }
+
+/*# sourceMappingURL=style.css.map */

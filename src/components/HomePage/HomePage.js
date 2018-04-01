@@ -89,6 +89,7 @@ export class HomePage extends Component {
 
 const doLogin = (event) => {
   // TODO raise action for login, redirect should happen through the reducer, LATER!
+  console.log("Event is : " + event);
   browserHistory.push('/dashboard');
 }
 
@@ -111,8 +112,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
-//export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(HomePage);
-// export withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePage)); 
-// const HomePageWithRouter = withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePage));
-// export default HomePageWithRouter;
 

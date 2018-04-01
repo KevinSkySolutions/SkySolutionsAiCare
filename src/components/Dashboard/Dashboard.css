@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+.dashbodyclass {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Roboto"; }
+  .dashbodyclass .subheading {
+    color: #df0070; }
+  .dashbodyclass .pt-log {
+    display: inline-block;
+    height: auto; }
+  .dashbodyclass .gray-text {
+    color: #6b6b6b;
+    font-size: 0.7em; }
+  .dashbodyclass .side-text {
+    display: inline-block;
+    text-align: left; }
+  .dashbodyclass .content {
+    background-image: url("../../img/bg2.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: auto;
+    text-align: center; }
+    .dashbodyclass .content .nav-container {
+      display: inline-block;
+      width: auto;
+      height: auto;
+      text-align: right;
+      margin-left: 55%;
+      padding: 20px 0 0 0px; }
+      .dashbodyclass .content .nav-container ul li {
+        display: inline;
+        margin: 15px;
+        list-style-type: none; }
+        .dashbodyclass .content .nav-container ul li a {
+          text-decoration: none;
+          color: #00385d; }
+    .dashbodyclass .content .col-1 {
+      display: inline-block;
+      width: 45%; }
+    .dashbodyclass .content .left-section {
+
+      height: auto;
+      margin-top: 3%; }
+    .dashbodyclass .content .right-section {
+      height: auto;
+      text-align: left; }
+      .dashbodyclass .content .right-section .description-mod {
+        border-radius: 15px;
+        background-color: #d4e2ec;
+        text-align: center;
+        padding: 10px;
+        margin-bottom: 30px; }
+        .dashbodyclass .content .right-section .description-mod .pt-detail {
+          position: relative;
+          right: 20%; }
+          .dashbodyclass .content .right-section .description-mod .pt-detail .detail-1 {
+            position: relative;
+            bottom: 10px; }
+        .dashbodyclass .content .right-section .description-mod .pt-loc {
+          position: relative;
+          right: 10%; }
+          .dashbodyclass .content .right-section .description-mod .pt-loc .detail-2 {
+            position: relative;
+            bottom: 10px; }
+
+/*# sourceMappingURL=dashstyle.css.map */

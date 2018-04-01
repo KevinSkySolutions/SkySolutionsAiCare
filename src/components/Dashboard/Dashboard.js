@@ -54,13 +54,13 @@ export class Dashboard extends Component {
                 <a href="#">Dashboard</a>
               </li>
               <li>
-                <a href="#">Patients</a>
+                <a href="/patients">Patients</a>
               </li>
               <li>
-                <a href="#">Facilities</a>
+                <a href="/facilities">Facilities</a>
               </li>
               <li>
-                <a href="#">Reports</a>
+                <a href="/reports">Reports</a>
               </li>
               <li>
                 <a href="#">Help</a>

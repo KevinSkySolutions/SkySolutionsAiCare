@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Meta from 'react-helmet';
 import { browserHistory } from 'react-router'
 
+import { bindActionCreators } from 'redux';
+
 import { createaction_doLogin, createaction_requestAlerts } from '../../actions';
 
 import Posts from '../Patients/Patients';
@@ -21,8 +23,6 @@ export class HomePage extends Component {
 
   constructor(props) {
     super(props);
-
-    this.doLogin = this.doLogin.bind(this);
   }
 
   // typechecking on the props for this component
@@ -89,9 +89,8 @@ export class HomePage extends Component {
   }
 
   doLogin(event) {
-    // dispatch(actionCreators.requestLogin("myuserid","mypassword")); // TODO: remove this HARDCODED value
-
-    console.log("clickk!");
+    // dispatch(this.props.doLogin("myuserid","mypassword")); // TODO: remove this HARDCODED value
+    
     browserHistory.push('/dashboard');
   }
 
@@ -108,12 +107,12 @@ const mapStateToProps = (state) => {
 }
 
 // adding callables to props
-const mapDispatchToProps = (dispatch) => {
-  return {
+const mapDispatchToProps = (dispatch, props) => {
+
+  return  bindActionCreators({
     doLogin:        createaction_doLogin,
     requestAlerts:  createaction_requestAlerts 
-
-  };
+  }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

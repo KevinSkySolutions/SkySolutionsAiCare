@@ -38,9 +38,8 @@
       display: inline-block;
       width: 45%; }
     .dashbodyclass .content .left-section {
-
       height: auto;
-      margin-top: 3%; }
+      margin-top: 5%; }
     .dashbodyclass .content .right-section {
       height: auto;
       text-align: left; }
@@ -49,7 +48,7 @@
         background-color: #d4e2ec;
         text-align: center;
         padding: 10px;
-        margin-bottom: 30px; }
+        margin-bottom: 20px; }
         .dashbodyclass .content .right-section .description-mod .pt-detail {
           position: relative;
           right: 20%; }

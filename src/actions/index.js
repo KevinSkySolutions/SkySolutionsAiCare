@@ -1,22 +1,10 @@
 import api from '../lib/api';
 
-export const REQUEST_ALERTS = 'REQUEST_ALERTS';
-export const RECEIVE_ALERTS = 'RECEIVE_ALERTS';
-export const REQUEST_ALERT = 'REQUEST_ALERT';
-export const RECEIVE_ALERT = 'RECEIVE_ALERT';
+export const A_REQUEST_ALERTS = 'login:requestalerts';
+export const A_RECEIVE_ALERTS = 'login:receivealerts';
 
 export const requestAlerts = () => ({
-  type: REQUEST_ALERTS
-});
-
-export const requestAlert = () => ({
-  type: REQUEST_ALERT
-});
-
-export const receiveAlert = json => ({
-  type: RECEIVE_ALERT,
-  alerts: json.data[0],
-  receivedAt: Date.now()
+  type: A_REQUEST_ALERTS
 });
 
 export const getAlerts = () => (

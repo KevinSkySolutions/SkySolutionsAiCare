@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import Meta from 'react-helmet';
 import { browserHistory } from 'react-router'
 
-import { actionGetAlerts } from '../../actions';
+import { createaction_doLogin, createaction_requestAlerts } from '../../actions';
+
 import Posts from '../Patients/Patients';
 import Header from '../Common/Header/Header';
 
@@ -20,6 +21,8 @@ export class HomePage extends Component {
 
   constructor(props) {
     super(props);
+
+    this.doLogin = this.doLogin.bind(this);
   }
 
   // typechecking on the props for this component
@@ -77,7 +80,7 @@ export class HomePage extends Component {
             </div>
             <div className="forgot"><a href="#">Forgot Password?</a></div>
             <div className="signin">
-              <input type="button" value="Sign In" onClick={ this.props.onDoLogin } />
+              <input type="button" value="Sign In" onClick={ this.doLogin } />
             </div>
           </form>
         </div>
@@ -85,12 +88,13 @@ export class HomePage extends Component {
     );
   }
 
-}
+  doLogin(event) {
+    // dispatch(actionCreators.requestLogin("myuserid","mypassword")); // TODO: remove this HARDCODED value
 
-const doLogin = (event) => {
-  // TODO raise action for login, redirect should happen through the reducer, LATER!
-  console.log("Event is : " + event);
-  browserHistory.push('/dashboard');
+    console.log("clickk!");
+    browserHistory.push('/dashboard');
+  }
+
 }
 
 // changes in state are copied onto props here
@@ -105,10 +109,11 @@ const mapStateToProps = (state) => {
 
 // adding callables to props
 const mapDispatchToProps = (dispatch) => {
-
   return {
-    onDoLogin: doLogin
-  }
+    doLogin:        createaction_doLogin,
+    requestAlerts:  createaction_requestAlerts 
+
+  };
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

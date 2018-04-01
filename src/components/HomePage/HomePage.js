@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Meta from 'react-helmet';
+import { browserHistory } from 'react-router'
 
 import { actionGetAlerts } from '../../actions';
 import Posts from '../Patients/Patients';
@@ -83,10 +84,12 @@ export class HomePage extends Component {
       </div> 
     );
   }
+
 }
 
 const doLogin = (event) => {
-  console.log("Button button clickedd");
+  // TODO raise action for login, redirect should happen through the reducer, LATER!
+  browserHistory.push('/dashboard');
 }
 
 // changes in state are copied onto props here
@@ -108,3 +111,8 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+//export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(HomePage);
+// export withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePage)); 
+// const HomePageWithRouter = withRouter(connect(mapStateToProps, mapDispatchToProps)(HomePage));
+// export default HomePageWithRouter;
+

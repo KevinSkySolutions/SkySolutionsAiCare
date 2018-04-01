@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Meta from 'react-helmet';
 
-import { fetchAlertsIfNeeded } from '../../actions';
+import { actionGetAlerts } from '../../actions';
 import Posts from '../Patients/Patients';
 import Header from '../Common/Header/Header';
 
@@ -17,10 +17,13 @@ if (process.env.WEBPACK) {
 */
 export class HomePage extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   // typechecking on the props for this component
   static propTypes = {
-    isLoggingIn: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
+    isLoggingIn: PropTypes.bool.isRequired
   }
 
   // defaultProps, props to load before first API call is made
@@ -53,7 +56,6 @@ export class HomePage extends Component {
   // lifecycle method
   componentDidMount() {
     const { dispatch } = this.props;
-    dispatch(fetchAlertsIfNeeded());
   }
 
   // the render method
@@ -70,17 +72,21 @@ export class HomePage extends Component {
               <input type="text" placeholder="Email ID"/>
             </div>
             <div className="information">
-              <input type="text" placeholder="Password"/>
+              <input type="password" placeholder="Password"/>
             </div>
             <div className="forgot"><a href="#">Forgot Password?</a></div>
             <div className="signin">
-              <input type="button" value="Sign In" />
+              <input type="button" value="Sign In" onClick={ this.props.onDoLogin } />
             </div>
           </form>
         </div>
       </div> 
     );
   }
+}
+
+const doLogin = (event) => {
+  console.log("Button button clickedd");
 }
 
 // changes in state are copied onto props here
@@ -91,8 +97,14 @@ const mapStateToProps = (state) => {
   return {
     isLoggingIn
   };
-};
+}
 
+// adding callables to props
+const mapDispatchToProps = (dispatch) => {
 
+  return {
+    onDoLogin: doLogin
+  }
+}
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

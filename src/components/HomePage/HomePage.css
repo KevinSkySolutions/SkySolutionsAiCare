@@ -2,12 +2,14 @@
 .bodyclass {
   margin: 0px;
   padding: 0px;
-  font-family: "Roboto"; }
+  font-family: "Roboto";
+  height: auto;
+  width: 100vw; 
+  background-image: url(../../img/bg.jpg);
+  background-repeat: no-repeat;}
   .bodyclass .content {
-    background-image: url(../../img/bg.jpg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    height: 100vh; }
+    height: 100%;
+    width: 100%; }
     .bodyclass .content .logindetails {
       display: inline-block;
       position: relative;
@@ -20,12 +22,16 @@
       .bodyclass .content .logindetails .information {
         margin: 30px;
         border-bottom: 1px solid #07819d; }
-        .bodyclass .content .logindetails .information input[type="text"] {
+        .bodyclass .content .logindetails .information input {
           border: none;
           width: 100%; }
         .bodyclass .content .logindetails .information input::placeholder {
+          border: none;
           color: #07819d; }
+        .bodyclass .content .logindetails .information input:focus {
+          outline: none; }  
       .bodyclass .content .logindetails .forgot {
+        cursor: pointer;
         position: relative;
         bottom: 20px;
         left: 170px; }
@@ -34,6 +40,7 @@
           text-decoration: none;
           font-size: 0.85em; }
       .bodyclass .content .logindetails input[type="button"] {
+        cursor: pointer;
         padding: 5.3% 15%;
         text-align: center;
         background-color: #ee4998;
@@ -41,5 +48,11 @@
         border-radius: 40px;
         color: white;
         margin: 0px 0 0 20px; }
+      .bodyclass .content .logindetails input[type="button"]:focus {
+        outline: none;
+      }
+      .bodyclass .content .logindetails input[type="button"]:hover {
+        background-color: #bf1265;
+      }
 
 /*# sourceMappingURL=style.css.map */

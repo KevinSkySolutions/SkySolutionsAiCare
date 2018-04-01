@@ -19,15 +19,18 @@ export const receiveAlert = json => ({
   receivedAt: Date.now()
 });
 
-export const fetchAlerts = () => (
+export const getAlerts = () => (
   dispatch => api('https://apiendpoint.com/dataitem')
     .then(
-      // TODO json => dispatch(receiveAlerts(json)),
+      json => dispatch(receiveAlerts(json)),
     )
+    .catch((error) => {
+      console.log("Error in getAlerts api call");
+  })
 );
 
-export const fetchAlertsIfNeeded = () => (
+export const actionGetAlerts = () => (
   (dispatch, getState) => {
-    dispatch(fetchAlerts());
+    dispatch(getAlerts());
   }
 );

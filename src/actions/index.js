@@ -1,24 +1,17 @@
-import api from '../lib/api';
+const REQUEST_LOGIN   = 'A_REQUEST_LOGIN'
+const REQUEST_ALERTS  = 'A_REQUEST_ALERTS';
 
-export const A_REQUEST_ALERTS = 'login:requestalerts';
-export const A_RECEIVE_ALERTS = 'login:receivealerts';
+export const createaction_doLogin = (userid, passcode) => {
+  return {
+    type: REQUEST_LOGIN,
+    userid: userid,
+    passcode: passcode
+  };
+}
 
-export const requestAlerts = () => ({
-  type: A_REQUEST_ALERTS
-});
-
-export const getAlerts = () => (
-  dispatch => api('https://apiendpoint.com/dataitem')
-    .then(
-      json => dispatch(receiveAlerts(json)),
-    )
-    .catch((error) => {
-      console.log("Error in getAlerts api call");
-  })
-);
-
-export const actionGetAlerts = () => (
-  (dispatch, getState) => {
-    dispatch(getAlerts());
-  }
-);
+export const createaction_requestAlerts = () => {
+  return {
+    type: REQUEST_ALERTS
+    // no payload for requestAlerts, later authentication token may be added
+  };
+}

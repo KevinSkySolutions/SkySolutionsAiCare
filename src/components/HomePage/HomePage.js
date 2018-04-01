@@ -27,7 +27,8 @@ export class HomePage extends Component {
 
   // typechecking on the props for this component
   static propTypes = {
-    isLoggingIn: PropTypes.bool.isRequired
+    isLoggingIn: PropTypes.bool.isRequired,
+    dispatch: PropTypes.func.isRequired
   }
 
   // defaultProps, props to load before first API call is made
@@ -88,10 +89,13 @@ export class HomePage extends Component {
     );
   }
 
-  doLogin(event) {
-    // dispatch(this.props.doLogin("myuserid","mypassword")); // TODO: remove this HARDCODED value
-    
+  doLogin = (event) => {
+
+    // TODO: remove line below and redirect on state change in Redux
     browserHistory.push('/dashboard');
+
+
+    this.props.dispatch_createaction_doLogin("u", "p");
   }
 
 }
@@ -101,6 +105,7 @@ const mapStateToProps = (state) => {
 
   // loading default props
   const { isLoggingIn } = state;
+
   return {
     isLoggingIn
   };
@@ -109,10 +114,16 @@ const mapStateToProps = (state) => {
 // adding callables to props
 const mapDispatchToProps = (dispatch, props) => {
 
-  return  bindActionCreators({
-    doLogin:        createaction_doLogin,
-    requestAlerts:  createaction_requestAlerts 
-  }, dispatch);
+  return Object.assign({dispatch: dispatch}, bindActionCreators({
+    dispatch_createaction_doLogin:        
+      (userid, passcode) => {
+        dispatch(createaction_doLogin(userid, passcode));
+      },
+    dispatch_createaction_requestAlerts:  
+      () => { 
+        dispatch(createaction_requestAlerts());
+      }
+  }, dispatch));
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);

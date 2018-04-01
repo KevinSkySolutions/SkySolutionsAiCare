@@ -1,11 +1,13 @@
-const REQUEST_LOGIN   = 'A_REQUEST_LOGIN'
-const REQUEST_ALERTS  = 'A_REQUEST_ALERTS';
+export const REQUEST_LOGIN   = 'A_REQUEST_LOGIN'
+export const REQUEST_ALERTS  = 'A_REQUEST_ALERTS';
 
 export const createaction_doLogin = (userid, passcode) => {
   return {
     type: REQUEST_LOGIN,
-    userid: userid,
-    passcode: passcode
+    payload: {
+		userid: userid,
+    	passcode: passcode
+    }
   };
 }
 

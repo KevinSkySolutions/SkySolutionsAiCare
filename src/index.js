@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
 import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
-import allReducers from './reducers';
+import rootReducer from './reducers';
 import routes from './routes';
 
 // This allows us to use Redux dev tools.
@@ -20,7 +20,7 @@ if (process.env.NODE_ENV !== 'production') {
 const preloadedState = window.__PRELOADED_STATE__ || {}; // eslint-disable-line
 
 const store = createStore(
-  allReducers,
+  rootReducer,
   preloadedState,
   composeEnhancers(applyMiddleware(...middleware))
 );

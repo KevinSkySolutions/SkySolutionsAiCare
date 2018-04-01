@@ -8,6 +8,8 @@ import { bindActionCreators } from 'redux';
 
 import { createaction_doLogin, createaction_requestAlerts } from '../../actions';
 
+// import (  ) from '../../reducers';
+
 import Posts from '../Patients/Patients';
 import Header from '../Common/Header/Header';
 
@@ -93,7 +95,6 @@ export class HomePage extends Component {
 
     // TODO: remove line below and redirect on state change in Redux
     browserHistory.push('/dashboard');
-
 
     this.props.dispatch_createaction_doLogin("u", "p");
   }

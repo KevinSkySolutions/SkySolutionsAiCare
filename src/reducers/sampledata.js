@@ -6,12 +6,8 @@ export const alertsData = [
     "type": "Fall",
     "location": {
       "room": "Suite 101",
-      // previous 420px height
-      // "x": 53,
-      // "y": 32 
-      // current 550px height = 1.3 multiplier
-      "x": 68.9,
-      "y": 41.6
+      "x": 5,
+      "y": 135
     },
     "history": [
     {
@@ -42,10 +38,8 @@ export const alertsData = [
     "type": "SOS",
     "location": {
       "room": "Clinic",
-      // "x": 27,
-      // "y": 87
-      "x": 35.1,
-      "y": 113.1
+      "x": 6,
+      "y": 20
     },
     "history": [
     {
@@ -76,10 +70,8 @@ export const alertsData = [
     "type": "Fall",
     "location": {
       "room": "Lounge",
-      // "x": 80,
-      // "y": 13
-      "x": 104,
-      "y": 16.9
+      "x": 150,
+      "y": 100
     },
   "history": [
     {
@@ -101,12 +93,12 @@ export const alertsData = [
 
   {
     "id": 4,
-    "resident": "Patricia Lebsack",
+    "resident": "Patrick Lebsack",
     "type": "Non Routine",
     "location": {
       "room": "Suite 201",
-      "x": 0,
-      "y": 0
+      "x": 5,
+      "y": 5
     },
     "history": [
 
@@ -123,10 +115,8 @@ export const alertsData = [
     "type": "Fall",
     "location": {
       "room": "Activity Room",
-      // "x": 10,
-      // "y": 70
-      "x": 13,
-      "y": 91
+      "x": 140,
+      "y": 115
     },
     "history": [
     {
@@ -158,10 +148,8 @@ export const alertsData = [
     "type": "SOS",
     "location": {
       "room": "Utility",
-      // "x": 25,
-      // "y": 25
-      "x": 32.5,
-      "y": 32.5
+      "x": 40,
+      "y": 55
     },
     "history": [
     
@@ -181,10 +169,8 @@ export const futureAlertsData = [
     "type": "Fall",
     "location": {
       "room": "Suite 101",
-      // "x": 73,
-      // "y": 22 
-      "x": 94.9,
-      "y": 28.6
+      "x": 3,
+      "y": 60
     },
     "history": [
     {
@@ -215,10 +201,8 @@ export const futureAlertsData = [
     "type": "SOS",
     "location": {
       "room": "Clinic",
-      // "x": 37,
-      // "y": 27
-      "x": 48.1,
-      "y": 35.1
+      "x": 5,
+      "y": 5
     },
     "history": [
     {
@@ -249,10 +233,8 @@ export const futureAlertsData = [
     "type": "Fall",
     "location": {
       "room": "Lounge",
-      // "x": 30,
-      // "y": 73
-      "x": 39,
-      "y": 94.9
+      "x": 41,
+      "y": 75
     },
   "history": [
     {
@@ -266,7 +248,7 @@ export const futureAlertsData = [
       "desciption": "Help Dispatched."
     },
   ],     
-    "currentlocation": "Activity Room",
+    "currentlocation": "Lounge",
     "image_url": "https://iapp.org/media/headshots/0011a00000DlCrOAAV.png",
     "status":"Help Dispatched",
     "time": 27
@@ -274,12 +256,12 @@ export const futureAlertsData = [
 
   {
     "id": 4,
-    "resident": "Patricia Lebsack",
+    "resident": "Patrick Lebsack",
     "type": "Non Routine",
     "location": {
       "room": "Suite 201",
-      "x": 0,
-      "y": 0
+      "x": 3,
+      "y": 80
     },
     "history": [
 
@@ -296,10 +278,8 @@ export const futureAlertsData = [
     "type": "Fall",
     "location": {
       "room": "Activity Room",
-      // "x": 10,
-      // "y": 70
-      "x": 13,
-      "y": 91
+      "x": 140,
+      "y": 108
     },
     "history": [
     {
@@ -330,10 +310,8 @@ export const futureAlertsData = [
     "type": "SOS",
     "location": {
       "room": "Utility",
-      // "x": 55,
-      // "y": 25
-      "x": 71.5,
-      "y": 32.5
+      "x": 65,
+      "y": 55
     },
     "history": [
     
@@ -402,7 +380,7 @@ export const patientsData =[
   },
   {
     "id": 4,
-    "name": "Patricia Lebsack",
+    "name": "Patrick Lebsack",
     "emergency": "Karianne Benoist",
     "email": "Julianne.OConner@kory.org",
     "address": {

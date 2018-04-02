@@ -6,8 +6,10 @@ export const alertsData = [
     "type": "Fall",
     "location": {
       "room": "Suite 101",
-      "x": 53,
-      "y": 32 
+      // "x": 53,
+      // "y": 32 
+      "x": 0,
+      "y": 0
     },
     "history": [
     {
@@ -38,8 +40,10 @@ export const alertsData = [
     "type": "SOS",
     "location": {
       "room": "Clinic",
-      "x": 27,
-      "y": 87
+      // "x": 27,
+      // "y": 87
+      "x": 0,
+      "y": 0
     },
     "history": [
     {
@@ -70,8 +74,10 @@ export const alertsData = [
     "type": "Fall",
     "location": {
       "room": "Lounge",
-      "x": 80,
-      "y": 13
+      // "x": 80,
+      // "y": 13
+      "x": 0,
+      "y": 0
     },
   "history": [
     {
@@ -115,8 +121,10 @@ export const alertsData = [
     "type": "Fall",
     "location": {
       "room": "Activity Room",
-      "x": 10,
-      "y": 70
+      // "x": 10,
+      // "y": 70
+      "x": 0,
+      "y": 0
     },
     "history": [
     {
@@ -147,8 +155,10 @@ export const alertsData = [
     "type": "SOS",
     "location": {
       "room": "Utility",
-      "x": 25,
-      "y": 25
+      // "x": 25,
+      // "y": 25
+      "x": 0,
+      "y": 0
     },
     "history": [
     
@@ -168,8 +178,10 @@ export const futureAlertsData = [
     "type": "Fall",
     "location": {
       "room": "Suite 101",
-      "x": 73,
-      "y": 22 
+      // "x": 73,
+      // "y": 22 
+      "x": 0,
+      "y": 0
     },
     "history": [
     {
@@ -200,8 +212,10 @@ export const futureAlertsData = [
     "type": "SOS",
     "location": {
       "room": "Clinic",
-      "x": 37,
-      "y": 27
+      // "x": 37,
+      // "y": 27
+      "x": 0,
+      "y": 0
     },
     "history": [
     {
@@ -232,8 +246,10 @@ export const futureAlertsData = [
     "type": "Fall",
     "location": {
       "room": "Lounge",
-      "x": 30,
-      "y": 73
+      // "x": 30,
+      // "y": 73
+      "x": 0,
+      "y": 0
     },
   "history": [
     {
@@ -277,8 +293,10 @@ export const futureAlertsData = [
     "type": "Fall",
     "location": {
       "room": "Activity Room",
-      "x": 10,
-      "y": 70
+      // "x": 10,
+      // "y": 70
+      "x": 0,
+      "y": 0
     },
     "history": [
     {
@@ -309,8 +327,10 @@ export const futureAlertsData = [
     "type": "SOS",
     "location": {
       "room": "Utility",
-      "x": 55,
-      "y": 25
+      // "x": 55,
+      // "y": 25
+      "x": 0,
+      "y": 0
     },
     "history": [
     

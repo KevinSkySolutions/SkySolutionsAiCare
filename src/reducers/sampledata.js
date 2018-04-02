@@ -2,7 +2,7 @@ export const alertsData = [
 
   { 
     "id": 111,
-    "resident": "Ervin Howell",
+    "resident": "Edwin Aldrin",
     "type": "Fall",
     "location": {
       "room": "Suite 101",
@@ -31,7 +31,7 @@ export const alertsData = [
     },
     ],
     "currentlocation": "Suite 101",
-    "image_url": "../img/avatar.png",
+    "image_url": "http://www.teatrotascabile.org/support/wp-content/uploads/2017/02/avatar-round-4.png",
     "status": "Assistance Required",
     "time": 30
   },
@@ -65,14 +65,14 @@ export const alertsData = [
     },
   ],  
     "currentlocation": "Suite 201",
-    "image_url": "../img/avatar.png",
+    "image_url": "https://ak4.picdn.net/shutterstock/videos/26137574/thumb/1.jpg?i10c=img.resize(height:160)",
     "status":"Assistance Required",
     "time": 3
   },
 
   {
     "id": 3,
-    "resident": "Clementina DuBuque",
+    "resident": "Clementina DB",
     "type": "Fall",
     "location": {
       "room": "Lounge",
@@ -94,7 +94,7 @@ export const alertsData = [
     },
   ],     
     "currentlocation": "Activity Room",
-    "image_url": "../img/avatar.png",
+    "image_url": "http://i.dailymail.co.uk/i/pix/2012/11/16/article-2233958-001F4A4400000258-885_306x445.jpg",
     "status":"Assistance Needed",
     "time": 17
   },
@@ -112,7 +112,7 @@ export const alertsData = [
 
    ], 
     "currentlocation": "Suite 201",
-    "image_url": "../img/avatar.png",
+    "image_url": "http://www.law.columbia.edu/sites/default/files/styles/faculty_details_300x360/public/images/williams.jpg?itok=jHxTrEVe",
     "status":"Help Dispatched",
     "time": 1
   },
@@ -146,14 +146,15 @@ export const alertsData = [
     },
    ], 
     "currentlocation": "Activity Room",
-    "image_url": "../img/avatar.png",
+    "image_url": "https://cdn3.iconfinder.com/data/icons/avatars-collection/256/20-512.png",
     "status":"Help Active",
     "time": 40
   },
 
   {
     "id": 6,
-    "resident": "Nicholas Gaines V",
+
+    "resident": "Nicholas Runolf",
     "type": "SOS",
     "location": {
       "room": "Utility",
@@ -166,7 +167,7 @@ export const alertsData = [
     
   ],  
     "currentlocation": "Lounge",
-    "image_url": "../img/avatar.png",
+    "image_url": "https://ifscircle.com/wp-content/uploads/2016/03/DICK-SCHWARTZ.png",
     "status":"Help Active",
     "time":60 
   }
@@ -203,7 +204,7 @@ export const futureAlertsData = [
     },
     ],
     "currentlocation": "Clinic",
-    "image_url": "../img/avatar.png",
+    "image_url": "https://www.theepochtimes.com/assets/uploads/2017/08/grandmother-1.jpg",
     "status": "Help Active",
     "time": 40
   },
@@ -237,14 +238,14 @@ export const futureAlertsData = [
     },
    ],
     "currentlocation": "Suite 201",
-    "image_url": "../img/avatar.png",
+    "image_url": "http://www.therenaissanceguild.org/images/508.jpg",
     "status":"Help Dispatched",
     "time": 13
   },
 
   {
     "id": 3,
-    "resident": "Clementina DuBuque",
+    "resident": "Clementina DB",
     "type": "Fall",
     "location": {
       "room": "Lounge",
@@ -266,7 +267,7 @@ export const futureAlertsData = [
     },
   ],     
     "currentlocation": "Activity Room",
-    "image_url": "../img/avatar.png",
+    "image_url": "http://i.dailymail.co.uk/i/pix/2012/11/16/article-2233958-001F4A4400000258-885_306x445.jpg",
     "status":"Help Dispatched",
     "time": 27
   },
@@ -284,7 +285,7 @@ export const futureAlertsData = [
 
    ], 
     "currentlocation": "Clinic",
-    "image_url": "../img/avatar.png",
+    "image_url": "http://www.cam.ac.uk/sites/www.cam.ac.uk/files/styles/content-580x288/public/news/research/news/1103291138-grandmother.jpg?itok=e4x0w4hu",
     "status":"Help Active",
     "time": 11
   },
@@ -318,14 +319,14 @@ export const futureAlertsData = [
     },
    ], 
     "currentlocation": "Activity Room",
-    "image_url": "../img/avatar.png",
+    "image_url": "https://static6.depositphotos.com/1155356/662/i/950/depositphotos_6628574-stock-photo-grandfather-kind-wise.jpg",
     "status":"Help Active",
     "time": 50
   },
 
   {
     "id": 6,
-    "resident": "Nicholas Gaines V",
+    "resident": "Nicholas Runolf",
     "type": "SOS",
     "location": {
       "room": "Utility",
@@ -338,7 +339,7 @@ export const futureAlertsData = [
     
   ],  
     "currentlocation": "Lounge",
-    "image_url": "../img/avatar.png",
+    "image_url": "https://c1.staticflickr.com/1/37/79478143_d3a89e02cc_z.jpg?zz=1",
     "status":"Help Active",
     "time": 70 
   }

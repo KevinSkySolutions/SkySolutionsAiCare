@@ -128,7 +128,7 @@ const mapStateToProps = (state) => {
     
     <div className="description-mod " key={ keyValue }>
       <div className="pt-log pt-detail">
-          <img src={require("../../img/avatar.png")} className="avatar"/>
+          <img src={ alert.image_url + "" } className="avatar" />
           <div className="side-text detail-1">
               <div className="pt-name list-header">{ alert.resident }</div>
               <div className="pt-suite-no gray-text list-subheader mr-t-5">{ alert.currentlocation }</div>
@@ -184,7 +184,7 @@ const mapStateToProps = (state) => {
     };
 
     return(
-      <img key={ keyValue } style={divStyle} className="person-on-map" src={require("../../img/avatar.png")}/>
+      <img key={ keyValue } style={divStyle} className="person-on-map" src={ alert.image_url + "" }/>
     )
   });
 

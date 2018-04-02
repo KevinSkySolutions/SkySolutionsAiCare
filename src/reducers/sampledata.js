@@ -2,16 +2,12 @@ export const alertsData = [
 
   { 
     "id": 111,
-    "resident": "Ervin Howell",
+    "resident": "Edwin Aldrin",
     "type": "Fall",
     "location": {
       "room": "Suite 101",
-      // previous 420px height
-      // "x": 53,
-      // "y": 32 
-      // current 550px height = 1.3 multiplier
-      "x": 68.9,
-      "y": 41.6
+      "x": 5,
+      "y": 135
     },
     "history": [
     {
@@ -31,7 +27,7 @@ export const alertsData = [
     },
     ],
     "currentlocation": "Suite 101",
-    "image_url": "../img/avatar.png",
+    "image_url": "http://www.ncrconline.com/sites/default/files/styles/people_headshot__256_x_256_/public/images/people/people-trainers/trainer-michael-jenkins/mike_jenkins_headshot.jpg?itok=hd1Czvtc",
     "status": "Assistance Required",
     "time": 30
   },
@@ -42,10 +38,8 @@ export const alertsData = [
     "type": "SOS",
     "location": {
       "room": "Clinic",
-      // "x": 27,
-      // "y": 87
-      "x": 35.1,
-      "y": 113.1
+      "x": 6,
+      "y": 20
     },
     "history": [
     {
@@ -65,21 +59,19 @@ export const alertsData = [
     },
   ],  
     "currentlocation": "Suite 201",
-    "image_url": "../img/avatar.png",
+    "image_url": "https://youscript.com/wp-content/uploads/2017/11/JC-Headshot-256x256.png",
     "status":"Assistance Required",
     "time": 3
   },
 
   {
     "id": 3,
-    "resident": "Clementina DuBuque",
+    "resident": "Clementina DB",
     "type": "Fall",
     "location": {
       "room": "Lounge",
-      // "x": 80,
-      // "y": 13
-      "x": 104,
-      "y": 16.9
+      "x": 150,
+      "y": 100
     },
   "history": [
     {
@@ -94,25 +86,25 @@ export const alertsData = [
     },
   ],     
     "currentlocation": "Activity Room",
-    "image_url": "../img/avatar.png",
+    "image_url": "https://iapp.org/media/headshots/0011a00000DlCrOAAV.png",
     "status":"Assistance Needed",
     "time": 17
   },
 
   {
     "id": 4,
-    "resident": "Patricia Lebsack",
+    "resident": "Patrick Lebsack",
     "type": "Non Routine",
     "location": {
       "room": "Suite 201",
-      "x": 0,
-      "y": 0
+      "x": 5,
+      "y": 5
     },
     "history": [
 
    ], 
     "currentlocation": "Suite 201",
-    "image_url": "../img/avatar.png",
+    "image_url": "https://iapp.org/media/headshots/0011a00000XKdl8AAD.png",
     "status":"Help Dispatched",
     "time": 1
   },
@@ -123,10 +115,8 @@ export const alertsData = [
     "type": "Fall",
     "location": {
       "room": "Activity Room",
-      // "x": 10,
-      // "y": 70
-      "x": 13,
-      "y": 91
+      "x": 140,
+      "y": 115
     },
     "history": [
     {
@@ -146,27 +136,26 @@ export const alertsData = [
     },
    ], 
     "currentlocation": "Activity Room",
-    "image_url": "../img/avatar.png",
+    "image_url": "http://static.wixstatic.com/media/df1faa_7ce52a991d07450aaf05edfe0fdc3fd5~mv2.jpg/v1/fill/w_256,h_256,al_c,q_80,usm_0.66_1.00_0.01/df1faa_7ce52a991d07450aaf05edfe0fdc3fd5~mv2.webp",
     "status":"Help Active",
     "time": 40
   },
 
   {
     "id": 6,
-    "resident": "Nicholas Gaines V",
+
+    "resident": "Nicholas Runolf",
     "type": "SOS",
     "location": {
       "room": "Utility",
-      // "x": 25,
-      // "y": 25
-      "x": 32.5,
-      "y": 32.5
+      "x": 40,
+      "y": 55
     },
     "history": [
     
   ],  
     "currentlocation": "Lounge",
-    "image_url": "../img/avatar.png",
+    "image_url": "http://www.officedivvy.com/wp-content/uploads/2015/06/Jim-Taylor-Headshot.jpg",
     "status":"Help Active",
     "time":60 
   }
@@ -176,14 +165,12 @@ export const futureAlertsData = [
 
   { 
     "id": 111,
-    "resident": "Ervin Howell",
+    "resident": "Edwin Aldrin",
     "type": "Fall",
     "location": {
       "room": "Suite 101",
-      // "x": 73,
-      // "y": 22 
-      "x": 94.9,
-      "y": 28.6
+      "x": 3,
+      "y": 60
     },
     "history": [
     {
@@ -203,7 +190,7 @@ export const futureAlertsData = [
     },
     ],
     "currentlocation": "Clinic",
-    "image_url": "../img/avatar.png",
+    "image_url": "http://www.ncrconline.com/sites/default/files/styles/people_headshot__256_x_256_/public/images/people/people-trainers/trainer-michael-jenkins/mike_jenkins_headshot.jpg?itok=hd1Czvtc",
     "status": "Help Active",
     "time": 40
   },
@@ -214,10 +201,8 @@ export const futureAlertsData = [
     "type": "SOS",
     "location": {
       "room": "Clinic",
-      // "x": 37,
-      // "y": 27
-      "x": 48.1,
-      "y": 35.1
+      "x": 5,
+      "y": 5
     },
     "history": [
     {
@@ -237,21 +222,19 @@ export const futureAlertsData = [
     },
    ],
     "currentlocation": "Suite 201",
-    "image_url": "../img/avatar.png",
+    "image_url": "https://youscript.com/wp-content/uploads/2017/11/JC-Headshot-256x256.png",
     "status":"Help Dispatched",
     "time": 13
   },
 
   {
     "id": 3,
-    "resident": "Clementina DuBuque",
+    "resident": "Clementina DB",
     "type": "Fall",
     "location": {
       "room": "Lounge",
-      // "x": 30,
-      // "y": 73
-      "x": 39,
-      "y": 94.9
+      "x": 41,
+      "y": 75
     },
   "history": [
     {
@@ -265,26 +248,26 @@ export const futureAlertsData = [
       "desciption": "Help Dispatched."
     },
   ],     
-    "currentlocation": "Activity Room",
-    "image_url": "../img/avatar.png",
+    "currentlocation": "Lounge",
+    "image_url": "https://iapp.org/media/headshots/0011a00000DlCrOAAV.png",
     "status":"Help Dispatched",
     "time": 27
   },
 
   {
     "id": 4,
-    "resident": "Patricia Lebsack",
+    "resident": "Patrick Lebsack",
     "type": "Non Routine",
     "location": {
       "room": "Suite 201",
-      "x": 0,
-      "y": 0
+      "x": 3,
+      "y": 80
     },
     "history": [
 
    ], 
     "currentlocation": "Clinic",
-    "image_url": "../img/avatar.png",
+    "image_url": "https://iapp.org/media/headshots/0011a00000XKdl8AAD.png",
     "status":"Help Active",
     "time": 11
   },
@@ -295,10 +278,8 @@ export const futureAlertsData = [
     "type": "Fall",
     "location": {
       "room": "Activity Room",
-      // "x": 10,
-      // "y": 70
-      "x": 13,
-      "y": 91
+      "x": 140,
+      "y": 108
     },
     "history": [
     {
@@ -318,28 +299,26 @@ export const futureAlertsData = [
     },
    ], 
     "currentlocation": "Activity Room",
-    "image_url": "../img/avatar.png",
+    "image_url": "http://static.wixstatic.com/media/df1faa_7ce52a991d07450aaf05edfe0fdc3fd5~mv2.jpg/v1/fill/w_256,h_256,al_c,q_80,usm_0.66_1.00_0.01/df1faa_7ce52a991d07450aaf05edfe0fdc3fd5~mv2.webp",
     "status":"Help Active",
     "time": 50
   },
 
   {
     "id": 6,
-    "resident": "Nicholas Gaines V",
+    "resident": "Nicholas Runolf",
     "type": "SOS",
     "location": {
       "room": "Utility",
-      // "x": 55,
-      // "y": 25
-      "x": 71.5,
-      "y": 32.5
+      "x": 65,
+      "y": 55
     },
     "history": [
     
   ],  
     "currentlocation": "Lounge",
-    "image_url": "../img/avatar.png",
-    "status":"Help Active",
+    "image_url": "http://www.officedivvy.com/wp-content/uploads/2015/06/Jim-Taylor-Headshot.jpg",
+    "status":"Help active",
     "time": 70 
   }
 ]
@@ -401,7 +380,7 @@ export const patientsData =[
   },
   {
     "id": 4,
-    "name": "Patricia Lebsack",
+    "name": "Patrick Lebsack",
     "emergency": "Karianne Benoist",
     "email": "Julianne.OConner@kory.org",
     "address": {

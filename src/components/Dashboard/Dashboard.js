@@ -94,7 +94,7 @@ export class Dashboard extends Component {
          <div className="content-body">
             
             <div className="left-section">
-                <img src={require("../../img/bg4.png")} alt="" className="floor-map"/>
+                <img src={require("../../img/bg5.png")} alt="" className="floor-map"/>
                 <div className="pagination">
                     <div className="pages">
                         <div className="page active" onClick={ this.doFetchMockData }>1</div>

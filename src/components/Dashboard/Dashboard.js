@@ -49,7 +49,6 @@ export class Dashboard extends Component {
 
   doFetchMockData = (event) => {
 
-    // 
     // this.props.dispatch_createaction_doLogin("u", "p");
     this.props.dispatch({ type: REQUEST_ALERTS_MOCK, payload: {} });
   }
@@ -92,9 +91,9 @@ export class Dashboard extends Component {
             </div>
         </header>
 
-         <div class="content-body">
+         <div className="content-body">
             
-            <div class="left-section">
+            <div className="left-section">
                 <img src={require("../../img/bg4.png")} alt="" className="floor-map"/>
                 <div className="pagination">
                     <div className="pages">
@@ -103,9 +102,7 @@ export class Dashboard extends Component {
                         <div className="page">3</div>
                     </div>
                 </div>
-                <img className="person-on-map person-01" src={require("../../img/person-01.png")}/>
-                <img className="person-on-map person-02" src={require("../../img/person-02.png")}/>
-                <img className="person-on-map person-03" src={require("../../img/person-03.png")}/>
+                { this.props.mapList }
             </div>
 
           <div className="col-1 right-section">
@@ -177,9 +174,23 @@ const mapStateToProps = (state) => {
   </div>
   )});
 
+  const residentsOnMap = alertsCopy.map((alert, keyValue) => { 
+
+    var divStyle = {
+      color: 'white',
+      top: (alert.location.x)*3.2+'px',
+      left: (alert.location.y)*3.2+'px'
+    };
+
+    return(
+      <img key={ keyValue } style={divStyle} className="person-on-map" src={require("../../img/avatar.png")}/>
+    )
+  });
+
   return {
     alerts: alertsCopy,
-    alertsList: alertsList
+    alertsList: alertsList,
+    mapList: residentsOnMap
   };
 };
 

@@ -84,11 +84,14 @@ body .content-dash .col-1 {
 body .content-dash .left-section {
     height: 480px;
     width: 420px;
+    margin-top: 52px;
+    margin-left:160px;
     position: relative;
 }
 
 .person-on-map {
     position: absolute;
+    width: 70px;
 }
 
 .person-01 {
@@ -97,22 +100,12 @@ body .content-dash .left-section {
     width: 70px;
 }
 
-.person-03 {
-    top: 105px;
-    right: 22px;
-    width: 70px;
-}
-
-.person-02 {
-    top: 370px;
-    left: 256px;
-    width: 70px;
-}
-
 body .content-dash .right-section {
     width: calc(100% - 420px);
     max-width: 543px;
     margin-left: 72px;
+    margin-top: 20px;
+    margin-right: 20px;
     /* overflow-y: auto;
     height: calc(100vh - 146px); */
 }
@@ -180,9 +173,9 @@ body .content-dash .nav-container ul li {
 
 .content-body {
     display: flex;
-    align-items: center;
+    /*align-items: center;
     margin-top: 50px;
-    justify-content: center;
+    justify-content: center;*/
     position: relative;
 }
 
@@ -335,7 +328,7 @@ body .content-dash .nav-container ul li {
     display: none;
 }
 .pagination {
-    margin-top: 18px;
+    margin-top: 38px;
 }
 .page:first-child {
     margin-left: 0;
@@ -361,6 +354,9 @@ body .content-dash .nav-container ul li {
 .right-section-content {
     overflow-y: auto;
     height: calc(100vh - 170px);
+    border-top: 5px solid pink;
+    border-left: 1px solid pink;
+    border-right: 1px solid pink;
 }
 
 main aside .alert_box{

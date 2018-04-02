@@ -3,7 +3,7 @@ export const alertsData = [
   { 
     "id": 111,
     "resident": "Ervin Howell",
-    "type": "FALL",
+    "type": "Fall",
     "location": {
       "room": "Suite 101",
       "x": 53,
@@ -23,12 +23,12 @@ export const alertsData = [
     {
       "status": "green",
       "timestamp": "04/02/2018 11:50 AM",
-      "desciption": "FALL"
+      "desciption": "Fall"
     },
     ],
     "currentlocation": "Suite 101",
     "image_url": "../img/avatar.png",
-    "status": "Help dispatched",
+    "status": "Assistance Required",
     "time": 30
   },
 
@@ -55,19 +55,19 @@ export const alertsData = [
     {
       "status": "green",
       "timestamp": "04/02/2018 11:50 AM",
-      "desciption": "FALL"
+      "desciption": "Fall"
     },
   ],  
     "currentlocation": "Suite 201",
     "image_url": "../img/avatar.png",
-    "status":"Help active",
+    "status":"Assistance Required",
     "time": 3
   },
 
   {
     "id": 3,
     "resident": "Clementina DuBuque",
-    "type": "FALL",
+    "type": "Fall",
     "location": {
       "room": "Lounge",
       "x": 80,
@@ -105,14 +105,14 @@ export const alertsData = [
    ], 
     "currentlocation": "Suite 201",
     "image_url": "../img/avatar.png",
-    "status":"Help active",
+    "status":"Help Dispatched",
     "time": 1
   },
 
   {
     "id": 5,
     "resident": "Glenna Reichert",
-    "type": "FALL",
+    "type": "Fall",
     "location": {
       "room": "Activity Room",
       "x": 10,
@@ -132,12 +132,12 @@ export const alertsData = [
     {
       "status": "green",
       "timestamp": "04/02/2018 11:50 AM",
-      "desciption": "FALL"
+      "desciption": "Fall"
     },
    ], 
     "currentlocation": "Activity Room",
     "image_url": "../img/avatar.png",
-    "status":"Help dispatched",
+    "status":"Help active",
     "time": 40
   },
 
@@ -165,7 +165,7 @@ export const futureAlertsData = [
   { 
     "id": 111,
     "resident": "Ervin Howell",
-    "type": "FALL",
+    "type": "Fall",
     "location": {
       "room": "Suite 101",
       "x": 73,
@@ -185,7 +185,7 @@ export const futureAlertsData = [
     {
       "status": "green",
       "timestamp": "04/02/2018 11:50 AM",
-      "desciption": "FALL"
+      "desciption": "Fall"
     },
     ],
     "currentlocation": "Clinic",
@@ -217,19 +217,19 @@ export const futureAlertsData = [
     {
       "status": "green",
       "timestamp": "04/02/2018 11:50 AM",
-      "desciption": "FALL"
+      "desciption": "Fall"
     },
    ],
     "currentlocation": "Suite 201",
     "image_url": "../img/avatar.png",
-    "status":"Help active",
+    "status":"Help Dispatched",
     "time": 13
   },
 
   {
     "id": 3,
     "resident": "Clementina DuBuque",
-    "type": "FALL",
+    "type": "Fall",
     "location": {
       "room": "Lounge",
       "x": 30,
@@ -249,7 +249,7 @@ export const futureAlertsData = [
   ],     
     "currentlocation": "Activity Room",
     "image_url": "../img/avatar.png",
-    "status":"Help dispatched",
+    "status":"Help Dispatched",
     "time": 27
   },
 
@@ -274,7 +274,7 @@ export const futureAlertsData = [
   {
     "id": 5,
     "resident": "Glenna Reichert",
-    "type": "FALL",
+    "type": "Fall",
     "location": {
       "room": "Activity Room",
       "x": 10,
@@ -294,7 +294,7 @@ export const futureAlertsData = [
     {
       "status": "green",
       "timestamp": "04/02/2018 11:50 AM",
-      "desciption": "FALL"
+      "desciption": "Fall"
     },
    ], 
     "currentlocation": "Activity Room",

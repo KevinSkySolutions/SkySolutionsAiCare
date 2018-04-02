@@ -176,6 +176,7 @@ body .content-dash .nav-container ul li {
     /*align-items: center;
     margin-top: 50px;
     justify-content: center;*/
+    justify-content: center;
     position: relative;
 }
 

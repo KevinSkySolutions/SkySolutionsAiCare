@@ -114,13 +114,17 @@ body .content-dash .right-section {
 
 body .content-dash .right-section .description-mod {
     border-radius: 5px;
-    padding: 20px;
+    padding: 15px;
     margin-bottom: 15px;
     border: 1px solid #c2c5c7;
     background-color: #d4e2ec;
     height: 80px;
     overflow: hidden;
     transition: height .5s ease-in ;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; */
 }
 
 body .content-dash .right-section .description-mod:hover {

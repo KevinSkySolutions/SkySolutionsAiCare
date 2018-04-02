@@ -27,7 +27,7 @@ export const alertsData = [
     },
     ],
     "currentlocation": "Suite 101",
-    "image_url": "http://www.teatrotascabile.org/support/wp-content/uploads/2017/02/avatar-round-4.png",
+    "image_url": "http://www.ncrconline.com/sites/default/files/styles/people_headshot__256_x_256_/public/images/people/people-trainers/trainer-michael-jenkins/mike_jenkins_headshot.jpg?itok=hd1Czvtc",
     "status": "Assistance Required",
     "time": 30
   },
@@ -59,7 +59,7 @@ export const alertsData = [
     },
   ],  
     "currentlocation": "Suite 201",
-    "image_url": "https://ak4.picdn.net/shutterstock/videos/26137574/thumb/1.jpg?i10c=img.resize(height:160)",
+    "image_url": "https://youscript.com/wp-content/uploads/2017/11/JC-Headshot-256x256.png",
     "status":"Assistance Required",
     "time": 3
   },
@@ -86,7 +86,7 @@ export const alertsData = [
     },
   ],     
     "currentlocation": "Activity Room",
-    "image_url": "http://i.dailymail.co.uk/i/pix/2012/11/16/article-2233958-001F4A4400000258-885_306x445.jpg",
+    "image_url": "https://iapp.org/media/headshots/0011a00000DlCrOAAV.png",
     "status":"Assistance Needed",
     "time": 17
   },
@@ -104,7 +104,7 @@ export const alertsData = [
 
    ], 
     "currentlocation": "Suite 201",
-    "image_url": "http://www.law.columbia.edu/sites/default/files/styles/faculty_details_300x360/public/images/williams.jpg?itok=jHxTrEVe",
+    "image_url": "https://iapp.org/media/headshots/0011a00000XKdl8AAD.png",
     "status":"Help Dispatched",
     "time": 1
   },
@@ -136,7 +136,7 @@ export const alertsData = [
     },
    ], 
     "currentlocation": "Activity Room",
-    "image_url": "https://cdn3.iconfinder.com/data/icons/avatars-collection/256/20-512.png",
+    "image_url": "http://static.wixstatic.com/media/df1faa_7ce52a991d07450aaf05edfe0fdc3fd5~mv2.jpg/v1/fill/w_256,h_256,al_c,q_80,usm_0.66_1.00_0.01/df1faa_7ce52a991d07450aaf05edfe0fdc3fd5~mv2.webp",
     "status":"Help active",
     "time": 40
   },
@@ -154,7 +154,7 @@ export const alertsData = [
     
   ],  
     "currentlocation": "Lounge",
-    "image_url": "https://ifscircle.com/wp-content/uploads/2016/03/DICK-SCHWARTZ.png",
+    "image_url": "http://www.officedivvy.com/wp-content/uploads/2015/06/Jim-Taylor-Headshot.jpg",
     "status":"Help active",
     "time":60 
   }
@@ -164,7 +164,7 @@ export const futureAlertsData = [
 
   { 
     "id": 111,
-    "resident": "Ervin Howell",
+    "resident": "Edwin Aldrin",
     "type": "Fall",
     "location": {
       "room": "Suite 101",
@@ -189,7 +189,7 @@ export const futureAlertsData = [
     },
     ],
     "currentlocation": "Clinic",
-    "image_url": "https://www.theepochtimes.com/assets/uploads/2017/08/grandmother-1.jpg",
+    "image_url": "http://www.ncrconline.com/sites/default/files/styles/people_headshot__256_x_256_/public/images/people/people-trainers/trainer-michael-jenkins/mike_jenkins_headshot.jpg?itok=hd1Czvtc",
     "status": "Help active",
     "time": 40
   },
@@ -221,7 +221,7 @@ export const futureAlertsData = [
     },
    ],
     "currentlocation": "Suite 201",
-    "image_url": "http://www.therenaissanceguild.org/images/508.jpg",
+    "image_url": "https://youscript.com/wp-content/uploads/2017/11/JC-Headshot-256x256.png",
     "status":"Help Dispatched",
     "time": 13
   },
@@ -248,7 +248,7 @@ export const futureAlertsData = [
     },
   ],     
     "currentlocation": "Activity Room",
-    "image_url": "http://i.dailymail.co.uk/i/pix/2012/11/16/article-2233958-001F4A4400000258-885_306x445.jpg",
+    "image_url": "https://iapp.org/media/headshots/0011a00000DlCrOAAV.png",
     "status":"Help Dispatched",
     "time": 27
   },
@@ -266,7 +266,7 @@ export const futureAlertsData = [
 
    ], 
     "currentlocation": "Clinic",
-    "image_url": "http://www.cam.ac.uk/sites/www.cam.ac.uk/files/styles/content-580x288/public/news/research/news/1103291138-grandmother.jpg?itok=e4x0w4hu",
+    "image_url": "https://iapp.org/media/headshots/0011a00000XKdl8AAD.png",
     "status":"Help active",
     "time": 11
   },
@@ -298,7 +298,7 @@ export const futureAlertsData = [
     },
    ], 
     "currentlocation": "Activity Room",
-    "image_url": "https://static6.depositphotos.com/1155356/662/i/950/depositphotos_6628574-stock-photo-grandfather-kind-wise.jpg",
+    "image_url": "http://static.wixstatic.com/media/df1faa_7ce52a991d07450aaf05edfe0fdc3fd5~mv2.jpg/v1/fill/w_256,h_256,al_c,q_80,usm_0.66_1.00_0.01/df1faa_7ce52a991d07450aaf05edfe0fdc3fd5~mv2.webp",
     "status":"Help active",
     "time": 50
   },
@@ -316,7 +316,7 @@ export const futureAlertsData = [
     
   ],  
     "currentlocation": "Lounge",
-    "image_url": "https://c1.staticflickr.com/1/37/79478143_d3a89e02cc_z.jpg?zz=1",
+    "image_url": "http://www.officedivvy.com/wp-content/uploads/2015/06/Jim-Taylor-Headshot.jpg",
     "status":"Help active",
     "time": 70 
   }

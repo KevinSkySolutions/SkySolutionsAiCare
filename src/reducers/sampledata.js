@@ -6,10 +6,12 @@ export const alertsData = [
     "type": "Fall",
     "location": {
       "room": "Suite 101",
+      // previous 420px height
       // "x": 53,
       // "y": 32 
-      "x": 0,
-      "y": 0
+      // current 550px height = 1.3 multiplier
+      "x": 68.9,
+      "y": 41.6
     },
     "history": [
     {
@@ -42,8 +44,8 @@ export const alertsData = [
       "room": "Clinic",
       // "x": 27,
       // "y": 87
-      "x": 0,
-      "y": 0
+      "x": 35.1,
+      "y": 113.1
     },
     "history": [
     {
@@ -76,8 +78,8 @@ export const alertsData = [
       "room": "Lounge",
       // "x": 80,
       // "y": 13
-      "x": 0,
-      "y": 0
+      "x": 104,
+      "y": 16.9
     },
   "history": [
     {
@@ -123,8 +125,8 @@ export const alertsData = [
       "room": "Activity Room",
       // "x": 10,
       // "y": 70
-      "x": 0,
-      "y": 0
+      "x": 13,
+      "y": 91
     },
     "history": [
     {
@@ -157,8 +159,8 @@ export const alertsData = [
       "room": "Utility",
       // "x": 25,
       // "y": 25
-      "x": 0,
-      "y": 0
+      "x": 32.5,
+      "y": 32.5
     },
     "history": [
     
@@ -180,8 +182,8 @@ export const futureAlertsData = [
       "room": "Suite 101",
       // "x": 73,
       // "y": 22 
-      "x": 0,
-      "y": 0
+      "x": 94.9,
+      "y": 28.6
     },
     "history": [
     {
@@ -214,8 +216,8 @@ export const futureAlertsData = [
       "room": "Clinic",
       // "x": 37,
       // "y": 27
-      "x": 0,
-      "y": 0
+      "x": 48.1,
+      "y": 35.1
     },
     "history": [
     {
@@ -248,8 +250,8 @@ export const futureAlertsData = [
       "room": "Lounge",
       // "x": 30,
       // "y": 73
-      "x": 0,
-      "y": 0
+      "x": 39,
+      "y": 94.9
     },
   "history": [
     {
@@ -295,8 +297,8 @@ export const futureAlertsData = [
       "room": "Activity Room",
       // "x": 10,
       // "y": 70
-      "x": 0,
-      "y": 0
+      "x": 13,
+      "y": 91
     },
     "history": [
     {
@@ -329,8 +331,8 @@ export const futureAlertsData = [
       "room": "Utility",
       // "x": 55,
       // "y": 25
-      "x": 0,
-      "y": 0
+      "x": 71.5,
+      "y": 32.5
     },
     "history": [
     

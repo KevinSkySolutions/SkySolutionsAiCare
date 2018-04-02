@@ -6,7 +6,7 @@ import { browserHistory } from 'react-router'
 
 import { bindActionCreators } from 'redux';
 
-import { createaction_doLogin, createaction_requestAlerts } from '../../actions';
+import { createaction_doLogin, REQUEST_LOGIN } from '../../actions';
 
 // import (  ) from '../../reducers';
 
@@ -96,7 +96,8 @@ export class HomePage extends Component {
     // TODO: remove line below and redirect on state change in Redux
     browserHistory.push('/dashboard');
 
-    this.props.dispatch_createaction_doLogin("u", "p");
+    // this.props.dispatch_createaction_doLogin("u", "p");
+    this.props.dispatch({ type: REQUEST_LOGIN, payload: {username: "username", passcode: "passcode"} });
   }
 
 }
@@ -104,6 +105,9 @@ export class HomePage extends Component {
 // changes in state are copied onto props here
 const mapStateToProps = (state) => {
 
+  console.log("Structure of state:");
+  console.log(state);
+  
   // loading default props
   const { isLoggingIn } = state;
 
@@ -119,10 +123,6 @@ const mapDispatchToProps = (dispatch, props) => {
     dispatch_createaction_doLogin:        
       (userid, passcode) => {
         dispatch(createaction_doLogin(userid, passcode));
-      },
-    dispatch_createaction_requestAlerts:  
-      () => { 
-        dispatch(createaction_requestAlerts());
       }
   }, dispatch));
 }

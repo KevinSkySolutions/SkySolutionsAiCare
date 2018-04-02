@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
 import { REQUEST_LOGIN, REQUEST_ALERTS } from '../actions';
+import { alertsData, patientsData } from './sampledata';
 
 const rootReducer = combineReducers({ 
   homepage:  homepageReducer,
@@ -10,26 +11,27 @@ const rootReducer = combineReducers({
 export default rootReducer;
 
 // this is the HomePage reducer, responds to all ACTIONS raised from the HomePage page. 
-function homepageReducer(state = { isLoggingIn: false }, {type, payload}) {
-  switch (type) {
+function homepageReducer(state = { isLoggingIn: false }, action) {
+  switch (action.type) {
     case REQUEST_LOGIN:
 
       console.log("REQUEST_LOGIN type of action called.");
-      // TODO: attempt login here asynchronously and 
-      //  respond with approriate state change on callback function
 
       return {
         ...state,
         isLoggingIn: true
       };
+
+      // TODO: attempt login here asynchronously and 
+      //  respond with approriate state change on callback function      
     default:
       return state;
   }
 };
 
 // this is the dashboard reducer, responds to all ACTIONS raised from the Dashboard page. 
-function dashboardReducer(state = { alertsdata: []}, {type, payload}) {
-  switch (type) {
+function dashboardReducer(state = { alertsdata: []}, action) {
+  switch (action.type) {
     case REQUEST_ALERTS:
 
       // TODO: API call to the backend to fetch data to return an asynchronous RxJs Observable
@@ -40,7 +42,7 @@ function dashboardReducer(state = { alertsdata: []}, {type, payload}) {
 
       return {
         ...state,
-        isLoggingIn: false
+        alertsdata: alertsData
       };
     default:
       return state;

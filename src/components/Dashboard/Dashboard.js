@@ -5,7 +5,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Meta from 'react-helmet';
 
+import { bindActionCreators } from 'redux';
+
 import { find } from 'lodash';
+
+import { createaction_requestAlerts, REQUEST_ALERTS } from '../../actions';
 import Header from '../Common/Header/Header';
 
 // Import can't be in conditional so use require.
@@ -38,7 +42,9 @@ export class Dashboard extends Component {
   }
 
   componentDidMount() {
-    // TODO initialization 
+    const { dispatch } = this.props;
+    this.props.dispatch({ type: REQUEST_ALERTS, payload: {} });
+    // dispatch({ type: REQUEST_ALERTS, payload: {} });
   }
 
   render() {
@@ -220,4 +226,15 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+// adding callables to props
+const mapDispatchToProps = (dispatch, props) => {
+
+  return Object.assign({dispatch: dispatch}, bindActionCreators({
+    dispatch_createaction_requestAlerts:  
+      () => { 
+        dispatch(createaction_requestAlerts());
+      }
+  }, dispatch));
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

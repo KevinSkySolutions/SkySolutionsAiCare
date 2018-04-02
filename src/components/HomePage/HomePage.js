@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Meta from 'react-helmet';
+import { browserHistory } from 'react-router'
 
-import { fetchAlertsIfNeeded } from '../../actions';
+import { bindActionCreators } from 'redux';
+
+import { createaction_doLogin, REQUEST_LOGIN } from '../../actions';
+
+// import (  ) from '../../reducers';
+
 import Posts from '../Patients/Patients';
 import Header from '../Common/Header/Header';
 
@@ -16,6 +22,10 @@ if (process.env.WEBPACK) {
   This is the main login/landing page. 
 */
 export class HomePage extends Component {
+
+  constructor(props) {
+    super(props);
+  }
 
   // typechecking on the props for this component
   static propTypes = {
@@ -53,7 +63,6 @@ export class HomePage extends Component {
   // lifecycle method
   componentDidMount() {
     const { dispatch } = this.props;
-    dispatch(fetchAlertsIfNeeded());
   }
 
   // the render method
@@ -63,36 +72,67 @@ export class HomePage extends Component {
     const head = HomePage.getMeta();
 
     return (
-      <div className="bodyclass"> 
-        <div className="content">
-          <form className="logindetails">
-            <div className="information">
-              <input type="text" placeholder="Email ID"/>
-            </div>
-            <div className="information">
-              <input type="text" placeholder="Password"/>
-            </div>
-            <div className="forgot"><a href="#">Forgot Password?</a></div>
-            <div className="signin">
-              <input type="button" value="Sign In" />
-            </div>
-          </form>
+      <div className="bodyclass">
+      <div className="content">
+        <div className="ai-care-watermark-logo" >
+             
         </div>
-      </div> 
+        <div className="login-credentials-field-box">
+            <img className="bg-container" src={require("../../img/logo.png")} />
+            <form className ="logindetails">
+                <div className ="information" >
+                    <img className ="login-field-icon" src={require("../../img/email-icon.png")} />
+                    <input className ="login-input-field" type="text" placeholder="Email ID" />
+                </div>
+                <div className ="information">
+                    <img className ="login-field-icon" src={require("../../img/password-icon.png")} />
+                    <input className ="login-input-field" type="text" placeholder="Password" />
+                </div>
+                <div className ="forgot">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <div className ="signin">
+                    <input type="button" value="Sign In" onClick = { this.doLogin } />
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
     );
   }
+
+  doLogin = (event) => {
+
+    // TODO: remove line below and redirect on state change in Redux
+    browserHistory.push('/dashboard');
+
+    // this.props.dispatch_createaction_doLogin("u", "p");
+    this.props.dispatch({ type: REQUEST_LOGIN, payload: {username: "username", passcode: "passcode"} });
+  }
+
 }
 
 // changes in state are copied onto props here
 const mapStateToProps = (state) => {
-
+  
   // loading default props
   const { isLoggingIn } = state;
+
   return {
     isLoggingIn
   };
-};
+}
 
+// adding callables to props
+const mapDispatchToProps = (dispatch, props) => {
 
+  return Object.assign({dispatch: dispatch}, bindActionCreators({
+    dispatch_createaction_doLogin:        
+      (userid, passcode) => {
+        dispatch(createaction_doLogin(userid, passcode));
+      }
+  }, dispatch));
+}
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+

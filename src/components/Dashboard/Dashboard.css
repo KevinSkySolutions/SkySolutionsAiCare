@@ -358,9 +358,9 @@ body .content-dash .nav-container ul li {
 .right-section-content {
     overflow-y: auto;
     height: calc(100vh - 170px);
-    border-top: 5px solid pink;
+    /* border-top: 5px solid pink;
     border-left: 1px solid pink;
-    border-right: 1px solid pink;
+    border-right: 1px solid pink; */
 }
 
 main aside .alert_box{

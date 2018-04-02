@@ -86,7 +86,7 @@ export class HomePage extends Component {
                 </div>
                 <div className ="information">
                     <img className ="login-field-icon" src={require("../../img/password-icon.png")} />
-                    <input className ="login-input-field" type="text" placeholder="Password" />
+                    <input className ="login-input-field" type="password" placeholder="Password" />
                 </div>
                 <div className ="forgot">
                     <a href="#">Forgot Password?</a>

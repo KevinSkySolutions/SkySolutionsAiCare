@@ -6,8 +6,12 @@ export const alertsData = [
     "type": "Fall",
     "location": {
       "room": "Suite 101",
-      "x": 53,
-      "y": 32 
+      // previous 420px height
+      // "x": 53,
+      // "y": 32 
+      // current 550px height = 1.3 multiplier
+      "x": 68.9,
+      "y": 41.6
     },
     "history": [
     {
@@ -38,8 +42,10 @@ export const alertsData = [
     "type": "SOS",
     "location": {
       "room": "Clinic",
-      "x": 27,
-      "y": 87
+      // "x": 27,
+      // "y": 87
+      "x": 35.1,
+      "y": 113.1
     },
     "history": [
     {
@@ -70,8 +76,10 @@ export const alertsData = [
     "type": "Fall",
     "location": {
       "room": "Lounge",
-      "x": 80,
-      "y": 13
+      // "x": 80,
+      // "y": 13
+      "x": 104,
+      "y": 16.9
     },
   "history": [
     {
@@ -115,8 +123,10 @@ export const alertsData = [
     "type": "Fall",
     "location": {
       "room": "Activity Room",
-      "x": 10,
-      "y": 70
+      // "x": 10,
+      // "y": 70
+      "x": 13,
+      "y": 91
     },
     "history": [
     {
@@ -137,25 +147,28 @@ export const alertsData = [
    ], 
     "currentlocation": "Activity Room",
     "image_url": "https://cdn3.iconfinder.com/data/icons/avatars-collection/256/20-512.png",
-    "status":"Help active",
+    "status":"Help Active",
     "time": 40
   },
 
   {
     "id": 6,
+
     "resident": "Nicholas Runolf",
     "type": "SOS",
     "location": {
       "room": "Utility",
-      "x": 25,
-      "y": 25
+      // "x": 25,
+      // "y": 25
+      "x": 32.5,
+      "y": 32.5
     },
     "history": [
     
   ],  
     "currentlocation": "Lounge",
     "image_url": "https://ifscircle.com/wp-content/uploads/2016/03/DICK-SCHWARTZ.png",
-    "status":"Help active",
+    "status":"Help Active",
     "time":60 
   }
 ]
@@ -168,8 +181,10 @@ export const futureAlertsData = [
     "type": "Fall",
     "location": {
       "room": "Suite 101",
-      "x": 73,
-      "y": 22 
+      // "x": 73,
+      // "y": 22 
+      "x": 94.9,
+      "y": 28.6
     },
     "history": [
     {
@@ -190,7 +205,7 @@ export const futureAlertsData = [
     ],
     "currentlocation": "Clinic",
     "image_url": "https://www.theepochtimes.com/assets/uploads/2017/08/grandmother-1.jpg",
-    "status": "Help active",
+    "status": "Help Active",
     "time": 40
   },
 
@@ -200,8 +215,10 @@ export const futureAlertsData = [
     "type": "SOS",
     "location": {
       "room": "Clinic",
-      "x": 37,
-      "y": 27
+      // "x": 37,
+      // "y": 27
+      "x": 48.1,
+      "y": 35.1
     },
     "history": [
     {
@@ -232,8 +249,10 @@ export const futureAlertsData = [
     "type": "Fall",
     "location": {
       "room": "Lounge",
-      "x": 30,
-      "y": 73
+      // "x": 30,
+      // "y": 73
+      "x": 39,
+      "y": 94.9
     },
   "history": [
     {
@@ -267,7 +286,7 @@ export const futureAlertsData = [
    ], 
     "currentlocation": "Clinic",
     "image_url": "http://www.cam.ac.uk/sites/www.cam.ac.uk/files/styles/content-580x288/public/news/research/news/1103291138-grandmother.jpg?itok=e4x0w4hu",
-    "status":"Help active",
+    "status":"Help Active",
     "time": 11
   },
 
@@ -277,8 +296,10 @@ export const futureAlertsData = [
     "type": "Fall",
     "location": {
       "room": "Activity Room",
-      "x": 10,
-      "y": 70
+      // "x": 10,
+      // "y": 70
+      "x": 13,
+      "y": 91
     },
     "history": [
     {
@@ -299,7 +320,7 @@ export const futureAlertsData = [
    ], 
     "currentlocation": "Activity Room",
     "image_url": "https://static6.depositphotos.com/1155356/662/i/950/depositphotos_6628574-stock-photo-grandfather-kind-wise.jpg",
-    "status":"Help active",
+    "status":"Help Active",
     "time": 50
   },
 
@@ -309,15 +330,17 @@ export const futureAlertsData = [
     "type": "SOS",
     "location": {
       "room": "Utility",
-      "x": 55,
-      "y": 25
+      // "x": 55,
+      // "y": 25
+      "x": 71.5,
+      "y": 32.5
     },
     "history": [
     
   ],  
     "currentlocation": "Lounge",
     "image_url": "https://c1.staticflickr.com/1/37/79478143_d3a89e02cc_z.jpg?zz=1",
-    "status":"Help active",
+    "status":"Help Active",
     "time": 70 
   }
 ]
@@ -451,7 +474,7 @@ export const patientsData =[
   },
   {
     "id": 8,
-    "name": "Nicholas Runolfsdottir V",
+    "name": "Nicholas Gaines V",
     "emergency": "Maxime Nienow",
     "email": "Sherwood@rosamond.me",
     "address": {

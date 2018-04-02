@@ -82,10 +82,11 @@ body .content-dash .col-1 {
 }
 
 body .content-dash .left-section {
-    height: 480px;
-    width: 420px;
+    /* height: 480px;
+    width: 420px; */
     margin-top: 52px;
-    margin-left:160px;
+    /* margin-left:160px; */
+    margin-left: 0px;
     position: relative;
 }
 
@@ -108,16 +109,17 @@ body .content-dash .left-section {
 body .content-dash .right-section {
     width: calc(100% - 420px);
     max-width: 543px;
-    margin-left: 72px;
+    /* margin-left: 72px; */
+    margin-left: 0px;
     margin-top: 20px;
-    margin-right: 20px;
+    /* margin-right: 20px; */
     /* overflow-y: auto;
     height: calc(100vh - 146px); */
 }
 
 body .content-dash .right-section .description-mod {
     border-radius: 5px;
-    padding: 20px;
+    padding: 15px;
     margin-bottom: 15px;
     border: 1px solid #c2c5c7;
     background-color: #d4e2ec;
@@ -181,6 +183,7 @@ body .content-dash .nav-container ul li {
     /*align-items: center;
     margin-top: 50px;
     justify-content: center;*/
+    justify-content: space-evenly;
     position: relative;
 }
 
@@ -204,7 +207,8 @@ body .content-dash .nav-container ul li {
 }
 
 .floor-map {
-    height: 420px;
+    /* height: 420px; */
+    height: 550px;
     width: auto;
 }
 
@@ -368,9 +372,9 @@ body .content-dash .nav-container ul li {
 .right-section-content {
     overflow-y: auto;
     height: calc(100vh - 170px);
-    border-top: 5px solid pink;
+    /* border-top: 5px solid pink;
     border-left: 1px solid pink;
-    border-right: 1px solid pink;
+    border-right: 1px solid pink; */
 }
 
 

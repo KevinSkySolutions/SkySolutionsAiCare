@@ -2,57 +2,99 @@
 .bodyclass {
   margin: 0px;
   padding: 0px;
-  font-family: "Roboto";
-  height: auto;
-  width: 100vw; 
-  background-image: url(../../img/bg.jpg);
-  background-repeat: no-repeat;}
-  .bodyclass .content {
-    height: 100%;
-    width: 100%; }
-    .bodyclass .content .logindetails {
-      display: inline-block;
-      position: relative;
-      flex-direction: column;
-      width: 300px;
-      position: relative;
-      z-index: 2;
-      left: 66%;
-      top: 250px; }
-      .bodyclass .content .logindetails .information {
-        margin: 30px;
-        border-bottom: 1px solid #07819d; }
-        .bodyclass .content .logindetails .information input {
-          border: none;
-          width: 100%; }
-        .bodyclass .content .logindetails .information input::placeholder {
-          border: none;
-          color: #07819d; }
-        .bodyclass .content .logindetails .information input:focus {
-          outline: none; }  
-      .bodyclass .content .logindetails .forgot {
-        cursor: pointer;
-        position: relative;
-        bottom: 20px;
-        left: 170px; }
-        .bodyclass .content .logindetails .forgot a {
-          color: #07819d;
-          text-decoration: none;
-          font-size: 0.85em; }
-      .bodyclass .content .logindetails input[type="button"] {
-        cursor: pointer;
-        padding: 5.3% 15%;
-        text-align: center;
-        background-color: #ee4998;
-        border: none;
-        border-radius: 40px;
-        color: white;
-        margin: 0px 0 0 20px; }
-      .bodyclass .content .logindetails input[type="button"]:focus {
-        outline: none;
-      }
-      .bodyclass .content .logindetails input[type="button"]:hover {
-        background-color: #bf1265;
-      }
-
+  line-height: 1;
+  font-family: "Roboto"; }
+.content {
+    background-image: url("../../img/bg.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position: left;
+  }
 /*# sourceMappingURL=style.css.map */
+
+.login-credentials-field-box {
+  float: right;
+  margin-right: 35px;
+  height: 100%;
+  width: 370px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+@media (min-width: 1366px) {
+    .login-credentials-field-box {
+      width: 400px;
+    }
+}
+@media (max-width: 1200px) {
+    .login-credentials-field-box {
+      width: 300px;
+    }
+}
+@media (max-width: 1024px) {
+    .login-credentials-field-box {
+      width: 230px;
+    }
+}
+.logindetails {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+.information input[type="text"] {  
+  height: 30px;
+  width: 100%;
+  padding: 0 10px;
+  background: transparent;
+}
+.logindetails input[type="button"] {
+  width: 175px;
+  height: 65px;
+  text-align: center;
+  background-color: #ee4998;
+  border: none;
+  border-radius: 40px;
+  color: white; 
+  font-size: 18px;
+  margin-top: 10px;
+}
+.login-input-field {
+  border: none;
+  outline: none;
+}
+.information {
+  width: 99%;
+  height: 80px;
+  border-bottom: 1px solid #07819d;
+  margin-left: 15px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.information input::placeholder {
+  color: #07819d;
+  font-size: 18px; 
+}
+.forgot a {
+  color: #07819d;
+  text-decoration: none;
+  font-size: 0.85em;
+  float: right;
+  margin-top: 18px;
+  margin-right: 40px;
+  font-size: 14px; 
+}
+@media (max-width: 1024px) {
+  .forgot a {
+    margin-right: 10px;
+  }
+}
+.bg-container {
+  position: absolute;
+  top: 35px;
+}
+.login-field-icon {
+  margin-bottom: 10px;
+}

@@ -72,22 +72,32 @@ export class HomePage extends Component {
     const head = HomePage.getMeta();
 
     return (
-      <div className="bodyclass"> 
-        <div className="content">
-          <form className="logindetails">
-            <div className="information">
-              <input type="text" placeholder="Email ID"/>
-            </div>
-            <div className="information">
-              <input type="password" placeholder="Password"/>
-            </div>
-            <div className="forgot"><a href="#">Forgot Password?</a></div>
-            <div className="signin">
-              <input type="button" value="Sign In" onClick={ this.doLogin } />
-            </div>
-          </form>
+      <div className="bodyclass">
+      <div className="content">
+        <div className="ai-care-watermark-logo" >
+             
         </div>
-      </div> 
+        <div className="login-credentials-field-box">
+            <img className="bg-container" src={require("../../img/logo.png")} />
+            <form className ="logindetails">
+                <div className ="information" >
+                    <img classname ="login-field-icon" src={require("../../img/email-icon.png")} />
+                    <input className ="login-input-field" type="text" placeholder="Email ID" />
+                </div>
+                <div className ="information">
+                    <img className ="login-field-icon" src={require("../../img/password-icon.png")} />
+                    <input className ="login-input-field" type="text" placeholder="Password" />
+                </div>
+                <div className ="forgot">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <div className ="signin">
+                    <input type="button" value="Sign In" onClick = { this.doLogin } />
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
     );
   }
 

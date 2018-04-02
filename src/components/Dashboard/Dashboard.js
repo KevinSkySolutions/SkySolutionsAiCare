@@ -110,20 +110,20 @@ const mapStateToProps = (state) => {
       <div className="pt-log pt-detail">
         <img src={require("../../img/avatar.png")} />
         <div className="side-text detail-1">
-          <div className="pt-name">Richard Branson</div>
-          <div className="pt-suite-no gray-text">Suite #101</div>
+          <div className="pt-name">{ alert.resident }</div>
+          <div className="pt-suite-no gray-text">{ alert.currentlocation }</div>
         </div>
       </div>
       <div className="pt-log pt-loc">
         <img src={require("../../img/sos.png")} />
         <div className="side-text detail-2">
-          <div className="pt-condition">SOS</div>
-          <div className="curr-location gray-text">@Lounge</div>
+          <div className="pt-condition">{ alert.type }</div>
+          <div className="curr-location gray-text">@{ alert.location.room }</div>
         </div>
       </div>
       <div className="pt-log pt-stat">
-        <div className="help-stat">Help active</div>
-        <div className="elapsed-time gray-text side-text">30 min ago</div>
+        <div className="help-stat">{ alert.status }</div>
+        <div className="elapsed-time gray-text side-text">{ alert.time } min ago</div>
       </div>
       <div className="drop-down" />
     </div>

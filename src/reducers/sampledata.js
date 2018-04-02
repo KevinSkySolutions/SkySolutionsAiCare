@@ -305,7 +305,7 @@ export const futureAlertsData = [
 
   {
     "id": 6,
-    "resident": "Nicholas Runolfsdottir V",
+    "resident": "Nicholas Gaines V",
     "type": "SOS",
     "location": {
       "room": "Utility",
@@ -451,7 +451,7 @@ export const patientsData =[
   },
   {
     "id": 8,
-    "name": "Nicholas Runolfsdottir V",
+    "name": "Nicholas Gaines V",
     "emergency": "Maxime Nienow",
     "email": "Sherwood@rosamond.me",
     "address": {

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url("`ttps://fonts.googleapis.com/css?family=Roboto");
 body, html {
     margin: 0px;
     padding: 0px;
@@ -118,10 +118,10 @@ body .content-dash .right-section .description-mod {
     background-color: #d4e2ec;
     height: 80px;
     overflow: hidden;
-    transition: height .5s ease-in ;
+    transition: height .1s ease-in ;
 }
 
-body .content-dash .right-section .description-mod:hover {
+body .content-dash .right-section .description-mod:active {
     height: 230px;
 }
 
@@ -260,17 +260,19 @@ body .content-dash .nav-container ul li {
 .description-mod.active .list-detail {
     display: block;
 }
-.description-mod.active .drop-down.up {
-    display: block;
-}
-.description-mod.active .drop-down.down {
-    display: none;
-}
+
 .description-mod .drop-down.up {
     display: none;
 }
 .description-mod .drop-down.down {
     display: block;
+}
+
+.description-mod:active .drop-down.up {
+    display: block;
+}
+.description-mod:active .drop-down.down {
+    display: none;
 }
 
 .iBlock-wrap {
@@ -357,39 +359,6 @@ body .content-dash .nav-container ul li {
     border-top: 5px solid pink;
     border-left: 1px solid pink;
     border-right: 1px solid pink;
-}
-
-main aside .alert_box{
-    background-color: #d4e2ec;
-    height: 80px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    transition: height .5s ease-in ;
-}
-
-main aside .alert_box .arrow{
-    font-weight: bold;
-    float: right;
-    margin-right: 15px;
-    margin-top: 5px;
-
-}
-
-main aside .alert_box .down{
-    display: none;
-}
-
-main aside .alert_box:hover{
-    height: 200px;
-
-}
-
-main aside .alert_box:hover .up{
-    display: none;
-}
-
-main aside .alert_box:hover .down{
-    display: block;
 }
 
 

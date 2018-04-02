@@ -2,7 +2,7 @@ export const alertsData = [
 
   { 
     "id": 111,
-    "resident": "Ervin Howell",
+    "resident": "Edwin Aldrin",
     "type": "Fall",
     "location": {
       "room": "Suite 101",
@@ -27,7 +27,7 @@ export const alertsData = [
     },
     ],
     "currentlocation": "Suite 101",
-    "image_url": "../img/avatar.png",
+    "image_url": "http://www.teatrotascabile.org/support/wp-content/uploads/2017/02/avatar-round-4.png",
     "status": "Assistance Required",
     "time": 30
   },

@@ -143,7 +143,7 @@ export const alertsData = [
 
   {
     "id": 6,
-    "resident": "Nicholas Runolfsdottir V",
+    "resident": "Nicholas Gaines V",
     "type": "SOS",
     "location": {
       "room": "Utility",

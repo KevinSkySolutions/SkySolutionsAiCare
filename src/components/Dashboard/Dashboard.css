@@ -82,8 +82,8 @@ body .content-dash .col-1 {
 }
 
 body .content-dash .left-section {
-    height: 480px;
-    width: 420px;
+    /* height: 480px;
+    width: 420px; */
     margin-top: 52px;
     margin-left:160px;
     position: relative;

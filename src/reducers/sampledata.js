@@ -11,17 +11,17 @@ export const alertsData = [
     },
     "history": [
     {
-      "status": "red",
+      "status": "danger",
       "timestamp": "04/02/2018 11:30 AM",
       "desciption": "SOS High Noise Alert"
     },
     {
-      "status": "green",
+      "status": "safe",
       "timestamp": "04/02/2018 11:40 AM",
       "desciption": "Help Dispatched."
     },
     {
-      "status": "green",
+      "status": "safe",
       "timestamp": "04/02/2018 11:50 AM",
       "desciption": "Fall"
     },
@@ -43,17 +43,17 @@ export const alertsData = [
     },
     "history": [
     {
-      "status": "red",
+      "status": "danger",
       "timestamp": "04/02/2018 11:30 AM",
       "desciption": "SOS High Noise Alert"
     },
     {
-      "status": "green",
+      "status": "safe",
       "timestamp": "04/02/2018 11:40 AM",
       "desciption": "Help Dispatched."
     },
     {
-      "status": "green",
+      "status": "safe",
       "timestamp": "04/02/2018 11:50 AM",
       "desciption": "Fall"
     },
@@ -75,12 +75,12 @@ export const alertsData = [
     },
   "history": [
     {
-      "status": "red",
+      "status": "danger",
       "timestamp": "04/02/2018 11:30 AM",
       "desciption": "SOS High Noise Alert"
     },
     {
-      "status": "green",
+      "status": "safe",
       "timestamp": "04/02/2018 11:40 AM",
       "desciption": "Help Dispatched."
     },
@@ -120,17 +120,17 @@ export const alertsData = [
     },
     "history": [
     {
-      "status": "red",
+      "status": "danger",
       "timestamp": "04/02/2018 11:30 AM",
       "desciption": "SOS High Noise Alert"
     },
     {
-      "status": "green",
+      "status": "safe",
       "timestamp": "04/02/2018 11:40 AM",
       "desciption": "Help Dispatched."
     },
     {
-      "status": "green",
+      "status": "safe",
       "timestamp": "04/02/2018 11:50 AM",
       "desciption": "Fall"
     },
@@ -173,17 +173,17 @@ export const futureAlertsData = [
     },
     "history": [
     {
-      "status": "red",
+      "status": "danger",
       "timestamp": "04/02/2018 11:30 AM",
       "desciption": "SOS High Noise Alert"
     },
     {
-      "status": "green",
+      "status": "safe",
       "timestamp": "04/02/2018 11:40 AM",
       "desciption": "Help Dispatched."
     },
     {
-      "status": "green",
+      "status": "safe",
       "timestamp": "04/02/2018 11:50 AM",
       "desciption": "Fall"
     },
@@ -205,17 +205,17 @@ export const futureAlertsData = [
     },
     "history": [
     {
-      "status": "red",
+      "status": "danger",
       "timestamp": "04/02/2018 11:30 AM",
       "desciption": "SOS High Noise Alert"
     },
     {
-      "status": "green",
+      "status": "safe",
       "timestamp": "04/02/2018 11:40 AM",
       "desciption": "Help Dispatched."
     },
     {
-      "status": "green",
+      "status": "safe",
       "timestamp": "04/02/2018 11:50 AM",
       "desciption": "Fall"
     },
@@ -237,12 +237,12 @@ export const futureAlertsData = [
     },
   "history": [
     {
-      "status": "red",
+      "status": "danger",
       "timestamp": "04/02/2018 11:30 AM",
       "desciption": "SOS High Noise Alert"
     },
     {
-      "status": "green",
+      "status": "safe",
       "timestamp": "04/02/2018 11:40 AM",
       "desciption": "Help Dispatched."
     },
@@ -282,17 +282,17 @@ export const futureAlertsData = [
     },
     "history": [
     {
-      "status": "red",
+      "status": "danger",
       "timestamp": "04/02/2018 11:30 AM",
       "desciption": "SOS High Noise Alert"
     },
     {
-      "status": "green",
+      "status": "safe",
       "timestamp": "04/02/2018 11:40 AM",
       "desciption": "Help Dispatched."
     },
     {
-      "status": "green",
+      "status": "safe",
       "timestamp": "04/02/2018 11:50 AM",
       "desciption": "Fall"
     },

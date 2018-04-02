@@ -23,7 +23,7 @@ export class Dashboard extends Component {
   }
   static getMeta(id) {
     return {
-      title: `Post Detail Page - Post ${id}`,
+      title: `AiCare AshbyPonds Monitoring Portal`,
       link: [
         {
           rel: 'canonical',
@@ -155,6 +155,7 @@ const mapStateToProps = (state) => {
           </div>
       </div>
       <div className="list-detail">
+
           <div className="call-status iBlock-wrap line-wrap">
               <div className="dot iBlock danger"></div>
               <div className="status iBlock list-header">SOS High Noise Alert&nbsp;&nbsp;&nbsp;|</div>

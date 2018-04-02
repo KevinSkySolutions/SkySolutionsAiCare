@@ -147,7 +147,7 @@ export const alertsData = [
    ], 
     "currentlocation": "Activity Room",
     "image_url": "../img/avatar.png",
-    "status":"Help active",
+    "status":"Help Active",
     "time": 40
   },
 
@@ -167,7 +167,7 @@ export const alertsData = [
   ],  
     "currentlocation": "Lounge",
     "image_url": "../img/avatar.png",
-    "status":"Help active",
+    "status":"Help Active",
     "time":60 
   }
 ]
@@ -204,7 +204,7 @@ export const futureAlertsData = [
     ],
     "currentlocation": "Clinic",
     "image_url": "../img/avatar.png",
-    "status": "Help active",
+    "status": "Help Active",
     "time": 40
   },
 
@@ -285,7 +285,7 @@ export const futureAlertsData = [
    ], 
     "currentlocation": "Clinic",
     "image_url": "../img/avatar.png",
-    "status":"Help active",
+    "status":"Help Active",
     "time": 11
   },
 
@@ -319,7 +319,7 @@ export const futureAlertsData = [
    ], 
     "currentlocation": "Activity Room",
     "image_url": "../img/avatar.png",
-    "status":"Help active",
+    "status":"Help Active",
     "time": 50
   },
 
@@ -339,7 +339,7 @@ export const futureAlertsData = [
   ],  
     "currentlocation": "Lounge",
     "image_url": "../img/avatar.png",
-    "status":"Help active",
+    "status":"Help Active",
     "time": 70 
   }
 ]

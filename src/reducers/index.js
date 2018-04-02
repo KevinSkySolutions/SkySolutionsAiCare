@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
-import { REQUEST_LOGIN, REQUEST_ALERTS } from '../actions';
-import { alertsData, patientsData } from './sampledata';
+import { REQUEST_LOGIN, REQUEST_ALERTS, REQUEST_ALERTS_MOCK } from '../actions';
+import { alertsData, patientsData, futureAlertsData } from './sampledata';
 
 const rootReducer = combineReducers({ 
   homepage:  homepageReducer,
@@ -43,6 +43,18 @@ function dashboardReducer(state = { alertsdata: []}, action) {
       return {
         ...state,
         alertsdata: alertsData
+      };
+    case REQUEST_ALERTS_MOCK:
+
+      // TODO: API call to the backend to fetch data to return an asynchronous RxJs Observable
+      // this can be a timed stream which will continuously update alerts during the lifecycle
+      // of current user session (assuming server doesnt support push)
+
+      console.log("REQUEST_ALERTS_MOCK type of action called.");
+
+      return {
+        ...state,
+        alertsdata: futureAlertsData
       };
     default:
       return state;

@@ -1,14 +1,31 @@
 export const alertsData = [
 
   { 
-  	"id": 111,
-  	"resident": "Ervin Howell",
+    "id": 111,
+    "resident": "Ervin Howell",
     "type": "FALL",
     "location": {
       "room": "Suite 101",
       "x": 53,
       "y": 32 
     },
+    "history": [
+    {
+      "status": "red",
+      "timestamp": "04/02/2018 11:30 AM",
+      "desciption": "SOS High Noise Alert"
+    },
+    {
+      "status": "green",
+      "timestamp": "04/02/2018 11:40 AM",
+      "desciption": "Help Dispatched."
+    },
+    {
+      "status": "green",
+      "timestamp": "04/02/2018 11:50 AM",
+      "desciption": "FALL"
+    },
+    ],
     "currentlocation": "Suite 101",
     "image_url": "../img/avatar.png",
     "status": "Help dispatched",
@@ -16,14 +33,31 @@ export const alertsData = [
   },
 
   {
-  	"id": 112,
-  	"resident": "Leanne Graham",
+    "id": 112,
+    "resident": "Leanne Graham",
     "type": "SOS",
     "location": {
       "room": "Clinic",
       "x": 27,
       "y": 87
     },
+    "history": [
+    {
+      "status": "red",
+      "timestamp": "04/02/2018 11:30 AM",
+      "desciption": "SOS High Noise Alert"
+    },
+    {
+      "status": "green",
+      "timestamp": "04/02/2018 11:40 AM",
+      "desciption": "Help Dispatched."
+    },
+    {
+      "status": "green",
+      "timestamp": "04/02/2018 11:50 AM",
+      "desciption": "FALL"
+    },
+  ],  
     "currentlocation": "Suite 201",
     "image_url": "../img/avatar.png",
     "status":"Help active",
@@ -31,14 +65,26 @@ export const alertsData = [
   },
 
   {
-  	"id": 3,
-  	"resident": "Clementina DuBuque",
+    "id": 3,
+    "resident": "Clementina DuBuque",
     "type": "FALL",
     "location": {
       "room": "Lounge",
       "x": 80,
       "y": 13
     },
+  "history": [
+    {
+      "status": "red",
+      "timestamp": "04/02/2018 11:30 AM",
+      "desciption": "SOS High Noise Alert"
+    },
+    {
+      "status": "green",
+      "timestamp": "04/02/2018 11:40 AM",
+      "desciption": "Help Dispatched."
+    },
+  ],     
     "currentlocation": "Activity Room",
     "image_url": "../img/avatar.png",
     "status":"Assistance Needed",
@@ -46,14 +92,17 @@ export const alertsData = [
   },
 
   {
-  	"id": 4,
-  	"resident": "Patricia Lebsack",
+    "id": 4,
+    "resident": "Patricia Lebsack",
     "type": "Non Routine",
     "location": {
       "room": "Suite 201",
       "x": 0,
       "y": 0
     },
+    "history": [
+
+   ], 
     "currentlocation": "Suite 201",
     "image_url": "../img/avatar.png",
     "status":"Help active",
@@ -61,33 +110,215 @@ export const alertsData = [
   },
 
   {
-  	"id": 5,
-  	"resident": "Glenna Reichert",
+    "id": 5,
+    "resident": "Glenna Reichert",
     "type": "FALL",
     "location": {
       "room": "Activity Room",
       "x": 10,
       "y": 70
     },
+    "history": [
+    {
+      "status": "red",
+      "timestamp": "04/02/2018 11:30 AM",
+      "desciption": "SOS High Noise Alert"
+    },
+    {
+      "status": "green",
+      "timestamp": "04/02/2018 11:40 AM",
+      "desciption": "Help Dispatched."
+    },
+    {
+      "status": "green",
+      "timestamp": "04/02/2018 11:50 AM",
+      "desciption": "FALL"
+    },
+   ], 
     "currentlocation": "Activity Room",
     "image_url": "../img/avatar.png",
     "status":"Help dispatched",
-    "time":"40 minutes ago"
+    "time": 40
   },
 
   {
-  	"id": 6,
-  	"resident": "Nicholas Runolfsdottir V",
+    "id": 6,
+    "resident": "Nicholas Runolfsdottir V",
     "type": "SOS",
     "location": {
       "room": "Utility",
       "x": 25,
       "y": 25
     },
+    "history": [
+    
+  ],  
     "currentlocation": "Lounge",
     "image_url": "../img/avatar.png",
     "status":"Help active",
-    "time":"60 minutes ago"
+    "time":60 
+  }
+]
+
+export const futureAlertsData = [
+
+  { 
+    "id": 111,
+    "resident": "Ervin Howell",
+    "type": "FALL",
+    "location": {
+      "room": "Suite 101",
+      "x": 73,
+      "y": 22 
+    },
+    "history": [
+    {
+      "status": "red",
+      "timestamp": "04/02/2018 11:30 AM",
+      "desciption": "SOS High Noise Alert"
+    },
+    {
+      "status": "green",
+      "timestamp": "04/02/2018 11:40 AM",
+      "desciption": "Help Dispatched."
+    },
+    {
+      "status": "green",
+      "timestamp": "04/02/2018 11:50 AM",
+      "desciption": "FALL"
+    },
+    ],
+    "currentlocation": "Clinic",
+    "image_url": "../img/avatar.png",
+    "status": "Help active",
+    "time": 40
+  },
+
+  {
+    "id": 112,
+    "resident": "Leanne Graham",
+    "type": "SOS",
+    "location": {
+      "room": "Clinic",
+      "x": 37,
+      "y": 27
+    },
+    "history": [
+    {
+      "status": "red",
+      "timestamp": "04/02/2018 11:30 AM",
+      "desciption": "SOS High Noise Alert"
+    },
+    {
+      "status": "green",
+      "timestamp": "04/02/2018 11:40 AM",
+      "desciption": "Help Dispatched."
+    },
+    {
+      "status": "green",
+      "timestamp": "04/02/2018 11:50 AM",
+      "desciption": "FALL"
+    },
+   ],
+    "currentlocation": "Suite 201",
+    "image_url": "../img/avatar.png",
+    "status":"Help active",
+    "time": 13
+  },
+
+  {
+    "id": 3,
+    "resident": "Clementina DuBuque",
+    "type": "FALL",
+    "location": {
+      "room": "Lounge",
+      "x": 30,
+      "y": 73
+    },
+  "history": [
+    {
+      "status": "red",
+      "timestamp": "04/02/2018 11:30 AM",
+      "desciption": "SOS High Noise Alert"
+    },
+    {
+      "status": "green",
+      "timestamp": "04/02/2018 11:40 AM",
+      "desciption": "Help Dispatched."
+    },
+  ],     
+    "currentlocation": "Activity Room",
+    "image_url": "../img/avatar.png",
+    "status":"Help dispatched",
+    "time": 27
+  },
+
+  {
+    "id": 4,
+    "resident": "Patricia Lebsack",
+    "type": "Non Routine",
+    "location": {
+      "room": "Suite 201",
+      "x": 0,
+      "y": 0
+    },
+    "history": [
+
+   ], 
+    "currentlocation": "Clinic",
+    "image_url": "../img/avatar.png",
+    "status":"Help active",
+    "time": 11
+  },
+
+  {
+    "id": 5,
+    "resident": "Glenna Reichert",
+    "type": "FALL",
+    "location": {
+      "room": "Activity Room",
+      "x": 10,
+      "y": 70
+    },
+    "history": [
+    {
+      "status": "red",
+      "timestamp": "04/02/2018 11:30 AM",
+      "desciption": "SOS High Noise Alert"
+    },
+    {
+      "status": "green",
+      "timestamp": "04/02/2018 11:40 AM",
+      "desciption": "Help Dispatched."
+    },
+    {
+      "status": "green",
+      "timestamp": "04/02/2018 11:50 AM",
+      "desciption": "FALL"
+    },
+   ], 
+    "currentlocation": "Activity Room",
+    "image_url": "../img/avatar.png",
+    "status":"Help active",
+    "time": 50
+  },
+
+  {
+    "id": 6,
+    "resident": "Nicholas Runolfsdottir V",
+    "type": "SOS",
+    "location": {
+      "room": "Utility",
+      "x": 55,
+      "y": 25
+    },
+    "history": [
+    
+  ],  
+    "currentlocation": "Lounge",
+    "image_url": "../img/avatar.png",
+    "status":"Help active",
+    "time": 70 
   }
 ]
 

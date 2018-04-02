@@ -1,6 +1,8 @@
 export const REQUEST_LOGIN   = 'A_REQUEST_LOGIN'
 export const REQUEST_ALERTS  = 'A_REQUEST_ALERTS';
 
+export const REQUEST_ALERTS_MOCK = "MA_REQUEST_ALERTS"
+
 export const createaction_doLogin = (userid, passcode) => {
 
   const return_object = {
@@ -10,8 +12,6 @@ export const createaction_doLogin = (userid, passcode) => {
       passcode: passcode
     }
   }
-  console.log("createaction_doLogin");
-  console.log(return_object);
   return return_object;
 }
 
@@ -24,7 +24,5 @@ export const createaction_requestAlerts = () => {
     }
     // no payload for requestAlerts, later authentication token may be added
   };
-  console.log("createaction_requestAlerts");
-  console.log(return_object);
   return return_object;
 }

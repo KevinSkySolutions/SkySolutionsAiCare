@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux';
 
 import { find } from 'lodash';
 
-import { createaction_requestAlerts, REQUEST_ALERTS } from '../../actions';
+import { createaction_requestAlerts, REQUEST_ALERTS, REQUEST_ALERTS_MOCK } from '../../actions';
 import Header from '../Common/Header/Header';
 
 // Import can't be in conditional so use require.
@@ -45,6 +45,13 @@ export class Dashboard extends Component {
     const { dispatch } = this.props;
     this.props.dispatch({ type: REQUEST_ALERTS, payload: {} });
     // dispatch({ type: REQUEST_ALERTS, payload: {} });
+  }
+
+  doFetchMockData = (event) => {
+
+    // 
+    // this.props.dispatch_createaction_doLogin("u", "p");
+    this.props.dispatch({ type: REQUEST_ALERTS_MOCK, payload: {} });
   }
 
   render() {
@@ -84,134 +91,8 @@ export class Dashboard extends Component {
             </h1>
             <div className="scrollable-area">
 
-              <div className="description-mod">
-                <div className="pt-log pt-detail">
-                  <img src={require("../../img/avatar.png")} />
-                  <div className="side-text detail-1">
-                    <div className="pt-name">Richard Branson</div>
-                    <div className="pt-suite-no gray-text">Suite #101</div>
-                  </div>
-                </div>
-                <div className="pt-log pt-loc">
-                  <img src={require("../../img/sos.png")} />
-                  <div className="side-text detail-2">
-                    <div className="pt-condition">SOS</div>
-                    <div className="curr-location gray-text">@Lounge</div>
-                  </div>
-                </div>
-                <div className="pt-log pt-stat">
-                  <div className="help-stat">Help active</div>
-                  <div className="elapsed-time gray-text side-text">30 min ago</div>
-                </div>
-                <div className="drop-down" />
-              </div>
+            { this.props.alertsList }
 
-              <div className="description-mod">
-                <div className="pt-log pt-detail">
-                  <img src={require("../../img/avatar.png")} />
-                  <div className="side-text detail-1">
-                    <div className="pt-name">Richard Branson</div>
-                    <div className="pt-suite-no gray-text">Suite #101</div>
-                  </div>
-                </div>
-
-                <div className="pt-log pt-loc">
-                  <img src={require("../../img/sos.png")} />
-                  <div className="side-text detail-2">
-                    <div className="pt-condition">SOS</div>
-                    <div className="curr-location gray-text">@Lounge</div>
-                  </div>
-                </div>
-                <div className="pt-log pt-stat">
-                  <div className="help-stat">Help active</div>
-                  <div className="elapsed-time gray-text side-text">30 min ago</div>
-                </div>
-                <div className="drop-down" />
-              </div>
-              <div className="description-mod">
-                <div className="pt-log pt-detail">
-                  <img src={require("../../img/avatar.png")} />
-                  <div className="side-text detail-1">
-                    <div className="pt-name">Richard Branson</div>
-                    <div className="pt-suite-no gray-text">Suite #101</div>
-                  </div>
-                </div>
-                <div className="pt-log pt-loc">
-                  <img src={require("../../img/sos.png")} />
-                  <div className="side-text detail-2">
-                    <div className="pt-condition">SOS</div>
-                    <div className="curr-location gray-text">@Lounge</div>
-                  </div>
-                </div>
-                <div className="pt-log pt-stat">
-                  <div className="help-stat">Help active</div>
-                  <div className="elapsed-time gray-text side-text">30 min ago</div>
-                </div>
-                <div className="drop-down" />
-              </div>
-              <div className="description-mod">
-                <div className="pt-log pt-detail">
-                  <img src={require("../../img/avatar.png")} />
-                  <div className="side-text detail-1">
-                    <div className="pt-name">Richard Branson</div>
-                    <div className="pt-suite-no gray-text">Suite #101</div>
-                  </div>
-                </div>
-                <div className="pt-log pt-loc">
-                  <img src={require("../../img/sos.png")} />
-                  <div className="side-text detail-2">
-                    <div className="pt-condition">SOS</div>
-                    <div className="curr-location gray-text">@Lounge</div>
-                  </div>
-                </div>
-                <div className="pt-log pt-stat">
-                  <div className="help-stat">Help active</div>
-                  <div className="elapsed-time gray-text side-text">30 min ago</div>
-                </div>
-                <div className="drop-down" />
-              </div>
-              <div className="description-mod">
-                <div className="pt-log pt-detail">
-                  <img src={require("../../img/avatar.png")} />
-                  <div className="side-text detail-1">
-                    <div className="pt-name">Richard Branson</div>
-                    <div className="pt-suite-no gray-text">Suite #101</div>
-                  </div>
-                </div>
-                <div className="pt-log pt-loc">
-                  <img src={require("../../img/sos.png")} />
-                  <div className="side-text detail-2">
-                    <div className="pt-condition">SOS</div>
-                    <div className="curr-location gray-text">@Lounge</div>
-                  </div>
-                </div>
-                <div className="pt-log pt-stat">
-                  <div className="help-stat">Help active</div>
-                  <div className="elapsed-time gray-text side-text">30 min ago</div>
-                </div>
-                <div className="drop-down" />
-              </div>
-              <div className="description-mod">
-                <div className="pt-log pt-detail">
-                  <img src={require("../../img/avatar.png")} />
-                  <div className="side-text detail-1">
-                    <div className="pt-name">Richard Branson</div>
-                    <div className="pt-suite-no gray-text">Suite #101</div>
-                  </div>
-                </div>
-                <div className="pt-log pt-loc">
-                  <img src={require("../../img/sos.png")} />
-                  <div className="side-text detail-2">
-                    <div className="pt-condition">SOS</div>
-                    <div className="curr-location gray-text">@Lounge</div>
-                  </div>
-                </div>
-                <div className="pt-log pt-stat">
-                  <div className="help-stat">Help active</div>
-                  <div className="elapsed-time gray-text side-text">30 min ago</div>
-                </div>
-                <div className="drop-down" />
-              </div>
             </div>
           </div>
         </div>
@@ -221,8 +102,36 @@ export class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  // 
+
+  const alertsCopy = state.dashboard.alertsdata;
+  const alertsList = alertsCopy.map((alert, keyValue) => { return(
+    // <ObjectRow obj={alert} key={keyValue}  />
+    <div className="description-mod" key={keyValue}>
+      <div className="pt-log pt-detail">
+        <img src={require("../../img/avatar.png")} />
+        <div className="side-text detail-1">
+          <div className="pt-name">Richard Branson</div>
+          <div className="pt-suite-no gray-text">Suite #101</div>
+        </div>
+      </div>
+      <div className="pt-log pt-loc">
+        <img src={require("../../img/sos.png")} />
+        <div className="side-text detail-2">
+          <div className="pt-condition">SOS</div>
+          <div className="curr-location gray-text">@Lounge</div>
+        </div>
+      </div>
+      <div className="pt-log pt-stat">
+        <div className="help-stat">Help active</div>
+        <div className="elapsed-time gray-text side-text">30 min ago</div>
+      </div>
+      <div className="drop-down" />
+    </div>
+  )});
+
   return {
+    alerts: alertsCopy,
+    alertsList: alertsList
   };
 };
 

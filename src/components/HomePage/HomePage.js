@@ -104,9 +104,6 @@ export class HomePage extends Component {
 
 // changes in state are copied onto props here
 const mapStateToProps = (state) => {
-
-  console.log("Structure of state:");
-  console.log(state);
   
   // loading default props
   const { isLoggingIn } = state;

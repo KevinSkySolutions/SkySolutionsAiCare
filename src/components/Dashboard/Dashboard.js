@@ -138,7 +138,6 @@ const mapStateToProps = (state) => {
           </div>
       </div>
       <div className="pt-log pt-loc">
-          <img src={require("../../img/sos.png")} className="avatar" />
           <div className="side-text detail-2">
               <div className="pt-condition list-header">{ alert.type }</div>
               <div className="curr-location gray-text list-subheader mr-t-5">@{ alert.location.room }</div>

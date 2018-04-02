@@ -81,12 +81,12 @@ export class HomePage extends Component {
             <img className="bg-container" src={require("../../img/logo.png")} />
             <form className ="logindetails">
                 <div className ="information" >
-                    <img classname ="login-field-icon" src={require("../../img/email-icon.png")} />
+                    <img className ="login-field-icon" src={require("../../img/email-icon.png")} />
                     <input className ="login-input-field" type="text" placeholder="Email ID" />
                 </div>
                 <div className ="information">
                     <img className ="login-field-icon" src={require("../../img/password-icon.png")} />
-                    <input className ="login-input-field" type="text" placeholder="Password" />
+                    <input className ="login-input-field" type="password" placeholder="Password" />
                 </div>
                 <div className ="forgot">
                     <a href="#">Forgot Password?</a>

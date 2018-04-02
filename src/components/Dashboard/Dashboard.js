@@ -59,44 +59,66 @@ export class Dashboard extends Component {
     const head = Dashboard.getMeta();
 
     return (
-      <div className="dashbodyclass">
-        <div className="content">
-          <div className="nav-container">
-            <ul>
-              <li>
-                <a href="#">Dashboard</a>
-              </li>
-              <li>
-                <a href="/patients">Patients</a>
-              </li>
-              <li>
-                <a href="/facilities">Facilities</a>
-              </li>
-              <li>
-                <a href="/reports">Reports</a>
-              </li>
-              <li>
-                <a href="#">Help</a>
-              </li>
-            </ul>
-          </div>
+      <div className="content-dash">
+          <header>
+            
+            <div className="logo">
+                <img src={require("../../img/logo.png")} alt="logo" className="logo-img" />
+                <img className="logo-bg" src={require("../../img/logo-background.png")} alt="" />
+            </div>
+            <div className="nav-container">
+                <ul className="nav-list">
+                    <li>
+                        <a href="/dashboard">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/patients">Patients</a>
+                    </li>
+                    <li>
+                        <a href="/facilities">Facilities</a>
+                    </li>
+                    <li>
+                        <a href="/reports">Reports</a>
+                    </li>
+                    <li>
+                        <a href="#">Help</a>
+                    </li>
+                    <div className="user-wrap">
+                        <div className="profile-pic">
+                            <img src={require("../../img/avatar.png")} alt="" />
+                        </div>
+                    </div>
+                </ul>
+            </div>
+        </header>
 
-          <div className="col-1 left-section">
-            <img src={require("../../img/bg4.png")} />
-          </div>
+         <div class="content-body">
+            
+            <div class="left-section">
+                <img src={require("../../img/bg4.png")} alt="" className="floor-map"/>
+                <div className="pagination">
+                    <div className="pages">
+                        <div className="page active" onClick={ this.doFetchMockData }>1</div>
+                        <div className="page">2</div>
+                        <div className="page">3</div>
+                    </div>
+                </div>
+                <img className="person-on-map person-01" src={require("../../img/person-01.png")}/>
+                <img className="person-on-map person-02" src={require("../../img/person-02.png")}/>
+                <img className="person-on-map person-03" src={require("../../img/person-03.png")}/>
+            </div>
 
           <div className="col-1 right-section">
-            <h1>
-              <span className="subheading">Alerts</span>
-            </h1>
-            <div className="scrollable-area">
+                <h1 className="alerts-heading no-margin">Alerts</h1>
+                <div className="right-section-content">
 
             { this.props.alertsList }
 
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      
     );
   }
 }
@@ -106,27 +128,54 @@ const mapStateToProps = (state) => {
   const alertsCopy = state.dashboard.alertsdata;
   const alertsList = alertsCopy.map((alert, keyValue) => { return(
     // <ObjectRow obj={alert} key={keyValue}  />
-    <div className="description-mod" key={keyValue}>
+    
+    <div className="description-mod " key={ keyValue }>
       <div className="pt-log pt-detail">
-        <img src={require("../../img/avatar.png")} />
-        <div className="side-text detail-1">
-          <div className="pt-name">{ alert.resident }</div>
-          <div className="pt-suite-no gray-text">{ alert.currentlocation }</div>
-        </div>
+          <img src={require("../../img/avatar.png")} className="avatar"/>
+          <div className="side-text detail-1">
+              <div className="pt-name list-header">{ alert.resident }</div>
+              <div className="pt-suite-no gray-text list-subheader mr-t-5">{ alert.currentlocation }</div>
+          </div>
       </div>
       <div className="pt-log pt-loc">
-        <img src={require("../../img/sos.png")} />
-        <div className="side-text detail-2">
-          <div className="pt-condition">{ alert.type }</div>
-          <div className="curr-location gray-text">@{ alert.location.room }</div>
-        </div>
+          <img src={require("../../img/sos.png")} className="avatar" />
+          <div className="side-text detail-2">
+              <div className="pt-condition list-header">{ alert.type }</div>
+              <div className="curr-location gray-text list-subheader mr-t-5">@{ alert.location.room }</div>
+          </div>
       </div>
       <div className="pt-log pt-stat">
-        <div className="help-stat">{ alert.status }</div>
-        <div className="elapsed-time gray-text side-text">{ alert.time } min ago</div>
+          <div>
+              <div className="help-stat list-header">
+                  { alert.status }
+              </div>
+              <div className="elapsed-time gray-text side-text list-subheader mr-t-5">{ alert.time } min ago</div>
+          </div>
+          <div className="drop-down down">
+              <div className="dropdown-arrow-dwn"></div>
+          </div>
+          <div className="drop-down up">
+              <div className="dropdown-arrow-up"></div>
+          </div>
       </div>
-      <div className="drop-down" />
-    </div>
+      <div className="list-detail">
+          <div className="call-status iBlock-wrap line-wrap">
+              <div className="dot iBlock danger"></div>
+              <div className="status iBlock list-header">SOS High Noise Alert&nbsp;&nbsp;&nbsp;|</div>
+              <div className="time iBlock list-subheader">03/19/2018 11:30 AM</div>
+          </div>
+          <div className="help-status iBlock-wrap line-wrap">
+              <div className="dot iBlock safe"></div>
+              <div className="status iBlock list-header">Help Dispatched&nbsp;&nbsp;&nbsp;|</div>
+              <div className="time iBlock list-subheader">03/19/2018 11:30 AM</div>
+          </div>
+          <div className="help-status iBlock-wrap line-wrap">
+              <div className="dot iBlock safe"></div>
+              <div className="status iBlock list-header">Help Active&nbsp;&nbsp;&nbsp;|</div>
+              <div className="time iBlock list-subheader">03/19/2018 11:30 AM</div>
+          </div>
+      </div>
+  </div>
   )});
 
   return {

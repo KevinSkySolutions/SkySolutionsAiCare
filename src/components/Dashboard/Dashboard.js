@@ -83,9 +83,11 @@ export class Dashboard extends Component {
                         <a href="#">Help</a>
                     </li>
                     <div className="user-wrap">
+                        {/*
                         <div className="profile-pic">
                             <img src={require("../../img/avatar.png")} alt="" />
                         </div>
+                        */}
                     </div>
                 </ul>
             </div>

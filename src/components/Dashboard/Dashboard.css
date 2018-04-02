@@ -85,7 +85,8 @@ body .content-dash .left-section {
     /* height: 480px;
     width: 420px; */
     margin-top: 52px;
-    margin-left:160px;
+    /* margin-left:160px; */
+    margin-left: 0px;
     position: relative;
 }
 
@@ -103,7 +104,8 @@ body .content-dash .left-section {
 body .content-dash .right-section {
     width: calc(100% - 420px);
     max-width: 543px;
-    margin-left: 72px;
+    /* margin-left: 72px; */
+    margin-left: 0px;
     margin-top: 20px;
     margin-right: 20px;
     /* overflow-y: auto;
@@ -176,7 +178,7 @@ body .content-dash .nav-container ul li {
     /*align-items: center;
     margin-top: 50px;
     justify-content: center;*/
-    justify-content: center;
+    justify-content: space-evenly;
     position: relative;
 }
 
@@ -200,7 +202,8 @@ body .content-dash .nav-container ul li {
 }
 
 .floor-map {
-    height: 420px;
+    /* height: 420px; */
+    height: 550px;
     width: auto;
 }
 

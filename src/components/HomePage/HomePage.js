@@ -10,7 +10,7 @@ import { createaction_doLogin, REQUEST_LOGIN } from '../../actions';
 
 // import (  ) from '../../reducers';
 
-import Posts from '../Patients/Patients';
+import Patients from '../Patients/Patients';
 import Header from '../Common/Header/Header';
 
 // Import can't be in conditional so use require.

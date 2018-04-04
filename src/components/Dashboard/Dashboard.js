@@ -7,10 +7,9 @@ import Meta from 'react-helmet';
 
 import { bindActionCreators } from 'redux';
 
-import { find } from 'lodash';
-
 import { createaction_requestAlerts, REQUEST_ALERTS, REQUEST_ALERTS_MOCK } from '../../actions';
 import Header from '../Common/Header/Header';
+// import AlertsList from './SubComponents';
 
 // Import can't be in conditional so use require.
 if (process.env.WEBPACK) {
@@ -59,64 +58,33 @@ export class Dashboard extends Component {
 
     return (
       <div className="content-dash">
-          <header>
-            
-            <div className="logo">
-                <img src={require("../../img/logo.png")} alt="logo" className="logo-img" />
-                <img className="logo-bg" src={require("../../img/logo-background.png")} alt="" />
-            </div>
-            <div className="nav-container">
-                <ul className="nav-list">
-                    <li>
-                        <a href="/dashboard">Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="/patients">Patients</a>
-                    </li>
-                    <li>
-                        <a href="/facilities">Facilities</a>
-                    </li>
-                    <li>
-                        <a href="/reports">Reports</a>
-                    </li>
-                    <li>
-                        <a href="#">Help</a>
-                    </li>
-                    <div className="user-wrap">
-                        {/*
-                        <div className="profile-pic">
-                            <img src={require("../../img/avatar.png")} alt="" />
-                        </div>
-                        */}
-                    </div>
-                </ul>
-            </div>
-        </header>
 
-         <div className="content-body">
-            
-            <div className="left-section">
-                <img src={require("../../img/bg5.png")} alt="" className="floor-map"/>
-                <div className="pagination">
-                    <div className="pages">
-                        <div className="page active" onClick={ this.doFetchMockData }>1</div>
-                        <div className="page">2</div>
-                        <div className="page">3</div>
-                    </div>
-                </div>
-                { this.props.mapList }
+        <Header />
+
+        <div className="content-body">
+
+          <div className="left-section">
+            <img src={require("../../img/bg5.png")} alt="" className="floor-map"/>
+            <div className="pagination">
+              <div className="pages">
+                <div className="page active" onClick={ this.doFetchMockData }>1</div>
+                <div className="page">2</div>
+                <div className="page">3</div>
+              </div>
             </div>
+            { this.props.mapList }
+          </div>
 
           <div className="col-1 right-section">
-                <h1 className="alerts-heading no-margin">Alerts</h1>
-                <div className="right-section-content">
-
-            { this.props.alertsList }
+            <h1 className="alerts-heading no-margin">Alerts</h1>
+            <div className="right-section-content">
+            
+              { this.props.alertsList }
 
             </div>
           </div>
         </div>
-        </div>
+      </div>
       
     );
   }

@@ -1,0 +1,65 @@
+header {
+    font-size: 0;
+    display: flex;
+}
+
+
+.logo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 351px;
+    position: relative;
+}
+
+.logo-img {
+    position: absolute;
+    height: 56px;
+    width: auto;
+    top: 26px;
+    left: 26px;
+    z-index: 1;
+}
+
+.logo-bg {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    z-index: 0;
+}
+
+body .content-dash .nav-container {
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - 351px);
+}
+
+body .content-dash .nav-container ul li {
+    display: inline-block;
+    margin-left: 25px;
+    vertical-align: middle;
+}
+
+body .content-dash .nav-container ul li {
+    display: inline;
+    list-style-type: none;
+}
+
+body .content-dash .nav-container ul li a {
+    text-decoration: none;
+    color: #00385d;
+    font-size: 16px;
+}
+
+body .content-dash .nav-container ul {
+    font-size: 0;
+}
+
+.nav-list:after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 870px;
+    background: #c4c4c4;
+    margin-left: auto;
+}

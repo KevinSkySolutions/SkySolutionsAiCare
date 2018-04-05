@@ -4,6 +4,7 @@ export const alertsData = [
     "id": 111,
     "resident": "Edwin Aldrin",
     "type": "Fall",
+    "color": "orange",
     "location": {
       "room": "Suite 101",
       "x": 5,
@@ -24,10 +25,10 @@ export const alertsData = [
       "status": "safe",
       "timestamp": "04/02/2018 11:50 AM",
       "desciption": "Fall"
-    },
+    }
     ],
     "currentlocation": "Suite 101",
-    "image_url": "http://www.ncrconline.com/sites/default/files/styles/people_headshot__256_x_256_/public/images/people/people-trainers/trainer-michael-jenkins/mike_jenkins_headshot.jpg?itok=hd1Czvtc",
+    "icon": "male",
     "status": "Assistance Required",
     "time": 30
   },
@@ -36,6 +37,7 @@ export const alertsData = [
     "id": 112,
     "resident": "Leanne Graham",
     "type": "SOS",
+    "color": "red",
     "location": {
       "room": "Clinic",
       "x": 6,
@@ -56,10 +58,10 @@ export const alertsData = [
       "status": "safe",
       "timestamp": "04/02/2018 11:50 AM",
       "desciption": "Fall"
-    },
+    }
   ],  
     "currentlocation": "Suite 201",
-    "image_url": "https://youscript.com/wp-content/uploads/2017/11/JC-Headshot-256x256.png",
+    "icon": "female",
     "status":"Assistance Required",
     "time": 3
   },
@@ -68,6 +70,7 @@ export const alertsData = [
     "id": 3,
     "resident": "Clementina DB",
     "type": "Fall",
+    "color": "orange",
     "location": {
       "room": "Lounge",
       "x": 150,
@@ -83,10 +86,10 @@ export const alertsData = [
       "status": "safe",
       "timestamp": "04/02/2018 11:40 AM",
       "desciption": "Help Dispatched."
-    },
+    }
   ],     
     "currentlocation": "Activity Room",
-    "image_url": "https://iapp.org/media/headshots/0011a00000DlCrOAAV.png",
+    "icon": "female",
     "status":"Assistance Needed",
     "time": 17
   },
@@ -95,6 +98,7 @@ export const alertsData = [
     "id": 4,
     "resident": "Patrick Lebsack",
     "type": "Non Routine",
+    "color": "green",
     "location": {
       "room": "Suite 201",
       "x": 5,
@@ -104,7 +108,7 @@ export const alertsData = [
 
    ], 
     "currentlocation": "Suite 201",
-    "image_url": "https://iapp.org/media/headshots/0011a00000XKdl8AAD.png",
+    "icon": "male",
     "status":"Help Dispatched",
     "time": 1
   },
@@ -113,6 +117,7 @@ export const alertsData = [
     "id": 5,
     "resident": "Glenna Reichert",
     "type": "Fall",
+    "color": "orange",
     "location": {
       "room": "Activity Room",
       "x": 140,
@@ -133,10 +138,10 @@ export const alertsData = [
       "status": "safe",
       "timestamp": "04/02/2018 11:50 AM",
       "desciption": "Fall"
-    },
+    }
    ], 
     "currentlocation": "Activity Room",
-    "image_url": "http://static.wixstatic.com/media/df1faa_7ce52a991d07450aaf05edfe0fdc3fd5~mv2.jpg/v1/fill/w_256,h_256,al_c,q_80,usm_0.66_1.00_0.01/df1faa_7ce52a991d07450aaf05edfe0fdc3fd5~mv2.webp",
+    "icon": "female",
     "status":"Help Active",
     "time": 40
   },
@@ -146,6 +151,7 @@ export const alertsData = [
 
     "resident": "Nicholas Runolf",
     "type": "SOS",
+    "color": "red",
     "location": {
       "room": "Utility",
       "x": 40,
@@ -155,7 +161,7 @@ export const alertsData = [
     
   ],  
     "currentlocation": "Lounge",
-    "image_url": "http://www.officedivvy.com/wp-content/uploads/2015/06/Jim-Taylor-Headshot.jpg",
+    "icon": "male",
     "status":"Help Active",
     "time":60 
   }
@@ -167,6 +173,7 @@ export const futureAlertsData = [
     "id": 111,
     "resident": "Edwin Aldrin",
     "type": "Fall",
+    "color": "orange",
     "location": {
       "room": "Suite 101",
       "x": 3,
@@ -187,10 +194,10 @@ export const futureAlertsData = [
       "status": "safe",
       "timestamp": "04/02/2018 11:50 AM",
       "desciption": "Fall"
-    },
+    }
     ],
     "currentlocation": "Clinic",
-    "image_url": "http://www.ncrconline.com/sites/default/files/styles/people_headshot__256_x_256_/public/images/people/people-trainers/trainer-michael-jenkins/mike_jenkins_headshot.jpg?itok=hd1Czvtc",
+    "icon": "male",
     "status": "Help Active",
     "time": 40
   },
@@ -199,6 +206,7 @@ export const futureAlertsData = [
     "id": 112,
     "resident": "Leanne Graham",
     "type": "SOS",
+    "color": "orange",
     "location": {
       "room": "Clinic",
       "x": 5,
@@ -219,10 +227,10 @@ export const futureAlertsData = [
       "status": "safe",
       "timestamp": "04/02/2018 11:50 AM",
       "desciption": "Fall"
-    },
+    }
    ],
     "currentlocation": "Suite 201",
-    "image_url": "https://youscript.com/wp-content/uploads/2017/11/JC-Headshot-256x256.png",
+    "icon": "female",
     "status":"Help Dispatched",
     "time": 13
   },
@@ -231,6 +239,7 @@ export const futureAlertsData = [
     "id": 3,
     "resident": "Clementina DB",
     "type": "Fall",
+    "color": "green",
     "location": {
       "room": "Lounge",
       "x": 41,
@@ -246,10 +255,10 @@ export const futureAlertsData = [
       "status": "safe",
       "timestamp": "04/02/2018 11:40 AM",
       "desciption": "Help Dispatched."
-    },
+    }
   ],     
     "currentlocation": "Lounge",
-    "image_url": "https://iapp.org/media/headshots/0011a00000DlCrOAAV.png",
+    "icon": "female",
     "status":"Help Dispatched",
     "time": 27
   },
@@ -258,6 +267,7 @@ export const futureAlertsData = [
     "id": 4,
     "resident": "Patrick Lebsack",
     "type": "Non Routine",
+    "color": "green",
     "location": {
       "room": "Suite 201",
       "x": 3,
@@ -267,7 +277,7 @@ export const futureAlertsData = [
 
    ], 
     "currentlocation": "Clinic",
-    "image_url": "https://iapp.org/media/headshots/0011a00000XKdl8AAD.png",
+    "icon": "male",
     "status":"Help Active",
     "time": 11
   },
@@ -276,6 +286,7 @@ export const futureAlertsData = [
     "id": 5,
     "resident": "Glenna Reichert",
     "type": "Fall",
+    "color": "green",
     "location": {
       "room": "Activity Room",
       "x": 140,
@@ -296,10 +307,10 @@ export const futureAlertsData = [
       "status": "safe",
       "timestamp": "04/02/2018 11:50 AM",
       "desciption": "Fall"
-    },
+    }
    ], 
     "currentlocation": "Activity Room",
-    "image_url": "http://static.wixstatic.com/media/df1faa_7ce52a991d07450aaf05edfe0fdc3fd5~mv2.jpg/v1/fill/w_256,h_256,al_c,q_80,usm_0.66_1.00_0.01/df1faa_7ce52a991d07450aaf05edfe0fdc3fd5~mv2.webp",
+    "icon": "female",
     "status":"Help Active",
     "time": 50
   },
@@ -308,6 +319,7 @@ export const futureAlertsData = [
     "id": 6,
     "resident": "Nicholas Runolf",
     "type": "SOS",
+    "color": "red",
     "location": {
       "room": "Utility",
       "x": 65,
@@ -317,7 +329,7 @@ export const futureAlertsData = [
     
   ],  
     "currentlocation": "Lounge",
-    "image_url": "http://www.officedivvy.com/wp-content/uploads/2015/06/Jim-Taylor-Headshot.jpg",
+    "icon": "male",
     "status":"Help active",
     "time": 70 
   }

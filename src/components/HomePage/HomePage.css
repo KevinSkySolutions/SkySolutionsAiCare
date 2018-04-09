@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
 .bodyclass {
   margin: 0px;
   padding: 0px;
   line-height: 1;
-  font-family: "Roboto"; }
+  font-family: 'Roboto', sans-serif; 
+}
 .content {
     background-image: url("../../img/bg.png");
     background-size: 100% 100%;

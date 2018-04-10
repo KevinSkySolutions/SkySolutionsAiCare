@@ -11,7 +11,7 @@
     "build": "webpack --config ./webpack.config.prod.js",
     "server": "npm run build && cross-env NODE_ENV=production babel-node ./server.js"
   },
-  "author": "Rohit Mohanty",
+  "author": "Rohit",
   "dependencies": {
     "axios": "0.15.1",
     "enzyme": "^3.3.0",

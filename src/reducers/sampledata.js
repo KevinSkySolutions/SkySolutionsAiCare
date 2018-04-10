@@ -1,169 +1,557 @@
 export const alertsData = [
-
-  { 
+  {
     "id": 111,
     "resident": "Edwin Aldrin",
     "type": "Fall",
-    "color": "orange",
-    "location": {
-      "room": "Suite 101",
-      "x": 5,
-      "y": 135
-    },
-    "history": [
-    {
-      "status": "danger",
-      "timestamp": "04/02/2018 11:30 AM",
-      "desciption": "SOS High Noise Alert"
-    },
-    {
-      "status": "safe",
-      "timestamp": "04/02/2018 11:40 AM",
-      "desciption": "Help Dispatched."
-    },
-    {
-      "status": "safe",
-      "timestamp": "04/02/2018 11:50 AM",
-      "desciption": "Fall"
-    }
-    ],
+    "color": "green",
+    "floor": 1,
     "currentlocation": "Suite 101",
     "icon": "male",
     "status": "Assistance Required",
-    "time": 30
+    "time": 30,
+    "media": {
+      "video": "alert.mp4"
+     },
+    "location": {
+      "room": "Suite 101",
+      "xpercent": 5,
+      "ypercent": 35
+    },
+    "history": [
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 11:30 AM",
+        "description": "Fall"
+      },
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 11:40 AM",
+        "description": "High Impact"
+      },
+      {
+        "color": "orange",
+        "timestamp": "04/20/2018 11:43 AM",
+        "description": "High Impact"
+      }
+    ]
   },
 
   {
     "id": 112,
-    "resident": "Leanne Graham",
+    "resident": "Leon Jenkins",
     "type": "SOS",
     "color": "red",
-    "location": {
-      "room": "Clinic",
-      "x": 6,
-      "y": 20
-    },
-    "history": [
-    {
-      "status": "danger",
-      "timestamp": "04/02/2018 11:30 AM",
-      "desciption": "SOS High Noise Alert"
-    },
-    {
-      "status": "safe",
-      "timestamp": "04/02/2018 11:40 AM",
-      "desciption": "Help Dispatched."
-    },
-    {
-      "status": "safe",
-      "timestamp": "04/02/2018 11:50 AM",
-      "desciption": "Fall"
-    }
-  ],  
-    "currentlocation": "Suite 201",
-    "icon": "female",
-    "status":"Assistance Required",
-    "time": 3
-  },
-
-  {
-    "id": 3,
-    "resident": "Clementina DB",
-    "type": "Fall",
-    "color": "orange",
-    "location": {
-      "room": "Lounge",
-      "x": 150,
-      "y": 100
-    },
-  "history": [
-    {
-      "status": "danger",
-      "timestamp": "04/02/2018 11:30 AM",
-      "desciption": "SOS High Noise Alert"
-    },
-    {
-      "status": "safe",
-      "timestamp": "04/02/2018 11:40 AM",
-      "desciption": "Help Dispatched."
-    }
-  ],     
-    "currentlocation": "Activity Room",
-    "icon": "female",
-    "status":"Assistance Needed",
-    "time": 17
-  },
-
-  {
-    "id": 4,
-    "resident": "Patrick Lebsack",
-    "type": "Non Routine",
-    "color": "green",
-    "location": {
-      "room": "Suite 201",
-      "x": 5,
-      "y": 5
-    },
-    "history": [
-
-   ], 
-    "currentlocation": "Suite 201",
-    "icon": "male",
-    "status":"Help Dispatched",
-    "time": 1
-  },
-
-  {
-    "id": 5,
-    "resident": "Glenna Reichert",
-    "type": "Fall",
-    "color": "orange",
-    "location": {
-      "room": "Activity Room",
-      "x": 140,
-      "y": 115
-    },
-    "history": [
-    {
-      "status": "danger",
-      "timestamp": "04/02/2018 11:30 AM",
-      "desciption": "SOS High Noise Alert"
-    },
-    {
-      "status": "safe",
-      "timestamp": "04/02/2018 11:40 AM",
-      "desciption": "Help Dispatched."
-    },
-    {
-      "status": "safe",
-      "timestamp": "04/02/2018 11:50 AM",
-      "desciption": "Fall"
-    }
-   ], 
-    "currentlocation": "Activity Room",
-    "icon": "female",
-    "status":"Help Active",
-    "time": 40
-  },
-
-  {
-    "id": 6,
-
-    "resident": "Nicholas Runolf",
-    "type": "SOS",
-    "color": "red",
-    "location": {
-      "room": "Utility",
-      "x": 40,
-      "y": 55
-    },
-    "history": [
-    
-  ],  
+    "floor": 1,
     "currentlocation": "Lounge",
     "icon": "male",
-    "status":"Help Active",
-    "time":60 
+    "status": "Help Dispatched",
+    "time": 10,
+    "media": {
+      "video": "alert.mp4"
+    },
+    "location": {
+      "room": "Lounge",
+      "xpercent": 22,
+      "ypercent": 86
+    },
+    "history": [
+      {
+        "color": "red",
+        "timestamp": "04/19/2018 11:30 AM",
+        "description": "Fall"
+      },
+      {
+        "color": "red",
+        "timestamp": "04/19/2018 12:40 PM",
+        "description": "SOS"
+      },
+      {
+        "color": "orange",
+        "timestamp": "04/20/2018 11:43 PM",
+        "description": "High Noise"
+      }
+    ]
+  },
+
+  {
+    "id": 116,
+    "resident": "Logan Doherty",
+    "type": "Fall",
+    "color": "orange",
+    "floor": 1,
+    "currentlocation": "Lounge",
+    "icon": "male",
+    "status": "Help Active",
+    "time": 17,
+    "media": {
+       "audio": "alert.mp3"
+    },
+    "location": {
+      "room": "Clinic",
+      "xpercent": 31,
+      "ypercent": 52
+    },
+    "history": [
+      {
+        "color": "red",
+        "timestamp": "04/19/2018 08:30 PM",
+        "description": "Fall"
+      },
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 11:40 AM",
+        "description": "Missing"
+      },
+      {
+        "color": "orange",
+        "timestamp": "04/20/2018 11:43 AM",
+        "description": "Power On"
+      }
+    ]
+  },
+
+  {
+    "id": 141,
+    "resident": "Holly Mahmood",
+    "type": "High Impact",
+    "color": "red",
+    "floor": 1,
+    "currentlocation": "Activity Room",
+    "icon": "female",
+    "status": "Help Active",
+    "time": 5,
+    "media": {
+      "text": "alert.txt"
+    },
+    "location": {
+      "room": "Suite 102",
+      "xpercent": 63,
+      "ypercent": 12
+    },
+    "history": [
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 11:30 AM",
+        "description": "Missing"
+      },
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 11:40 AM",
+        "description": "High Impact"
+      },
+      {
+        "color": "orange",
+        "timestamp": "04/20/2018 11:43 AM",
+        "description": "Battery Low"
+      }
+    ]
+  },
+
+  {
+    "id": 121,
+    "resident": "Ali Fulton",
+    "type": "Fall",
+    "color": "orange",
+    "floor": 2,
+    "currentlocation": "Suite 201",
+    "icon": "female",
+    "status": "Help Dispatched",
+    "time": 11,
+    "media": {
+      "audio": "alert.mp3"
+    },
+    "location": {
+      "room": "Suite 201",
+      "xpercent": 15,
+      "ypercent": 35
+    },
+    "history": [
+      {
+        "color": "orange",
+        "timestamp": "04/18/2018 12:30 AM",
+        "description": "High Noise Alert"
+      },
+      {
+        "color": "orange",
+        "timestamp": "04/20/2018 11:40 AM",
+        "description": "Battery Low"
+      },
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 11:43 AM",
+        "description": "High Impact"
+      }
+    ]
+  },
+
+  {
+    "id": 101,
+    "resident": "David Choi",
+    "type": "SOS",
+    "color": "red",
+    "floor": 2,
+    "currentlocation": "Activity Room",
+    "icon": "male",
+    "status": "Assistance Required",
+    "time": 2,
+    "media": {
+      "video": "alert.mp4"
+    },
+    "location": {
+      "room": "Activity Room",
+      "xpercent": 56,
+      "ypercent": 74
+    },
+    "history": [
+      {
+        "color": "red",
+        "timestamp": "04/19/2018 11:30 AM",
+        "description": "Fall"
+      },
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 11:40 AM",
+        "description": "High Impact"
+      },
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 11:43 AM",
+        "description": "Missing"
+      }
+    ]
+  },
+
+  {
+    "id": 119,
+    "resident": "Luis R. Carlyle",
+    "type": "Missing",
+    "color": "red",
+    "floor": 2,
+    "currentlocation": "Suite 202",
+    "icon": "male",
+    "status": "Assistance Required",
+    "time": 30,
+    "media": {
+      "audio": "alert.mp3"
+    },
+    "location": {
+      "room": "Suite 202",
+      "xpercent": 74,
+      "ypercent": 12
+    },
+    "history": [
+      {
+        "color": "red",
+        "timestamp": "04/19/2018 10:30 AM",
+        "description": "SOS"
+      },
+      {
+        "color": "orange",
+        "timestamp": "04/20/2018 11:40 AM",
+        "description": "Subscriber Login Fail"
+      },
+      {
+        "color": "orange",
+        "timestamp": "04/20/2018 11:43 AM",
+        "description": "Battery Low"
+      }
+    ]
+  },
+
+  {
+    "id": 211,
+    "resident": "Gabriel C. Patterson",
+    "type": "SOS",
+    "color": "orange",
+    "floor": 2,
+    "currentlocation": "Lounge",
+    "icon": "male",
+    "status": "Help Dispatched",
+    "time": 24,
+    "media": {
+      "text": "alert.txt"
+    },
+    "location": {
+      "room": "Lounge",
+      "xpercent": 12,
+      "ypercent": 67
+    },
+    "history": [
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 11:30 AM",
+        "description": "Fall"
+      },
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 11:40 AM",
+        "description": "Help Dispatched"
+      },
+      {
+        "color": "orange",
+        "timestamp": "04/20/2018 11:43 AM",
+        "description": "Help Active"
+      }
+    ]
+  },
+
+  {
+    "id": 151,
+    "resident": "Felix T. Steelman",
+    "type": "Fall",
+    "color": "green",
+    "floor": 2,
+    "currentlocation": "Activity Room",
+    "icon": "male",
+    "status": "Help Active",
+    "time": 6,
+    "media": {
+      "video": "alert.mp4"
+    },
+    "location": {
+      "room": "Clinic",
+      "xpercent": 9,
+      "ypercent": 91
+    },
+    "history": [
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 11:30 AM",
+        "description": "Fall"
+      },
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 11:40 AM",
+        "description": "Help Dispatched"
+      },
+      {
+        "color": "orange",
+        "timestamp": "04/20/2018 11:43 AM",
+        "description": "Help Active"
+      }
+    ]
+  },
+
+  {
+    "id": 102,
+    "resident": "Sandra Warren",
+    "type": "SOS",
+    "color": "green",
+    "floor": 2,
+    "currentlocation": "Activity Room",
+    "icon": "female",
+    "status": "Help Active",
+    "time": 40,
+    "media": {
+      "audio": "alert.mp3"
+    },
+    "location": {
+      "room": "Suite 203",
+      "xpercent": 24,
+      "ypercent": 84
+    },
+    "history": [
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 11:30 AM",
+        "description": "Fall"
+      },
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 11:40 AM",
+        "description": "Help Dispatched"
+      },
+      {
+        "color": "orange",
+        "timestamp": "04/20/2018 11:43 AM",
+        "description": "Help Active"
+      }
+    ]
+  },
+
+  {
+    "id": 201,
+    "resident": "Larry E. Moore",
+    "type": "SOS",
+    "color": "green",
+    "floor": 3,
+    "currentlocation": "Lounge",
+    "icon": "male",
+    "status": "Help Active",
+    "time": 10,
+    "media": {
+      "video": "alert.mp4"
+    },
+    "location": {
+      "room": "Clinic",
+      "xpercent": 11,
+      "ypercent": 25
+    },
+    "history": [
+      {
+        "color": "orange",
+        "timestamp": "04/18/2018 9:30 AM",
+        "description": "High Noise Alert"
+      },
+      {
+        "color": "red",
+        "timestamp": "04/19/2018 1:40 PM",
+        "description": "SOS"
+      },
+      {
+        "color": "orange",
+        "timestamp": "04/20/2018 10:43 AM",
+        "description": "Fall"
+      }
+    ]
+  },
+
+  {
+    "id": 211,
+    "resident": "Alicia L. Austin",
+    "type": "Fall",
+    "color": "orange",
+    "floor": 3,
+    "currentlocation": "Activity Room",
+    "icon": "female",
+    "status": "Help Dispatched",
+    "time": 15,
+    "media": {
+      "audio": "alert.mp3"
+    },
+    "location": {
+      "room": "Activity Room",
+      "xpercent": 52,
+      "ypercent": 31
+    },
+    "history": [
+      {
+        "color": "orange",
+        "timestamp": "04/19/2018 9:43 PM",
+        "description": "High Noise Alert"
+      },
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 11:40 AM",
+        "description": "High Impact"
+      },
+      {
+        "color": "orange",
+        "timestamp": "04/20/2018 11:43 AM",
+        "description": "Battery Low"
+      }
+    ]
+  },
+
+  {
+    "id": 221,
+    "resident": "Thomas A. Gaines",
+    "type": "Missing",
+    "color": "red",
+    "floor": 3,
+    "currentlocation": "Unknown",
+    "icon": "male",
+    "status": "Help Active",
+    "time": 30,
+    "media": {
+      "text": "alert.txt"
+    },
+    "location": {
+      "room": "Suite 301",
+      "xpercent": 15,
+      "ypercent": 21
+    },
+    "history": [
+      {
+        "color": "orange",
+        "timestamp": "04/19/2018 5:55 PM",
+        "description": "Fall"
+      },
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 8:40 AM",
+        "description": "Leaving Location"
+      },
+      {
+        "color": "orange",
+        "timestamp": "04/20/2018 11:43 AM",
+        "description": "Subscriber Login Fail"
+      }
+    ]
+  },
+
+  {
+    "id": 197,
+    "resident": "Jennifer Carpenter",
+    "type": "Battery Low",
+    "color": "green",
+    "floor": 3,
+    "currentlocation": "Lounge",
+    "icon": "female",
+    "status": "Assistance Required",
+    "time": 3,
+    "media": {
+      "audio": "alert.mp3"
+    },
+    "location": {
+      "room": "Lounge",
+      "xpercent": 67,
+      "ypercent": 43
+    },
+    "history": [
+      {
+        "color": "orange",
+        "timestamp": "04/17/2018 10:21 AM",
+        "description": "Fall"
+      },
+      {
+        "color": "orange",
+        "timestamp": "04/19/2018 11:11 AM",
+        "description": "High Noise Alert"
+      },
+      {
+        "color": "red",
+        "timestamp": "04/20/2018 9:13 AM",
+        "description": "SOS"
+      }
+    ]
+  },
+
+  {
+    "id": 203,
+    "resident": "Lily Denton",
+    "type": "SOS",
+    "color": "red",
+    "floor": 3,
+    "currentlocation": "Suite 302",
+    "icon": "female",
+    "status": "Assistance Required",
+    "time": 21,
+    "media": {
+      "text": "alert.txt"
+    },
+    "location": {
+      "room": "Suite 302",
+      "xpercent": 94,
+      "ypercent": 65
+    },
+    "history": [
+      {
+        "color": "red",
+        "timestamp": "04/18/2018 8:27 AM",
+        "description": "Fall"
+      },
+      {
+        "color": "red",
+        "timestamp": "04/19/2018 11:40 PM",
+        "description": "Missing"
+      },
+      {
+        "color": "orange",
+        "timestamp": "04/20/2018 10:03 AM",
+        "description": "Subscriber Login Fail"
+      }
+    ]
   }
 ]
 

@@ -66,8 +66,6 @@ export function AlertsList(props) {
 }
 
 export function ResidentsOnMap(props) {
-  console.log("Props of ResidentsOnMap:");
-  console.log(props);
 
   return props.alerts.map((alert, keyValue) => { 
 

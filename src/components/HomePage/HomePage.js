@@ -38,38 +38,13 @@ export class HomePage extends Component {
     isLoggingIn: false
   }
 
-  // metadata for html
-  static getMeta() {
-    return {
-      title: 'AiCare Monitoring Portal',
-      link: [
-        {
-          rel: 'canonical',
-          href: 'http://localhost:3000'
-        }
-      ],
-      meta: [
-        {
-          charset: 'utf-8'
-        },
-        {
-          name: 'description', 
-          content: 'This is the monitoring portal for Ashby Ponds by AiCare'
-        }
-      ]
-    };
-  }
-
   // lifecycle method
   componentDidMount() {
     const { dispatch } = this.props;
   }
 
   // the render method
-  render() {    
-
-    // for use inside render
-    const head = HomePage.getMeta();
+  render() {
 
     return (
       <div className="bodyclass">

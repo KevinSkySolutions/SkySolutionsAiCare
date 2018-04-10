@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
@@ -17,29 +16,7 @@ if (process.env.WEBPACK) {
 }
 
 export class Dashboard extends Component {
-  static propTypes = {
-    dispatch: PropTypes.func.isRequired
-  }
-  static getMeta(id) {
-    return {
-      title: `AiCare AshbyPonds Monitoring Portal`,
-      link: [
-        {
-          rel: 'canonical',
-          href: `http://localhost:3000/post/${id}`
-        }
-      ],
-      meta: [
-        {
-          charset: 'utf-8'
-        },
-        {
-          name: 'description', content: 'Put the description here!'
-        }
-      ]
-    };
-  }
-
+  
   componentDidMount() {
     const { dispatch } = this.props;
     this.props.dispatch({ type: REQUEST_ALERTS, payload: {} });
@@ -53,8 +30,6 @@ export class Dashboard extends Component {
   }
 
   render() {
-    // for use inside render
-    const head = Dashboard.getMeta();
 
     return (
       <div className="content-dash">

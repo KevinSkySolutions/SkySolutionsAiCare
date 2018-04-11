@@ -6,7 +6,7 @@ import Meta from 'react-helmet';
 
 import { bindActionCreators } from 'redux';
 
-import { createaction_requestAlerts, REQUEST_ALERTS, REQUEST_ALERTS_MOCK } from '../../actions';
+import { createaction_requestAlerts } from '../../actions';
 import Header from '../Common/Header/Header';
 import { AlertsList, ResidentsOnMap } from './SubComponents';
 
@@ -19,14 +19,14 @@ export class Dashboard extends Component {
   
   componentDidMount() {
     const { dispatch } = this.props;
-    this.props.dispatch({ type: REQUEST_ALERTS, payload: {} });
+    this.props.dispatch({ type: "A_REQUEST_ALERTS", payload: {} });
     // dispatch({ type: REQUEST_ALERTS, payload: {} });
   }
 
   doFetchMockData = (event) => {
 
     // this.props.dispatch_createaction_doLogin("u", "p");
-    this.props.dispatch({ type: REQUEST_ALERTS_MOCK, payload: {} });
+    this.props.dispatch({ type: "MA_REQUEST_ALERTS", payload: {} });
   }
 
   render() {

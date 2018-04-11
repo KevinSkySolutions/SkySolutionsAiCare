@@ -1,7 +1,4 @@
-export const REQUEST_LOGIN   = 'A_REQUEST_LOGIN'
-export const REQUEST_ALERTS  = 'A_REQUEST_ALERTS';
-
-export const REQUEST_ALERTS_MOCK = "MA_REQUEST_ALERTS"
+import { REQUEST_LOGIN, REQUEST_ALERTS, REQUEST_ALERTS_MOCK } from '../constants'; 
 
 export const createaction_doLogin = (userid, passcode) => {
 

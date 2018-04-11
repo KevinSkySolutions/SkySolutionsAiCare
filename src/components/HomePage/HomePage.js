@@ -6,7 +6,7 @@ import { browserHistory } from 'react-router'
 
 import { bindActionCreators } from 'redux';
 
-import { createaction_doLogin, REQUEST_LOGIN } from '../../actions';
+import { createaction_doLogin } from '../../actions';
 
 // import (  ) from '../../reducers';
 
@@ -82,7 +82,7 @@ export class HomePage extends Component {
     browserHistory.push('/dashboard');
 
     // this.props.dispatch_createaction_doLogin("u", "p");
-    this.props.dispatch({ type: REQUEST_LOGIN, payload: {username: "username", passcode: "passcode"} });
+    this.props.dispatch({ type: "A_REQUEST_LOGIN", payload: {username: "username", passcode: "passcode"} });
   }
 
 }

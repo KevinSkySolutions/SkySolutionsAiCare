@@ -1,4 +1,4 @@
-import { REQUEST_ALERTS, REQUEST_ALERTS_MOCK } from '../actions';
+import { REQUEST_ALERTS, REQUEST_ALERTS_MOCK } from '../constants';
 import { alertsData, patientsData, futureAlertsData } from './sampledata';
 
 // this is the dashboard reducer, responds to all ACTIONS raised from the Dashboard page. 

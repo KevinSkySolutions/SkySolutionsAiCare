@@ -1,4 +1,4 @@
-import { REQUEST_LOGIN } from '../actions';
+import { REQUEST_LOGIN } from '../constants';
 
 // this is the HomePage reducer, responds to all ACTIONS raised from the HomePage page. 
 export default function homepageReducer(state = { isLoggingIn: false }, action) {

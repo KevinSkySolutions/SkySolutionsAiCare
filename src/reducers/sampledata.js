@@ -11,7 +11,7 @@ export const alertsData = [
     "time": 30,
     "media": {
       "video": "alert.mp4"
-     },
+    },
     "location": {
       "room": "Suite 101",
       "xpercent": 5,
@@ -84,7 +84,7 @@ export const alertsData = [
     "description": "Help Active",
     "time": 17,
     "media": {
-       "audio": "alert.mp3"
+      "audio": "alert.mp3"
     },
     "location": {
       "room": "Clinic",
@@ -554,9 +554,10 @@ export const alertsData = [
     ]
   }
 ]
+
 export const futureAlertsData = [
 
-  { 
+  {
     "id": 111,
     "resident": "Edwin Aldrin",
     "type": "Fall",
@@ -567,21 +568,21 @@ export const futureAlertsData = [
       "y": 60
     },
     "history": [
-    {
-      "status": "danger",
-      "timestamp": "04/02/2018 11:30 AM",
-      "desciption": "SOS High Noise Alert"
-    },
-    {
-      "status": "safe",
-      "timestamp": "04/02/2018 11:40 AM",
-      "desciption": "Help Dispatched."
-    },
-    {
-      "status": "safe",
-      "timestamp": "04/02/2018 11:50 AM",
-      "desciption": "Fall"
-    }
+      {
+        "status": "danger",
+        "timestamp": "04/02/2018 11:30 AM",
+        "desciption": "SOS High Noise Alert"
+      },
+      {
+        "status": "safe",
+        "timestamp": "04/02/2018 11:40 AM",
+        "desciption": "Help Dispatched."
+      },
+      {
+        "status": "safe",
+        "timestamp": "04/02/2018 11:50 AM",
+        "desciption": "Fall"
+      }
     ],
     "currentlocation": "Clinic",
     "icon": "male",
@@ -600,25 +601,25 @@ export const futureAlertsData = [
       "y": 5
     },
     "history": [
-    {
-      "status": "danger",
-      "timestamp": "04/02/2018 11:30 AM",
-      "desciption": "SOS High Noise Alert"
-    },
-    {
-      "status": "safe",
-      "timestamp": "04/02/2018 11:40 AM",
-      "desciption": "Help Dispatched."
-    },
-    {
-      "status": "safe",
-      "timestamp": "04/02/2018 11:50 AM",
-      "desciption": "Fall"
-    }
-   ],
+      {
+        "status": "danger",
+        "timestamp": "04/02/2018 11:30 AM",
+        "desciption": "SOS High Noise Alert"
+      },
+      {
+        "status": "safe",
+        "timestamp": "04/02/2018 11:40 AM",
+        "desciption": "Help Dispatched."
+      },
+      {
+        "status": "safe",
+        "timestamp": "04/02/2018 11:50 AM",
+        "desciption": "Fall"
+      }
+    ],
     "currentlocation": "Suite 201",
     "icon": "female",
-    "status":"Help Dispatched",
+    "status": "Help Dispatched",
     "time": 13
   },
 
@@ -632,21 +633,21 @@ export const futureAlertsData = [
       "x": 41,
       "y": 75
     },
-  "history": [
-    {
-      "status": "danger",
-      "timestamp": "04/02/2018 11:30 AM",
-      "desciption": "SOS High Noise Alert"
-    },
-    {
-      "status": "safe",
-      "timestamp": "04/02/2018 11:40 AM",
-      "desciption": "Help Dispatched."
-    }
-  ],     
+    "history": [
+      {
+        "status": "danger",
+        "timestamp": "04/02/2018 11:30 AM",
+        "desciption": "SOS High Noise Alert"
+      },
+      {
+        "status": "safe",
+        "timestamp": "04/02/2018 11:40 AM",
+        "desciption": "Help Dispatched."
+      }
+    ],
     "currentlocation": "Lounge",
     "icon": "female",
-    "status":"Help Dispatched",
+    "status": "Help Dispatched",
     "time": 27
   },
 
@@ -662,10 +663,10 @@ export const futureAlertsData = [
     },
     "history": [
 
-   ], 
+    ],
     "currentlocation": "Clinic",
     "icon": "male",
-    "status":"Help Active",
+    "status": "Help Active",
     "time": 11
   },
 
@@ -680,25 +681,25 @@ export const futureAlertsData = [
       "y": 108
     },
     "history": [
-    {
-      "status": "danger",
-      "timestamp": "04/02/2018 11:30 AM",
-      "desciption": "SOS High Noise Alert"
-    },
-    {
-      "status": "safe",
-      "timestamp": "04/02/2018 11:40 AM",
-      "desciption": "Help Dispatched."
-    },
-    {
-      "status": "safe",
-      "timestamp": "04/02/2018 11:50 AM",
-      "desciption": "Fall"
-    }
-   ], 
+      {
+        "status": "danger",
+        "timestamp": "04/02/2018 11:30 AM",
+        "desciption": "SOS High Noise Alert"
+      },
+      {
+        "status": "safe",
+        "timestamp": "04/02/2018 11:40 AM",
+        "desciption": "Help Dispatched."
+      },
+      {
+        "status": "safe",
+        "timestamp": "04/02/2018 11:50 AM",
+        "desciption": "Fall"
+      }
+    ],
     "currentlocation": "Activity Room",
     "icon": "female",
-    "status":"Help Active",
+    "status": "Help Active",
     "time": 50
   },
 
@@ -713,16 +714,16 @@ export const futureAlertsData = [
       "y": 55
     },
     "history": [
-    
-  ],  
+
+    ],
     "currentlocation": "Lounge",
     "icon": "male",
-    "status":"Help active",
-    "time": 70 
+    "status": "Help active",
+    "time": 70
   }
 ]
 
-export const patientsData =[
+export const patientsData = [
   {
     "id": 1,
     "name": "Leanne Graham",
@@ -902,5 +903,25 @@ export const patientsData =[
       "phone": "202-555-0116",
       "speciality": "Rheumatologist"
     }
+  }
+]
+
+export const floorsData = [
+  {
+    "facility": "Ashby Ponds",
+    "floor": 1,
+    "floormap": "media1@url",
+  },
+
+  {
+    "facility": "Ashby Ponds",
+    "floor": 2,
+    "floormap": "media2@url",
+  },
+
+  {
+    "facility": "Ashby Ponds",
+    "floor": 3,
+    "floormap": "media3@url",
   }
 ]

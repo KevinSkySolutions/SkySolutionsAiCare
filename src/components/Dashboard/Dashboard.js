@@ -7,7 +7,7 @@ import Meta from 'react-helmet';
 import { bindActionCreators } from 'redux';
 
 import { createaction_requestAlerts } from '../../actions';
-import { REQUEST_ALERTS, REQUEST_ALERTS_SUMMARY } from '../../constants';
+import { REQUEST_ALERTS, REQUEST_ALERTS_MOCK, REQUEST_ALERTS_SUMMARY, REQUEST_FLOOR_DATA } from '../../constants';
 import Header from '../Common/Header/Header';
 import { AlertsList, ResidentsOnMap } from './SubComponents';
 
@@ -21,15 +21,29 @@ export class Dashboard extends Component {
   componentDidMount() {
     const { dispatch } = this.props;
     this.props.dispatch({ type: REQUEST_ALERTS, payload: {} });
+    this.props.dispatch({ type: REQUEST_ALERTS_SUMMARY, payload: {} });
     // dispatch({ type: REQUEST_ALERTS, payload: {} });
   }
 
+  /**
+   * mock call for now, to simulate a future state
+   */
   doFetchMockData = (event) => {
 
     // this.props.dispatch_createaction_doLogin("u", "p");
-    this.props.dispatch({ type: REQUEST_ALERTS_SUMMARY, payload: {} });
+    this.props.dispatch({ type: REQUEST_ALERTS_MOCK, payload: {} });
   }
 
+  /**
+   * mock call for now, to simulate REQUEST_FLOOR_DATA
+   */
+  doFetchFloordata = (event) => {
+
+    // this.props.dispatch_createaction_doLogin("u", "p");
+    this.props.dispatch({ type: REQUEST_FLOOR_DATA, payload: {} });
+  }
+
+  // the render method of this Container
   render() {
 
     return (
@@ -44,7 +58,7 @@ export class Dashboard extends Component {
             <div className="pagination">
               <div className="pages">
                 <div className="page active" onClick={ this.doFetchMockData }>1</div>
-                <div className="page">2</div>
+                <div className="page" onClick={ this.doFetchFloordata }>2</div>
                 <div className="page">3</div>
               </div>
             </div>

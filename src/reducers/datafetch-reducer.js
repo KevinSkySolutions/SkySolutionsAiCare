@@ -1,5 +1,5 @@
 import { REQUEST_ALERTS, REQUEST_ALERTS_MOCK } from '../constants';
-import { alertsData, patientsData, futureAlertsData } from './sampledata';
+import { alertsData, futureAlertsData } from './sampledata';
 
 // this is the dashboard reducer, responds to all ACTIONS raised from the Dashboard page. 
 export default function datafetchReducer(state = { alertsdata: []}, action) {

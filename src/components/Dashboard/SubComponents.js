@@ -14,7 +14,7 @@ export function AlertsList(props) {
     
 	    <div className="description-mod " key={ keyValue }>
 	      <div className="pt-log pt-detail">
-	        <img src={ require("../../img/" + alert.icon + "_" + alert.color + ".png") } className="avatar" />
+	        <img src={ require("../../img/" + alert.icon + "_" + alert.priority + ".png") } className="avatar" />
 	        <div className="side-text detail-1">
 	          <div className="pt-name list-header">{ alert.resident }</div>
 	          <div className="pt-suite-no gray-text list-subheader mr-t-5">{ alert.currentlocation }</div>
@@ -76,7 +76,7 @@ export function ResidentsOnMap(props) {
     };
 
     return(
-      <img key={ keyValue } style={divStyle} className="person-on-map" src={ require("../../img/" + alert.icon + "_" + alert.color + ".png") }/>
+      <img key={ keyValue } style={divStyle} className="person-on-map" src={ require("../../img/" + alert.icon + "_" + alert.priority + ".png") }/>
     )
   })
 

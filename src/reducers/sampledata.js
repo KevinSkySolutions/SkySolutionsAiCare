@@ -3,11 +3,11 @@ export const alertsData = [
     "id": 111,
     "resident": "Edwin Aldrin",
     "type": "Fall",
-    "color": "green",
+    "priority": 2,
     "floor": 1,
     "currentlocation": "Suite 101",
     "icon": "male",
-    "status": "Assistance Required",
+    "description": "Assistance Required",
     "time": 30,
     "media": {
       "video": "alert.mp4"
@@ -19,19 +19,19 @@ export const alertsData = [
     },
     "history": [
       {
-        "color": "red",
+        "priority": 2,
         "timestamp": "04/20/2018 11:30 AM",
-        "description": "Fall"
+        "type": "Fall"
       },
       {
-        "color": "red",
+        "priority": 3,
         "timestamp": "04/20/2018 11:40 AM",
-        "description": "High Impact"
+        "type": "High Impact"
       },
       {
-        "color": "orange",
+        "priority": 3,
         "timestamp": "04/20/2018 11:43 AM",
-        "description": "High Impact"
+        "type": "High Impact"
       }
     ]
   },
@@ -40,11 +40,11 @@ export const alertsData = [
     "id": 112,
     "resident": "Leon Jenkins",
     "type": "SOS",
-    "color": "red",
+    "priority": 1,
     "floor": 1,
     "currentlocation": "Lounge",
     "icon": "male",
-    "status": "Help Dispatched",
+    "description": "Help Dispatched",
     "time": 10,
     "media": {
       "video": "alert.mp4"
@@ -56,19 +56,19 @@ export const alertsData = [
     },
     "history": [
       {
-        "color": "red",
+        "priority": 2,
         "timestamp": "04/19/2018 11:30 AM",
-        "description": "Fall"
+        "type": "Fall"
       },
       {
-        "color": "red",
+        "priority": 1,
         "timestamp": "04/19/2018 12:40 PM",
-        "description": "SOS"
+        "type": "SOS"
       },
       {
-        "color": "orange",
+        "priority": 6,
         "timestamp": "04/20/2018 11:43 PM",
-        "description": "High Noise"
+        "type": "High Noise Alert"
       }
     ]
   },
@@ -77,11 +77,11 @@ export const alertsData = [
     "id": 116,
     "resident": "Logan Doherty",
     "type": "Fall",
-    "color": "orange",
+    "priority": 2,
     "floor": 1,
     "currentlocation": "Lounge",
     "icon": "male",
-    "status": "Help Active",
+    "description": "Help Active",
     "time": 17,
     "media": {
        "audio": "alert.mp3"
@@ -93,19 +93,19 @@ export const alertsData = [
     },
     "history": [
       {
-        "color": "red",
+        "priority": 2,
         "timestamp": "04/19/2018 08:30 PM",
-        "description": "Fall"
+        "type": "Fall"
       },
       {
-        "color": "red",
+        "priority": 4,
         "timestamp": "04/20/2018 11:40 AM",
-        "description": "Missing"
+        "type": "Missing"
       },
       {
-        "color": "orange",
+        "priority": 7,
         "timestamp": "04/20/2018 11:43 AM",
-        "description": "Power On"
+        "type": "Power On"
       }
     ]
   },
@@ -114,11 +114,11 @@ export const alertsData = [
     "id": 141,
     "resident": "Holly Mahmood",
     "type": "High Impact",
-    "color": "red",
+    "priority": 3,
     "floor": 1,
     "currentlocation": "Activity Room",
     "icon": "female",
-    "status": "Help Active",
+    "description": "Help Active",
     "time": 5,
     "media": {
       "text": "alert.txt"
@@ -130,19 +130,19 @@ export const alertsData = [
     },
     "history": [
       {
-        "color": "red",
+        "priority": 4,
         "timestamp": "04/20/2018 11:30 AM",
-        "description": "Missing"
+        "type": "Missing"
       },
       {
-        "color": "red",
+        "priority": 3,
         "timestamp": "04/20/2018 11:40 AM",
-        "description": "High Impact"
+        "type": "High Impact"
       },
       {
-        "color": "orange",
+        "priority": 5,
         "timestamp": "04/20/2018 11:43 AM",
-        "description": "Battery Low"
+        "type": "Battery Low"
       }
     ]
   },
@@ -151,11 +151,11 @@ export const alertsData = [
     "id": 121,
     "resident": "Ali Fulton",
     "type": "Fall",
-    "color": "orange",
+    "priority": 2,
     "floor": 2,
     "currentlocation": "Suite 201",
     "icon": "female",
-    "status": "Help Dispatched",
+    "description": "Help Dispatched",
     "time": 11,
     "media": {
       "audio": "alert.mp3"
@@ -167,19 +167,19 @@ export const alertsData = [
     },
     "history": [
       {
-        "color": "orange",
+        "priority": 6,
         "timestamp": "04/18/2018 12:30 AM",
-        "description": "High Noise Alert"
+        "type": "High Noise Alert"
       },
       {
-        "color": "orange",
+        "priority": 5,
         "timestamp": "04/20/2018 11:40 AM",
-        "description": "Battery Low"
+        "type": "Battery Low"
       },
       {
-        "color": "red",
+        "priority": 3,
         "timestamp": "04/20/2018 11:43 AM",
-        "description": "High Impact"
+        "type": "High Impact"
       }
     ]
   },
@@ -188,11 +188,11 @@ export const alertsData = [
     "id": 101,
     "resident": "David Choi",
     "type": "SOS",
-    "color": "red",
+    "priority": 1,
     "floor": 2,
     "currentlocation": "Activity Room",
     "icon": "male",
-    "status": "Assistance Required",
+    "description": "Assistance Required",
     "time": 2,
     "media": {
       "video": "alert.mp4"
@@ -204,19 +204,19 @@ export const alertsData = [
     },
     "history": [
       {
-        "color": "red",
+        "priority": 2,
         "timestamp": "04/19/2018 11:30 AM",
-        "description": "Fall"
+        "type": "Fall"
       },
       {
-        "color": "red",
+        "priority": 3,
         "timestamp": "04/20/2018 11:40 AM",
-        "description": "High Impact"
+        "type": "High Impact"
       },
       {
-        "color": "red",
+        "priority": 4,
         "timestamp": "04/20/2018 11:43 AM",
-        "description": "Missing"
+        "type": "Missing"
       }
     ]
   },
@@ -225,11 +225,11 @@ export const alertsData = [
     "id": 119,
     "resident": "Luis R. Carlyle",
     "type": "Missing",
-    "color": "red",
+    "priority": 3,
     "floor": 2,
     "currentlocation": "Suite 202",
     "icon": "male",
-    "status": "Assistance Required",
+    "description": "Assistance Required",
     "time": 30,
     "media": {
       "audio": "alert.mp3"
@@ -241,19 +241,19 @@ export const alertsData = [
     },
     "history": [
       {
-        "color": "red",
+        "priority": 1,
         "timestamp": "04/19/2018 10:30 AM",
-        "description": "SOS"
+        "type": "SOS"
       },
       {
-        "color": "orange",
+        "priority": 8,
         "timestamp": "04/20/2018 11:40 AM",
-        "description": "Subscriber Login Fail"
+        "type": "Subscriber Login Fail"
       },
       {
-        "color": "orange",
+        "priority": 5,
         "timestamp": "04/20/2018 11:43 AM",
-        "description": "Battery Low"
+        "type": "Battery Low"
       }
     ]
   },
@@ -262,11 +262,11 @@ export const alertsData = [
     "id": 211,
     "resident": "Gabriel C. Patterson",
     "type": "SOS",
-    "color": "orange",
+    "priority": 1,
     "floor": 2,
     "currentlocation": "Lounge",
     "icon": "male",
-    "status": "Help Dispatched",
+    "description": "Help Dispatched",
     "time": 24,
     "media": {
       "text": "alert.txt"
@@ -278,19 +278,19 @@ export const alertsData = [
     },
     "history": [
       {
-        "color": "red",
+        "priority": 2,
         "timestamp": "04/20/2018 11:30 AM",
-        "description": "Fall"
+        "type": "Fall"
       },
       {
-        "color": "red",
+        "priority": 1,
         "timestamp": "04/20/2018 11:40 AM",
-        "description": "Help Dispatched"
+        "type": "SOS"
       },
       {
-        "color": "orange",
+        "priority": 8,
         "timestamp": "04/20/2018 11:43 AM",
-        "description": "Help Active"
+        "type": "Subscriber Login Fail"
       }
     ]
   },
@@ -299,11 +299,11 @@ export const alertsData = [
     "id": 151,
     "resident": "Felix T. Steelman",
     "type": "Fall",
-    "color": "green",
+    "priority": 2,
     "floor": 2,
     "currentlocation": "Activity Room",
     "icon": "male",
-    "status": "Help Active",
+    "description": "Help Active",
     "time": 6,
     "media": {
       "video": "alert.mp4"
@@ -315,19 +315,19 @@ export const alertsData = [
     },
     "history": [
       {
-        "color": "red",
+        "priority": 2,
         "timestamp": "04/20/2018 11:30 AM",
-        "description": "Fall"
+        "type": "Fall"
       },
       {
-        "color": "red",
+        "priority": 3,
         "timestamp": "04/20/2018 11:40 AM",
-        "description": "Help Dispatched"
+        "type": "High Impact"
       },
       {
-        "color": "orange",
+        "priority": 5,
         "timestamp": "04/20/2018 11:43 AM",
-        "description": "Help Active"
+        "type": "Battery Low"
       }
     ]
   },
@@ -336,11 +336,11 @@ export const alertsData = [
     "id": 102,
     "resident": "Sandra Warren",
     "type": "SOS",
-    "color": "green",
+    "priority": 1,
     "floor": 2,
     "currentlocation": "Activity Room",
     "icon": "female",
-    "status": "Help Active",
+    "description": "Help Active",
     "time": 40,
     "media": {
       "audio": "alert.mp3"
@@ -352,19 +352,19 @@ export const alertsData = [
     },
     "history": [
       {
-        "color": "red",
+        "priority": 2,
         "timestamp": "04/20/2018 11:30 AM",
-        "description": "Fall"
+        "type": "Fall"
       },
       {
-        "color": "red",
+        "priority": 6,
         "timestamp": "04/20/2018 11:40 AM",
-        "description": "Help Dispatched"
+        "type": "High Noise Alert"
       },
       {
-        "color": "orange",
+        "priority": 7,
         "timestamp": "04/20/2018 11:43 AM",
-        "description": "Help Active"
+        "type": "Power On"
       }
     ]
   },
@@ -373,11 +373,11 @@ export const alertsData = [
     "id": 201,
     "resident": "Larry E. Moore",
     "type": "SOS",
-    "color": "green",
+    "priority": 1,
     "floor": 3,
     "currentlocation": "Lounge",
     "icon": "male",
-    "status": "Help Active",
+    "description": "Help Active",
     "time": 10,
     "media": {
       "video": "alert.mp4"
@@ -389,19 +389,19 @@ export const alertsData = [
     },
     "history": [
       {
-        "color": "orange",
+        "priority": 6,
         "timestamp": "04/18/2018 9:30 AM",
-        "description": "High Noise Alert"
+        "type": "High Noise Alert"
       },
       {
-        "color": "red",
+        "priority": 1,
         "timestamp": "04/19/2018 1:40 PM",
-        "description": "SOS"
+        "type": "SOS"
       },
       {
-        "color": "orange",
+        "priority": 2,
         "timestamp": "04/20/2018 10:43 AM",
-        "description": "Fall"
+        "type": "Fall"
       }
     ]
   },
@@ -410,11 +410,11 @@ export const alertsData = [
     "id": 211,
     "resident": "Alicia L. Austin",
     "type": "Fall",
-    "color": "orange",
+    "priority": 2,
     "floor": 3,
     "currentlocation": "Activity Room",
     "icon": "female",
-    "status": "Help Dispatched",
+    "description": "Help Dispatched",
     "time": 15,
     "media": {
       "audio": "alert.mp3"
@@ -426,19 +426,19 @@ export const alertsData = [
     },
     "history": [
       {
-        "color": "orange",
+        "priority": 6,
         "timestamp": "04/19/2018 9:43 PM",
-        "description": "High Noise Alert"
+        "type": "High Noise Alert"
       },
       {
-        "color": "red",
+        "priority": 3,
         "timestamp": "04/20/2018 11:40 AM",
-        "description": "High Impact"
+        "type": "High Impact"
       },
       {
-        "color": "orange",
+        "priority": 5,
         "timestamp": "04/20/2018 11:43 AM",
-        "description": "Battery Low"
+        "type": "Battery Low"
       }
     ]
   },
@@ -447,11 +447,11 @@ export const alertsData = [
     "id": 221,
     "resident": "Thomas A. Gaines",
     "type": "Missing",
-    "color": "red",
+    "priority": 3,
     "floor": 3,
     "currentlocation": "Unknown",
     "icon": "male",
-    "status": "Help Active",
+    "description": "Help Active",
     "time": 30,
     "media": {
       "text": "alert.txt"
@@ -463,19 +463,19 @@ export const alertsData = [
     },
     "history": [
       {
-        "color": "orange",
+        "priority": 2,
         "timestamp": "04/19/2018 5:55 PM",
-        "description": "Fall"
+        "type": "Fall"
       },
       {
-        "color": "red",
+        "priority": 2,
         "timestamp": "04/20/2018 8:40 AM",
-        "description": "Leaving Location"
+        "type": "Fall"
       },
       {
-        "color": "orange",
+        "priority": 8,
         "timestamp": "04/20/2018 11:43 AM",
-        "description": "Subscriber Login Fail"
+        "type": "Subscriber Login Fail"
       }
     ]
   },
@@ -484,11 +484,11 @@ export const alertsData = [
     "id": 197,
     "resident": "Jennifer Carpenter",
     "type": "Battery Low",
-    "color": "green",
+    "priority": 2,
     "floor": 3,
     "currentlocation": "Lounge",
     "icon": "female",
-    "status": "Assistance Required",
+    "description": "Assistance Required",
     "time": 3,
     "media": {
       "audio": "alert.mp3"
@@ -500,19 +500,19 @@ export const alertsData = [
     },
     "history": [
       {
-        "color": "orange",
+        "priority": 2,
         "timestamp": "04/17/2018 10:21 AM",
-        "description": "Fall"
+        "type": "Fall"
       },
       {
-        "color": "orange",
+        "priority": 6,
         "timestamp": "04/19/2018 11:11 AM",
-        "description": "High Noise Alert"
+        "type": "High Noise Alert"
       },
       {
-        "color": "red",
+        "priority": 1,
         "timestamp": "04/20/2018 9:13 AM",
-        "description": "SOS"
+        "type": "SOS"
       }
     ]
   },
@@ -521,11 +521,11 @@ export const alertsData = [
     "id": 203,
     "resident": "Lily Denton",
     "type": "SOS",
-    "color": "red",
+    "priority": 1,
     "floor": 3,
     "currentlocation": "Suite 302",
     "icon": "female",
-    "status": "Assistance Required",
+    "description": "Assistance Required",
     "time": 21,
     "media": {
       "text": "alert.txt"
@@ -537,24 +537,23 @@ export const alertsData = [
     },
     "history": [
       {
-        "color": "red",
+        "priority": 2,
         "timestamp": "04/18/2018 8:27 AM",
-        "description": "Fall"
+        "type": "Fall"
       },
       {
-        "color": "red",
+        "priority": 4,
         "timestamp": "04/19/2018 11:40 PM",
-        "description": "Missing"
+        "type": "Missing"
       },
       {
-        "color": "orange",
+        "priority": 8,
         "timestamp": "04/20/2018 10:03 AM",
-        "description": "Subscriber Login Fail"
+        "type": "Subscriber Login Fail"
       }
     ]
   }
 ]
-
 export const futureAlertsData = [
 
   { 

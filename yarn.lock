@@ -3508,6 +3508,10 @@ gifsicle@^3.0.0:
     bin-wrapper "^3.0.0"
     logalot "^2.0.0"
 
+gitbook-plugin-github@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gitbook-plugin-github/-/gitbook-plugin-github-2.0.0.tgz#5166e763cfcc402d432880b7a6c85c1c54b56a8d"
+
 glob-base@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/glob-base/-/glob-base-0.3.0.tgz#dbb164f6221b1c0b1ccf82aea328b497df0ea3c4"
@@ -7082,9 +7086,11 @@ redux-logger@2.7.0:
   dependencies:
     deep-diff "0.3.4"
 
-redux-thunk@2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.1.0.tgz#c724bfee75dbe352da2e3ba9bc14302badd89a98"
+redux-observable@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-0.18.0.tgz#48de1f35554b7ba23a88b18379ca1c93f5124197"
+  dependencies:
+    gitbook-plugin-github "^2.0.0"
 
 redux@3.6.0:
   version "3.6.0"

@@ -18,9 +18,8 @@ export class Dashboard extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props;
-    this.props.dispatch(alertsdataActions.getAlertsData());
+    this.props.dispatch(alertsdataActions.requestAlertsData());
     this.props.dispatch(overlaydataActions.makeOverlaySummary());
-    // dispatch({ type: REQUEST_ALERTS, payload: {} });
   }
 
   /**
@@ -37,7 +36,6 @@ export class Dashboard extends Component {
    */
   doFetchFloordata = (event) => {
 
-    // this.props.dispatch_createaction_doLogin("u", "p");
     this.props.dispatch(floorsdataActions.getFloorsData());
   }
 

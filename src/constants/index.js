@@ -29,3 +29,4 @@ export const REQUEST_ALERTS_SUMMARY = 'A_REQUEST_ALERTS_SUMMARY';
  * All actions that can be raised for the map area
  */
 export const REQUEST_FLOOR_DATA     = 'A_REQUEST_FLOOR_DATA';
+export const RECEIVE_FLOOR_DATA     = 'A_RECEIVE_FLOOR_DATA';

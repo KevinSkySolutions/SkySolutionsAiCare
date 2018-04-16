@@ -1,5 +1,5 @@
-import { REQUEST_FLOOR_DATA } from '../constants';
-import { alertsData, floorsData } from './sampledata';
+import { REQUEST_FLOOR_DATA, RECEIVE_FLOOR_DATA } from '../constants';
+import { alertsData } from './sampledata';
 
 // this is the floor data reducer, responds to all ACTIONS raised from the floor plan section part of
 // every page. 
@@ -7,9 +7,11 @@ import { alertsData, floorsData } from './sampledata';
 export default function floordataReducer(state = { selection: {}, floors: [] }, action) {
 
     switch (action.type) {
-        case REQUEST_FLOOR_DATA:
+        case RECEIVE_FLOOR_DATA:
 
-            console.log("REQUEST_FLOOR_DATA type of action called.");
+            console.log("RECEIVE_FLOOR_DATA type of action called.");
+
+            let floorsData = action.payload;
 
             //Defining a temporary floor object for data manipulation
             let floor_obj = { floormap: '', floor: 1, alerts: [] };
@@ -33,6 +35,12 @@ export default function floordataReducer(state = { selection: {}, floors: [] }, 
                 selection: floor_obj,
                 floors: floorsData
             };
+        case REQUEST_FLOOR_DATA:
+
+            console.log("REQUEST_FLOOR_DATA type of action called.");
+
+            return state;
+        
         default:
             return state;
     }

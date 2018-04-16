@@ -18,8 +18,6 @@ export class Dashboard extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props;
-    // this.props.dispatch(alertsdataActions.requestAlertsData());
-    // this.props.dispatch(overlaydataActions.makeOverlaySummary());
   }
 
   /**
@@ -29,14 +27,6 @@ export class Dashboard extends Component {
 
     // this.props.dispatch_createaction_doLogin("u", "p");
     this.props.dispatch(alertsdataActions.getAlertsDataMock());
-  }
-
-  /**
-   * mock call for now, to simulate REQUEST_FLOOR_DATA
-   */
-  doFetchFloordata = (event) => {
-
-    this.props.dispatch(floorsdataActions.getFloorsData());
   }
 
   // the render method of this Container
@@ -54,7 +44,7 @@ export class Dashboard extends Component {
             <div className="pagination">
               <div className="pages">
                 <div className="page active" onClick={this.doFetchMockData}>1</div>
-                <div className="page" onClick={this.doFetchFloordata}>2</div>
+                <div className="page">2</div>
                 <div className="page">3</div>
               </div>
             </div>

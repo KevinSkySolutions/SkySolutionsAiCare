@@ -1,5 +1,6 @@
 import { REQUEST_ALERTS, REQUEST_ALERTS_MOCK, RECEIVE_ALERTS } from '../constants';
 import { alertsData, futureAlertsData } from './sampledata';
+import { browserHistory } from 'react-router';
 
 // this is the dashboard reducer, responds to all ACTIONS raised from the Dashboard page. 
 export default function datafetchReducer(state = { alertsdata: [] }, action) {
@@ -25,6 +26,9 @@ export default function datafetchReducer(state = { alertsdata: [] }, action) {
         var dTime = alert1.time - alert2.time;
         return dTime;
       });
+
+      browserHistory.push('/dashboard');
+
 
       return {
         ...state,

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Meta from 'react-helmet';
-import { browserHistory } from 'react-router';
+
 
 // import (  ) from '../../reducers';
 
@@ -75,11 +75,6 @@ export class HomePage extends Component {
   }
 
   doLogin = (event) => {
-
-    // TODO: remove line below and redirect on state change in Redux
-    browserHistory.push('/dashboard');
-
-    // this.props.dispatch_createaction_doLogin("u", "p");
     this.props.dispatch(homepageActions.login("username", "password"));
   }
 

@@ -2,7 +2,7 @@ import 'rxjs'; // TODO remove this
 import { combineEpics } from 'redux-observable';
 import { WEB_API_URL } from './constants';
 import { REQUEST_ALERTS, REQUEST_USER_DATA, REQUEST_LOGIN, REQUEST_FLOOR_DATA } from './constants';
-import { alertsdataActions, homepageActions, floorsdataActions } from './actions';
+import { alertsdataActions, homepageActions, floorsdataActions, overlaydataActions } from './actions';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { Observable } from 'rxjs';
 
@@ -61,7 +61,8 @@ export const requestFloorsData = actions$ =>
                 .getJSON(`${WEB_API_URL}/floorsdata`)
                 .mergeMap((data) => Observable.of(
                     floorsdataActions.receiveFloorsData(data),
-                    alertsdataActions.requestAlertsData()
+                    alertsdataActions.requestAlertsData(),
+                    overlaydataActions.makeOverlaySummary() 
                 ))
                 // TODO, retry and fail gracefully 
                 // .catch(error => Observable.of(homepageActions.loginFailed()))

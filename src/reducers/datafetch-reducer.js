@@ -21,7 +21,7 @@ export default function datafetchReducer(state = { alertsdata: [] }, action) {
         var dPriority = alert1.priority - alert2.priority;
         if (dPriority) return dPriority;
 
-        // If there is a tie, sort by year
+        // If there is a tie, sort by time
         var dTime = alert1.time - alert2.time;
         return dTime;
       });

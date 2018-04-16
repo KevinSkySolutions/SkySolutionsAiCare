@@ -18,8 +18,8 @@ export class Dashboard extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props;
-    this.props.dispatch(alertsdataActions.requestAlertsData());
-    this.props.dispatch(overlaydataActions.makeOverlaySummary());
+    // this.props.dispatch(alertsdataActions.requestAlertsData());
+    // this.props.dispatch(overlaydataActions.makeOverlaySummary());
   }
 
   /**

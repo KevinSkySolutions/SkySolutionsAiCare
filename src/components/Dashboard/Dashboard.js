@@ -86,7 +86,7 @@ export class Dashboard extends Component {
             <div className="main-heading-section common-margin alert-popup-label">
       <div className="heading-labels">
         <div className="alerts">
-          <img src={require("../../img/alert5.png")} alt=""/>
+          <img src={require("../../img/alert2.png")} alt=""/>
           <div className="alert-number5 alert-number">02</div>
         </div>
         <div className="alerts">
@@ -94,15 +94,15 @@ export class Dashboard extends Component {
           <div className="alert-number4 alert-numbers">02</div>
         </div>
         <div className="alerts">
-          <img src={require("../../img/alert3.png")} alt=""/>
+          <img src={require("../../img/alert1.png")} alt=""/>
           <div className="alert-number3 alert-numbers">03</div>
         </div>
         <div className="alerts">
-          <img src={require("../../img/alert2.png")} alt=""/>
+          <img src={require("../../img/alert5.png")} alt=""/>
           <div className="alert-number2 alert-numbers">04</div>
         </div>
         <div className="alerts">
-          <img src={require("../../img/alert1.png")} alt=""/>
+          <img src={require("../../img/alert3.png")} alt=""/>
           <div className="alert-number1 alert-numbers">01</div>
         </div>
         <div className="dropdown-overlay" id="close-icon">
@@ -120,7 +120,7 @@ export class Dashboard extends Component {
         <div className="alert-content-section">
           <div className="alert-content">
             <div className="pt-log pt-detail">
-              <img src={require("../../img/cardalertd.png")} className="avatar"/>
+              <img src={require("../../img/cardalert4.png")} className="avatar"/>
               <div className="side-text detail-1 side-text-padding">
                 <div className="pt-name list-header">Richard Branson</div>
                 <div className="pt-suite-no gray-text list-subheader mr-t-5">Suite #101</div>

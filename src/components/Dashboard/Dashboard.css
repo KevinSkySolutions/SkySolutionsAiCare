@@ -489,23 +489,23 @@ body .content-dash .nav-container ul li {
     font-size: 20px;
 }
 
-.alert-number5 {
+.alert-number4 {
     color: #0091d7;
 }
 
-.alert-number4 {
+.alert-number2 {
     color: #00c55d;
 }
 
-.alert-number3 {
+.alert-number1 {
     color: #ff3249;
 }
 
-.alert-number2 {
+.alert-number3 {
     color: #ff9d36;
 }
 
-.alert-number1 {
+.alert-number5 {
     color: #d9b240;
 }
 
@@ -517,7 +517,8 @@ body .content-dash .nav-container ul li {
     font-size: 14px;
     padding-left: 6px;
     padding-bottom: 6px;
-    font-family: Roboto
+    font-family: Roboto;
+    font-weight: bold;
 }
 
 .alert-content-section {
@@ -610,11 +611,7 @@ body .content-dash .nav-container ul li {
     position: relative;
 }
 
-.person-on-map {
-    position: absolute;
-    width: 25px;
-    height:50px;
-}
+
 
 .avatar {
     display: inline-block;

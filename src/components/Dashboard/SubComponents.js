@@ -12,35 +12,37 @@ export function AlertsList(props) {
 
   const alertsList = alerts.map((alert, keyValue) => { 
 
-    return(
-      
-      <div className="description-mod">
-                            <div className="type-of-alert alert-number3">ASSISTANCE REQUIRED</div>
-                            <div className="alert-content-section">
-                                <div className="alert-content">
-                                    <div className="pt-log pt-detail">
-                                        <img src={require("../../img/cardalertb.png")} className="avatar"/>
-                                        <div className="side-text detail-1 side-text-padding">
-                                            <div className="pt-name list-header">Richard Branson</div>
-                                            <div className="pt-suite-no gray-text list-subheader mr-t-5">Suite #101</div>
-                                        </div>
-                                    </div>
-                                   
-                                    <div className="pt-log pt-stat pt-stat-text">
-                                        <div>
-                                            <div className="help-stat list-header">
-                                                Help active
-                                            </div>
-                                            <div className="elapsed-time gray-text side-text list-subheader mr-t-5">30 min ago</div>
-                                        </div>
-                                    </div>
-                                </div>
+    var divstyle = ("type-of-alert alert-number" + alert.priority);
 
-                                <div>
-                                    <img className="" src={require("../../img/dropdownoncard.png")} />
-                                </div>
-                            </div>
-                        </div> 
+    return(
+
+      <div className="description-mod">
+        <div className={divstyle}>{alert.type}</div>
+        <div className="alert-content-section">
+          <div className="alert-content">
+            <div className="pt-log pt-detail">
+              <img src={require("../../img/cardalert" + alert.priority + ".png")} className="avatar"/>
+              <div className="side-text detail-1 side-text-padding">
+                <div className="pt-name list-header">{alert.resident}</div>
+                <div className="pt-suite-no gray-text list-subheader mr-t-5">{alert.currentlocation}</div>
+              </div>
+            </div>
+             
+            <div className="pt-log pt-stat pt-stat-text">
+              <div>
+                <div className="help-stat list-header">
+                  {alert.description}
+                </div>
+                <div className="elapsed-time gray-text side-text list-subheader mr-t-5">{alert.time} min ago</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <img className="" src={require("../../img/dropdownoncard.png")} />
+          </div>
+        </div>
+      </div> 
   )});
 
   return alertsList
@@ -58,7 +60,7 @@ export function ResidentsOnMap(props) {
     };
 
     return(
-      <img key={ keyValue } style={divStyle} className="person-on-map" src={ require("../../img/" + alert.icon + "_" + alert.priority + ".png") }/>
+      <img key={ keyValue } style={divStyle} className="person-on-map" src={ require("../../img/alertpositionpointer" + alert.priority + ".png") }/>
     )
   })
 }
@@ -66,24 +68,24 @@ export function ResidentsOnMap(props) {
 export  const OverlayAlerts = () => (
     <div className="heading-labels">
       <div className="alerts">
-        <img src={require("../../img/alert5.png")} alt=""/>
-        <div className="alert-number5 alert-number">02</div>
+        <img src={require("../../img/alert2.png")} alt=""/>
+        <div className="alert-number2 alert-number">02</div>
       </div>
       <div className="alerts">
         <img src={require("../../img/alert4.png")} alt=""/>
         <div className="alert-number4 alert-numbers">02</div>
       </div>
       <div className="alerts">
-        <img src={require("../../img/alert3.png")} alt=""/>
-        <div className="alert-number3 alert-numbers">03</div>
-      </div>
-      <div className="alerts">
-        <img src={require("../../img/alert2.png")} alt=""/>
-        <div className="alert-number2 alert-numbers">04</div>
-      </div>
-      <div className="alerts">
         <img src={require("../../img/alert1.png")} alt=""/>
-        <div className="alert-number1 alert-numbers">01</div>
+        <div className="alert-number1 alert-numbers">03</div>
+      </div>
+      <div className="alerts">
+        <img src={require("../../img/alert5.png")} alt=""/>
+        <div className="alert-number5 alert-numbers">04</div>
+      </div>
+      <div className="alerts">
+        <img src={require("../../img/alert3.png")} alt=""/>
+        <div className="alert-number3 alert-numbers">01</div>
       </div>
       <div className="dropdown-overlay" id="show-alerts-drop-down">
         <img src={require("../../img/dropdowniconoverlay.png")} alt=""/>
@@ -161,7 +163,7 @@ export class GlobalAlerts extends Component {
         <div className="alert-content-section">
           <div className="alert-content">
             <div className="pt-log pt-detail">
-              <img src={require("../../img/cardalertd.png")} className="avatar"/>
+              <img src={require("../../img/cardalert4.png")} className="avatar"/>
               <div className="side-text detail-1 side-text-padding">
                 <div className="pt-name list-header">Richard Branson</div>
                 <div className="pt-suite-no gray-text list-subheader mr-t-5">Suite #101</div>

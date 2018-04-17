@@ -1,5 +1,5 @@
 import { REQUEST_ALERTS, REQUEST_ALERTS_MOCK, RECEIVE_ALERTS } from '../constants';
-import { futureAlertsData } from './sampledata';
+import { alertsData, futureAlertsData } from './sampledata';
 import { browserHistory } from 'react-router';
 
 // this is the dashboard reducer, responds to all ACTIONS raised from the Dashboard page. 
@@ -13,9 +13,9 @@ export default function datafetchReducer(state = { alertsdata: [] }, action) {
     case RECEIVE_ALERTS:
     
       console.log("RECEIVE_ALERTS type of action called.");
-      
+
       // TODO, uncomment let alerts = action.payload;
-      let alerts = action.payload.alertsdata;
+      let alerts = alertsData;
 
       alerts.sort(function (alert1, alert2) {
         // Sort by count
@@ -28,6 +28,7 @@ export default function datafetchReducer(state = { alertsdata: [] }, action) {
       });
 
       browserHistory.push('/dashboard');
+
 
       return {
         ...state,

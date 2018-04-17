@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 import Meta from 'react-helmet';
 
 import Header from '../Common/Header/Header';
-import { AlertsList, ResidentsOnMap, OverlayAlerts, Floors, GlobalAlerts } from './SubComponents';
+import { AlertsList, ResidentsOnMap, OverlayAlerts, Floors, GlobalAlerts, AlertHistory, GlobalAlertsData } from './SubComponents';
 
 
 
@@ -20,7 +20,6 @@ export class Dashboard extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props;
-
   }
 
   /**
@@ -51,23 +50,36 @@ export class Dashboard extends Component {
         <div className="content-body">
 
           <div className="main-heading-section common-margin">
-            <div className="center-image">
-              <img src={require("../../img/centerimage.png")} alt=""/>
-              <div className="heading-title">Epoch Elder Care</div>
-            </div>
+              
+              <div className="alerts-popup" id="alert_popups">
+                <div className="main-heading-section common-margin alert-popup-label">
+                  <div className="heading-labels">                  
+                    <GlobalAlertsData alerts={this.props.overlay}/>
+                  </div>  
+                </div>  
+                <GlobalAlerts/>
+              </div>  
 
-            <OverlayAlerts/>
-            
-            
 
           </div>
-
+       
           <div className="content-section">
             <div className="left-section">
-              <Floors/>
+            <div className="pagination">
+              <div className="floors-heading no-margin">Floors</div>
+                <div className="pages">
+                  <Floors defaultfloor={this.props.defaultfloor} floors={this.props.floors}/>
+
+                  <div className="floors-dropdown">
+                    <img className="" src={require("../../img/moreoptionfloor.png")} />
+                    <img className="" src={require("../../img/dropdownfloors.png")} />
+                  </div>
+                </div>
+              </div>
+
               <div className="floor-image">
                 <img src={require("../../img/floorplan.png")} alt="" className="floor-map"/>
-                <ResidentsOnMap alerts={this.props.globalalerts}/> 
+                <ResidentsOnMap alerts={this.props.flooralerts}/> 
               </div>
             </div>
           </div>  
@@ -76,68 +88,23 @@ export class Dashboard extends Component {
           <div className="col-1 right-section">
             <div><h1 className="alerts-heading no-margin">Alerts</h1></div>
             <div className="right-section-content">
-
-              <AlertsList alerts={this.props.flooralerts} />
-
+                
+                <AlertsList alerts={this.props.flooralerts} />
+                
+              
             </div>
             </div>
-          </div>
-          <div className="alerts-popup" id="alert-popups">
-            <div className="main-heading-section common-margin alert-popup-label">
-      <div className="heading-labels">
-        <div className="alerts">
-          <img src={require("../../img/alert2.png")} alt=""/>
-          <div className="alert-number5 alert-number">02</div>
-        </div>
-        <div className="alerts">
-          <img src={require("../../img/alert4.png")} alt=""/>
-          <div className="alert-number4 alert-numbers">02</div>
-        </div>
-        <div className="alerts">
-          <img src={require("../../img/alert1.png")} alt=""/>
-          <div className="alert-number3 alert-numbers">03</div>
-        </div>
-        <div className="alerts">
-          <img src={require("../../img/alert5.png")} alt=""/>
-          <div className="alert-number2 alert-numbers">04</div>
-        </div>
-        <div className="alerts">
-          <img src={require("../../img/alert3.png")} alt=""/>
-          <div className="alert-number1 alert-numbers">01</div>
-        </div>
-        <div className="dropdown-overlay" id="close-icon">
-          <img src={require("../../img/dropdowniconoverlay.png")} alt="" className="rotated-arrow"/>
-        </div>
-      </div>
-    </div>
 
-    <div className="alert-popup-section">
-      <div className="popup-card">
-        <div className="map-point">
-          <img src={require("../../img/locationoyellow.png")} className="avatar"/>
-        </div>
-        <div className="type-of-alert alert-number-different">WAKING UP ALERT</div>
-        <div className="alert-content-section">
-          <div className="alert-content">
-            <div className="pt-log pt-detail">
-              <img src={require("../../img/cardalert4.png")} className="avatar"/>
-              <div className="side-text detail-1 side-text-padding">
-                <div className="pt-name list-header">Richard Branson</div>
-                <div className="pt-suite-no gray-text list-subheader mr-t-5">Suite #101</div>
-              </div>
-            </div>
           </div>
-
-          <div>
-              <img className="" src={require("../../img/videoyellow.png")} />
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-          <GlobalAlerts/>
+          
     </div>
     );
+    document.getElementById("show_alerts_drop_down").addEventListener('click', () => {
+    document.getElementById('alert_popups').style.display = 'block';
+})
+    document.getElementById("close_icon").addEventListener('click', () => {
+    document.getElementById('alert_popups').style.display = 'none';
+})
   }
 }
 
@@ -147,12 +114,21 @@ const mapStateToProps = (state) => {
 
   const floorCopy = state.floorsdata.selection;
 
+  const floors = state.floorsdata.floors;
+
   const overlayCopy = state.overlaydata.summary;
+
+  const userData = state.userdata.defaultfloor;
+
+  console.log("ERROR:")
+  console.log(floorCopy);
 
   return {
     globalalerts: alertsCopy,
     flooralerts: floorCopy,
-    overlay: overlayCopy
+    overlay: overlayCopy,
+    defaultfloor:userData,
+    floors: floors
   };
 };
 

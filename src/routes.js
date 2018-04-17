@@ -10,7 +10,6 @@ import Reports from './components/Reports/Reports';
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
-    // <Route path="/patients/:patientID" component={Dashboard} />
     <Route path="/dashboard" component={ Dashboard } />
     <Route path="/patients" component={ Patients } />
     <Route path="/facilities" component={ Facilities } />

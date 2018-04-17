@@ -2,7 +2,7 @@ export const alertsData = [
   {
     "id": 111,
     "resident": "Edwin Aldrin",
-    "type": "Fall",
+    "type": "FALL",
     "priority": 2,
     "floor": 1,
     "currentlocation": "Suite 101",
@@ -11,7 +11,7 @@ export const alertsData = [
     "time": 30,
     "media": {
       "video": "alert.mp4"
-    },
+     },
     "location": {
       "room": "Suite 101",
       "xpercent": 5,
@@ -21,17 +21,17 @@ export const alertsData = [
       {
         "priority": 2,
         "timestamp": "04/20/2018 11:30 AM",
-        "type": "Fall"
+        "type": "FALL"
       },
       {
         "priority": 3,
         "timestamp": "04/20/2018 11:40 AM",
-        "type": "High Impact"
+        "type": "HIGH IMPACT"
       },
       {
         "priority": 3,
         "timestamp": "04/20/2018 11:43 AM",
-        "type": "High Impact"
+        "type": "HIGH IMPACT"
       }
     ]
   },
@@ -58,7 +58,7 @@ export const alertsData = [
       {
         "priority": 2,
         "timestamp": "04/19/2018 11:30 AM",
-        "type": "Fall"
+        "type": "FALL"
       },
       {
         "priority": 1,
@@ -76,7 +76,7 @@ export const alertsData = [
   {
     "id": 116,
     "resident": "Logan Doherty",
-    "type": "Fall",
+    "type": "FALL",
     "priority": 2,
     "floor": 1,
     "currentlocation": "Lounge",
@@ -84,7 +84,7 @@ export const alertsData = [
     "description": "Help Active",
     "time": 17,
     "media": {
-      "audio": "alert.mp3"
+       "audio": "alert.mp3"
     },
     "location": {
       "room": "Clinic",
@@ -95,12 +95,12 @@ export const alertsData = [
       {
         "priority": 2,
         "timestamp": "04/19/2018 08:30 PM",
-        "type": "Fall"
+        "type": "FALL"
       },
       {
         "priority": 4,
         "timestamp": "04/20/2018 11:40 AM",
-        "type": "Missing"
+        "type": "MISSING"
       },
       {
         "priority": 7,
@@ -113,7 +113,7 @@ export const alertsData = [
   {
     "id": 141,
     "resident": "Holly Mahmood",
-    "type": "High Impact",
+    "type": "HIGH IMPACT",
     "priority": 3,
     "floor": 1,
     "currentlocation": "Activity Room",
@@ -132,12 +132,12 @@ export const alertsData = [
       {
         "priority": 4,
         "timestamp": "04/20/2018 11:30 AM",
-        "type": "Missing"
+        "type": "MISSING"
       },
       {
         "priority": 3,
         "timestamp": "04/20/2018 11:40 AM",
-        "type": "High Impact"
+        "type": "HIGH IMPACT"
       },
       {
         "priority": 5,
@@ -150,7 +150,7 @@ export const alertsData = [
   {
     "id": 121,
     "resident": "Ali Fulton",
-    "type": "Fall",
+    "type": "FALL",
     "priority": 2,
     "floor": 2,
     "currentlocation": "Suite 201",
@@ -179,7 +179,7 @@ export const alertsData = [
       {
         "priority": 3,
         "timestamp": "04/20/2018 11:43 AM",
-        "type": "High Impact"
+        "type": "HIGH IMPACT"
       }
     ]
   },
@@ -206,17 +206,17 @@ export const alertsData = [
       {
         "priority": 2,
         "timestamp": "04/19/2018 11:30 AM",
-        "type": "Fall"
+        "type": "FALL"
       },
       {
         "priority": 3,
         "timestamp": "04/20/2018 11:40 AM",
-        "type": "High Impact"
+        "type": "HIGH IMPACT"
       },
       {
         "priority": 4,
         "timestamp": "04/20/2018 11:43 AM",
-        "type": "Missing"
+        "type": "MISSING"
       }
     ]
   },
@@ -224,8 +224,8 @@ export const alertsData = [
   {
     "id": 119,
     "resident": "Luis R. Carlyle",
-    "type": "Missing",
-    "priority": 3,
+    "type": "MISSING",
+    "priority": 4,
     "floor": 2,
     "currentlocation": "Suite 202",
     "icon": "male",
@@ -260,7 +260,7 @@ export const alertsData = [
 
   {
     "id": 211,
-    "resident": "Gabriel C. Patterson",
+    "resident": "Gabriel Patterson",
     "type": "SOS",
     "priority": 1,
     "floor": 2,
@@ -280,7 +280,7 @@ export const alertsData = [
       {
         "priority": 2,
         "timestamp": "04/20/2018 11:30 AM",
-        "type": "Fall"
+        "type": "FALL"
       },
       {
         "priority": 1,
@@ -298,7 +298,7 @@ export const alertsData = [
   {
     "id": 151,
     "resident": "Felix T. Steelman",
-    "type": "Fall",
+    "type": "FALL",
     "priority": 2,
     "floor": 2,
     "currentlocation": "Activity Room",
@@ -317,12 +317,12 @@ export const alertsData = [
       {
         "priority": 2,
         "timestamp": "04/20/2018 11:30 AM",
-        "type": "Fall"
+        "type": "FALL"
       },
       {
         "priority": 3,
         "timestamp": "04/20/2018 11:40 AM",
-        "type": "High Impact"
+        "type": "HIGH IMPACT"
       },
       {
         "priority": 5,
@@ -354,7 +354,7 @@ export const alertsData = [
       {
         "priority": 2,
         "timestamp": "04/20/2018 11:30 AM",
-        "type": "Fall"
+        "type": "FALL"
       },
       {
         "priority": 6,
@@ -401,7 +401,7 @@ export const alertsData = [
       {
         "priority": 2,
         "timestamp": "04/20/2018 10:43 AM",
-        "type": "Fall"
+        "type": "FALL"
       }
     ]
   },
@@ -409,7 +409,7 @@ export const alertsData = [
   {
     "id": 211,
     "resident": "Alicia L. Austin",
-    "type": "Fall",
+    "type": "FALL",
     "priority": 2,
     "floor": 3,
     "currentlocation": "Activity Room",
@@ -433,7 +433,7 @@ export const alertsData = [
       {
         "priority": 3,
         "timestamp": "04/20/2018 11:40 AM",
-        "type": "High Impact"
+        "type": "HIGH IMPACT"
       },
       {
         "priority": 5,
@@ -446,8 +446,8 @@ export const alertsData = [
   {
     "id": 221,
     "resident": "Thomas A. Gaines",
-    "type": "Missing",
-    "priority": 3,
+    "type": "MISSING",
+    "priority": 4,
     "floor": 3,
     "currentlocation": "Unknown",
     "icon": "male",
@@ -465,12 +465,12 @@ export const alertsData = [
       {
         "priority": 2,
         "timestamp": "04/19/2018 5:55 PM",
-        "type": "Fall"
+        "type": "FALL"
       },
       {
         "priority": 2,
         "timestamp": "04/20/2018 8:40 AM",
-        "type": "Fall"
+        "type": "FALL"
       },
       {
         "priority": 8,
@@ -484,7 +484,7 @@ export const alertsData = [
     "id": 197,
     "resident": "Jennifer Carpenter",
     "type": "Battery Low",
-    "priority": 2,
+    "priority": 5,
     "floor": 3,
     "currentlocation": "Lounge",
     "icon": "female",
@@ -502,7 +502,7 @@ export const alertsData = [
       {
         "priority": 2,
         "timestamp": "04/17/2018 10:21 AM",
-        "type": "Fall"
+        "type": "FALL"
       },
       {
         "priority": 6,
@@ -539,12 +539,12 @@ export const alertsData = [
       {
         "priority": 2,
         "timestamp": "04/18/2018 8:27 AM",
-        "type": "Fall"
+        "type": "FALL"
       },
       {
         "priority": 4,
         "timestamp": "04/19/2018 11:40 PM",
-        "type": "Missing"
+        "type": "MISSING"
       },
       {
         "priority": 8,
@@ -552,174 +552,6 @@ export const alertsData = [
         "type": "Subscriber Login Fail"
       }
     ]
-  }
-]
-
-export const futureAlertsData = [
-
-  {
-    "id": 111,
-    "resident": "Edwin Aldrin",
-    "type": "Fall",
-    "color": "orange",
-    "location": {
-      "room": "Suite 101",
-      "x": 3,
-      "y": 60
-    },
-    "history": [
-      {
-        "status": "danger",
-        "timestamp": "04/02/2018 11:30 AM",
-        "desciption": "SOS High Noise Alert"
-      },
-      {
-        "status": "safe",
-        "timestamp": "04/02/2018 11:40 AM",
-        "desciption": "Help Dispatched."
-      },
-      {
-        "status": "safe",
-        "timestamp": "04/02/2018 11:50 AM",
-        "desciption": "Fall"
-      }
-    ],
-    "currentlocation": "Clinic",
-    "icon": "male",
-    "status": "Help Active",
-    "time": 40
-  },
-
-  {
-    "id": 112,
-    "resident": "Leanne Graham",
-    "type": "SOS",
-    "color": "orange",
-    "location": {
-      "room": "Clinic",
-      "x": 5,
-      "y": 5
-    },
-    "history": [
-      {
-        "status": "danger",
-        "timestamp": "04/02/2018 11:30 AM",
-        "desciption": "SOS High Noise Alert"
-      },
-      {
-        "status": "safe",
-        "timestamp": "04/02/2018 11:40 AM",
-        "desciption": "Help Dispatched."
-      },
-      {
-        "status": "safe",
-        "timestamp": "04/02/2018 11:50 AM",
-        "desciption": "Fall"
-      }
-    ],
-    "currentlocation": "Suite 201",
-    "icon": "female",
-    "status": "Help Dispatched",
-    "time": 13
-  },
-
-  {
-    "id": 3,
-    "resident": "Clementina DB",
-    "type": "Fall",
-    "color": "green",
-    "location": {
-      "room": "Lounge",
-      "x": 41,
-      "y": 75
-    },
-    "history": [
-      {
-        "status": "danger",
-        "timestamp": "04/02/2018 11:30 AM",
-        "desciption": "SOS High Noise Alert"
-      },
-      {
-        "status": "safe",
-        "timestamp": "04/02/2018 11:40 AM",
-        "desciption": "Help Dispatched."
-      }
-    ],
-    "currentlocation": "Lounge",
-    "icon": "female",
-    "status": "Help Dispatched",
-    "time": 27
-  },
-
-  {
-    "id": 4,
-    "resident": "Patrick Lebsack",
-    "type": "Non Routine",
-    "color": "green",
-    "location": {
-      "room": "Suite 201",
-      "x": 3,
-      "y": 80
-    },
-    "history": [
-
-    ],
-    "currentlocation": "Clinic",
-    "icon": "male",
-    "status": "Help Active",
-    "time": 11
-  },
-
-  {
-    "id": 5,
-    "resident": "Glenna Reichert",
-    "type": "Fall",
-    "color": "green",
-    "location": {
-      "room": "Activity Room",
-      "x": 140,
-      "y": 108
-    },
-    "history": [
-      {
-        "status": "danger",
-        "timestamp": "04/02/2018 11:30 AM",
-        "desciption": "SOS High Noise Alert"
-      },
-      {
-        "status": "safe",
-        "timestamp": "04/02/2018 11:40 AM",
-        "desciption": "Help Dispatched."
-      },
-      {
-        "status": "safe",
-        "timestamp": "04/02/2018 11:50 AM",
-        "desciption": "Fall"
-      }
-    ],
-    "currentlocation": "Activity Room",
-    "icon": "female",
-    "status": "Help Active",
-    "time": 50
-  },
-
-  {
-    "id": 6,
-    "resident": "Nicholas Runolf",
-    "type": "SOS",
-    "color": "red",
-    "location": {
-      "room": "Utility",
-      "x": 65,
-      "y": 55
-    },
-    "history": [
-
-    ],
-    "currentlocation": "Lounge",
-    "icon": "male",
-    "status": "Help active",
-    "time": 70
   }
 ]
 

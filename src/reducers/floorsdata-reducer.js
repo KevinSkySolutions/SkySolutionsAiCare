@@ -13,8 +13,11 @@ export default function floordataReducer(state = { selection: {}, floors: [] }, 
 
             let floorsData = action.payload;
 
+            console.log('FLOORDATA:');
+            console.log(floorsData);
+
             //Defining a temporary floor object for data manipulation
-            let floor_obj = { floormap: '', floor: 1, alerts: [] };
+            let floor_obj = { floormap: '', floor: 2, alerts: [] };
 
             //Loop for selecting the appropriate floormap with respect to the selected floor
             for (var i = 0; i < floorsData.length; i++) {
@@ -33,7 +36,7 @@ export default function floordataReducer(state = { selection: {}, floors: [] }, 
             return {
                 ...state,
                 selection: floor_obj,
-                floors: floorsData
+                floors: floorsData.details
             };
         case REQUEST_FLOOR_DATA:
 

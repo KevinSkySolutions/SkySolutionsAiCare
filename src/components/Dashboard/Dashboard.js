@@ -148,8 +148,6 @@ const mapStateToProps = (state) => {
   const floorCopy = state.floorsdata.selection;
 
   const overlayCopy = state.overlaydata.summary;
-  console.log("ERROR:")
-  console.log(floorCopy);
 
   return {
     globalalerts: alertsCopy,

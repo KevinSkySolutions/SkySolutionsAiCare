@@ -6,7 +6,8 @@ export const overlaydataActions = {
 
 /**
  * Action to be raised after reciveing new alerts
+ * @param alertsdata is the input data required to digest and make overlay summary
  */
-function makeOverlaySummary() {
-    return { type: REQUEST_ALERTS_SUMMARY, payload: {} };
+function makeOverlaySummary(alertsdata) {
+    return { type: REQUEST_ALERTS_SUMMARY, payload: alertsdata };
 }

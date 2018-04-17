@@ -16,7 +16,7 @@ export function AlertsList(props) {
 
     return(
 
-      <div className="description-mod">
+      <div className="description-mod" key = { keyValue }>
         <div className={divstyle}>{alert.type}</div>
         <div className="alert-content-section">
           <div className="alert-content">

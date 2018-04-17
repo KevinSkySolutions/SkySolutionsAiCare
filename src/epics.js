@@ -61,8 +61,7 @@ export const requestFloorsData = actions$ =>
                 .getJSON(`${WEB_API_URL}/floorsdata`)
                 .mergeMap((data) => Observable.of(
                     floorsdataActions.receiveFloorsData(data),
-                    alertsdataActions.requestAlertsData(),
-                    overlaydataActions.makeOverlaySummary() 
+                    alertsdataActions.requestAlertsData()
                 ))
                 // TODO, retry and fail gracefully 
                 // .catch(error => Observable.of(homepageActions.loginFailed()))
@@ -70,6 +69,7 @@ export const requestFloorsData = actions$ =>
 
 /**
  * "requestAlerts" invoked reactively upon success of fetching floors data
+ * once alerts data is available, its saved and also populated in the overlay
  * @param {*} actions$ default parameter for each such epic
  */
 export const requestAlerts = actions$ =>
@@ -79,11 +79,10 @@ export const requestAlerts = actions$ =>
         .mergeMap(action =>
             ajax
                 .getJSON(`${WEB_API_URL}/alertsdata`)
-                .map(data => { 
-                    console.log("alerts success"); 
-                    console.log(data);
-                    return alertsdataActions.receiveAlertsData(data) 
-                })
+                .mergeMap(data => Observable.of(
+                    alertsdataActions.receiveAlertsData(data),
+                    overlaydataActions.makeOverlaySummary(data)
+                ))
                 //.catch(error => Observable.of(alertsdataActions.requestAlertsDataFailed()))
                 .catch(error => Observable.of(alertsdataActions.receiveAlertsData(data)))
         );

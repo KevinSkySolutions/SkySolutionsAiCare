@@ -4,12 +4,26 @@ Sky Solutions - AiCare - Monitoring Portal
 
 [yarn](https://code.facebook.com/posts/1840075619545360) is being used to to manage dependencies. To begin using yarn, install globally with `npm install -g yarn`.
 
+For running the mockserver and the application , do below in separate terminal. 
+
+Below will run the mock server on port 8080.
+```
+`npm install -g yarn`
+git clone <repo.git>
+cd <one level in>
+cd mockserver
+npm install
+npm run json:server
+```
+
+Below will run the application server on port 3000.
 ```
 `npm install -g yarn`
 git clone <repo.git>
 cd <one level in>
 yarn
 ```
+
 
 To build the dev environment with hot reloading of JS and CSS, type:
 

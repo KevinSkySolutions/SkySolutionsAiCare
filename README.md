@@ -8,7 +8,6 @@ For running the mockserver and the application , do below in separate terminal.
 
 Below will run the mock server on port 8080.
 ```
-`npm install -g yarn`
 git clone <repo.git>
 cd <one level in>
 cd mockserver

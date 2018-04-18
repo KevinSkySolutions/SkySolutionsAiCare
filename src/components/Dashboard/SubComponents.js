@@ -20,7 +20,7 @@ export function AlertsList(props) {
 
     return(
 
-      <div className="description-mod">
+      <div className="description-mod" key = { keyValue }>
 
         <div className={divstyle}>{alert.type}</div>
         <div className="alert-content-section">
@@ -123,17 +123,12 @@ export function Floors (props) {
   return props.floors.map((floor, keyValue) => { 
     if (floor.floor == props.defaultfloor) {
       return (
-        <div className="page active">{props.defaultfloor}</div>
+        <div className="page active" key = { keyValue }>{props.defaultfloor}</div>
       );  
     }
-
     else {
         return(
-        <div>
-          <div className="page">{floor.floor}</div>
-          
-          
-        </div>
+          <div className="page" key = { keyValue }>{floor.floor}</div>
       );
     }    
   })
@@ -144,10 +139,6 @@ export function GlobalAlertsData (props) {
   
   var num=0;
 
-  console.log('GLOBALDATA:');
-  console.log(props.alerts);
-
-
   const alert =  props.alerts.map((alert, keyValue) => { 
 
     num++;
@@ -157,7 +148,7 @@ export function GlobalAlertsData (props) {
     if (num==1) {divstyle = ("alert-number" + num + " alert-number");}
     
     return  (
-        <div className="alerts">
+        <div className="alerts" key = { keyValue }>
           <img src={require("../../img/alert" + num + ".png")} alt=""/>
           <div className={divstyle}>{alert}</div>
         </div>

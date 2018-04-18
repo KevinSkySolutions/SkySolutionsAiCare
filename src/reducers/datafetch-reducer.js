@@ -1,5 +1,5 @@
 import { REQUEST_ALERTS, REQUEST_ALERTS_MOCK, RECEIVE_ALERTS } from '../constants';
-import { alertsData, futureAlertsData } from './sampledata';
+import { futureAlertsData } from './sampledata';
 import { browserHistory } from 'react-router';
 
 // this is the dashboard reducer, responds to all ACTIONS raised from the Dashboard page. 
@@ -15,7 +15,7 @@ export default function datafetchReducer(state = { alertsdata: [] }, action) {
       console.log("RECEIVE_ALERTS type of action called.");
 
       // TODO, uncomment let alerts = action.payload;
-      let alerts = alertsData;
+      let alerts = action.payload.alertsdata;
 
       alerts.sort(function (alert1, alert2) {
         // Sort by count
@@ -35,10 +35,6 @@ export default function datafetchReducer(state = { alertsdata: [] }, action) {
         alertsdata: alerts
       };
     case REQUEST_ALERTS_MOCK:
-
-      // TODO: API call to the backend to fetch data to return an asynchronous RxJs Observable
-      // this can be a timed stream which will continuously update alerts during the lifecycle
-      // of current user session (assuming server doesnt support push)
 
       console.log("REQUEST_ALERTS_MOCK type of action called.");
 

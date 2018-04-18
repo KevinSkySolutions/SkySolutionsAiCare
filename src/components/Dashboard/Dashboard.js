@@ -120,9 +120,6 @@ const mapStateToProps = (state) => {
 
   const userData = state.userdata.defaultfloor;
 
-  console.log("ERROR:")
-  console.log(floorCopy);
-
   return {
     globalalerts: alertsCopy,
     flooralerts: floorCopy,

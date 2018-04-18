@@ -1,8 +1,9 @@
-import { REQUEST_FLOOR_DATA, RECEIVE_FLOOR_DATA } from '../constants';
+import { REQUEST_FLOOR_DATA, RECEIVE_FLOOR_DATA, DIGEST_FLOOR_DATA } from '../constants';
 
 export const floorsdataActions = {
     requestFloorsData,
-    receiveFloorsData
+    receiveFloorsData,
+    digestFloorsData
 };
 
 /**
@@ -18,4 +19,12 @@ function requestFloorsData() {
  */
 function receiveFloorsData(floorsdata) {
     return { type: RECEIVE_FLOOR_DATA, payload: floorsdata };
+}
+
+/**
+ * Action to gather and digest floor wise data to state
+ * @param {*} alertsdata response of REQUEST_ALERTS call
+ */
+function digestFloorsData(alertsdata) {
+    return { type: DIGEST_FLOOR_DATA, payload: alertsdata };
 }

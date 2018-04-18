@@ -81,7 +81,8 @@ export const requestAlerts = actions$ =>
                 .getJSON(`${WEB_API_URL}/alertsdata`)
                 .mergeMap(data => Observable.of(
                     alertsdataActions.receiveAlertsData(data),
-                    overlaydataActions.makeOverlaySummary(data)
+                    overlaydataActions.makeOverlaySummary(data),
+                    floorsdataActions.digestFloorsData(data)
                 ))
                 //.catch(error => Observable.of(alertsdataActions.requestAlertsDataFailed()))
                 .catch(error => Observable.of(alertsdataActions.receiveAlertsData(data)))

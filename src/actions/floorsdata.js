@@ -1,9 +1,10 @@
-import { REQUEST_FLOOR_DATA, RECEIVE_FLOOR_DATA, DIGEST_FLOOR_DATA } from '../constants';
+import { REQUEST_FLOOR_DATA, RECEIVE_FLOOR_DATA, DIGEST_FLOOR_DATA, SELECT_FLOOR } from '../constants';
 
 export const floorsdataActions = {
     requestFloorsData,
     receiveFloorsData,
-    digestFloorsData
+    digestFloorsData,
+    selectFloor
 };
 
 /**
@@ -27,4 +28,11 @@ function receiveFloorsData(floorsdata) {
  */
 function digestFloorsData(alertsdata) {
     return { type: DIGEST_FLOOR_DATA, payload: alertsdata };
+}
+
+/**
+ * Action to select one of the floors from the floors view
+ */
+function selectFloor(floorNumber) {
+    return { type: SELECT_FLOOR, payload: floorNumber };
 }

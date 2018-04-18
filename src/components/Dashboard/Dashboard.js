@@ -5,9 +5,10 @@ import { Link } from 'react-router';
 import Meta from 'react-helmet';
 
 import Header from '../Common/Header/Header';
-import { AlertsList, ResidentsOnMap, OverlayAlerts, Floors, GlobalAlerts, AlertHistory, GlobalAlertsData } from './SubComponents';
+import Floors from './_Floors.subComponent';
+import AlertsList from './_AlertsList.subComponent';
 
-
+import { ResidentsOnMap, OverlayAlerts, GlobalAlerts, AlertHistory, GlobalAlertsData, Overlay } from './_SubComponents';
 
 import { alertsdataActions, overlaydataActions, floorsdataActions } from '../../actions';
 
@@ -17,6 +18,10 @@ if (process.env.WEBPACK) {
 }
 
 export class Dashboard extends Component {
+
+  constructor (props){
+    super(props);
+  }
 
   componentDidMount() {
     const { dispatch } = this.props;
@@ -49,20 +54,8 @@ export class Dashboard extends Component {
 
         <div className="content-body">
 
-          <div className="main-heading-section common-margin">
-              
-              <div className="alerts-popup" id="alert_popups">
-                <div className="main-heading-section common-margin alert-popup-label">
-                  <div className="heading-labels">                  
-                    <GlobalAlertsData alerts={this.props.overlay}/>
-                  </div>  
-                </div>  
-                <GlobalAlerts/>
-              </div>  
-
-
-          </div>
-       
+          <Overlay overlay={ this.props.overlay} alerts={ this.props.globalalerts }/>  
+          
           <div className="content-section">
             <div className="left-section">
             <div className="pagination">
@@ -99,25 +92,15 @@ export class Dashboard extends Component {
           
     </div>
     );
-    document.getElementById("show_alerts_drop_down").addEventListener('click', () => {
-    document.getElementById('alert_popups').style.display = 'block';
-})
-    document.getElementById("close_icon").addEventListener('click', () => {
-    document.getElementById('alert_popups').style.display = 'none';
-})
   }
 }
 
 const mapStateToProps = (state) => {
 
   const alertsCopy = state.dashboard.alertsdata;
-
   const floorCopy = state.floorsdata.selection;
-
   const floors = state.floorsdata.floors;
-
   const overlayCopy = state.overlaydata.summary;
-
   const userData = state.userdata.defaultfloor;
 
   return {

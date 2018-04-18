@@ -135,7 +135,6 @@ body .content-dash .right-section {
     /*border: 2px solid black;*/
     width: calc(100% - 420px);
     max-width: 480px;
-    
     left: 780px;
     bottom: -100px;
     margin-left: 72px;
@@ -377,11 +376,15 @@ body .content-dash .nav-container ul li {
 }
 
 .line-wrap:last-child:after {
-    display: none;
+    display: block;
 }
 
 .pagination {
     /* margin-top: 18px; */
+}
+
+.call-status {
+    display: block;
 }
 
 .page:first-child {
@@ -545,7 +548,7 @@ body .content-dash .nav-container ul li {
     display: flex;
     position: sticky;
     top: 78px;
-    width: 100vw;
+    width: 96vw;
     display: block;
     box-shadow: 0 8px 6px -6px grey;
     z-index: 1;

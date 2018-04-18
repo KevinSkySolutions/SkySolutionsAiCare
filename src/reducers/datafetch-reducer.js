@@ -27,9 +27,6 @@ export default function datafetchReducer(state = { alertsdata: [] }, action) {
         return dTime;
       });
 
-      browserHistory.push('/dashboard');
-
-
       return {
         ...state,
         alertsdata: alerts

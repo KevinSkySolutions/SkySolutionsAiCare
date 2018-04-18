@@ -1,10 +1,11 @@
 import 'rxjs'; // TODO remove this
 import { combineEpics } from 'redux-observable';
 import { WEB_API_URL } from './constants';
-import { REQUEST_ALERTS, REQUEST_USER_DATA, REQUEST_LOGIN, REQUEST_FLOOR_DATA } from './constants';
+import { REQUEST_ALERTS, REQUEST_USER_DATA, REQUEST_LOGIN, REQUEST_FLOOR_DATA, DIGEST_FLOOR_DATA } from './constants';
 import { alertsdataActions, homepageActions, floorsdataActions, overlaydataActions } from './actions';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { Observable } from 'rxjs';
+import { browserHistory } from 'react-router';
 
 /**
  * "requestLogin" invoked automatically when user presses login button
@@ -88,9 +89,23 @@ export const requestAlerts = actions$ =>
                 .catch(error => Observable.of(alertsdataActions.receiveAlertsData(data)))
         );
 
+/**
+ * "redirectToDashboard" invoked reactively upon digesting the floors data
+ * @param {*} actions$ default parameter for each such epic
+ */
+export const redirectToDashboard = actions$ =>
+
+        actions$
+            .ofType(DIGEST_FLOOR_DATA)
+            .map(() => {
+                browserHistory.push('/dashboard');
+                return { type: "NO_CLASH_TYPE" };
+            });
+
 export default combineEpics(
     requestLogin,
     requestUserData,
     requestFloorsData,
-    requestAlerts
+    requestAlerts,
+    redirectToDashboard
 );

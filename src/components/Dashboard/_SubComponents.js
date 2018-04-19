@@ -9,7 +9,52 @@ if (process.env.WEBPACK) {
   require('./Dashboard.css'); // eslint-disable-line global-require
 }
 
-//Function for adding the history of alerts of a patient to the AlertsList Section
+// Function for the right hand side section of the Dashbord for displaying the relevant floor alerts
+export function AlertsList (props)  {
+
+  let alerts = props.alerts.alerts; // Making a copy of the alerts object for the relevant floor for data manipulation
+
+  return alerts.map((alert, keyValue) => {
+
+    let divstyle = ("type-of-alert alert-number" + alert.priority); // Variable to decide which style to assign the alert based on the priority of the alert being passed
+
+    return (
+
+      <div className="description-mod" key={keyValue}>
+
+        <div className={divstyle}>{alert.type}</div>
+        <div className="alert-content-section">
+          <div className="alert-content">
+            <div className="pt-log pt-detail">
+              <img src={require("../../img/cardalert" + alert.priority + ".png")} className="avatar" />
+              <div className="side-text detail-1 side-text-padding">
+                <div className="pt-name list-header">{alert.resident}</div>
+                <div className="pt-suite-no gray-text list-subheader mr-t-5">{alert.currentlocation}</div>
+              </div>
+            </div>
+
+            <div className="pt-log pt-stat pt-stat-text">
+              <div>
+                <div className="help-stat list-header">
+                  {alert.description}
+                </div>
+                <div className="elapsed-time gray-text side-text list-subheader mr-t-5">{alert.time} min ago</div>
+              </div>
+
+            </div>
+          </div>
+
+          <div>
+            <img className="" src={require("../../img/dropdownoncard.png")} />
+          </div>
+          <AlertHistory alerts={alert.history} />
+        </div>
+      </div>
+    )  
+  });
+}
+
+// Function for adding the history of alerts of a patient to the AlertsList Section
 export function AlertHistory(props) {
 
   return props.alerts.map((alert, keyValue) => {
@@ -24,14 +69,15 @@ export function AlertHistory(props) {
   });
 }
 
-//Function for adding the alerts to the left hand section of the Dashboard i.e adding alert icons to the floormap
+// Function for adding the alerts to the left hand section of the Dashboard i.e adding alert icons to the floormap
 export function ResidentsOnMap(props) {
 
-  let alerts = props.alerts.alerts;
+  let alerts = props.alerts.alerts; // Making a copy of the alerts object for the relevant floor for data manipulation
 
   return alerts.map((alert, keyValue) => {
 
-    var divStyle = {
+    // Variable to decide which style to assign the alert based on the priority of the alert being passed
+    let divStyle = {
       color: 'white',
       top: (alert.location.xpercent) * 4.2 + 'px',
       left: (alert.location.ypercent) * 4.2 + 'px'
@@ -43,25 +89,25 @@ export function ResidentsOnMap(props) {
   })
 }
 
-//Component for the expanding Overlay of the Dashboard Page and displaying the relevant information
+// Component for the expanding Overlay of the Dashboard Page and displaying the relevant information
 export class Overlay extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       clicked: false,
-      overlay: props.overlay,
-      globalalerts: props.alerts
+      overlay: props.overlay, // The count of all the alerts in the facility stored in an array
+      globalalerts: props.alerts // All the alerts in the facility to show in the overlay stored as an object
     }
   }
 
-  onClick = e => {
+  onClick = e => { // For displaying the overlay
     this.setState({
       clicked: true
     });
   }
 
-  onClose = e => {
+  onClose = e => { // For closing the overlay
     this.setState({
       clicked: false
     });
@@ -70,9 +116,10 @@ export class Overlay extends Component {
   render() {
     return <div>
       {
-        (this.state.clicked === false)
+        // Conditional Logic for knowing whether the overlay i open or closed and consequently showing the relevant information
+        (this.state.clicked === false)    
           ? (
-            <div className="main-heading-section common-margin">
+            <div className="main-heading-section common-margin"> 
               <div className="center-image" >
                 <img src={require("../../img/centerimage.png")} alt="" />
                 <div className="heading-title">Epoch Elder Care</div>
@@ -95,7 +142,7 @@ export class Overlay extends Component {
                 </div>
               </div>
               <div className="alert-popup-section">
-                <GlobalAlerts alerts={this.state.globalalerts} />
+                <GlobalAlerts alerts={this.state.globalalerts} />  
               </div>
             </div>
           )
@@ -104,16 +151,16 @@ export class Overlay extends Component {
 };
 
 
-//Function for displaying the Global Alerts Data for the entire facility
+// Function for displaying the Global Alerts Data for the entire facility
 export function GlobalAlertsData(props) {
 
-  var num = 0;
+  let num = 0; // Variable for iterating through the styles of priorities for different types of alerts
 
   const alert = props.alerts.map((alert, keyValue) => {
 
-    num++;
+    num++; // Incrementing the variable since the priority levels start at 1
 
-    var divstyle = ("alert-number" + num + " alert-numbers");
+    let divstyle = ("alert-number" + num + " alert-numbers"); // Variable to decide which style to assign the alert based on the priority of the alert being passed
 
     if (num == 1 && props.overlay == "closed") { divstyle = ("alert-number" + num + " alert-numbers"); }
 
@@ -130,20 +177,20 @@ export function GlobalAlertsData(props) {
   return alert;
 }
 
-//Component for displaying all the alerts for the entire facility separately inside the overlay and also the relevant media
+// Component for displaying all the alerts for the entire facility separately inside the overlay and also the relevant media
 export class GlobalAlerts extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      alerts: this.props.alerts
+      alerts: this.props.alerts // Making a copy of the alerts object for the entire facility for data manipulation
     }
   }
 
   render() {
     return this.state.alerts.map((alert, keyValue) => {
 
-      let divstyle = ("type-of-alert alert-number" + alert.priority);
+      let divstyle = ("type-of-alert alert-number" + alert.priority); // Variable to decide which style to assign the alert based on the priority of the alert being passed
 
       return (
         <div key={keyValue}>
@@ -164,9 +211,9 @@ export class GlobalAlerts extends Component {
                 </div>
               </div>
               {
-                (alert.media.video === "alert.mp4")
-                  ? <VideoControl type={alert.priority} />
-                  : <AudioControl type={alert.priority} />
+                (alert.media.video === "alert.mp4")   // Conditional logic for selecting whether the alert has attached video or audio
+                  ? <MediaControl type={alert.priority} media="video"/>
+                  : <MediaControl type={alert.priority} media="audio"/>
               }
 
             </div>
@@ -180,37 +227,33 @@ export class GlobalAlerts extends Component {
   }
 }
 
-//Videoplayer
-export function SocialVideo(props) {
+// Component for Playing Media
+export function MediaPlayer(props) {
 
   return (
     <div>
-      <video controls autoPlay src='https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4' />
+    {
+      (props.media === "video")   // Conditional logic for selecting whether the alert has attached video or audio
+        ? <video controls autoPlay src='https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4' />
+        : <audio controls autoPlay src='http://www.nihilus.net/soundtracks/Static%20Memories.mp3' />
+    }
     </div>
+
   );
 }
 
-//Audioplayer
-export function SocialAudio(props) {
-
-  return (
-    <div>
-      <audio controls autoPlay src='http://www.nihilus.net/soundtracks/Static%20Memories.mp3' />
-    </div>
-  );
-}
-
-//Component for Audio dialog
-export class AudioControl extends Component {
+// Component for the Media Dialog
+export class MediaControl extends Component {
   constructor(props) {
     super(props);
     this.state = {
       visible: false,
       width: 600,
-      destroyOnClose: false,
+      destroyOnClose: true,
       center: false,
       mousePosition: {},
-      type: this.props.type
+      type: this.props.type,   // Variable for deciding the type of alert being passed to the Component for dynamic styling
+      media: this.props.media  // Variable for deciding whether the props being passed is of type audio or video
     };
   }
 
@@ -236,12 +279,6 @@ export class AudioControl extends Component {
     });
   }
 
-  changeWidth = () => {
-    this.setState({
-      width: this.state.width === 600 ? 800 : 600,
-    });
-  }
-
   center = e => {
     this.setState({
       center: e.target.checked,
@@ -253,13 +290,15 @@ export class AudioControl extends Component {
       width: this.state.width,
     };
 
-    let audiotype = this.state.type;
+    let alertType = this.state.type; // Variable to decide which style to assign the alert based on the priority of the alert being passed
+
+    let mediaType = this.state.media; // Variable to decide which style to assign the alert based on the type of media attached to the alert being passed
 
     let wrapClassName = '';
     if (this.state.center) {
       wrapClassName = 'center';
     }
-    const dialog = (
+    const dialog = (  //Contents of the dialog being displayed
       <Dialog
         visible={this.state.visible}
         wrapClassName={wrapClassName}
@@ -270,100 +309,12 @@ export class AudioControl extends Component {
         mousePosition={this.state.mousePosition}
         destroyOnClose={this.state.destroyOnClose}
       >
-        <div><SocialAudio /></div>
-      </Dialog>
-    );
-    return (
-      <div style={{ width: '90%', margin: '0 auto' }}>
-        <style>
-          {`
-            .center {
-              display: block;
-              align-items: right;
-              justify-content: right;
-            }
-            `}
-        </style>
-        <div className="dialogbutton">
-          <img className="" src={require("../../img/audio" + audiotype + ".png")} onClick={this.onClick} />
-        </div>
-        {dialog}
-      </div>
-    );
-  }
-}
-
-//Component for video Dialog
-export class VideoControl extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: false,
-      width: 600,
-      destroyOnClose: false,
-      center: false,
-      mousePosition: {},
-      type: this.props.type
-    };
-  }
-
-  onClick = e => {
-    this.setState({
-      mousePosition: {
-        x: e.pageX,
-        y: e.pageY,
-      },
-      visible: true,
-    });
-  }
-
-  onClose = e => {
-    this.setState({
-      visible: false,
-    });
-  }
-
-  onDestroyOnCloseChange = e => {
-    this.setState({
-      destroyOnClose: e.target.checked,
-    });
-  }
-
-  changeWidth = () => {
-    this.setState({
-      width: this.state.width === 600 ? 800 : 600,
-    });
-  }
-
-  center = e => {
-    this.setState({
-      center: e.target.checked,
-    });
-  }
-
-  render() {
-    const style = {
-      width: this.state.width,
-    };
-
-    let videotype = this.state.type;
-
-    let wrapClassName = '';
-    if (this.state.center) {
-      wrapClassName = 'center';
-    }
-    const dialog = (
-      <Dialog
-        visible={this.state.visible}
-        wrapClassName={wrapClassName}
-        animation="zoom"
-        maskAnimation="fade"
-        onClose={this.onClose}
-        style={style}
-        mousePosition={this.state.mousePosition}
-        destroyOnClose={this.state.destroyOnClose}
-      >
-        <div><SocialVideo /></div>
+        {
+          (mediaType === "video")   // Conditional logic for selecting whether the alert has attached video or audio
+            ? <div><MediaPlayer media="video" /></div>
+            : <div><MediaPlayer media="audio" /></div>
+        }
+        
       </Dialog>
     );
     return (
@@ -378,7 +329,7 @@ export class VideoControl extends Component {
             `}
         </style>
         <div className="dialogbutton">
-          <img className="" src={require("../../img/video" + videotype + ".png")} onClick={this.onClick} />
+          <img className="" src={require("../../img/" + mediaType + alertType + ".png")} onClick={this.onClick} />
         </div>
         {dialog}
       </div>

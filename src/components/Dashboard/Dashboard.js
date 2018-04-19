@@ -6,9 +6,8 @@ import Meta from 'react-helmet';
 
 import Header from '../Common/Header/Header';
 import Floors from './_Floors.subComponent';
-import AlertsList from './_AlertsList.subComponent';
 
-import { ResidentsOnMap, OverlayAlerts, GlobalAlerts, AlertHistory, GlobalAlertsData, Overlay } from './_SubComponents';
+import { ResidentsOnMap, OverlayAlerts, GlobalAlerts, AlertHistory, GlobalAlertsData, Overlay, AlertsList } from './_SubComponents';
 
 import { alertsdataActions, overlaydataActions, floorsdataActions } from '../../actions';
 
@@ -34,14 +33,6 @@ export class Dashboard extends Component {
 
     // this.props.dispatch_createaction_doLogin("u", "p");
     this.props.dispatch(alertsdataActions.getAlertsDataMock());
-  }
-
-  /**
-   * mock call for now, to simulate REQUEST_FLOOR_DATA
-   */
-  doFetchFloordata = (event) => {
-
-    this.props.dispatch(floorsdataActions.getFloorsData());
   }
 
   // the render method of this Container
@@ -104,11 +95,11 @@ const mapStateToProps = (state) => {
   const userData = state.userdata.defaultfloor;
 
   return {
-    globalalerts: alertsCopy,
-    flooralerts: floorCopy,
-    overlay: overlayCopy,
-    defaultfloor:userData,
-    floors: floors
+    globalalerts: alertsCopy,   //Data for the overlay
+    flooralerts: floorCopy,     //Data for the Right hand side alerts list and corresponding alerts on the floor map
+    overlay: overlayCopy,       //Getting the count for the total alerts in the facility
+    defaultfloor:userData,      //user information for showing the default floor assigned to the user
+    floors: floors              //Data for showing the total number of floors in the facility
   };
 };
 

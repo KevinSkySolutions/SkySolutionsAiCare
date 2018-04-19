@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { floorsdataActions } from '../../actions';
 
-//Function for displaying the floors on the right and highlighting the floor relevant to the current user
+// Component for displaying the floors on the right and highlighting the floor relevant to the current user
 export class Floors extends Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            defaultfloor: props.defaultfloor,
-            floors: props.floors
+            defaultfloor: props.defaultfloor,  // Current floor being viewed
+            floors: props.floors // Floor data for displaying the different floors in the facility
         };
     }
 
@@ -17,7 +17,7 @@ export class Floors extends Component {
         const { dispatch } = this.props;
     }
 
-    onSelectFloor = (floorNumber) => {
+    onSelectFloor = (floorNumber) => { // Function for dispatching the action for changing the data and the active floor depending on which floor was clicked by the user
         this.props.dispatch(floorsdataActions.selectFloor(floorNumber));
         this.setState({
             defaultfloor: floorNumber
@@ -25,9 +25,9 @@ export class Floors extends Component {
     }
 
     render() {
-        return this.state.floors.map((floor, keyValue) => {
+        return this.state.floors.map((floor, keyValue) => { 
 
-            if (floor.floor == this.state.defaultfloor) {
+            if (floor.floor == this.state.defaultfloor) { // Conditional logic for deciding which floor is currently being viewed and showing the relevant data
                 return (
                     <div className="page active" key={keyValue}>{this.state.defaultfloor}</div>
                 );

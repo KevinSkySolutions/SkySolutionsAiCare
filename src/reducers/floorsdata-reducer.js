@@ -1,5 +1,7 @@
 import { REQUEST_FLOOR_DATA, RECEIVE_FLOOR_DATA, DIGEST_FLOOR_DATA, SELECT_FLOOR } from '../constants';
 import { browserHistory } from 'react-router';
+import { alertsData } from './sampledata';
+
 // this is the floor data reducer, responds to all ACTIONS raised from the floor plan section part of
 // every page. 
 
@@ -43,12 +45,12 @@ export default function floordataReducer(state = defaultState , action) {
 
             //Defining a temporary floor object for data manipulation
             let floor_obj = JSON.parse(JSON.stringify(state.selection));
-            let alertsData = action.payload;
+            let alertsdata = action.payload;
 
             //Loop for selecting the appropriate alerts with respect to the selected floor
-            for (var i = 0; i < alertsData.length; i++) {
-                if (alertsData[i].floor == floor_obj.floor) {
-                    floor_obj.alerts.push(alertsData[i]);
+            for (var i = 0; i < alertsdata.length; i++) {
+                if (alertsdata[i].floor == floor_obj.floor) {
+                    floor_obj.alerts.push(alertsdata[i]);
                 }
             };
 
@@ -62,15 +64,35 @@ export default function floordataReducer(state = defaultState , action) {
 
             let floor_to_set = action.payload;
 
+            let alerts_change = alertsData;
+
+            alerts_change.sort(function (alert1, alert2) {
+                // Sort by count
+                var dPriority = alert1.priority - alert2.priority;
+                if (dPriority) return dPriority;
+
+                // If there is a tie, sort by time
+                var dTime = alert1.time - alert2.time;
+                return dTime;
+            });
+
             //Defining a temporary floor object for data manipulation
-            let selection_object = JSON.parse(JSON.stringify(state.selection));
-            selection_object.floor = floor_to_set;
+            let selection_object = { floor: 0, alerts: []};
+            selection_object.floor = floor_to_set; //assigning the selected floor to the temporary object from the payload of the action
             let floorsDatas = state.floors;
+
 
             //Loop for selecting the appropriate floormap with respect to the selected floor
             for (var i = 0; i < floorsDatas.length; i++) {
                 if (floorsDatas[i].floor == selection_object.floor) {
                     selection_object.floormap = floorsDatas[i].floormap;
+                }
+            };
+
+            //Loop for selecting the appropriate alerts with respect to the selected floor based on the selected floor
+            for (var i = 0; i < alerts_change.length; i++) {
+                if (alerts_change[i].floor == selection_object.floor) {
+                    selection_object.alerts.push(alerts_change[i]);
                 }
             };
 

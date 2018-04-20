@@ -1,5 +1,4 @@
 import { REQUEST_ALERTS, REQUEST_ALERTS_MOCK, RECEIVE_ALERTS } from '../constants';
-import { futureAlertsData } from './sampledata';
 import { browserHistory } from 'react-router';
 
 // this is the dashboard reducer, responds to all ACTIONS raised from the Dashboard page. 
@@ -35,10 +34,7 @@ export default function datafetchReducer(state = { alertsdata: [] }, action) {
 
       console.log("REQUEST_ALERTS_MOCK type of action called.");
 
-      return {
-        ...state,
-        alertsdata: futureAlertsData
-      };
+      return state;
     default:
       return state;
   }

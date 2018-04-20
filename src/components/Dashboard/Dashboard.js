@@ -24,8 +24,7 @@ export class Dashboard extends Component {
     this.state = {
       state_globalalerts: props.globalalerts,   
       state_flooralerts:  props.flooralerts,     
-      state_overlay:      props.overlay,       
-      state_defaultfloor: props.defaultfloor,     
+      state_overlay:      props.overlay,    
       state_floors:       props.floors              
     };
   }
@@ -39,8 +38,7 @@ export class Dashboard extends Component {
     this.setState({
       state_globalalerts: newProps.globalalerts,   
       state_flooralerts:  newProps.flooralerts,     
-      state_overlay:      newProps.overlay,       
-      state_defaultfloor: newProps.defaultfloor,     
+      state_overlay:      newProps.overlay,     
       state_floors:       newProps.floors
     });
   }
@@ -52,7 +50,6 @@ export class Dashboard extends Component {
       <div className="content-dash">
 
         <Header />
-
         <div className="content-body">
 
           <Overlay overlay={this.state.state_overlay} alerts={this.state.state_globalalerts} />
@@ -62,35 +59,31 @@ export class Dashboard extends Component {
                 <div className="pagination">
                   <div className="floors-heading no-margin">Floors</div>
                   <div className="pages">
-                    <Floors defaultfloor={this.state.state_defaultfloor} floors={this.state.state_floors} alertsdata={this.state.state_globalalerts}/>
 
+                    <Floors defaultfloor={(this.state.state_flooralerts.floor==undefined)? this.state.state_defaultfloor : (this.state.state_flooralerts.floor)} floors={this.state.state_floors} alertsdata={this.state.state_globalalerts}/>
                     <div className="floors-dropdown">
                       <img className="" src={require("../../img/moreoptionfloor.png")} />
                       <img className="" src={require("../../img/dropdownfloors.png")} />
                     </div>
                   </div>
                 </div>
-
                 <div className="floor-image">
                   <img src={require("../../img/floorplan" + ((this.state.state_flooralerts.floor==undefined)? "1" : this.state.state_flooralerts.floor) + ".png")} alt="" className="floor-map" />
+                  
                   <ResidentsOnMap alerts={this.state.state_flooralerts} />
                 </div>
               </div>
             </div>
-
 
             <div className="col-1 right-section">
               <div><h1 className="alerts-heading no-margin">Alerts</h1></div>
               <div className="right-section-content">
 
                 <AlertsList alerts={this.state.state_flooralerts} />
-
-
               </div>
             </div>
           </div>
         </div>
-
       </div>
     );
   }
@@ -98,17 +91,10 @@ export class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
 
-  //const alertsCopy = state.dashboard.alertsdata;
-  // const floorCopy = state.floorsdata.selection;
-  // const floors = state.floorsdata.floors;
-  // const overlayCopy = state.overlaydata.summary;
-  // const userData = state.userdata.defaultfloor;
-
   return {
     globalalerts: state.dashboard.alertsdata,     //Data for the overlay
     flooralerts:  state.floorsdata.selection,     //Data for the Right hand side alerts list and corresponding alerts on the floor map
     overlay:      state.overlaydata.summary,      //Getting the count for the total alerts in the facility
-    defaultfloor: state.userdata.defaultfloor,    //user information for showing the default floor assigned to the user
     floors:       state.floorsdata.floors         //Data for showing the total number of floors in the facility
   };
 };

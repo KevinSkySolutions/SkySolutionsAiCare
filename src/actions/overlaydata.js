@@ -1,4 +1,4 @@
-import { REQUEST_ALERTS_SUMMARY } from '../constants';
+import { REQUEST_ALERTS_SUMMARY, NAVIGATE_TO_ALERT } from '../constants';
 
 export const overlaydataActions = {
     makeOverlaySummary
@@ -10,4 +10,12 @@ export const overlaydataActions = {
  */
 function makeOverlaySummary(alertsdata) {
     return { type: REQUEST_ALERTS_SUMMARY, payload: alertsdata };
+}
+
+/**
+ * Action to be raised when user chooses to navigate to an alert
+ * @param {*} alertId is the ID of the alert to navigate to
+ */
+function navigateToAlertOnMap(alertId) {
+    return { type: NAVIGATE_TO_ALERT, payload: inputPayload };
 }

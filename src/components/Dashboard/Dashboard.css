@@ -630,6 +630,7 @@ body .content-dash .nav-container ul li {
 .center-image {
     display: flex;
     align-items: baseline;
+    right: 100px;
 }
 
 .rotated-arrow {
@@ -655,6 +656,10 @@ body .content-dash .nav-container ul li {
 
 .dialogbutton {
     text-align: right;
+}
+
+.dialogbutton:hover {
+    cursor: hand;
 }
 
 video {

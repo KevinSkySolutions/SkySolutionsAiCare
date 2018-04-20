@@ -181,27 +181,34 @@ export class Overlay extends Component {
         // Conditional Logic for knowing whether the overlay i open or closed and consequently showing the relevant information
         (this.state.clicked === false)    
           ? (
-            <div className="main-heading-section common-margin"> 
+            <div className="main-heading-section common-margin" onClick={this.onClick} > 
               <div className="center-image" >
                 <img src={require("../../img/centerimage.png")} alt="" />
                 <div className="heading-title">Epoch Elder Care</div>
               </div>
-              <GlobalAlertsData alerts={this.state.overlay} overlay="closed" />
-              <div className="dropdown-overlay" id="show_alerts_drop_down">
-                <img src={require("../../img/dropdowniconoverlay.png")} alt="" onClick={this.onClick} />
-              </div>
+              <div className="heading-labels">
+                <GlobalAlertsData alerts={this.state.overlay} overlay="open" />
+                <div className="dropdown-overlay" id="show_alerts_drop_down">
+                </div>
+              </div>  
+              
             </div>
           )
 
           : (
             <div className="alerts-popup" id="alert_popups">
-              <div className="main-heading-section common-margin alert-popup-label">
+              <div className="main-heading-section common-margin ">
+              <div className="center-image" >
+                <img src={require("../../img/centerimage.png")} alt="" />
+                <div className="heading-title">Epoch Elder Care</div>
+              </div>
                 <div className="heading-labels">
                   <GlobalAlertsData alerts={this.state.overlay} overlay="open" />
+                  <div className="dropdown-overlay" id="close-icon" onClick={this.onClose}>
+                    <img src={require("../../img/dropdowniconoverlay.png")} alt="" className="rotated-arrow" />
+                  </div>  
                 </div>
-                <div className="dropdown-overlay" id="close-icon" onClick={this.onClose}>
-                  <img src={require("../../img/dropdowniconoverlay.png")} alt="" className="rotated-arrow" />
-                </div>
+                
               </div>
               <div className="alert-popup-section">
                 <GlobalAlerts alerts={this.state.globalalerts} />  

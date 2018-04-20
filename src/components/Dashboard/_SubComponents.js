@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Function for adding the alerts to the left hand section of the Dashboard i.e adding alert icons to the floormap
-export function ResidentsOnMap(props) {
+export function FloorMap(props) {
 
   let alerts = props.alerts.alerts; // Making a copy of the alerts object for the relevant floor for data manipulation
 

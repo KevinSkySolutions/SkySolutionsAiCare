@@ -6,10 +6,10 @@ import Meta from 'react-helmet';
 
 import Header from '../Common/Header/Header';
 import Floors from './_Floors.subComponent';
-import { AlertsList } from './_AlertsList.subComponent';
+import AlertsList from './_AlertsList.subComponent';
 import { Overlay } from './_Overlay.subComponent';
 
-import { ResidentsOnMap } from './_SubComponents';
+import { FloorMap } from './_SubComponents';
 
 import { alertsdataActions, overlaydataActions, floorsdataActions } from '../../actions';
 
@@ -24,10 +24,10 @@ export class Dashboard extends Component {
     super(props);
 
     this.state = {
-      state_globalalerts: props.globalalerts,   
-      state_flooralerts:  props.flooralerts,     
-      state_overlay:      props.overlay,    
-      state_floors:       props.floors              
+      globalalerts: props.globalalerts,   
+      flooralerts:  props.flooralerts,     
+      overlay:      props.overlay,    
+      floors:       props.floors              
     };
   }
 
@@ -37,11 +37,12 @@ export class Dashboard extends Component {
 
   componentWillReceiveProps(newProps) {
 
+    // TODO, conditionally setState only if changes are necessary
     this.setState({
-      state_globalalerts: newProps.globalalerts,   
-      state_flooralerts:  newProps.flooralerts,     
-      state_overlay:      newProps.overlay,     
-      state_floors:       newProps.floors
+      globalalerts: newProps.globalalerts,   
+      flooralerts:  newProps.flooralerts,     
+      overlay:      newProps.overlay,     
+      floors:       newProps.floors
     });
   }
 
@@ -54,7 +55,7 @@ export class Dashboard extends Component {
         <Header />
         <div className="content-body">
 
-          <Overlay overlay={this.state.state_overlay} alerts={this.state.state_globalalerts} />
+          <Overlay overlay={this.state.overlay} alerts={this.state.globalalerts} />
           <div>
             <div className="content-section">
               <div className="left-section">
@@ -70,9 +71,9 @@ export class Dashboard extends Component {
                   </div>
                 </div>
                 <div className="floor-image">
-                  <img src={require("../../img/floorplan" + ((this.state.state_flooralerts.floor==undefined)? "1" : this.state.state_flooralerts.floor) + ".png")} alt="" className="floor-map" />
+                  <img src={require("../../img/floorplan" + ((this.state.flooralerts.floor==undefined)? "1" : this.state.flooralerts.floor) + ".png")} alt="" className="floor-map" />
                   
-                  <ResidentsOnMap alerts={this.state.state_flooralerts} />
+                  <FloorMap alerts={this.state.flooralerts} />
                 </div>
               </div>
             </div>
@@ -81,7 +82,7 @@ export class Dashboard extends Component {
               <div><h1 className="alerts-heading no-margin">Alerts</h1></div>
               <div className="right-section-content">
 
-                <AlertsList alerts={this.state.state_flooralerts} />
+                <AlertsList />
               </div>
             </div>
           </div>

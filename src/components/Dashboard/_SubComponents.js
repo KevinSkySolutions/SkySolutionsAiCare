@@ -20,7 +20,7 @@ export function AlertsList (props)  {
 
     return (
 
-      <div className="description-mod" key={keyValue}>
+      <div className="description-mod" key={keyValue}>             
 
         <div className={divstyle}>{alert.type}</div>
         <div className="alert-content-section">
@@ -58,7 +58,7 @@ export function AlertsList (props)  {
 export function AlertHistory(props) {
 
   return props.alerts.map((alert, keyValue) => {
-    <div className="list-detail" key={keyValue}>
+    return <div className="list-detail" key={keyValue}>
       <div className="call-status iBlock-wrap line-wrap">
         <div className="dot iBlock danger"></div>
         <div className="status iBlock list-header">{alert.type}&nbsp;&nbsp;&nbsp;|</div>

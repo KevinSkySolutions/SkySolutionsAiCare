@@ -6,8 +6,10 @@ import Meta from 'react-helmet';
 
 import Header from '../Common/Header/Header';
 import Floors from './_Floors.subComponent';
+import { AlertsList } from './_AlertsList.subComponent';
+import { Overlay } from './_Overlay.subComponent';
 
-import { ResidentsOnMap, OverlayAlerts, GlobalAlerts, AlertHistory, GlobalAlertsData, Overlay, AlertsList } from './_SubComponents';
+import { ResidentsOnMap } from './_SubComponents';
 
 import { alertsdataActions, overlaydataActions, floorsdataActions } from '../../actions';
 

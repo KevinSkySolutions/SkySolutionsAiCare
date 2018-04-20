@@ -8,29 +8,35 @@ export class Floors extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            defaultfloor: props.defaultfloor,  // Current floor being viewed
-            floors: props.floors, // Floor data for displaying the different floors in the facility
-            alertsdata: props.alertsdata
+            currentfloor:   props.currentfloor,     // Current floor being viewed
+            floors:         props.floors,           // Floor data for displaying the different floors in the facility
+            alertsdata:     props.alertsdata
         };
     }
+
 
     componentDidMount() {
         const { dispatch } = this.props;
     }
 
-    onSelectFloor = (floorNumber) => { // Function for dispatching the action for changing the data and the active floor depending on which floor was clicked by the user
-        this.props.dispatch(floorsdataActions.selectFloor(floorNumber, this.state.alertsdata));
+    componentWillReceiveProps(newProps) {
         this.setState({
-            defaultfloor: floorNumber
+            currentfloor:   newProps.currentfloor,
+            floors:         newProps.floors,
+            alertsdata:     newProps.alertsdata
         });
     }
 
-    render() {
-        return this.state.floors.map((floor, keyValue) => { 
+    onSelectFloor = (floorNumber) => { // Function for dispatching the action for changing the data and the active floor depending on which floor was clicked by the user
+        this.props.dispatch(floorsdataActions.selectFloor(floorNumber, this.state.alertsdata));
+    }
 
-            if (floor.floor == this.state.defaultfloor) { // Conditional logic for deciding which floor is currently being viewed and showing the relevant data
+    render() {
+        return this.state.floors.map((floor, keyValue) => {
+
+            if (floor.floor == this.state.currentfloor) { // Conditional logic for deciding which floor is currently being viewed and showing the relevant data
                 return (
-                    <div className="page active" key={keyValue}>{this.state.defaultfloor}</div>
+                    <div className="page active" key={keyValue}>{this.state.currentfloor}</div>
                 );
             }
 
@@ -42,4 +48,13 @@ export class Floors extends Component {
         })
     }
 }
-export default connect()(Floors);
+
+const mapStateToProps = (state) => {
+
+    return {
+        currentfloor:   state.floorsdata.selection.floor,   // Current floor being viewed
+        floors:         state.floorsdata.floors,                       // Floor data for displaying the different floors in the facility
+        alertsdata:     state.dashboard.alertsdata
+    };
+};
+export default connect(mapStateToProps)(Floors);

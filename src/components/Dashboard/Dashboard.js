@@ -62,7 +62,7 @@ export class Dashboard extends Component {
                   <div className="floors-heading no-margin">Floors</div>
                   <div className="pages">
 
-                    <Floors defaultfloor={(this.state.state_flooralerts.floor==undefined)? this.state.state_defaultfloor : (this.state.state_flooralerts.floor)} floors={this.state.state_floors} alertsdata={this.state.state_globalalerts}/>
+                    <Floors />
                     <div className="floors-dropdown">
                       <img className="" src={require("../../img/moreoptionfloor.png")} />
                       <img className="" src={require("../../img/dropdownfloors.png")} />

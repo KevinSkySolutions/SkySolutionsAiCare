@@ -1,6 +1,5 @@
 import { REQUEST_FLOOR_DATA, RECEIVE_FLOOR_DATA, DIGEST_FLOOR_DATA, SELECT_FLOOR } from '../constants';
 import { browserHistory } from 'react-router';
-import { alertsData } from './sampledata';
 
 // this is the floor data reducer, responds to all ACTIONS raised from the floor plan section part of
 // every page. 
@@ -62,9 +61,8 @@ export default function floordataReducer(state = defaultState , action) {
 
             console.log("SELECT_FLOOR type of action called.");
 
-            let floor_to_set = action.payload;
-
-            let alerts_change = alertsData;
+            let floor_to_set = action.payload.floornumber;
+            let alerts_change = action.payload.alertsdata;
 
             alerts_change.sort(function (alert1, alert2) {
                 // Sort by count

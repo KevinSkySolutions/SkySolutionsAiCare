@@ -33,6 +33,6 @@ function digestFloorsData(alertsdata) {
 /**
  * Action to select one of the floors from the floors view
  */
-function selectFloor(floorNumber) {
-    return { type: SELECT_FLOOR, payload: floorNumber };
+function selectFloor(floorNumber, alertsdata) {
+    return { type: SELECT_FLOOR, payload: {floornumber: floorNumber, alertsdata: alertsdata} };
 }

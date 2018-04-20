@@ -1,4 +1,5 @@
-export const alertsData = [{
+export const alertsData = [
+  {
   "id": 111,
   "resident": "Edwin Aldrin",
   "type": "FALL",
@@ -34,44 +35,6 @@ export const alertsData = [{
     }
   ]
 },
-
-{
-  "id": 112,
-  "resident": "Leon Jenkins",
-  "type": "SOS",
-  "priority": 1,
-  "floor": 1,
-  "currentlocation": "Lounge",
-  "icon": "male",
-  "description": "Help Dispatched",
-  "time": 10,
-  "media": {
-    "video": "alert.mp4"
-  },
-  "location": {
-    "room": "Lounge",
-    "xpercent": 22,
-    "ypercent": 86
-  },
-  "history": [
-    {
-      "priority": 2,
-      "timestamp": "04/19/2018 11:30 AM",
-      "type": "FALL"
-    },
-    {
-      "priority": 1,
-      "timestamp": "04/19/2018 12:40 PM",
-      "type": "SOS"
-    },
-    {
-      "priority": 6,
-      "timestamp": "04/20/2018 11:43 PM",
-      "type": "High Noise Alert"
-    }
-  ]
-},
-
 
 {
   "id": 141,
@@ -117,43 +80,6 @@ export const alertsData = [{
   "priority": 2,
   "floor": 2,
   "currentlocation": "Suite 201",
-  "icon": "female",
-  "description": "Help Dispatched",
-  "time": 11,
-  "media": {
-    "audio": "alert.mp3"
-  },
-  "location": {
-    "room": "Suite 201",
-    "xpercent": 15,
-    "ypercent": 35
-  },
-  "history": [
-    {
-      "priority": 6,
-      "timestamp": "04/18/2018 12:30 AM",
-      "type": "High Noise Alert"
-    },
-    {
-      "priority": 5,
-      "timestamp": "04/20/2018 11:40 AM",
-      "type": "Battery Low"
-    },
-    {
-      "priority": 3,
-      "timestamp": "04/20/2018 11:43 AM",
-      "type": "HIGH IMPACT"
-    }
-  ]
-},
-
-{
-  "id": 121,
-  "resident": "Will Smith",
-  "type": "HIGH IMPACT",
-  "priority": 3,
-  "floor": 1,
-  "currentlocation": "Suite 103",
   "icon": "female",
   "description": "Help Dispatched",
   "time": 11,
@@ -298,44 +224,6 @@ export const alertsData = [{
 },
 
 
-
-{
-  "id": 221,
-  "resident": "Thomas A. Gaines",
-  "type": "MISSING",
-  "priority": 4,
-  "floor": 3,
-  "currentlocation": "Unknown",
-  "icon": "male",
-  "description": "Help Active",
-  "time": 30,
-  "media": {
-    "text": "alert.txt"
-  },
-  "location": {
-    "room": "Suite 301",
-    "xpercent": 15,
-    "ypercent": 21
-  },
-  "history": [
-    {
-      "priority": 2,
-      "timestamp": "04/19/2018 5:55 PM",
-      "type": "FALL"
-    },
-    {
-      "priority": 2,
-      "timestamp": "04/20/2018 8:40 AM",
-      "type": "FALL"
-    },
-    {
-      "priority": 8,
-      "timestamp": "04/20/2018 11:43 AM",
-      "type": "Subscriber Login Fail"
-    }
-  ]
-},
-
 {
   "id": 197,
   "resident": "Jennifer Carpenter",
@@ -406,43 +294,6 @@ export const alertsData = [{
       "priority": 1,
       "timestamp": "04/20/2018 9:13 AM",
       "type": "SOS"
-    }
-  ]
-},
-
-{
-  "id": 203,
-  "resident": "Lily Denton",
-  "type": "SOS",
-  "priority": 1,
-  "floor": 3,
-  "currentlocation": "Suite 302",
-  "icon": "female",
-  "description": "Assistance Required",
-  "time": 21,
-  "media": {
-    "text": "alert.txt"
-  },
-  "location": {
-    "room": "Suite 302",
-    "xpercent": 94,
-    "ypercent": 65
-  },
-  "history": [
-    {
-      "priority": 2,
-      "timestamp": "04/18/2018 8:27 AM",
-      "type": "FALL"
-    },
-    {
-      "priority": 4,
-      "timestamp": "04/19/2018 11:40 PM",
-      "type": "MISSING"
-    },
-    {
-      "priority": 8,
-      "timestamp": "04/20/2018 10:03 AM",
-      "type": "Subscriber Login Fail"
     }
   ]
 }

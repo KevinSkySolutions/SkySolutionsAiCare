@@ -62,7 +62,7 @@ export class Dashboard extends Component {
                 <div className="pagination">
                   <div className="floors-heading no-margin">Floors</div>
                   <div className="pages">
-                    <Floors defaultfloor={this.state.state_defaultfloor} floors={this.state.state_floors} />
+                    <Floors defaultfloor={this.state.state_defaultfloor} floors={this.state.state_floors} alertsdata={this.state.state_globalalerts}/>
 
                     <div className="floors-dropdown">
                       <img className="" src={require("../../img/moreoptionfloor.png")} />
@@ -72,7 +72,7 @@ export class Dashboard extends Component {
                 </div>
 
                 <div className="floor-image">
-                  <img src={require("../../img/floorplan.png")} alt="" className="floor-map" />
+                  <img src={require("../../img/floorplan" + ((this.state.state_flooralerts.floor==undefined)? "1" : this.state.state_flooralerts.floor) + ".png")} alt="" className="floor-map" />
                   <ResidentsOnMap alerts={this.state.state_flooralerts} />
                 </div>
               </div>

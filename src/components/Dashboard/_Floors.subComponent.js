@@ -9,7 +9,8 @@ export class Floors extends Component {
         super(props);
         this.state = {
             defaultfloor: props.defaultfloor,  // Current floor being viewed
-            floors: props.floors // Floor data for displaying the different floors in the facility
+            floors: props.floors, // Floor data for displaying the different floors in the facility
+            alertsdata: props.alertsdata
         };
     }
 
@@ -18,7 +19,7 @@ export class Floors extends Component {
     }
 
     onSelectFloor = (floorNumber) => { // Function for dispatching the action for changing the data and the active floor depending on which floor was clicked by the user
-        this.props.dispatch(floorsdataActions.selectFloor(floorNumber));
+        this.props.dispatch(floorsdataActions.selectFloor(floorNumber, this.state.alertsdata));
         this.setState({
             defaultfloor: floorNumber
         });

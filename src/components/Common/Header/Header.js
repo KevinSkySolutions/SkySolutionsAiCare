@@ -20,24 +20,22 @@ const Header = () => (
           <div className="nav-container">
             <ul className="nav-list">
               <li>
-                <a href="/dashboard">Dashboard</a>
+                <a href="#">Dashboard</a>
               </li>
               <li>
-                <a href="/patients">Patients</a>
+                <a href="#">Patients</a>
               </li>
               <li>
-                <a href="/facilities">Facilities</a>
+                <a href="#">Facilities</a>
               </li>
               <li>
-                <a href="/reports">Reports</a>
+                <a href="#">Reports</a>
               </li>
               <li>
                 <a href="#">Help</a>
               </li>
               <div className="user-wrap">
-                <div className="profile-pic">
-                  <img src={require("../../../img/avatar.png")} alt=""/>
-                </div>
+                <div className="profile-pic"/>
               </div>
             </ul>
           </div>

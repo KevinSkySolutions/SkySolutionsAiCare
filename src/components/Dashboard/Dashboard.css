@@ -135,7 +135,7 @@ body .content-dash .right-section {
     /*border: 2px solid black;*/
     width: calc(100% - 420px);
     max-width: 480px;
-    left: 780px;
+    left: 750px;
     bottom: -100px;
     margin-left: 72px;
     
@@ -656,6 +656,16 @@ body .content-dash .nav-container ul li {
 
 .dialogbutton {
     text-align: right;
+    /*border: 2px solid black;*/
+    position: relative;
+    
+}
+
+.alert-media {
+  /*border: 2px solid black;*/
+  width: 20px;
+  display: inline-block;
+  margin-right: 20px;
 }
 
 .dialogbutton:hover {

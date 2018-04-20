@@ -69,14 +69,17 @@ export class AlertItem extends Component {
                 </div>
                 <div className="elapsed-time gray-text side-text list-subheader mr-t-5">{this.state.alert.time} min ago</div>
               </div>
-
             </div>
           </div>
-
-          <div>
-            <img className="" src={require("../../img/dropdownoncard.png")} />
-          </div>
+          <div className="alert-media">
+            {
+              (this.state.alert.media.video === "alert.mp4")   // Conditional logic for selecting whether the alert has attached video or audio
+                ? <MediaControl type={this.state.alert.priority} media="video"/>
+                : <MediaControl type={this.state.alert.priority} media="audio"/>
+            }
+          </div> 
         </div>
+           
         <AlertHistory alerts={this.state.alert.history} />
       </div>
     )
@@ -324,6 +327,13 @@ export class MediaControl extends Component {
       type: this.props.type,   // Variable for deciding the type of alert being passed to the Component for dynamic styling
       media: this.props.media  // Variable for deciding whether the props being passed is of type audio or video
     };
+  }
+
+  componentWillReceiveProps() {  // Updating the state on receiving the new props after selecting a different floor
+    this.setState({
+      type: this.props.type,   // Variable for deciding the type of alert being passed to the Component for dynamic styling
+      media: this.props.media  // Variable for deciding whether the props being passed is of type audio or video
+    });
   }
 
   onClick = e => {

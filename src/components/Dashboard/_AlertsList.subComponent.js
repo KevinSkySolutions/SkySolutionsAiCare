@@ -8,23 +8,49 @@ export class AlertsList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            alerts: props.alerts, // Making a copy of the alerts object for the entire facility for data manipulation
+            alerts:         props.alerts,   // Making a copy of the alerts object for the entire facility for data manipulation
+            expanded_key:   0               // indicates which one of the AlertItems is expanded
         }
     }
 
     componentWillReceiveProps(newProps) {  // Updating the state on receiving the new props after selecting a different floor
-        
+
         this.setState({
-            alerts: newProps.alerts
+            alerts:         newProps.alerts
         });
+    }
+
+    /**
+     * method gets invoked on click of AlertItem 
+     * @param {*} key index of the item to toggle expansion
+     */
+    toggleAlertItemByKey(key) {
+
+        console.log("toggleAlertItemByKey called from child.! and key is: " + key);
+        console.log("this.state below:");
+        console.log(this.state);
+
+        if (this.state.expanded_key == key) { // this is a toggle operation
+            this.setState({
+                expanded_key:   0
+            });
+        } else {
+            this.setState({
+                expanded_key:   key
+            });     
+        }
     }
 
     render() {
         return this.state.alerts.map((alert, keyValue) => {  // Mapping all the relevant floor alerts on the right section of the page
             return (
-                <div key={keyValue}>
-                    <AlertItem alert={alert} isExpanded={true}/>
-                </div>
+                <AlertItem 
+                    alert={alert} 
+                    isExpanded={this.state.expanded_key==keyValue}
+                    callback={this.toggleAlertItemByKey}
+                    key={keyValue}
+                    keyCopy={keyValue}
+                />
             )
         })
     }
@@ -44,34 +70,39 @@ class AlertItem extends Component {
         super(props);
 
         console.log("Constructing AlertItem with below: ");
-        console.log(props.alert);
+        console.log(props);
 
         this.state = {
-            alert: props.alert,  // Making a copy of the alerts object for the entire facility for data manipulation
-            isExpanded: props.isExpanded,
-            style: "description-mod", // Variable for Setting the style onClick so that it expands and collapses
-            isClicked: false          // Variable for keeping tracking whether an item has been clicked or not
+            alert:          props.alert,        // Making a copy of the alerts object for the entire facility for data manipulation
+            isExpanded:     props.isExpanded,   // true/false indicating whether this is expanded or not
+            callback:       props.callback,
+            indexKey:       props.keyCopy,
+            style:          "description-mod", // Variable for Setting the style onClick so that it expands and collapses
+            isClicked:      false          // Variable for keeping tracking whether an item has been clicked or not
         }
     }
 
     componentWillReceiveProps(newProps) {
         this.setState({
-            alert:      newProps.alert,
-            isExpanded: newProps.isExpanded
+            alert:          newProps.alert,
+            isExpanded:     newProps.isExpanded
         });
     }
 
     onClick = e => {  // Function for changing the state and expanding or collapsing the Alert
-        if (this.props.isExpanded === false) {  // If the Alert is expanded then contract
+
+        this.state.callback(this.state.indexKey);
+
+        if (this.state.isExpanded === false) {  // If the Alert is expanded then contract
             this.setState({
-                style: "description-mod",
+                style: "description-mod-active",
                 isClicked: true
             });
         }
 
         else { // If the Alert is collapsed then expand
             this.setState({
-                style: "description-mod-active",
+                style: "description-mod",
                 isClicked: false
             });
         }
@@ -118,6 +149,8 @@ class AlertItem extends Component {
         )
     }
 }
+
+connect()(AlertItem);
 
 
 // Function for adding the history of alerts of a patient to the AlertsList Section

@@ -7,7 +7,7 @@ import Meta from 'react-helmet';
 import Header from '../Common/Header/Header';
 import Floors from './_Floors.subComponent';
 import AlertsList from './_AlertsList.subComponent';
-import { Overlay } from './_Overlay.subComponent';
+import Overlay from './_Overlay.subComponent';
 
 import { FloorMap } from './_SubComponents';
 
@@ -26,8 +26,7 @@ export class Dashboard extends Component {
     this.state = {
       globalalerts: props.globalalerts,   
       flooralerts:  props.flooralerts,     
-      overlay:      props.overlay,    
-      floors:       props.floors              
+      overlay:      props.overlay             
     };
   }
 
@@ -41,8 +40,7 @@ export class Dashboard extends Component {
     this.setState({
       globalalerts: newProps.globalalerts,   
       flooralerts:  newProps.flooralerts,     
-      overlay:      newProps.overlay,     
-      floors:       newProps.floors
+      overlay:      newProps.overlay
     });
   }
 
@@ -55,7 +53,7 @@ export class Dashboard extends Component {
         <Header />
         <div className="content-body">
 
-          <Overlay overlay={this.state.overlay} alerts={this.state.globalalerts} />
+          <Overlay />
           <div>
             <div className="content-section">
               <div className="left-section">
@@ -95,11 +93,10 @@ export class Dashboard extends Component {
 const mapStateToProps = (state) => {
 
   return {
-    globalalerts: state.dashboard.alertsdata,         //Data for the overlay
-    flooralerts:  state.floorsdata.selection,  //Data for the Right hand side alerts list and corresponding alerts on the floor map
-    overlay:      state.overlaydata.summary,          //Getting the count for the total alerts in the facility
-    floors:       state.floorsdata.floors             //Data for showing the total number of floors in the facility
-  };
+    globalalerts: state.dashboard.alertsdata,       //Data for the overlay
+    flooralerts:  state.floorsdata.selection,       //Data for the Right hand side alerts list and corresponding alerts on the floor map
+    overlay:      state.overlaydata.summary          //Getting the count for the total alerts in the facility };
+  }
 };
 
 export default connect(mapStateToProps)(Dashboard);

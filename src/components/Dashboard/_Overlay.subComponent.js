@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { MediaControl } from '../Common';
+import { connect } from 'react-redux';
 
 // Component for the expanding Overlay of the Dashboard Page and displaying the relevant information
 export class Overlay extends Component {
 
     constructor(props) {
         super(props);
+
+        console.log("Overlay constructor. Props below");
+        console.log(props);
+
         this.state = {
-            clicked: false,
-            overlay: props.overlay, // The count of all the alerts in the facility stored in an array
-            globalalerts: props.alerts // All the alerts in the facility to show in the overlay stored as an object
+            clicked:        false,
+            overlay:       props.overlay,
+            globalalerts:  props.globalalerts
         }
     }
 
@@ -69,6 +74,14 @@ export class Overlay extends Component {
     };
 };
 
+const mapStateToProps = (state) => {
+
+    return {
+        overlay:        state.overlaydata.summary,
+        globalalerts:   state.dashboard.alertsdata
+    };
+};
+export default connect(mapStateToProps)(Overlay);
 
 // Function for displaying the Global Alerts Data for the entire facility
 function GlobalAlertsData(props) {

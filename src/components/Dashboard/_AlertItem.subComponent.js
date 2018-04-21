@@ -74,9 +74,12 @@ class AlertItem extends Component {
                     </div>
                     <div className="alert-media">
                         {
-                            (this.state.alert.media.video === "alert.mp4")   // Conditional logic for selecting whether the alert has attached video or audio
-                                ? <MediaControl type={this.state.alert.priority} media="video" />
-                                : <MediaControl type={this.state.alert.priority} media="audio" />
+                            (this.state.alert.media.video == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
+                                ? ((this.state.alert.media.audio == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
+                                    ? <div></div>
+                                    : <MediaControl type={this.state.alert.priority} media="audio" />
+                                )
+                                : <MediaControl type={this.state.alert.priority} media="video" />
                         }
                     </div>
                 </div>

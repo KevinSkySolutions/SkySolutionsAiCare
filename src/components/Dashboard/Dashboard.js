@@ -23,6 +23,9 @@ export class Dashboard extends Component {
   constructor(props) {
     super(props);
 
+    console.log("this.state.flooralerts");
+    console.log(props.flooralerts);
+
     this.state = {
       globalalerts: props.globalalerts,   
       flooralerts:  props.flooralerts,     

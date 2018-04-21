@@ -1,4 +1,4 @@
-import { REQUEST_FLOOR_DATA, RECEIVE_FLOOR_DATA, DIGEST_FLOOR_DATA, SELECT_FLOOR } from '../constants';
+import { REQUEST_FLOOR_DATA, RECEIVE_FLOOR_DATA, DIGEST_FLOOR_DATA, SELECT_FLOOR, SHOW_ALERT_DETAILS, SET_ALERT_EXPANSION, RESET_ALERT_EXPANSION } from '../constants';
 import { browserHistory } from 'react-router';
 
 // this is the floor data reducer, responds to all ACTIONS raised from the floor plan section part of
@@ -6,6 +6,7 @@ import { browserHistory } from 'react-router';
 
 const defaultState = { 
     selection: {
+        selectedalert: -1,   // this indicates which of the alerts is expanded currently
         floormap: {}, 
         floor: 1, 
         alerts: []
@@ -105,7 +106,42 @@ export default function floordataReducer(state = defaultState , action) {
             console.log("REQUEST_FLOOR_DATA type of action called.");
 
             return state;
-        
+        case SHOW_ALERT_DETAILS:
+
+            console.log("SHOW_ALERT_DETAILS type of action called.");
+            console.log("payload is: ");
+            console.log(action.payload);
+            console.log(action.payload.floornumber);
+            console.log(action.payload.key);
+
+            // TODO, work on the toggle case, 
+
+            return {
+                ...state,
+                selection: {
+                    selectedalert: action.payload.floornumber   // this indicates which of the alerts is expanded currently
+                }
+            }
+        case SET_ALERT_EXPANSION:
+
+            console.log("SET_ALERT_EXPANSION type of action called.");
+
+            return {
+                ...state,
+                selection: {
+                    selectedalert: action.payload   // this indicates which of the alerts is expanded currently
+                }
+            }
+        case RESET_ALERT_EXPANSION:
+
+           console.log("RESET_ALERT_EXPANSION type of action called.");
+            
+            return {
+                ...state,
+                selection: {
+                    selectedalert: -1   // this indicates which of the alerts is expanded currently
+                }
+            }
         default:
             return state;
     }

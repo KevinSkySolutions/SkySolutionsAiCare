@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { MediaControl } from '../Common';
+import { alertsdataActions } from '../../actions';
+import { bindActionCreators } from 'redux';
 
 // Component for the right hand side section of the Dashbord for displaying the relevant floor alerts
 export class AlertsList extends Component {
@@ -8,57 +10,40 @@ export class AlertsList extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            alerts:         props.alerts,   // Making a copy of the alerts object for the entire facility for data manipulation
-            expanded_key:   0               // indicates which one of the AlertItems is expanded
+            alerts:             props.alerts,           // Making a copy of the alerts object for the entire facility for data manipulation
+            currentfloor:       props.currentfloor,     // global indicator for current floor being viewed
+            currentselection:   props.currentselection  // global indicator for current alert being viewed
         }
     }
 
     componentWillReceiveProps(newProps) {  // Updating the state on receiving the new props after selecting a different floor
 
         this.setState({
-            alerts:         newProps.alerts
+            alerts:             newProps.alerts, 
+            currentfloor:       newProps.currentfloor,
+            currentselection:   newProps.currentselection
         });
-    }
-
-    /**
-     * method gets invoked on click of AlertItem 
-     * @param {*} key index of the item to toggle expansion
-     */
-    toggleAlertItemByKey(key) {
-
-        console.log("toggleAlertItemByKey called from child.! and key is: " + key);
-        console.log("this.state below:");
-        console.log(this.state);
-
-        if (this.state.expanded_key == key) { // this is a toggle operation
-            this.setState({
-                expanded_key:   0
-            });
-        } else {
-            this.setState({
-                expanded_key:   key
-            });     
-        }
     }
 
     render() {
         return this.state.alerts.map((alert, keyValue) => {  // Mapping all the relevant floor alerts on the right section of the page
             return (
                 <AlertItem 
-                    alert={alert} 
-                    isExpanded={this.state.expanded_key==keyValue}
-                    callback={this.toggleAlertItemByKey}
-                    key={keyValue}
-                    keyCopy={keyValue}
-                />
+                key={keyValue} keyCopy={keyValue} alert={alert} 
+                isExpanded={this.state.currentselection==keyValue} />
             )
         })
     }
 }
 const mapStateToProps = (state) => {
 
+    let expansionStatus = false;
+
+
     return {
-        alerts:     state.floorsdata.selection.alerts
+        alerts:             state.floorsdata.selection.alerts,
+        currentfloor:       state.floorsdata.selection.floor,
+        currentselection:   state.floorsdata.selection.selectedalert
     };
 };
 export default connect(mapStateToProps)(AlertsList);
@@ -69,13 +54,8 @@ class AlertItem extends Component {
     constructor(props) {
         super(props);
 
-        console.log("Constructing AlertItem with below: ");
-        console.log(props);
-
         this.state = {
             alert:          props.alert,        // Making a copy of the alerts object for the entire facility for data manipulation
-            isExpanded:     props.isExpanded,   // true/false indicating whether this is expanded or not
-            callback:       props.callback,
             indexKey:       props.keyCopy,
             style:          "description-mod", // Variable for Setting the style onClick so that it expands and collapses
             isClicked:      false          // Variable for keeping tracking whether an item has been clicked or not
@@ -84,16 +64,15 @@ class AlertItem extends Component {
 
     componentWillReceiveProps(newProps) {
         this.setState({
-            alert:          newProps.alert,
-            isExpanded:     newProps.isExpanded
+            alert:          newProps.alert
         });
     }
 
     onClick = e => {  // Function for changing the state and expanding or collapsing the Alert
 
-        this.state.callback(this.state.indexKey);
+        this.props.dispatch(alertsdataActions.viewAlertDetails());
 
-        if (this.state.isExpanded === false) {  // If the Alert is expanded then contract
+        if (this.state.isClicked === false) {  // If the Alert is expanded then contract
             this.setState({
                 style: "description-mod-active",
                 isClicked: true

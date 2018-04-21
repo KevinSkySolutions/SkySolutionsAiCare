@@ -1,7 +1,7 @@
 import 'rxjs'; // TODO remove this
 import { combineEpics } from 'redux-observable';
 import { WEB_API_URL } from './constants';
-import { REQUEST_ALERTS, REQUEST_USER_DATA, REQUEST_LOGIN, REQUEST_FLOOR_DATA, DIGEST_FLOOR_DATA } from './constants';
+import { REQUEST_ALERTS, REQUEST_USER_DATA, REQUEST_LOGIN, REQUEST_FLOOR_DATA, DIGEST_FLOOR_DATA, SHOW_ALERT_DETAILS } from './constants';
 import { alertsdataActions, homepageActions, floorsdataActions, overlaydataActions } from './actions';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { Observable } from 'rxjs';
@@ -102,10 +102,24 @@ export const redirectToDashboard = actions$ =>
                 return { type: "NO_CLASH_TYPE" };
             });
 
+/**
+ * "showAlertDetails" invoked reactively upon user choosing to click on one of the AlertsList's
+ * AlertItem. This chooses the current floor and sets the selected key
+ * @param {*} actions$ default parameter for each such epic
+ */
+export const showAlertDetails = actions$ =>
+
+    actions$
+        .ofType(SHOW_ALERT_DETAILS)
+        .map((action) => {
+            return floorsdataActions.selectFloor(action.payload.floornumber, action.payload.key);
+         });
+
 export default combineEpics(
     requestLogin,
     requestUserData,
     requestFloorsData,
     requestAlerts,
     redirectToDashboard
+    //showAlertDetails
 );

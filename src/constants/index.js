@@ -19,6 +19,7 @@ export const REQUEST_ALERTS_MOCK    = "MA_REQUEST_ALERTS";
 export const REQUEST_ALERTS         = 'A_REQUEST_ALERTS';
 export const RECEIVE_ALERTS         = 'A_RECEIVE_ALERTS';
 export const REQUEST_ALERTS_FAILED  = 'A_REQUEST_ALERTS_FAILED'; 
+export const SHOW_ALERT_DETAILS     = 'A_SHOW_ALERT_DETAILS';
 
 /**
  * All actions that can be raised for the overlay
@@ -33,3 +34,5 @@ export const REQUEST_FLOOR_DATA     = 'A_REQUEST_FLOOR_DATA';
 export const RECEIVE_FLOOR_DATA     = 'A_RECEIVE_FLOOR_DATA';
 export const DIGEST_FLOOR_DATA      = 'A_DIGEST_FLOOR_DATA';
 export const SELECT_FLOOR           = 'A_SELECT_FLOOR';
+export const RESET_ALERT_EXPANSION  = 'A_RESET_ALERT_EXPANSION';
+export const SET_ALERT_EXPANSION    = 'A_SET_ALERT_EXPANSION'

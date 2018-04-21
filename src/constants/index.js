@@ -18,8 +18,7 @@ export const REQUEST_ALERTS_MOCK    = "MA_REQUEST_ALERTS";
  */
 export const REQUEST_ALERTS         = 'A_REQUEST_ALERTS';
 export const RECEIVE_ALERTS         = 'A_RECEIVE_ALERTS';
-export const REQUEST_ALERTS_FAILED  = 'A_REQUEST_ALERTS_FAILED'; 
-export const SHOW_ALERT_DETAILS     = 'A_SHOW_ALERT_DETAILS';
+export const REQUEST_ALERTS_FAILED  = 'A_REQUEST_ALERTS_FAILED';
 
 /**
  * All actions that can be raised for the overlay

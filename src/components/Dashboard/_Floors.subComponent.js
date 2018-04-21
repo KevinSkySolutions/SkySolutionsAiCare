@@ -29,7 +29,7 @@ export class Floors extends Component {
 
     onSelectFloor = (floorNumber) => { // Function for dispatching the action for changing the data and the active floor depending on which floor was clicked by the user
         this.props.dispatch(floorsdataActions.selectFloor(floorNumber, this.state.alertsdata));
-        // this.props.dispatch(alertsdataActions.resetAlertExpansion());
+        this.props.dispatch(alertsdataActions.resetAlertExpansion());
     }
 
     render() {

@@ -128,22 +128,24 @@ export default function floordataReducer(state = defaultState , action) {
 
             console.log("SET_ALERT_EXPANSION type of action called.");
 
+            let sae_selection = JSON.parse(JSON.stringify(state.selection));
+            sae_selection.selectedalert = action.payload;
+
             return {
                 ...state,
-                selection: {
-                    selectedalert: action.payload   // this indicates which of the alerts is expanded currently
-                }
+                selection: sae_selection
             }
         case RESET_ALERT_EXPANSION:
 
            console.log("RESET_ALERT_EXPANSION type of action called.");
-            
-            return {
-                ...state,
-                selection: {
-                    selectedalert: -1   // this indicates which of the alerts is expanded currently
-                }
-            }
+        
+           let rae_selection = JSON.parse(JSON.stringify(state.selection));
+           rae_selection.selectedalert = -1;
+
+           return {
+               ...state,
+               selection: rae_selection
+           }
         default:
             return state;
     }

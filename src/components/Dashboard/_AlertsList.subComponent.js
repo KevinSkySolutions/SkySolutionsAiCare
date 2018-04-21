@@ -70,7 +70,7 @@ class AlertItem extends Component {
 
     onClick = e => {  // Function for changing the state and expanding or collapsing the Alert
 
-        this.props.dispatch(alertsdataActions.viewAlertDetails());
+        // this.props.dispatch(alertsdataActions.viewAlertDetails());
 
         if (this.state.isClicked === false) {  // If the Alert is expanded then contract
             this.setState({

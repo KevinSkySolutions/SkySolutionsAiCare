@@ -23,9 +23,6 @@ export class Dashboard extends Component {
   constructor(props) {
     super(props);
 
-    console.log("this.state.flooralerts");
-    console.log(props.flooralerts);
-
     this.state = {
       globalalerts: props.globalalerts,   
       flooralerts:  props.flooralerts,     
@@ -98,10 +95,10 @@ export class Dashboard extends Component {
 const mapStateToProps = (state) => {
 
   return {
-    globalalerts: state.dashboard.alertsdata,     //Data for the overlay
-    flooralerts:  state.floorsdata.selection,     //Data for the Right hand side alerts list and corresponding alerts on the floor map
-    overlay:      state.overlaydata.summary,      //Getting the count for the total alerts in the facility
-    floors:       state.floorsdata.floors         //Data for showing the total number of floors in the facility
+    globalalerts: state.dashboard.alertsdata,         //Data for the overlay
+    flooralerts:  state.floorsdata.selection,  //Data for the Right hand side alerts list and corresponding alerts on the floor map
+    overlay:      state.overlaydata.summary,          //Getting the count for the total alerts in the facility
+    floors:       state.floorsdata.floors             //Data for showing the total number of floors in the facility
   };
 };
 

@@ -76,7 +76,7 @@ export default function floordataReducer(state = defaultState , action) {
             });
 
             //Defining a temporary floor object for data manipulation
-            let selection_object = { floor: 0, alerts: []};
+            let selection_object = JSON.parse(JSON.stringify(state.selection));
             selection_object.floor = floor_to_set; //assigning the selected floor to the temporary object from the payload of the action
             let floorsDatas = state.floors;
 
@@ -89,6 +89,8 @@ export default function floordataReducer(state = defaultState , action) {
             };
 
             //Loop for selecting the appropriate alerts with respect to the selected floor based on the selected floor
+           
+            selection_object.alerts = []; // re initialize
             for (var i = 0; i < alerts_change.length; i++) {
                 if (alerts_change[i].floor == selection_object.floor) {
                     selection_object.alerts.push(alerts_change[i]);

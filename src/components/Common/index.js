@@ -5,22 +5,20 @@ import Dialog from 'rc-dialog';
 export class MediaControl extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            visible: false,
-            width: 600,
-            destroyOnClose: true,
-            center: false,
-            mousePosition: {},
-            type: this.props.type,   // Variable for deciding the type of alert being passed to the Component for dynamic styling
-            media: this.props.media  // Variable for deciding whether the props being passed is of type audio or video
-        };
-    }
 
-    componentWillReceiveProps() {  // Updating the state on receiving the new props after selecting a different floor
-        this.setState({
-            type: this.props.type,   // Variable for deciding the type of alert being passed to the Component for dynamic styling
-            media: this.props.media  // Variable for deciding whether the props being passed is of type audio or video
-        });
+        console.log("MediaControl constructor. Props Below.");
+        console.log(props);
+        
+        this.state = {
+            visible:        false,
+            width:          600,
+            destroyOnClose: true,
+            center:         false,
+            mousePosition:  {},
+            type:           this.props.type,    // Variable for deciding the type of alert being passed to the Component for dynamic styling
+            media:          this.props.media,   // Variable for deciding whether the props being passed is of type audio or video
+            src:            this.props.source   // Variable for choosing the multimedia web url
+        };
     }
 
     onClick = e => {
@@ -77,8 +75,8 @@ export class MediaControl extends Component {
             >
                 {
                     (mediaType === "video")   // Conditional logic for selecting whether the alert has attached video or audio
-                        ? <div><MediaPlayer media="video" /></div>
-                        : <div><MediaPlayer media="audio" /></div>
+                        ? <div><MediaPlayer media="video" source={this.state.src} /></div>
+                        : <div><MediaPlayer media="audio" source={this.state.src} /></div>
                 }
 
             </Dialog>
@@ -110,8 +108,8 @@ function MediaPlayer(props) {
         <div>
             {
                 (props.media === "video")   // Conditional logic for selecting whether the alert has attached video or audio
-                    ? <video controls autoPlay src='https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4' />
-                    : <audio controls autoPlay src='http://www.nihilus.net/soundtracks/Static%20Memories.mp3' />
+                    ? <video controls autoPlay src={props.source} />
+                    : <audio controls autoPlay src={props.source} />
             }
         </div>
 

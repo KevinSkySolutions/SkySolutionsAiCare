@@ -146,9 +146,9 @@ class GlobalAlerts extends Component {
                                 (alert.media.video == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
                                     ? ((alert.media.audio == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
                                         ? <div></div>
-                                        : <MediaControl type={alert.priority} media="audio" />
+                                        : <MediaControl type={alert.priority} media="audio" source={ alert.media.audio } />
                                     )
-                                    : <MediaControl type={alert.priority} media="video" />
+                                    : <MediaControl type={alert.priority} media="video" source={ alert.media.audio } />
                             }
 
                         </div>

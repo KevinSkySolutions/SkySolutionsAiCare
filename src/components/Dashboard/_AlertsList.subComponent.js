@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { MediaControl } from '../Common';
 import { alertsdataActions } from '../../actions';
 import { bindActionCreators } from 'redux';
 import AlertItem from './_AlertItem.subComponent';

@@ -4,12 +4,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import Meta from 'react-helmet';
 
-import Header from '../Common/Header/Header';
-import Floors from './_Floors.subComponent';
-import AlertsList from './_AlertsList.subComponent';
-import Overlay from './_Overlay.subComponent';
-
-import { FloorMap } from './_SubComponents';
+import Header from        '../Common/Header/Header';
+import Floors from        './_Floors.subComponent';
+import AlertsList from    './_AlertsList.subComponent';
+import Overlay from       './_Overlay.subComponent';
+import FloorMap from      './_FloorMap.subComponents';
 
 import { alertsdataActions, overlaydataActions, floorsdataActions } from '../../actions';
 
@@ -37,10 +36,8 @@ export class Dashboard extends Component {
   componentWillReceiveProps(newProps) {
 
     // TODO, conditionally setState only if changes are necessary
-    this.setState({
-      globalalerts: newProps.globalalerts,   
-      flooralerts:  newProps.flooralerts,     
-      overlay:      newProps.overlay
+    this.setState({  
+      flooralerts:  newProps.flooralerts
     });
   }
 
@@ -68,11 +65,8 @@ export class Dashboard extends Component {
                     </div>
                   </div>
                 </div>
-                <div className="floor-image">
-                  <img src={require("../../img/floorplan" + ((this.state.flooralerts.floor==undefined)? "1" : this.state.flooralerts.floor) + ".png")} alt="" className="floor-map" />
-                  
-                  <FloorMap alerts={this.state.flooralerts} />
-                </div>
+
+                <FloorMap alerts={this.state.flooralerts} />
               </div>
             </div>
 
@@ -92,10 +86,8 @@ export class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
 
-  return {
-    globalalerts: state.dashboard.alertsdata,       //Data for the overlay
-    flooralerts:  state.floorsdata.selection,       //Data for the Right hand side alerts list and corresponding alerts on the floor map
-    overlay:      state.overlaydata.summary          //Getting the count for the total alerts in the facility };
+  return {      //Data for the overlay
+    flooralerts:  state.floorsdata.selection        //Getting the count for the total alerts in the facility };
   }
 };
 

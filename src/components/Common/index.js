@@ -5,6 +5,14 @@ import Dialog from 'rc-dialog';
 export class MediaControl extends Component {
     constructor(props) {
         super(props);
+
+        console.log("MediaControl props.");
+        console.log("type");
+        console.log(props.type);
+        console.log("media");
+        console.log(props.media);
+        console.log("src");
+        console.log(props.source);
         
         this.state = {
             visible:        false,
@@ -12,9 +20,9 @@ export class MediaControl extends Component {
             destroyOnClose: true,
             center:         false,
             mousePosition:  {},
-            type:           this.props.type,    // Variable for deciding the type of alert being passed to the Component for dynamic styling
-            media:          this.props.media,   // Variable for deciding whether the props being passed is of type audio or video
-            src:            this.props.source   // Variable for choosing the multimedia web url
+            type:           props.type,    // Variable for deciding the type of alert being passed to the Component for dynamic styling
+            media:          props.media,   // Variable for deciding whether the props being passed is of type audio or video
+            src:            props.source   // Variable for choosing the multimedia web url
         };
     }
 

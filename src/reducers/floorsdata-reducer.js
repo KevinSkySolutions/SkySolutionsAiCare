@@ -1,4 +1,6 @@
 import { REQUEST_FLOOR_DATA, RECEIVE_FLOOR_DATA, DIGEST_FLOOR_DATA, SELECT_FLOOR, SET_ALERT_EXPANSION, RESET_ALERT_EXPANSION, NAVIGATE_TO_ALERT } from '../constants';
+// below is for mock only
+import { RECEIVE_ALERTS } from '../constants';
 import { browserHistory } from 'react-router';
 
 // this is the floor data reducer, responds to all ACTIONS raised from the floor plan section part of
@@ -180,6 +182,18 @@ export default function floordataReducer(state = defaultState , action) {
            return {
                ...state,
                selection: rae_selection
+           }
+        // mock only
+        case RECEIVE_ALERTS:
+
+           console.log("RECEIVE_ALERTS type of action called.");
+        
+           let re_selection = JSON.parse(JSON.stringify(state.selection));
+           re_selection.selectedalert   = -1;
+           re_selection.floor           = 1;
+           return {
+               ...state,
+               selection: re_selection
            }
         default:
             return state;

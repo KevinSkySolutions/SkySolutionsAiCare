@@ -4,7 +4,6 @@ import { bindActionCreators } from 'redux';
 
 import { overlaydataActions } from '../../../actions';
 
-import { MediaControl } from '../../Common';
 import OverlayAllAlerts from './_OverlayAllAlerts.subComponent';
 
 // Component for the expanding Overlay of the Dashboard Page and displaying the relevant information

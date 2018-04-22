@@ -34,7 +34,6 @@ class OverlayAllAlerts extends Component {
 
             return (
                 <div key={keyValue}>
-
                     <div className="popup-card" id="alert_popups" >
                         <div className="map-point" onClick={ () => this.onNavigate(alert.floor, alert.id, this.state.alerts) }>
                             <img src={require("../../../img/location" + alert.priority + ".png")} className="avatar" />
@@ -58,12 +57,8 @@ class OverlayAllAlerts extends Component {
                                     )
                                     : <MediaControl type={alert.priority} media="video" source={alert.media.audio} />
                             }
-
                         </div>
-
                     </div>
-
-
                 </div>
             )
         });

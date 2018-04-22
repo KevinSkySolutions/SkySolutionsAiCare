@@ -45,7 +45,7 @@ export class Overlay extends Component {
                                 <div className="heading-title">Epoch Elder Care</div>
                             </div>
                             <div className="heading-labels">
-                                <GlobalAlertsData alerts={this.state.overlay} overlay="open" />
+                                <OverlaySummary alerts={this.state.overlay} overlay="open" />
                                 <div className="dropdown-overlay" id="show_alerts_drop_down">
                                 </div>
                             </div>
@@ -61,7 +61,7 @@ export class Overlay extends Component {
                                     <div className="heading-title">Epoch Elder Care</div>
                                 </div>
                                 <div className="heading-labels">
-                                    <GlobalAlertsData alerts={this.state.overlay} overlay="open" />
+                                    <OverlaySummary alerts={this.state.overlay} overlay="open" />
                                     <div className="dropdown-overlay" id="close-icon" onClick={this.onClose}>
                                         <img src={require("../../../img/dropdowniconoverlay.png")} alt="" className="rotated-arrow" />
                                     </div>
@@ -69,7 +69,7 @@ export class Overlay extends Component {
 
                             </div>
                             <div className="alert-popup-section">
-                                <GlobalAlerts alerts={this.state.globalalerts} />
+                                <OverlayAllAlerts alerts={this.state.globalalerts} />
                             </div>
                         </div>
                     )
@@ -88,46 +88,53 @@ const mapStateToProps = (state) => {
 
 function mapDispatchToProps(dispatch) {
 
-    let ac_setOverlayExpansion = overlaydataActions.setOverlayExpansion;
-    let ac_resetOverlayExpansion = overlaydataActions.resetOverlayExpansion
+    let ac_setOverlayExpansion      = overlaydataActions.setOverlayExpansion;
+    let ac_resetOverlayExpansion    = overlaydataActions.resetOverlayExpansion;
+
     return {
         ...bindActionCreators({
-            setOverlayExpansion: ac_setOverlayExpansion,
-            resetOverlayExpansion: ac_resetOverlayExpansion
+            setOverlayExpansion:    ac_setOverlayExpansion,
+            resetOverlayExpansion:  ac_resetOverlayExpansion
         },
             dispatch)
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Overlay);
 
-// Function for displaying the Global Alerts Data for the entire facility
-function GlobalAlertsData(props) {
+// for displaying the Global Alerts Data for the entire facility
+class OverlaySummary extends Component {
 
-    let num = 0; // Variable for iterating through the styles of priorities for different types of alerts
-
-    const alert = props.alerts.map((alert, keyValue) => {
-
-        num++; // Incrementing the variable since the priority levels start at 1
-
-        let divstyle = ("alert-number" + num + " alert-numbers"); // Variable to decide which style to assign the alert based on the priority of the alert being passed
-
-        if (num == 1 && props.overlay == "closed") { divstyle = ("alert-number" + num + " alert-numbers"); }
-
-        else if (num == 1 && props.overlay == "open") { divstyle = ("alert-number" + num + " alert-number"); }
-
-        return (
-            <div className="alerts" key={keyValue}>
-                <img src={require("../../../img/alert" + num + ".png")} alt="" />
-                <div className={divstyle}>{alert}</div>
-            </div>
-        );
+    constructor(props) {
+        super(props);
     }
-    )
-    return alert;
+
+    render() {
+
+        let num = 0; // Variable for iterating through the styles of priorities for different types of alerts
+        const alert = this.props.alerts.map((alert, keyValue) => {
+
+            num++; // Incrementing the variable since the priority levels start at 1
+            let divstyle = ("alert-number" + num + " alert-numbers"); // Variable to decide which style to assign the alert based on the priority of the alert being passed
+
+            if (num == 1 && this.props.overlay == "closed") { 
+                divstyle = ("alert-number" + num + " alert-numbers"); 
+            } else if (num == 1 && this.props.overlay == "open") { 
+                divstyle = ("alert-number" + num + " alert-number"); 
+            }
+
+            return (
+                <div className="alerts" key={keyValue}>
+                    <img src={require("../../../img/alert" + num + ".png")} alt="" />
+                    <div className={divstyle}>{alert}</div>
+                </div>
+            );
+        });
+        return alert;
+    }
 }
 
 // Component for displaying all the alerts for the entire facility separately inside the overlay and also the relevant media
-class GlobalAlerts extends Component {
+class OverlayAllAlerts extends Component {
 
     constructor(props) {
         super(props);

@@ -3,7 +3,8 @@ import { REQUEST_ALERTS_SUMMARY, NAVIGATE_TO_ALERT, SET_OVERLAY_EXPANSION, RESET
 export const overlaydataActions = {
     makeOverlaySummary,
     setOverlayExpansion,
-    resetOverlayExpansion
+    resetOverlayExpansion,
+    navigateToAlertOnMap
 };
 
 /**
@@ -22,10 +23,16 @@ function navigateToAlertOnMap(alertId) {
     return { type: NAVIGATE_TO_ALERT, payload: inputPayload };
 }
 
+/**
+ * Action to be raised when overlay is to be expanded
+ */
 function setOverlayExpansion() {
     return { type: SET_OVERLAY_EXPANSION };
 }
 
+/**
+ * Action to be raised when overlay is to be colapsed
+ */
 function resetOverlayExpansion() {
     return { type: RESET_OVERLAY_EXPANSION  };
 }

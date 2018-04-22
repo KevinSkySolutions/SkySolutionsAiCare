@@ -1,7 +1,7 @@
 import 'rxjs'; // TODO remove this
 import { combineEpics } from 'redux-observable';
 import { WEB_API_URL } from './constants';
-import { REQUEST_ALERTS, REQUEST_USER_DATA, REQUEST_LOGIN, REQUEST_FLOOR_DATA, DIGEST_FLOOR_DATA, SHOW_ALERT_DETAILS } from './constants';
+import { REQUEST_ALERTS, REQUEST_USER_DATA, REQUEST_LOGIN, REQUEST_FLOOR_DATA, DIGEST_FLOOR_DATA, NAVIGATE_TO_ALERT } from './constants';
 import { alertsdataActions, homepageActions, floorsdataActions, overlaydataActions } from './actions';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { Observable } from 'rxjs';
@@ -22,7 +22,7 @@ export const requestLogin = actions$ =>
                 .getJSON(`${WEB_API_URL}/login`)
                 .map((data) => {
                     return homepageActions.requestUserData()
-                 } )
+                })
                 .catch(error => Observable.of(homepageActions.loginFailed()))
         );
 
@@ -43,8 +43,8 @@ export const requestUserData = actions$ =>
                     homepageActions.receiveUserData(data),
                     floorsdataActions.requestFloorsData()
                 ))
-                // TODO, retry and fail gracefully 
-                // .catch(error => Observable.of(homepageActions.loginFailed()))
+            // TODO, retry and fail gracefully 
+            // .catch(error => Observable.of(homepageActions.loginFailed()))
         );
 
 /**
@@ -64,8 +64,8 @@ export const requestFloorsData = actions$ =>
                     floorsdataActions.receiveFloorsData(data),
                     alertsdataActions.requestAlertsData()
                 ))
-                // TODO, retry and fail gracefully 
-                // .catch(error => Observable.of(homepageActions.loginFailed()))
+            // TODO, retry and fail gracefully 
+            // .catch(error => Observable.of(homepageActions.loginFailed()))
         );
 
 /**
@@ -90,22 +90,35 @@ export const requestAlerts = actions$ =>
         );
 
 /**
+ * "navigateToAlert" invoked reactively upon user action
+ * overlay closes as a side affect
+ * @param {*} actions$ default parameter for each such epic
+ */
+export const navigateToAlert = actions$ =>
+    actions$
+        .ofType(NAVIGATE_TO_ALERT)
+        .mergeMap(() => Observable.of(
+            overlaydataActions.resetOverlayExpansion()
+        ));
+
+/**
  * "redirectToDashboard" invoked reactively upon digesting the floors data
  * @param {*} actions$ default parameter for each such epic
  */
 export const redirectToDashboard = actions$ =>
 
-        actions$
-            .ofType(DIGEST_FLOOR_DATA)
-            .map(() => {
-                browserHistory.push('/dashboard');
-                return { type: "NO_CLASH_TYPE" };
-            });
+    actions$
+        .ofType(DIGEST_FLOOR_DATA)
+        .map(() => {
+            browserHistory.push('/dashboard');
+            return { type: "NO_CLASH_TYPE" };
+        });
 
 export default combineEpics(
     requestLogin,
     requestUserData,
     requestFloorsData,
     requestAlerts,
-    redirectToDashboard
+    redirectToDashboard,
+    navigateToAlert
 );

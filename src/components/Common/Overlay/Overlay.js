@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
-import { MediaControl } from '../../Common';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+
 import { overlaydataActions } from '../../../actions';
+
+import { MediaControl } from '../../Common';
+import OverlayAllAlerts from './_OverlayAllAlerts.subComponent';
 
 // Component for the expanding Overlay of the Dashboard Page and displaying the relevant information
 export class Overlay extends Component {
@@ -12,16 +15,14 @@ export class Overlay extends Component {
 
         this.state = {
             clicked: props.clicked,
-            overlay: props.overlay,
-            globalalerts: props.globalalerts
+            overlay: props.overlay
         }
     }
 
     componentWillReceiveProps(newProps) {
         this.setState({
             clicked: newProps.clicked,
-            overlay: newProps.overlay,
-            globalalerts: newProps.globalalerts
+            overlay: newProps.overlay
         });
     }
 
@@ -69,7 +70,7 @@ export class Overlay extends Component {
 
                             </div>
                             <div className="alert-popup-section">
-                                <OverlayAllAlerts alerts={this.state.globalalerts} />
+                                <OverlayAllAlerts />
                             </div>
                         </div>
                     )
@@ -81,8 +82,7 @@ const mapStateToProps = (state) => {
 
     return {
         clicked: state.overlaydata.isExpanded,
-        overlay: state.overlaydata.summary,
-        globalalerts: state.dashboard.alertsdata
+        overlay: state.overlaydata.summary
     };
 };
 
@@ -130,58 +130,5 @@ class OverlaySummary extends Component {
             );
         });
         return alert;
-    }
-}
-
-// Component for displaying all the alerts for the entire facility separately inside the overlay and also the relevant media
-class OverlayAllAlerts extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            alerts: this.props.alerts // Making a copy of the alerts object for the entire facility for data manipulation
-        }
-    }
-
-    render() {
-        return this.state.alerts.map((alert, keyValue) => {
-
-            let divstyle = ("type-of-alert alert-number" + alert.priority); // Variable to decide which style to assign the alert based on the priority of the alert being passed
-
-            return (
-                <div key={keyValue}>
-
-                    <div className="popup-card" id="alert_popups" >
-                        <div className="map-point">
-                            <img src={require("../../../img/location" + alert.priority + ".png")} className="avatar" />
-                        </div>
-                        <div className={divstyle}>{alert.type}</div>
-                        <div className="alert-content-section">
-                            <div className="alert-content">
-                                <div className="pt-log pt-detail">
-                                    <img src={require("../../../img/cardalert" + alert.priority + ".png")} className="avatar" />
-                                    <div className="side-text detail-1 side-text-padding">
-                                        <div className="pt-name list-header">{alert.resident}</div>
-                                        <div className="pt-suite-no gray-text list-subheader mr-t-5">{alert.currentlocation}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            {
-                                (alert.media.video == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
-                                    ? ((alert.media.audio == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
-                                        ? <div></div>
-                                        : <MediaControl type={alert.priority} media="audio" source={alert.media.audio} />
-                                    )
-                                    : <MediaControl type={alert.priority} media="video" source={alert.media.audio} />
-                            }
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-            )
-        });
     }
 }

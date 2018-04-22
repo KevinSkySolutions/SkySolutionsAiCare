@@ -17,10 +17,11 @@ function makeOverlaySummary(alertsdata) {
 
 /**
  * Action to be raised when user chooses to navigate to an alert
- * @param {*} alertId is the ID of the alert to navigate to
+ * @param alertId is the ID of the alert to navigate to
+ * @param floorNumber is the floor number we need to goto.
  */
-function navigateToAlertOnMap(alertId) {
-    return { type: NAVIGATE_TO_ALERT, payload: inputPayload };
+function navigateToAlertOnMap(floorNumber, alertId, allalerts) {
+    return { type: NAVIGATE_TO_ALERT, payload: { floornumber: floorNumber, alertid: alertId, alertsdata: allalerts } };
 }
 
 /**

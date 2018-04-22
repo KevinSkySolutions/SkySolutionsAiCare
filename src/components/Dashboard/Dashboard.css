@@ -118,13 +118,13 @@ body .content-dash .left-section {
     width: fit-content;
     height: fit-content;
     position: absolute;
-    animation-name: person-on-map-animation;
-    animation-duration: 1s;
+    animation-name: person-on-map-selected-animation;
+    animation-duration: 3s;
     animation-play-state: running;
     animation-iteration-count: 2000;
 }
 
-@keyframes person-on-map-animation {
+@keyframes person-on-map-selected-animation {
     0% {
         transform: scale(1, 1);
     }
@@ -134,7 +134,33 @@ body .content-dash .left-section {
     100% {
         transform: scale(1.1, 1.1);
     }
-  }
+}
+
+.person-on-map-blink {
+    animation-name: person-on-map-blink-animation;
+    animation-duration: 1s;
+    animation-play-state: running;
+    animation-direction: alternate;
+    animation-iteration-count: 2000;
+}
+
+@keyframes person-on-map-blink-animation {
+    0% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
 .person-01 {
     top: 195px;
@@ -184,17 +210,17 @@ body .content-dash .right-section .description-mod {
 
 .glowanimationstyle {
     animation-name: glowanimation;
-    animation-duration: 1s;
+    animation-duration: 3s;
     animation-play-state: running;
     animation-iteration-count: 2000;
 }
 
 @keyframes glowanimation {
     0% {
-        box-shadow: -4px -4px 4px 4px rgba(253, 228, 241, 0.65), 4px 4px 4px 4px rgba(253, 228, 241, 0.65);
+        box-shadow: 0 -2px 4px 4px rgba(214, 17, 115, 0.35), 0 2px 4px 4px rgba(214, 17, 115, 0.35);
     }
     100% {
-        box-shadow: -1px -1px 0 0 rgba(253, 228, 241, 0.5), 1px 1px 0 0 rgba(253, 228, 241, 0.5);
+        box-shadow: 0 -1px 0 0 rgba(214, 17, 115, 0.35), 0 1px 0 0 rgba(214, 17, 115, 0.35);
     }
 }
 

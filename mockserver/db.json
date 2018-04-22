@@ -187,6 +187,7 @@
   },
 
   {
+    "isnew": true,
     "id": 101,
     "resident": "David Choi",
     "type": "SOS",

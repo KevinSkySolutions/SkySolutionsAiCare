@@ -33,9 +33,29 @@ export default class FloorMap extends Component {
           {
             (selection == keyValue)
               ?
-              <img style={divStyle} className="person-on-map-selected" src={require("../../img/cardalert" + alert.priority + ".png")} />
+              (alert.isnew!=undefined)
+                ? 
+                  <div>
+                    <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/alertpositionpointer" + alert.priority + ".png")} />
+                    <img style={divStyle} className={ "person-on-map-selected person-on-map-blink" } src={require("../../img/cardalert" + alert.priority + ".png")} />
+                  </div>
+                :
+                  <div>
+                    <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/alertpositionpointer" + alert.priority + ".png")} />
+                    <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/cardalert" + alert.priority + ".png")} />
+                  </div>
               :
-              <img style={divStyle} className="person-on-map" src={require("../../img/cardalert" + alert.priority + ".png")} />
+              (alert.isnew!=undefined)
+                ?
+                  <div>
+                    <img style={divStyle} className={ "person-on-map" } src={require("../../img/alertpositionpointer" + alert.priority + ".png")} />
+                    <img style={divStyle} className={ "person-on-map person-on-map-blink" } src={require("../../img/cardalert" + alert.priority + ".png")} />
+                  </div>
+                :
+                  <div>
+                    <img style={divStyle} className={ "person-on-map" } src={require("../../img/alertpositionpointer" + alert.priority + ".png")} />
+                    <img style={divStyle} className={ "person-on-map" } src={require("../../img/cardalert" + alert.priority + ".png")} />
+                  </div>
           }
         </div>
       )

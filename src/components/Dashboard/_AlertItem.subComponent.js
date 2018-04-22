@@ -9,7 +9,10 @@ class AlertItem extends Component {
 
     constructor(props) {
         super(props);
-        let styleToApply = props.isExpanded ? "description-mod-active" : "description-mod"
+        let styleToApply = props.isExpanded ? "description-mod-active" : "description-mod";
+        if (props.alert.isnew) {
+            styleToApply += " glowanimationstyle";
+        }
 
         this.state = {
             alert:          props.alert,        // Making a copy of the alerts object for the entire facility for data manipulation
@@ -21,11 +24,15 @@ class AlertItem extends Component {
 
     componentWillReceiveProps(newProps) {
 
+        let newStyleToApply = ((newProps.isExpanded==undefined)||(newProps.isExpanded==false)) ? "description-mod" : "description-mod-active";
+        if (newProps.alert.isnew) {
+            newStyleToApply += " glowanimationstyle";
+        }
         this.setState({
             alert:          newProps.alert,
             indexKey:       (newProps.keyCopy==undefined? 0 : newProps.keyCopy),
             isClicked:      (newProps.isExpanded==undefined? false: newProps.isExpanded),
-            style:          ((newProps.isExpanded==undefined)||(newProps.isExpanded==false)) ? "description-mod" : "description-mod-active"
+            style:          newStyleToApply
         });
     }
 

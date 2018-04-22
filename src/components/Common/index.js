@@ -5,17 +5,14 @@ import Dialog from 'rc-dialog';
 export class MediaControl extends Component {
     constructor(props) {
         super(props);
-
-        // console.log("MediaControl props.");
-        // console.log("type");
-        // console.log(props.type);
-        // console.log("media");
-        // console.log(props.media);
-        // console.log("src");
-        // console.log(props.source);
+        
+        let visibility = false;
+        if (props.isnew) {
+            visibility = true;
+        }
         
         this.state = {
-            visible:        false,
+            visible:        visibility,
             width:          600,
             destroyOnClose: true,
             center:         false,

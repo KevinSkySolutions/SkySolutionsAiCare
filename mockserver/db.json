@@ -1137,7 +1137,7 @@
     "description": "Assistance Required",
     "time": 1,
     "media": {
-      "text": "alert.txt"
+      "video": "https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4"
     },
     "location": {
       "room": "Suite 302",

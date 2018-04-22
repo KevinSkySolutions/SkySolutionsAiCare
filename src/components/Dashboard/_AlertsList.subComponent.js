@@ -26,6 +26,7 @@ export class AlertsList extends Component {
             currentalert:       newProps.currentalert,
             currentselection:   newProps.currentselection
         });
+        this.forceUpdate();
     }
 
     render() {

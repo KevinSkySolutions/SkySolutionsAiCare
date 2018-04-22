@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MediaControl } from '../Common';
+import { MediaControl } from '../../Common';
 import { connect } from 'react-redux';
 
 // Component for the expanding Overlay of the Dashboard Page and displaying the relevant information
@@ -7,9 +7,6 @@ export class Overlay extends Component {
 
     constructor(props) {
         super(props);
-
-        console.log("Overlay constructor. Props below");
-        console.log(props);
 
         this.state = {
             clicked:        false,
@@ -38,7 +35,7 @@ export class Overlay extends Component {
                     ? (
                         <div className="main-heading-section common-margin" onClick={this.onClick} >
                             <div className="center-image" >
-                                <img src={require("../../img/centerimage.png")} alt="" />
+                                <img src={require("../../../img/centerimage.png")} alt="" />
                                 <div className="heading-title">Epoch Elder Care</div>
                             </div>
                             <div className="heading-labels">
@@ -54,13 +51,13 @@ export class Overlay extends Component {
                         <div className="alerts-popup" id="alert_popups">
                             <div className="main-heading-section common-margin ">
                                 <div className="center-image" >
-                                    <img src={require("../../img/centerimage.png")} alt="" />
+                                    <img src={require("../../../img/centerimage.png")} alt="" />
                                     <div className="heading-title">Epoch Elder Care</div>
                                 </div>
                                 <div className="heading-labels">
                                     <GlobalAlertsData alerts={this.state.overlay} overlay="open" />
                                     <div className="dropdown-overlay" id="close-icon" onClick={this.onClose}>
-                                        <img src={require("../../img/dropdowniconoverlay.png")} alt="" className="rotated-arrow" />
+                                        <img src={require("../../../img/dropdowniconoverlay.png")} alt="" className="rotated-arrow" />
                                     </div>
                                 </div>
 
@@ -100,7 +97,7 @@ function GlobalAlertsData(props) {
 
         return (
             <div className="alerts" key={keyValue}>
-                <img src={require("../../img/alert" + num + ".png")} alt="" />
+                <img src={require("../../../img/alert" + num + ".png")} alt="" />
                 <div className={divstyle}>{alert}</div>
             </div>
         );
@@ -129,13 +126,13 @@ class GlobalAlerts extends Component {
 
                     <div className="popup-card" id="alert_popups" >
                         <div className="map-point">
-                            <img src={require("../../img/location" + alert.priority + ".png")} className="avatar" />
+                            <img src={require("../../../img/location" + alert.priority + ".png")} className="avatar" />
                         </div>
                         <div className={divstyle}>{alert.type}</div>
                         <div className="alert-content-section">
                             <div className="alert-content">
                                 <div className="pt-log pt-detail">
-                                    <img src={require("../../img/cardalert" + alert.priority + ".png")} className="avatar" />
+                                    <img src={require("../../../img/cardalert" + alert.priority + ".png")} className="avatar" />
                                     <div className="side-text detail-1 side-text-padding">
                                         <div className="pt-name list-header">{alert.resident}</div>
                                         <div className="pt-suite-no gray-text list-subheader mr-t-5">{alert.currentlocation}</div>

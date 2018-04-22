@@ -4,6 +4,7 @@ import React from 'react';
 export default function FloorMap(props) {
 
   let alerts = props.alerts.alerts; // Making a copy of the alerts object for the relevant floor for data manipulation
+  let selection = props.alerts.selectedalert;
   let items = alerts.map((alert, keyValue) => {
 
     // Variable to decide which style to assign the alert based on the priority of the alert being passed
@@ -14,7 +15,15 @@ export default function FloorMap(props) {
     };
 
     return (
-      <img key={keyValue} style={divStyle} className="person-on-map" src={require("../../img/alertpositionpointer" + alert.priority + ".png")} />
+      <div key={keyValue} >
+        {
+          (selection == keyValue)
+          ?
+          <img style={divStyle} className="person-on-map-selected" src={require("../../img/alert" + alert.priority + ".png")} />
+          :
+          <img style={divStyle} className="person-on-map" src={require("../../img/alert" + alert.priority + ".png")} />
+        }        
+      </div>
     )
   });
 

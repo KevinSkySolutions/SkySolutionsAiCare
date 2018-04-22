@@ -5,9 +5,9 @@ import { Link } from 'react-router';
 import Meta from 'react-helmet';
 
 import Header from        '../Common/Header/Header';
+import Overlay from       '../Common/Overlay/Overlay';
 import Floors from        './_Floors.subComponent';
 import AlertsList from    './_AlertsList.subComponent';
-import Overlay from       './_Overlay.subComponent';
 import FloorMap from      './_FloorMap.subComponents';
 
 import { alertsdataActions, overlaydataActions, floorsdataActions } from '../../actions';
@@ -22,10 +22,8 @@ export class Dashboard extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      globalalerts: props.globalalerts,   
-      flooralerts:  props.flooralerts,     
-      overlay:      props.overlay             
+    this.state = {  
+      flooralerts:  props.flooralerts           
     };
   }
 
@@ -49,8 +47,7 @@ export class Dashboard extends Component {
 
         <Header />
         <div className="content-body">
-
-          <Overlay />
+        <Overlay />
           <div>
             <div className="content-section">
               <div className="left-section">

@@ -5,9 +5,6 @@ import Dialog from 'rc-dialog';
 export class MediaControl extends Component {
     constructor(props) {
         super(props);
-
-        console.log("MediaControl constructor. Props Below.");
-        console.log(props);
         
         this.state = {
             visible:        false,

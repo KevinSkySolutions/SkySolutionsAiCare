@@ -6,12 +6,8 @@ export default function datafetchReducer(state = { alertsdata: [] }, action) {
   switch (action.type) {
     case REQUEST_ALERTS:
 
-      console.log("REQUEST_ALERTS type of action called.");
-
       return state;
     case RECEIVE_ALERTS:
-    
-      console.log("RECEIVE_ALERTS type of action called.");
 
       // TODO, uncomment let alerts = action.payload;
       let alerts = action.payload.alertsdata;

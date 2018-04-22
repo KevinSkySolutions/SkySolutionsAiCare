@@ -119,7 +119,14 @@ body .content-dash .left-section {
     height: fit-content;
     position: absolute;
     animation-name: person-on-map-selected-animation;
-    animation-duration: 3s;
+    animation-duration: 1s;
+    animation-play-state: running;
+    animation-iteration-count: 2000;
+}
+
+.newalert-summary-animation {
+    animation-name: person-on-map-selected-animation;
+    animation-duration: 1s;
     animation-play-state: running;
     animation-iteration-count: 2000;
 }

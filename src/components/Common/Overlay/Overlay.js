@@ -13,15 +13,17 @@ export class Overlay extends Component {
         super(props);
 
         this.state = {
-            clicked: props.clicked,
-            overlay: props.overlay
+            clicked:    props.clicked,
+            summary:    props.summary,
+            highlights: props.highlights
         }
     }
 
     componentWillReceiveProps(newProps) {
         this.setState({
-            clicked: newProps.clicked,
-            overlay: newProps.overlay
+            clicked:    newProps.clicked,
+            summary:    newProps.summary,
+            highlights: newProps.highlights
         });
     }
 
@@ -45,7 +47,7 @@ export class Overlay extends Component {
                                 <div className="heading-title">Epoch Elder Care</div>
                             </div>
                             <div className="heading-labels">
-                                <OverlaySummary alerts={this.state.overlay} overlay="open" />
+                                <OverlaySummary alerts={this.state.summary} highlights={this.state.highlights} overlay="open" />
                                 <div className="dropdown-overlay" id="show_alerts_drop_down">
                                 </div>
                             </div>
@@ -61,7 +63,7 @@ export class Overlay extends Component {
                                     <div className="heading-title">Epoch Elder Care</div>
                                 </div>
                                 <div className="heading-labels">
-                                    <OverlaySummary alerts={this.state.overlay} overlay="open" />
+                                    <OverlaySummary alerts={this.state.summary} overlay="open" />
                                     <div className="dropdown-overlay" id="close-icon" onClick={this.onClose}>
                                         <img src={require("../../../img/dropdowniconoverlay.png")} alt="" className="rotated-arrow" />
                                     </div>
@@ -80,8 +82,9 @@ export class Overlay extends Component {
 const mapStateToProps = (state) => {
 
     return {
-        clicked: state.overlaydata.isExpanded,
-        overlay: state.overlaydata.summary
+        clicked:    state.overlaydata.isExpanded,
+        summary:    state.overlaydata.summary,
+        highlights: state.overlaydata.highlightsummary
     };
 };
 
@@ -109,25 +112,23 @@ class OverlaySummary extends Component {
 
     render() {
 
-        let num = 0; // Variable for iterating through the styles of priorities for different types of alerts
-        const alert = this.props.alerts.map((alert, keyValue) => {
+        let index = 0; // Variable for iterating through the styles of priorities for different types of alerts
+        const returnSummary = this.props.alerts.map((alert, keyValue) => {
 
-            num++; // Incrementing the variable since the priority levels start at 1
-            let divstyle = ("alert-number" + num + " alert-numbers"); // Variable to decide which style to assign the alert based on the priority of the alert being passed
-
-            if (num == 1 && this.props.overlay == "closed") { 
-                divstyle = ("alert-number" + num + " alert-numbers"); 
-            } else if (num == 1 && this.props.overlay == "open") { 
-                divstyle = ("alert-number" + num + " alert-number"); 
+            index++; // Incrementing the variable since the priority levels start at 1
+            let divstyle = ("alert-number" + index + " alert-numbers"); // Variable to decide which style to assign the alert based on the priority of the alert being passed
+            let animstyle = "";
+            if (this.props.highlights[index-1] > 0) {
+                animstyle += "newalert-summary-animation";
             }
 
             return (
                 <div className="alerts" key={keyValue}>
-                    <img src={require("../../../img/alert" + num + ".png")} alt="" />
+                    <img className={animstyle} src={require("../../../img/alert" + index + ".png")} alt="" />
                     <div className={divstyle}>{alert}</div>
                 </div>
             );
         });
-        return alert;
+        return returnSummary;
     }
 }

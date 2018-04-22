@@ -21,8 +21,6 @@ export default function floordataReducer(state = defaultState , action) {
     switch (action.type) {
         case RECEIVE_FLOOR_DATA:
 
-            console.log("RECEIVE_FLOOR_DATA type of action called.");
-
             let floorsData = action.payload;
 
             //Defining a temporary floor object for data manipulation
@@ -43,8 +41,6 @@ export default function floordataReducer(state = defaultState , action) {
             };
         case DIGEST_FLOOR_DATA:
 
-            console.log("DIGEST_FLOOR_DATA type of action called.");
-
             //Defining a temporary floor object for data manipulation
             let floor_obj = JSON.parse(JSON.stringify(state.selection));
             let alertsdata = action.payload;
@@ -62,8 +58,6 @@ export default function floordataReducer(state = defaultState , action) {
                 selection: floor_obj
             };
         case SELECT_FLOOR:
-
-            console.log("SELECT_FLOOR type of action called.");
 
             let floor_to_set = action.payload.floornumber;
             let alerts_change = action.payload.alertsdata;
@@ -107,8 +101,6 @@ export default function floordataReducer(state = defaultState , action) {
                 selection: selection_object
             };
         case NAVIGATE_TO_ALERT:
-
-            console.log("NAVIGATE_TO_ALERT type of action called.");
 
             let n_floor_to_set =  action.payload.floornumber;
             let n_alerts_change = action.payload.alertsdata;
@@ -159,12 +151,8 @@ export default function floordataReducer(state = defaultState , action) {
             };
         case REQUEST_FLOOR_DATA:
 
-            console.log("REQUEST_FLOOR_DATA type of action called.");
-
             return state;
         case SET_ALERT_EXPANSION:
-
-            console.log("SET_ALERT_EXPANSION type of action called.");
 
             let sae_selection = JSON.parse(JSON.stringify(state.selection));
             sae_selection.selectedalert = action.payload;
@@ -174,8 +162,6 @@ export default function floordataReducer(state = defaultState , action) {
                 selection: sae_selection
             }
         case RESET_ALERT_EXPANSION:
-
-           console.log("RESET_ALERT_EXPANSION type of action called.");
         
            let rae_selection = JSON.parse(JSON.stringify(state.selection));
            rae_selection.selectedalert = -1;
@@ -186,8 +172,6 @@ export default function floordataReducer(state = defaultState , action) {
            }
         // mock only
         case RECEIVE_ALERTS:
-
-           console.log("RECEIVE_ALERTS type of action called.");
         
            let re_selection = JSON.parse(JSON.stringify(state.selection));
            re_selection.selectedalert   = -1;

@@ -6,8 +6,6 @@ export default function userdataReducer(state = {}, action) {
 
     case RECEIVE_USER_DATA:
 
-      console.log("RECEIVE_USER_DATA type of action called.");
-
       let userDataFromServer = action.payload;
 
       return {

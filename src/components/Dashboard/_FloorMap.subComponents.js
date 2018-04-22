@@ -19,9 +19,9 @@ export default function FloorMap(props) {
         {
           (selection == keyValue)
           ?
-          <img style={divStyle} className="person-on-map-selected" src={require("../../img/alert" + alert.priority + ".png")} />
+          <img style={divStyle} className="person-on-map-selected" src={require("../../img/cardalert" + alert.priority + ".png")} />
           :
-          <img style={divStyle} className="person-on-map" src={require("../../img/alert" + alert.priority + ".png")} />
+          <img style={divStyle} className="person-on-map" src={require("../../img/cardalert" + alert.priority + ".png")} />
         }        
       </div>
     )

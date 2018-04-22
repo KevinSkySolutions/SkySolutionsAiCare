@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { MediaControl } from '../../Common';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { overlaydataActions } from '../../../actions';
 
 // Component for the expanding Overlay of the Dashboard Page and displaying the relevant information
 export class Overlay extends Component {
@@ -9,22 +11,26 @@ export class Overlay extends Component {
         super(props);
 
         this.state = {
-            clicked:        false,
-            overlay:       props.overlay,
-            globalalerts:  props.globalalerts
+            clicked: props.clicked,
+            overlay: props.overlay,
+            globalalerts: props.globalalerts
         }
     }
 
-    onClick = e => { // For displaying the overlay
+    componentWillReceiveProps(newProps) {
         this.setState({
-            clicked: true
+            clicked: newProps.clicked,
+            overlay: newProps.overlay,
+            globalalerts: newProps.globalalerts
         });
     }
 
+    onClick = e => { // For displaying the overlay
+        this.props.setOverlayExpansion();
+    }
+
     onClose = e => { // For closing the overlay
-        this.setState({
-            clicked: false
-        });
+        this.props.resetOverlayExpansion();
     }
 
     render() {
@@ -74,11 +80,25 @@ export class Overlay extends Component {
 const mapStateToProps = (state) => {
 
     return {
-        overlay:        state.overlaydata.summary,
-        globalalerts:   state.dashboard.alertsdata
+        clicked: state.overlaydata.isExpanded,
+        overlay: state.overlaydata.summary,
+        globalalerts: state.dashboard.alertsdata
     };
 };
-export default connect(mapStateToProps)(Overlay);
+
+function mapDispatchToProps(dispatch) {
+
+    let ac_setOverlayExpansion = overlaydataActions.setOverlayExpansion;
+    let ac_resetOverlayExpansion = overlaydataActions.resetOverlayExpansion
+    return {
+        ...bindActionCreators({
+            setOverlayExpansion: ac_setOverlayExpansion,
+            resetOverlayExpansion: ac_resetOverlayExpansion
+        },
+            dispatch)
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Overlay);
 
 // Function for displaying the Global Alerts Data for the entire facility
 function GlobalAlertsData(props) {
@@ -143,9 +163,9 @@ class GlobalAlerts extends Component {
                                 (alert.media.video == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
                                     ? ((alert.media.audio == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
                                         ? <div></div>
-                                        : <MediaControl type={alert.priority} media="audio" source={ alert.media.audio } />
+                                        : <MediaControl type={alert.priority} media="audio" source={alert.media.audio} />
                                     )
-                                    : <MediaControl type={alert.priority} media="video" source={ alert.media.audio } />
+                                    : <MediaControl type={alert.priority} media="video" source={alert.media.audio} />
                             }
 
                         </div>

@@ -25,6 +25,8 @@ export const REQUEST_ALERTS_FAILED  = 'A_REQUEST_ALERTS_FAILED';
  */
 export const REQUEST_ALERTS_SUMMARY = 'A_REQUEST_ALERTS_SUMMARY';
 export const NAVIGATE_TO_ALERT      = 'A_NAVIGATE_TO_ALERT';
+export const SET_OVERLAY_EXPANSION  = 'A_SET_OVERLAY_EXPANSION';
+export const RESET_OVERLAY_EXPANSION= 'A_RESET_OVERLAY_EXPANSION';
 
 /**
  * All actions that can be raised for the map area

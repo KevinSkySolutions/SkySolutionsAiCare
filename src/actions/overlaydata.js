@@ -1,7 +1,9 @@
-import { REQUEST_ALERTS_SUMMARY, NAVIGATE_TO_ALERT } from '../constants';
+import { REQUEST_ALERTS_SUMMARY, NAVIGATE_TO_ALERT, SET_OVERLAY_EXPANSION, RESET_OVERLAY_EXPANSION } from '../constants';
 
 export const overlaydataActions = {
-    makeOverlaySummary
+    makeOverlaySummary,
+    setOverlayExpansion,
+    resetOverlayExpansion
 };
 
 /**
@@ -18,4 +20,12 @@ function makeOverlaySummary(alertsdata) {
  */
 function navigateToAlertOnMap(alertId) {
     return { type: NAVIGATE_TO_ALERT, payload: inputPayload };
+}
+
+function setOverlayExpansion() {
+    return { type: SET_OVERLAY_EXPANSION };
+}
+
+function resetOverlayExpansion() {
+    return { type: RESET_OVERLAY_EXPANSION  };
 }

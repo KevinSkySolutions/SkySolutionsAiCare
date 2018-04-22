@@ -1,11 +1,13 @@
 import 'rxjs'; // TODO remove this
-import { combineEpics } from 'redux-observable';
-import { WEB_API_URL } from './constants';
-import { REQUEST_ALERTS, REQUEST_USER_DATA, REQUEST_LOGIN, REQUEST_FLOOR_DATA, DIGEST_FLOOR_DATA, NAVIGATE_TO_ALERT } from './constants';
-import { alertsdataActions, homepageActions, floorsdataActions, overlaydataActions } from './actions';
-import { ajax } from 'rxjs/observable/dom/ajax';
-import { Observable } from 'rxjs';
-import { browserHistory } from 'react-router';
+import { combineEpics } from                        'redux-observable';
+import { WEB_API_URL, REQUEST_ALERTS_MOCK1, REQUEST_ALERTS_MOCK2,
+    REQUEST_ALERTS, REQUEST_USER_DATA, REQUEST_LOGIN, REQUEST_FLOOR_DATA, 
+    DIGEST_FLOOR_DATA, NAVIGATE_TO_ALERT } from     './constants';
+import { alertsdataActions, homepageActions, 
+    floorsdataActions, overlaydataActions } from    './actions';
+import { ajax } from                                'rxjs/observable/dom/ajax';
+import { Observable } from                          'rxjs';
+import { browserHistory } from                      'react-router';
 
 /**
  * "requestLogin" invoked automatically when user presses login button
@@ -114,11 +116,55 @@ export const redirectToDashboard = actions$ =>
             return { type: "NO_CLASH_TYPE" };
         });
 
+/* ************************************************************************************* */
+/**
+ * "requestAlertsMock1" 
+ * @param {*} actions$ default parameter for each such epic
+ */
+export const requestAlertsMock1 = actions$ =>
+
+    actions$
+        .ofType(REQUEST_ALERTS_MOCK1)
+        .mergeMap(action =>
+            ajax
+                .getJSON(`${WEB_API_URL}/futureAlertsData`)
+                .mergeMap(data => Observable.of(
+                    alertsdataActions.receiveAlertsData(data),
+                    overlaydataActions.makeOverlaySummary(data),
+                    floorsdataActions.digestFloorsData(data)
+                ))
+                //.catch(error => Observable.of(alertsdataActions.requestAlertsDataFailed()))
+                .catch(error => Observable.of(alertsdataActions.receiveAlertsData(data)))
+        );
+/**
+ * "requestAlertsMock2" 
+ * @param {*} actions$ default parameter for each such epic
+ */
+export const requestAlertsMock2 = actions$ =>
+
+    actions$
+        .ofType(REQUEST_ALERTS_MOCK2)
+        .mergeMap(action =>
+            ajax
+                .getJSON(`${WEB_API_URL}/futureAlertsData2`)
+                .mergeMap(data => Observable.of(
+                    alertsdataActions.receiveAlertsData(data),
+                    overlaydataActions.makeOverlaySummary(data),
+                    floorsdataActions.digestFloorsData(data)
+                ))
+                //.catch(error => Observable.of(alertsdataActions.requestAlertsDataFailed()))
+                .catch(error => Observable.of(alertsdataActions.receiveAlertsData(data)))
+        );
+/* ************************************************************************************* */
+
 export default combineEpics(
     requestLogin,
     requestUserData,
     requestFloorsData,
     requestAlerts,
     redirectToDashboard,
-    navigateToAlert
+    navigateToAlert,
+    // below are for mock only
+    requestAlertsMock1,
+    requestAlertsMock2
 );

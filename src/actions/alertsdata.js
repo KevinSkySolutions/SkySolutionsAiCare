@@ -1,11 +1,16 @@
-import { REQUEST_ALERTS, REQUEST_ALERTS_FAILED, RECEIVE_ALERTS, RESET_ALERT_EXPANSION, SET_ALERT_EXPANSION } from '../constants';
+import { REQUEST_ALERTS, REQUEST_ALERTS_FAILED, RECEIVE_ALERTS, 
+    RESET_ALERT_EXPANSION, SET_ALERT_EXPANSION, 
+    REQUEST_ALERTS_MOCK1, REQUEST_ALERTS_MOCK2 } from '../constants';
 
 export const alertsdataActions = {
     requestAlertsData,
     receiveAlertsData,
     requestAlertsDataFailed,
     resetAlertExpansion,
-    setAlertExpansion
+    setAlertExpansion,
+    /* ****** ALL MOCKS ****** */
+    requestAlertsDataMock1,
+    requestAlertsDataMock2
 };
 
 /**
@@ -43,4 +48,19 @@ function resetAlertExpansion() {
  */
 function setAlertExpansion(keyValue) {
     return { type: SET_ALERT_EXPANSION, payload: keyValue }
+}
+
+/* ******************************* ALL MOCKS ***************************************** */
+/**
+ * Action to be raised for fetching mock data 1
+ */
+function requestAlertsDataMock1() {
+    return { type: REQUEST_ALERTS_MOCK1, payload: {} };
+}
+
+/**
+ * Action to be raised for fetching mock data 2
+ */
+function requestAlertsDataMock2() {
+    return { type: REQUEST_ALERTS_MOCK2, payload: {} };
 }

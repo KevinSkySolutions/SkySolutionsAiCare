@@ -11,7 +11,8 @@ export const REQUEST_USER_DATA      = 'A_REQUEST_USER_DATA';
 export const RECEIVE_USER_DATA      = 'A_RECEIVE_USER_DATA';
 export const REQUEST_LOGIN_FAILED   = 'A_REQUEST_LOGIN_FAILED';
 // this action below is for mocking the future data
-export const REQUEST_ALERTS_MOCK    = "MA_REQUEST_ALERTS";
+export const REQUEST_ALERTS_MOCK1    = "MA_REQUEST_ALERTS_1";
+export const REQUEST_ALERTS_MOCK2   = "MA_REQUEST_ALERTS_2"
 
 /**
  * All actions that cab ne raised for dashboard refresh

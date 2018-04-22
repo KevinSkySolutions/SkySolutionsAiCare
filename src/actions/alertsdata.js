@@ -1,10 +1,9 @@
-import { REQUEST_ALERTS, REQUEST_ALERTS_FAILED, REQUEST_ALERTS_MOCK, RECEIVE_ALERTS, RESET_ALERT_EXPANSION, SET_ALERT_EXPANSION } from '../constants';
+import { REQUEST_ALERTS, REQUEST_ALERTS_FAILED, RECEIVE_ALERTS, RESET_ALERT_EXPANSION, SET_ALERT_EXPANSION } from '../constants';
 
 export const alertsdataActions = {
     requestAlertsData,
     receiveAlertsData,
     requestAlertsDataFailed,
-    getAlertsDataMock,
     resetAlertExpansion,
     setAlertExpansion
 };
@@ -29,13 +28,6 @@ function receiveAlertsData(alertsdata) {
  */ 
 function requestAlertsDataFailed(alertsdata) {
     return { type: RECEIVE_ALERTS, payload: {alertsdata} };
-}
-
-/**
- * Action to be raised to show a timetravel to future alerts for simulation
- */
-function getAlertsDataMock() {
-    return { type: REQUEST_ALERTS_MOCK, payload: {} };
 }
 
 /**

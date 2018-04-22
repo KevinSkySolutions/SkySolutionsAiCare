@@ -50,6 +50,7 @@ export default function floordataReducer(state = defaultState , action) {
             let alertsdata = action.payload;
 
             //Loop for selecting the appropriate alerts with respect to the selected floor
+            floor_obj.alerts = [];
             for (var i = 0; i < alertsdata.length; i++) {
                 if (alertsdata[i].floor == floor_obj.floor) {
                     floor_obj.alerts.push(alertsdata[i]);
@@ -190,7 +191,6 @@ export default function floordataReducer(state = defaultState , action) {
         
            let re_selection = JSON.parse(JSON.stringify(state.selection));
            re_selection.selectedalert   = -1;
-           re_selection.floor           = 1;
            return {
                ...state,
                selection: re_selection

@@ -786,6 +786,7 @@
   },
 
   {
+    "isnew": true,
     "id": 303,
     "resident": "Ted Moseby",
     "type": "SOS",
@@ -823,6 +824,7 @@
   },
 
   {
+    "isnew": true,
     "id": 310,
     "resident": "Rachel Green",
     "type": "HIGH IMPACT",
@@ -1123,6 +1125,7 @@
   },
 
   {
+    "isnew": true,
     "id": 316,
     "resident": "Wesley Chan",
     "type": "MISSING",

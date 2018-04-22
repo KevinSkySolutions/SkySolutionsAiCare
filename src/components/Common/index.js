@@ -6,13 +6,13 @@ export class MediaControl extends Component {
     constructor(props) {
         super(props);
 
-        console.log("MediaControl props.");
-        console.log("type");
-        console.log(props.type);
-        console.log("media");
-        console.log(props.media);
-        console.log("src");
-        console.log(props.source);
+        // console.log("MediaControl props.");
+        // console.log("type");
+        // console.log(props.type);
+        // console.log("media");
+        // console.log(props.media);
+        // console.log("src");
+        // console.log(props.source);
         
         this.state = {
             visible:        false,

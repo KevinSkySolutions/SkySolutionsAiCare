@@ -9,12 +9,13 @@ class AlertItem extends Component {
 
     constructor(props) {
         super(props);
+        let styleToApply = props.isExpanded ? "description-mod-active" : "description-mod"
 
         this.state = {
             alert:          props.alert,        // Making a copy of the alerts object for the entire facility for data manipulation
             indexKey:       props.keyCopy,
-            isClicked:      props.isExpanded,          // Variable for keeping tracking whether an item has been clicked or not
-            style:          props.isExpanded ? "description-mod-active" : "description-mod" // Variable for Setting the style onClick so that it expands and collapses
+            isClicked:      props.isExpanded,   // Variable for keeping tracking whether an item has been clicked or not
+            style:          styleToApply        // Variable for Setting the style onClick so that it expands and collapses
         }
     }
 
@@ -32,16 +33,10 @@ class AlertItem extends Component {
 
         if (this.state.isClicked === false) {  // If the Alert is collapsed then expand
             this.props.setAlertExpansion(this.state.indexKey);
-            this.setState({
-                isClicked: true
-            });
         }
 
         else { // If the Alert is expanded then collapse
             this.props.resetAlertExpansion();
-            this.setState({
-                isClicked: false
-            });
         }
     }
 

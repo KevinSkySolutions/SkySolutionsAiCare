@@ -803,7 +803,7 @@
     "location": {
       "room": "Suite 302",
       "xpercent": 94,
-      "ypercent": 65
+      "ypercent": 45
     },
     "history": [
       {
@@ -1066,8 +1066,8 @@
     },
     "location": {
       "room": "Suite 302",
-      "xpercent": 94,
-      "ypercent": 65
+      "xpercent": 154,
+      "ypercent": 85
     },
     "history": [
       {

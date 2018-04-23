@@ -63,7 +63,7 @@ export class Overlay extends Component {
                                     <div className="heading-title">Epoch Elder Care</div>
                                 </div>
                                 <div className="heading-labels">
-                                    <OverlaySummary alerts={this.state.summary} overlay="open" />
+                                    <OverlaySummary alerts={this.state.summary} highlights={this.state.highlights} overlay="open" />
                                     <div className="dropdown-overlay" id="close-icon" onClick={this.onClose}>
                                         <img src={require("../../../img/dropdowniconoverlay.png")} alt="" className="rotated-arrow" />
                                     </div>

@@ -30,11 +30,17 @@ class OverlayAllAlerts extends Component {
     render() {
         return this.state.alerts.map((alert, keyValue) => {
 
-            let divstyle = ("type-of-alert alert-number" + alert.priority); // Variable to decide which style to assign the alert based on the priority of the alert being passed
+            let divstyle            = ("type-of-alert alert-number" + alert.priority); // Variable to decide which style to assign the alert based on the priority of the alert being passed
+
+            let classnameToApply    = "popup-card";
+            "newalert-summary-animation"
+            if (alert.isnew) {
+                classnameToApply += " glowanimationstyle";
+            }
 
             return (
                 <div key={keyValue}>
-                    <div className="popup-card" id="alert_popups" >
+                    <div className={ classnameToApply } id="alert_popups" >
                         <div className="map-point" onClick={ () => this.onNavigate(alert.floor, alert.id, this.state.alerts) }>
                             <img src={require("../../../img/location" + alert.priority + ".png")} className="avatar" />
                         </div>

@@ -63,7 +63,7 @@ export default class FloorMap extends Component {
 
     return (
       <div className="floor-image">
-        <img src={require("../../img/floorplan" + ((alerts.floor == undefined) ? "1" : alerts.floor) + ".png")} alt="" className="floor-map" />
+        <img src={require("../../img/floorplan" + ((this.state.alerts.floor == undefined) ? "1" : this.state.alerts.floor) + ".png")} alt="" className="floor-map" />
         {items}
       </div>);
   }

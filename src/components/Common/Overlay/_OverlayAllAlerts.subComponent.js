@@ -29,8 +29,8 @@ class OverlayAllAlerts extends Component {
 
     render() {
         return this.state.alerts.map((alert, keyValue) => {
-
-            let divstyle            = ("type-of-alert alert-number" + alert.priority); // Variable to decide which style to assign the alert based on the priority of the alert being passed
+            
+            let divstyle  = ("type-of-alert alert-number" + alert.priority); // Variable to decide which style to assign the alert based on the priority of the alert being passed
 
             let classnameToApply    = "popup-card";
             "newalert-summary-animation"

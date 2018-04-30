@@ -51,17 +51,7 @@ export class Dashboard extends Component {
           <div>
             <div className="content-section">
               <div className="left-section">
-                <div className="pagination">
-                  <div className="floors-heading no-margin">Floors</div>
-                  <div className="pages">
-
-                    <Floors />
-                    <div className="floors-dropdown">
-                      <img className="" src={require("../../img/moreoptionfloor.png")} />
-                      <img className="" src={require("../../img/dropdownfloors.png")} />
-                    </div>
-                  </div>
-                </div>
+                
 
                 <FloorMap alerts={this.state.flooralerts} />
               </div>

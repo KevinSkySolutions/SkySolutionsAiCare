@@ -6,7 +6,7 @@
     "type": "FALL",
     "priority": 2,
     "floor": 1,
-    "currentlocation": "Suite 101",
+    "currentlocation": "RM311",
     "icon": "male",
     "description": "Assistance Required",
     "time": 30,
@@ -14,9 +14,9 @@
       "video": "https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4"
      },
     "location": {
-      "room": "Suite 101",
-      "xpercent": 5,
-      "ypercent": 35
+      "room": "RM311",
+      "xpercent": 25,
+      "ypercent": 65
     },
     "history": [
       {
@@ -43,7 +43,7 @@
     "type": "SOS",
     "priority": 1,
     "floor": 1,
-    "currentlocation": "Lounge",
+    "currentlocation": "Apricot Avenue",
     "icon": "male",
     "description": "Help Dispatched",
     "time": 10,
@@ -81,7 +81,7 @@
     "type": "HIGH IMPACT",
     "priority": 3,
     "floor": 1,
-    "currentlocation": "Activity Room",
+    "currentlocation": "RM314",
     "icon": "female",
     "description": "Help Active",
     "time": 5,
@@ -118,7 +118,7 @@
     "type": "FALL",
     "priority": 2,
     "floor": 2,
-    "currentlocation": "Suite 201",
+    "currentlocation": "Kitchen",
     "icon": "female",
     "description": "Help Dispatched",
     "time": 11,
@@ -155,8 +155,8 @@
     "type": "HIGH IMPACT",
     "priority": 3,
     "floor": 1,
-    "currentlocation": "Suite 103",
-    "icon": "female",
+    "currentlocation": "RM316",
+    "icon": "male",
     "description": "Help Dispatched",
     "time": 11,
     "media": {
@@ -193,7 +193,7 @@
     "type": "SOS",
     "priority": 1,
     "floor": 2,
-    "currentlocation": "Activity Room",
+    "currentlocation": "Patio",
     "icon": "male",
     "description": "Assistance Required",
     "time": 2,
@@ -230,7 +230,7 @@
     "type": "MISSING",
     "priority": 4,
     "floor": 2,
-    "currentlocation": "Suite 202",
+    "currentlocation": "Exit Door 1",
     "icon": "male",
     "description": "Assistance Required",
     "time": 30,
@@ -263,118 +263,9 @@
 
   
 
-  {
-    "id": 102,
-    "resident": "Sandra Warren",
-    "type": "SOS",
-    "priority": 1,
-    "floor": 2,
-    "currentlocation": "Activity Room",
-    "icon": "female",
-    "description": "Help Active",
-    "time": 40,
-    "media": {
-      "audio": "http://www.nihilus.net/soundtracks/Static%20Memories.mp3"
-    },
-    "location": {
-      "room": "Suite 203",
-      "xpercent": 24,
-      "ypercent": 84
-    },
-    "history": [
-      {
-        "priority": 2,
-        "timestamp": "04/20/2018 11:30 AM",
-        "type": "FALL"
-      },
-      {
-        "priority": 3,
-        "timestamp": "04/20/2018 11:40 AM",
-        "type": "HIGH IMPACT"
-      },
-      {
-        "priority": 5,
-        "timestamp": "04/20/2018 11:43 AM",
-        "type": "WAKING UP"
-      }
-    ]
-  },
-
   
 
-  {
-    "id": 221,
-    "resident": "Thomas A. Gaines",
-    "type": "MISSING",
-    "priority": 4,
-    "floor": 3,
-    "currentlocation": "Unknown",
-    "icon": "male",
-    "description": "Help Active",
-    "time": 30,
-    "media": {
-      "text": "alert.txt"
-    },
-    "location": {
-      "room": "Suite 301",
-      "xpercent": 15,
-      "ypercent": 21
-    },
-    "history": [
-      {
-        "priority": 2,
-        "timestamp": "04/19/2018 5:55 PM",
-        "type": "FALL"
-      },
-      {
-        "priority": 2,
-        "timestamp": "04/20/2018 8:40 AM",
-        "type": "FALL"
-      },
-      {
-        "priority": 5,
-        "timestamp": "04/20/2018 11:43 AM",
-        "type": "WAKING UP"
-      }
-    ]
-  },
-
-  {
-    "id": 197,
-    "resident": "Jennifer Carpenter",
-    "type": "WAKING UP",
-    "priority": 5,
-    "floor": 3,
-    "currentlocation": "Lounge",
-    "icon": "female",
-    "description": "Assistance Required",
-    "time": 3,
-    "media": {
-      "audio": "http://www.nihilus.net/soundtracks/Static%20Memories.mp3"
-    },
-    "location": {
-      "room": "Lounge",
-      "xpercent": 67,
-      "ypercent": 43
-    },
-    "history": [
-      {
-        "priority": 2,
-        "timestamp": "04/17/2018 10:21 AM",
-        "type": "FALL"
-      },
-      {
-        "priority": 3,
-        "timestamp": "04/19/2018 11:11 AM",
-        "type": "HIGH IMPACT"
-      },
-      {
-        "priority": 1,
-        "timestamp": "04/20/2018 9:13 AM",
-        "type": "SOS"
-      }
-    ]
-  },
+  
 
   {
     "id": 197,
@@ -382,7 +273,7 @@
     "type": "MISSING",
     "priority": 4,
     "floor": 3,
-    "currentlocation": "Lounge",
+    "currentlocation": "RM302",
     "icon": "female",
     "description": "Assistance Required",
     "time": 3,
@@ -419,7 +310,7 @@
     "type": "SOS",
     "priority": 1,
     "floor": 3,
-    "currentlocation": "Suite 302",
+    "currentlocation": "RM314",
     "icon": "female",
     "description": "Assistance Required",
     "time": 21,
@@ -458,7 +349,7 @@
     "type": "FALL",
     "priority": 2,
     "floor": 1,
-    "currentlocation": "Suite 101",
+    "currentlocation": "RM311",
     "icon": "male",
     "description": "Help Dispatched",
     "time": 10,
@@ -467,8 +358,8 @@
      },
     "location": {
       "room": "Suite 101",
-      "xpercent": 5,
-      "ypercent": 35
+      "xpercent": 25,
+      "ypercent": 65
     },
     "history": [
       {
@@ -495,7 +386,7 @@
     "type": "SOS",
     "priority": 1,
     "floor": 1,
-    "currentlocation": "Lounge",
+    "currentlocation": "Aprict Avenue",
     "icon": "male",
     "description": "Help Active",
     "time": 20,
@@ -533,7 +424,7 @@
     "type": "FALL",
     "priority": 2,
     "floor": 2,
-    "currentlocation": "Suite 201",
+    "currentlocation": "Kitchen",
     "icon": "female",
     "description": "Help Active",
     "time": 21,
@@ -570,7 +461,7 @@
     "type": "HIGH IMPACT",
     "priority": 3,
     "floor": 1,
-    "currentlocation": "Suite 103",
+    "currentlocation": "RM316",
     "icon": "female",
     "description": "Help Active",
     "time": 21,
@@ -607,7 +498,7 @@
     "type": "SOS",
     "priority": 1,
     "floor": 2,
-    "currentlocation": "Activity Room",
+    "currentlocation": "Patio",
     "icon": "male",
     "description": "Help Active",
     "time": 22,
@@ -644,7 +535,7 @@
     "type": "MISSING",
     "priority": 4,
     "floor": 2,
-    "currentlocation": "Suite 202",
+    "currentlocation": "Exit Door 1",
     "icon": "male",
     "description": "Help Dispatched",
     "time": 40,
@@ -677,7 +568,7 @@
 
   {
     "id": 197,
-    "resident": "Jennifer Carpenter",
+    "resident": "Jen Carpenter",
     "type": "WAKING UP",
     "priority": 5,
     "floor": 3,
@@ -718,7 +609,7 @@
     "type": "MISSING",
     "priority": 4,
     "floor": 3,
-    "currentlocation": "Lounge",
+    "currentlocation": "RM302",
     "icon": "female",
     "description": "Help Dispatched",
     "time": 13,
@@ -755,7 +646,7 @@
     "type": "SOS",
     "priority": 1,
     "floor": 3,
-    "currentlocation": "Suite 302",
+    "currentlocation": "RM314",
     "icon": "female",
     "description": "Help Dispatched",
     "time": 31,
@@ -942,7 +833,7 @@
 
   {
     "id": 197,
-    "resident": "Jennifer Carpenter",
+    "resident": "Jen Carpenter",
     "type": "WAKING UP",
     "priority": 5,
     "floor": 3,

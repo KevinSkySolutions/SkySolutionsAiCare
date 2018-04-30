@@ -37,13 +37,13 @@ export class Floors extends Component {
 
             if (floor.floor == this.state.currentfloor) { // Conditional logic for deciding which floor is currently being viewed and showing the relevant data
                 return (
-                    <div className="page active" key={keyValue}>{this.state.currentfloor}</div>
+                    <li className="active" key={keyValue}>{this.state.currentfloor}</li>
                 );
             }
 
             else {
                 return (
-                    <div className="page" key={keyValue} onClick={() => this.onSelectFloor(floor.floor)} >{floor.floor}</div>
+                    <li key={keyValue} onClick={() => this.onSelectFloor(floor.floor)} >{floor.floor}</li>
                 );
             }
         })

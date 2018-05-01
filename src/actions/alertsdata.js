@@ -1,13 +1,14 @@
-import { REQUEST_ALERTS, REQUEST_ALERTS_FAILED, RECEIVE_ALERTS, 
+import { REQUEST_ALERTS, RECEIVE_ALERTS, 
     RESET_ALERT_EXPANSION, SET_ALERT_EXPANSION, 
+    REQUEST_SEARCH,
     REQUEST_ALERTS_MOCK1, REQUEST_ALERTS_MOCK2 } from '../constants';
 
 export const alertsdataActions = {
     requestAlertsData,
     receiveAlertsData,
-    requestAlertsDataFailed,
     resetAlertExpansion,
     setAlertExpansion,
+    requestSearch,
     /* ****** ALL MOCKS ****** */
     requestAlertsDataMock1,
     requestAlertsDataMock2
@@ -25,13 +26,6 @@ function requestAlertsData() {
  * @param alertsdata an array of alerts received
  */ 
 function receiveAlertsData(alertsdata) {
-    return { type: RECEIVE_ALERTS, payload: {alertsdata} };
-}
-
-/**
- * Raised as a response to invalid data return from HTTP server for receiving alerts
- */ 
-function requestAlertsDataFailed(alertsdata) {
     return { type: RECEIVE_ALERTS, payload: {alertsdata} };
 }
 
@@ -63,4 +57,12 @@ function requestAlertsDataMock1() {
  */
 function requestAlertsDataMock2() {
     return { type: REQUEST_ALERTS_MOCK2, payload: {} };
+}
+
+/**
+ * Action to be raised when user requests a search item
+ * @param keyword search string
+ */
+function requestSearch(keyword) {
+    return { type: REQUEST_SEARCH, payload: keyword };
 }

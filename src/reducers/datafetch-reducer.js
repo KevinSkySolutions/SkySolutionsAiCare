@@ -1,8 +1,11 @@
-import { REQUEST_ALERTS, RECEIVE_ALERTS } from '../constants';
+import { REQUEST_ALERTS, RECEIVE_ALERTS, REQUEST_SEARCH } from '../constants';
 import { browserHistory } from 'react-router';
+import { annotateWithSearchData, filterAlertsWithKeyword } from '../constants/Utilities';
 
 // this is the dashboard reducer, responds to all ACTIONS raised from the Dashboard page. 
-export default function datafetchReducer(state = { alertsdata: [] }, action) {
+const defaultState = { alertsdata: [], searchresults: [] };
+
+export default function datafetchReducer(state = defaultState, action) {
   switch (action.type) {
     case REQUEST_ALERTS:
 
@@ -22,10 +25,30 @@ export default function datafetchReducer(state = { alertsdata: [] }, action) {
         return dTime;
       });
 
+      let returnAlerts = annotateWithSearchData(alerts);
+
       return {
         ...state,
-        alertsdata: alerts
+        alertsdata: returnAlerts
       };
+    case REQUEST_SEARCH:
+      
+      let keyword = action.payload;
+      // keyword is invalid case
+      if ((keyword == undefined) || (keyword.length < 3)) {   
+        return {
+          ...state,
+          searchresults: []
+        };
+      } 
+      // keyword is valid, so proceed with search
+      else {
+        let searchResults = filterAlertsWithKeyword(state.alertsdata, keyword);
+        return {
+          ...state,
+          searchresults: searchResults
+        };
+      }
     default:
       return state;
   }

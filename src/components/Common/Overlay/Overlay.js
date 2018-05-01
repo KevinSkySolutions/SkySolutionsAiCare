@@ -65,7 +65,7 @@ export class Overlay extends Component {
                                 <img src={require("../../../img/centerimage.png")} alt="" />
                                 <div className="heading-title">Epoch Elder Care</div>
                                 <div className="pagination">
-                                  <div className="floors-heading no-margin">Floors:</div>
+                                  <div className="floors-heading no-margin">Floors&nbsp;</div>
                                     <div className="pages">
                                         <div className="page active">{this.state.currentfloor}</div>
                                         <div className="page-right-arrow">
@@ -84,7 +84,7 @@ export class Overlay extends Component {
                             <div className="heading-labels">
                                 <OverlaySummary alerts={this.state.summary} highlights={this.state.highlights} overlay="open" />
                                 <div className="dropdown-overlay" id="show_alerts_drop_down"  onClick={this.onClick} >
-                                    <img src={require("../../../img/dropdownicon.png")} alt="" className="rotated-arrow" />
+                                    <img src={require("../../../img/dropdownicon.png")} alt="" />
                                 </div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@ export class Overlay extends Component {
                                 <div className="heading-labels">
                                     <OverlaySummary alerts={this.state.summary} highlights={this.state.highlights} overlay="open" />
                                     <div className="dropdown-overlay" id="close-icon" onClick={this.onClose}>
-                                        <img src={require("../../../img/dropdowniconoverlay.png")} alt="" className="rotated-arrow" />
+                                        <img src={require("../../../img/dropdownicon.png")} alt="" className="rotated-arrow" />
                                     </div>
                                 </div>
                             </div>

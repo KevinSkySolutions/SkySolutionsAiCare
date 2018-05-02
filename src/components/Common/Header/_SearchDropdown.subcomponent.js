@@ -18,6 +18,13 @@ export class SearchDropdown extends Component {
         const { dispatch } = this.props;
     }
 
+    componentWillReceiveProps(newProps) {
+        this.setState({
+            results:    newProps.results,
+            alertsdata: newProps.alertsdata
+        });
+    }
+
     onResultClicked(key) {
         console.log(key);
         this.props.dispatch(overlaydataActions.navigateToAlertOnMap(

@@ -1092,14 +1092,14 @@ video {
 /* search popup styles start */
 .search-popup {
   display: block;
-  background-color: #fff;
-  position: fixed;
+  position: absolute;
+  background-color: transparent;
   left: 0;
   right: 0;
-  top: 0;
+  top: -330;
   bottom: 0;
   width: 100vw;
-  height: 100vh;
+  height: 60vh;
   overflow: auto;
   margin: auto;
   z-index: 99;

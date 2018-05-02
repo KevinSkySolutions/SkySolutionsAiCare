@@ -979,6 +979,7 @@
   },
 
   {
+    "isnew": true,
     "id": 310,
     "resident": "Rachel Green",
     "type": "HIGH IMPACT",
@@ -1016,7 +1017,6 @@
   },
 
   {
-    "isnew": true,
     "id": 316,
     "resident": "Wesley Chan",
     "type": "MISSING",

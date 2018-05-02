@@ -2002,3 +2002,7 @@ input::-ms-clear, input::-webkit-clear {
         left: -80px;
     }
 }
+
+::-webkit-scrollbar { 
+    display: none; 
+}

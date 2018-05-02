@@ -1,6 +1,42 @@
 {
   "alertsData": [
     {
+      "id": 111,
+      "resident": "Mimosa Spindlette",
+      "type": "High Impact",
+      "priority": 3,
+      "floor": 1,
+      "currentlocation": "RM341",
+      "icon": "male",
+      "description": "Assistance Required",
+      "time": 30,
+      "media": {
+        "video": "https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4"
+       },
+      "location": {
+        "room": "RM311",
+        "xpercent": 55,
+        "ypercent": 85
+      },
+      "history": [
+        {
+          "priority": 3,
+          "timestamp": "04/20/2018 11:30 AM",
+          "type": "FALL"
+        },
+        {
+          "priority": 4,
+          "timestamp": "04/20/2018 11:40 AM",
+          "type": "HIGH IMPACT"
+        },
+        {
+          "priority": 1,
+          "timestamp": "04/20/2018 11:43 AM",
+          "type": "HIGH IMPACT"
+        }
+      ]
+    },
+    {
     "id": 111,
     "resident": "Edwin Aldrin",
     "type": "FALL",

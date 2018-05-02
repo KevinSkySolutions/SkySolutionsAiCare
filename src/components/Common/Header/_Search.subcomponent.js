@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { alertsdataActions } from '../../../actions';
+import { alertsdataActions, overlaydataActions } from '../../../actions';
+import SearchDropdown from './_SearchDropdown.subcomponent';
 
 export class Search extends Component {
     constructor(props) {
@@ -11,13 +12,15 @@ export class Search extends Component {
             showSearch: props.showSearch,
             showSearching: false,
             inputValue: '',
-            results: props.results
+            results: props.results,
+            alertsdata: props.alertsdata
         }
     }
 
     componentWillReceiveProps(newProps) {
         this.setState({
-            results: newProps.results
+            results: newProps.results,
+            alertsdata: newProps.alertsdata
         });
     }
 
@@ -88,92 +91,9 @@ export class Search extends Component {
 
                 {
                     (this.state.inputValue.length > 2)
-                        ? (<SearchDropdown results={ this.state.results } />)
+                        ? (<SearchDropdown results={ this.state.results } alertsdata={this.state.alertsdata} showSearch={this.state.showSearch}/>)
                         : (<div className="empty"></div>)
                 }
-
-
-                <div className="search-content-body">
-                    <div className="search-item-hdr">James John Suite#103 | @ Floor 1</div>
-                    <div className="content-section">
-                        <div className="left-section">
-                            <div className="floor-image">
-                                <img src={require("../../../img/floorplan1.jpg")} alt="" className="floor-map" />
-
-                                <div className="alertposition2">
-                                    <img className="" src="../../../img/alertpositionpointer2.png" />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-1 right-section">
-                            <div className="right-section-content">
-                                <div className="description-mod">
-
-                                    <div className="alert-content-section">
-                                        <div className="alert-content">
-                                            <div className="desktop-pt-detail">
-                                                <img src={require("../../../img/cardalert2.png")} className="avatar" />
-                                                <div className="side-text detail-1">
-                                                    <div className="pt-name list-header">James John</div>
-                                                    <div className="type-of-alert alert-number3">ASSISTANCE REQUIRED</div>
-                                                </div>
-                                                <span className="pt-suite-no gray-text list-subheader mr-t-5">Suite#103 | @ Floor 1</span>
-                                                <span className="help-stat list-header">Help active</span>
-                                                <span className="elapsed-time side-text list-header">05 mins ago</span>
-                                            </div>
-                                            <div className="pt-log pt-detail tablet-hide">
-                                                <img src={require("../../../img/cardalert2.png")} className="avatar" />
-                                                <div className="side-text detail-1 side-text-padding">
-                                                    <div className="pt-name list-header">James John</div>
-                                                    <div className="type-of-alert alert-number3">ASSISTANCE REQUIRED</div>
-                                                </div>
-                                            </div>
-                                            <div className="pt-log pt-stat pt-stat-text tablet-hide">
-                                                <div className="pt-suite-no gray-text list-subheader mr-t-5">Suite#103 | @ Floor 1</div>
-                                                <div className="help-block">
-                                                    <div className="help-stat list-header">
-                                                        Help active
-                                                  </div>
-                                                    <div className="elapsed-time side-text list-header">05 mins ago</div>
-                                                </div>
-                                            </div>
-
-                                            <div className="card-details-block">
-                                                <div className="card-details red">
-                                                    <div className="card-text1">
-                                                        SOS High Noice Alert
-                                                  </div>
-                                                    <div className="card-text2">
-                                                        13/19/2018 11:30AM
-                                                  </div>
-                                                </div>
-                                                <div className="card-details green">
-                                                    <div className="card-text1">
-                                                        Help Dispatched
-                                                  </div>
-                                                    <div className="card-text2">
-                                                        13/19/2018 11:40AM
-                                                  </div>
-                                                </div>
-                                                <div className="card-details green">
-                                                    <div className="card-text1">
-                                                        Help Active
-                                                  </div>
-                                                    <div className="card-text2">
-                                                        13/19/2018 11:50AM
-                                                  </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
 
@@ -185,7 +105,8 @@ export class Search extends Component {
 const mapStateToProps = (state) => {
 
     return {
-        results: state.dashboard.searchresults
+        results:    state.dashboard.searchresults,
+        alertsdata: state.dashboard.alertsdata
     };
 };
 function mapDispatchToProps(dispatch) {
@@ -201,32 +122,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
-
-class SearchDropdown extends Component {
-    constructor(props) {
-        super(props)
-
-        this.state = {
-            results: props.results
-        }
-    }
-
-    render() {
-
-
-        let searchResults = this.props.results.map((result, keyValue) => {
-            return (
-                <li key={keyValue}>{result.resident} @ { result.location.room } | @ Floor { result.floor}</li>
-            )
-        });
-
-        return (
-            <div className="search-dropdown show">
-                <ul>
-                    { this.props.results.length > 0? searchResults: "No Search Results" }
-                </ul>
-            </div>
-        )
-    }
-
-}

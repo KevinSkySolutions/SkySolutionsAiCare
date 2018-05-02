@@ -113,6 +113,7 @@
   },
 
   {
+    "isnew": true,
     "id": 121,
     "resident": "Ali Fulton",
     "type": "FALL",
@@ -123,7 +124,7 @@
     "description": "Help Dispatched",
     "time": 11,
     "media": {
-      "audio": "http://www.nihilus.net/soundtracks/Static%20Memories.mp3"
+      "video": "https://s3.amazonaws.com/codecademy-content/courses/React/react_video-fast.mp4"
     },
     "location": {
       "room": "Suite 201",

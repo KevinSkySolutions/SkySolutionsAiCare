@@ -200,8 +200,8 @@ body .content-dash .right-section {
 
 body .content-dash .right-section .description-mod {
     border-radius: 5px 5px 5px 40px;
-     padding: 20px; 
-    margin-bottom: 45px;
+    padding: 20px; 
+    margin-bottom: 15px;
     height: 100px;
     border: 1px solid #c2c5c7;
     background-color: #e0ebf3;
@@ -232,7 +232,7 @@ body .content-dash .right-section .description-mod {
 body .content-dash .right-section .description-mod-active {
     border-radius: 5px 5px 5px 40px;
     /* padding: 20px; */
-    margin-bottom: 45px;
+    margin-bottom: 15px;
     height: 235px;
     border: 1px solid #c2c5c7;
     background-color: #e0ebf3;

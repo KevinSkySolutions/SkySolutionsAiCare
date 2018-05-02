@@ -26,9 +26,10 @@ export class Overlay extends Component {
 
     componentWillReceiveProps(newProps) {
         this.setState({
-            clicked:    newProps.clicked,
-            summary:    newProps.summary,
-            highlights: newProps.highlights
+            clicked:        newProps.clicked,
+            summary:        newProps.summary,
+            highlights:     newProps.highlights,
+            currentfloor:   newProps.currentfloor
         });
     }
 

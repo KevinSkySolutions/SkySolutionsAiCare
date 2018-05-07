@@ -15,7 +15,7 @@ npm install
 npm run json:server
 ```
 
-Below will run the application server on port 3000.
+Below will run the application server on port 8080.
 ```
 `npm install -g yarn`
 git clone <repo.git>
@@ -28,7 +28,7 @@ To build the dev environment with hot reloading of JS and CSS, type:
 
 `npm run browser`
 
-By default, the site is available at http://localhost:3000
+By default, the site is available at http://localhost:8080
 
 Few of the packages in this project:
 

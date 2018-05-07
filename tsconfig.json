@@ -1,0 +1,29 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "target": "es5",
+        "noImplicitAny": false,
+        "lib": [
+            "es5",
+            "es6",
+            "dom"
+        ],
+        "strictNullChecks": false,
+        "sourceMap": true,
+        "removeComments": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "preserveConstEnums": true,
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "baseUrl": "."    
+    },
+    "awesomeTypescriptLoaderOptions": {
+        "transpileOnly": true
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

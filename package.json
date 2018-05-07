@@ -9,7 +9,10 @@
     "precommit": "npm run lintJS --loglevel=silent && npm run lintCSS --loglevel=silent",
     "browser": "cross-env NODE_ENV=development babel-node ./server.js",
     "build": "webpack --config ./webpack.config.prod.js",
-    "server": "npm run build && cross-env NODE_ENV=production babel-node ./server.js"
+    "server": "npm run build && cross-env NODE_ENV=production babel-node ./server.js",
+    "devBuild": "webpack --config ./webpack.config.dev.js",
+    "devServer": "npm run build && cross-env NODE_ENV=development babel-node ./server.js",
+    "start": "npm run devBuild && ts-node -r tsconfig-paths/register --project ./tsconfig.json --cacheDirectory ./.npm/ts-node ./server/spawn-server/server.ts"
   },
   "author": "Rohit",
   "dependencies": {
@@ -31,9 +34,24 @@
     "redux-logger": "2.7.0",
     "redux-observable": "^0.18.0",
     "request": "^2.79.0",
-    "rxjs": "^5.5.8"
+    "rxjs": "^5.5.8",
+    "app-root-path": "^2.0.1",
+    "body-parser": "^1.18.2",
+    "cluster": "^0.7.7",
+    "cookie-parser": "^1.4.3",
+    "debug": "^3.1.0",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "http": "0.0.0",
+    "log4js": "^2.5.3",
+    "method-override": "^2.3.10",
+    "morgan": "^1.9.0",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
+    "@types/app-root-path": "^1.2.4",
+    "@types/node": "^10.0.4",
     "autoprefixer": "6.3.7",
     "babel-cli": "6.10.1",
     "babel-core": "6.10.4",
@@ -65,6 +83,9 @@
     "sass-loader": "^6.0.7",
     "style-loader": "0.13.1",
     "stylelint": "7.5.0",
+    "ts-node": "^6.0.3",
+    "tsconfig-paths": "^3.3.1",
+    "typescript": "^2.8.3",
     "url-loader": "^1.0.1",
     "webpack": "1.13.1",
     "webpack-dev-middleware": "1.6.1",

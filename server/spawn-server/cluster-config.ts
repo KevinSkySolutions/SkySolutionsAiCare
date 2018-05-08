@@ -22,7 +22,7 @@ class ConfigureCluster {
     }
 
     private createWorker(app: express.Application): void {
-        app.set('port', 3000);
+        app.set('port', 8080);
 
         var worker = app.get("Server");
 

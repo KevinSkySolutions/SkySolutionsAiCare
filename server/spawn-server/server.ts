@@ -19,7 +19,7 @@ function normalizePort(val: number | string) : number | string | boolean {
     }
 }
 
-const port: number | string | boolean = normalizePort(3000);
+const port: number | string | boolean = normalizePort(8080);
 
 app.set('port', port);
 

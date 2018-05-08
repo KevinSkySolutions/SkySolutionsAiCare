@@ -1,7 +1,7 @@
 /**
  * This is the API end point to contact for data
  */
-export const WEB_API_URL            = 'http://localhost:3000';
+export const WEB_API_URL            = process.env.NODE_HOST || 'http://localhost:8080';
 
 /**
  * All actions that can be raised when user is not logged in

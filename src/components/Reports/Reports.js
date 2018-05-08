@@ -23,7 +23,7 @@ export class Reports extends Component {
       link: [
         {
           rel: 'canonical',
-          href: `http://localhost:3000/post/${id}`
+          href: `/post/${id}`
         }
       ],
       meta: [

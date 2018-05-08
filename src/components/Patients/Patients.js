@@ -23,7 +23,7 @@ export class Patients extends Component {
       link: [
         {
           rel: 'canonical',
-          href: `http://localhost:8080/post/${id}`
+          href: `/post/${id}`
         }
       ],
       meta: [

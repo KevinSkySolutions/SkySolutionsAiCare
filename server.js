@@ -25,6 +25,6 @@ app.listen(8080, '0.0.0.0', (err) => {
   if(err) {
     console.error(err);
   } else {
-    console.info('Listening at http://localhost:8080');
+    console.info('Listening at port 8080');
   }
 });

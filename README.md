@@ -28,7 +28,7 @@ To build the dev environment with hot reloading of JS and CSS, type:
 
 `npm run browser`
 
-By default, the site is available at http://localhost:8080
+By default, the site is available at http://{host}:8080
 
 Few of the packages in this project:
 

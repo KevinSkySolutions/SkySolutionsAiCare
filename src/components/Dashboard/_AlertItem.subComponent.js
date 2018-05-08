@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { MediaControl } from '../Common';
+import { UpdateStatus } from '../Common/UpdateStatus/UpdateStatus'
 import { alertsdataActions } from '../../actions';
 import { bindActionCreators } from 'redux';
 
@@ -36,7 +37,7 @@ class AlertItem extends Component {
         });
     }
 
-    onClick = e => {  // Function for changing the state and expanding or collapsing the Alert
+    onFocus = e => {  // Function for changing the state and expanding or collapsing the Alert
 
         if (this.state.isClicked === false) {  // If the Alert is collapsed then expand
             this.props.setAlertExpansion(this.state.indexKey);
@@ -45,6 +46,7 @@ class AlertItem extends Component {
         else { // If the Alert is expanded then collapse
             this.props.resetAlertExpansion();
         }
+        
     }
 
     render() {
@@ -53,12 +55,12 @@ class AlertItem extends Component {
         let divstyle = ("type-of-alert alert-number" + this.state.alert.priority); // Variable to decide which style to assign the alert based on the priority of the alert being passed
 
         return (
-            <div className={boxStyle} onClick={this.onClick}>
+            <div className={boxStyle} onClick={this.onFocus}>
                 <div className={divstyle}>{this.state.alert.type}</div>
                 <div className="alert-content-section">
                     <div className="alert-content">
                         <div className="pt-log pt-detail">
-                            <img src={require("../../img/cardalert" + this.state.alert.priority + ".png")} className="avatar" />
+                            <img src={require("../../img/cardalert" + this.state.alert.priority + ".png")} className="avatar1" />
                             <div className="side-text detail-1 side-text-padding">
                                 <div className="pt-name list-header">{this.state.alert.resident}</div>
                                 <div className="pt-suite-no gray-text list-subheader mr-t-5">{this.state.alert.currentlocation}</div>
@@ -79,14 +81,20 @@ class AlertItem extends Component {
                             (this.state.alert.media.video == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
                                 ? ((this.state.alert.media.audio == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
                                     ? <div></div>
-                                    : <MediaControl type={this.state.alert.priority} media="audio" source={ this.state.alert.media.audio } isnew={ this.state.alert.isnew==undefined? false: true } />
+                                    : <MediaControl alert={this.state.alert} type={this.state.alert.priority} media="audio" source={ this.state.alert.media.audio } isnew={ this.state.alert.isnew==undefined? false: true } />
                                 )
                                 : <MediaControl type={this.state.alert.priority} media="video" source={ this.state.alert.media.video } isnew={ this.state.alert.isnew==undefined? false: true } />
                         }
                     </div>
+                    <UpdateStatus alert={this.state.alert}/>
                 </div>
 
                 <AlertHistory alerts={this.state.alert.history} />
+                {
+                    (this.state.alert.isnew==true )   // Conditional logic for selecting whether the alert has attached video or audio
+                        ? <audio autoPlay loop src="https://www.soundjay.com/button/beep-05.mp3" />
+                        : <div className="empty"></div>
+                }
             </div>
         )
     }

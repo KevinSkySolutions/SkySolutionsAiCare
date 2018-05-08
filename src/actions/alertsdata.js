@@ -1,6 +1,6 @@
 import { REQUEST_ALERTS, RECEIVE_ALERTS, 
     RESET_ALERT_EXPANSION, SET_ALERT_EXPANSION, 
-    REQUEST_SEARCH,
+    REQUEST_SEARCH, UPDATE_ALERT_DATA,
     REQUEST_ALERTS_MOCK1, REQUEST_ALERTS_MOCK2 } from '../constants';
 
 export const alertsdataActions = {
@@ -9,6 +9,7 @@ export const alertsdataActions = {
     resetAlertExpansion,
     setAlertExpansion,
     requestSearch,
+    updateAlertData,
     /* ****** ALL MOCKS ****** */
     requestAlertsDataMock1,
     requestAlertsDataMock2
@@ -42,6 +43,10 @@ function resetAlertExpansion() {
  */
 function setAlertExpansion(keyValue) {
     return { type: SET_ALERT_EXPANSION, payload: keyValue }
+}
+
+function updateAlertData(alertId, updateObject) {
+    return { type: UPDATE_ALERT_DATA, payload: { alertid: alertId, updateobject: updateObject } }
 }
 
 /* ******************************* ALL MOCKS ***************************************** */

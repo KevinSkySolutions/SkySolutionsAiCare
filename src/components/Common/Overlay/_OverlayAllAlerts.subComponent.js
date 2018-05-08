@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { MediaControl } from '../../Common';
 import { overlaydataActions } from '../../../actions';
 
 // Component for displaying all the alerts for the entire facility separately inside the overlay and also the relevant media

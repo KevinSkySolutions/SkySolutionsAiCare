@@ -6,20 +6,16 @@ export class MediaControl extends Component {
     constructor(props) {
         super(props);
         
-        let visibility = false;
-        if (props.isnew) {
-            visibility = true;
-        }
-        
+        let visibility = ((props.alert.isnew == undefined) ? false : true);
+
         this.state = {
             visible:        visibility,
-            width:          600,
+            width:          400,
             destroyOnClose: true,
             center:         false,
             mousePosition:  {},
-            type:           props.type,    // Variable for deciding the type of alert being passed to the Component for dynamic styling
-            media:          props.media,   // Variable for deciding whether the props being passed is of type audio or video
-            src:            props.source   // Variable for choosing the multimedia web url
+            alert:          props.alert,    // Variable for deciding the type of alert being passed to the Component for dynamic styling
+            src:            props.alert.media.audio   // Variable for choosing the multimedia web url
         };
     }
 
@@ -56,14 +52,17 @@ export class MediaControl extends Component {
             width: this.state.width,
         };
 
-        let alertType = this.state.type; // Variable to decide which style to assign the alert based on the priority of the alert being passed
+        let alertType = this.state.alert.priority; // Variable to decide which style to assign the alert based on the priority of the alert being passed
 
-        let mediaType = this.state.media; // Variable to decide which style to assign the alert based on the type of media attached to the alert being passed
+        let mediaType = "audio"; // Variable to decide which style to assign the alert based on the type of media attached to the alert being passed
 
         let wrapClassName = '';
         if (this.state.center) {
             wrapClassName = 'center';
         }
+
+        let divstyle = ("type-of-alert aligner alert-number" + this.state.alert.priority); // Variable to decide which style to assign the alert based on the priority of the alert being passed
+
         const dialog = (  //Contents of the dialog being displayed
             <Dialog
                 visible={this.state.visible}
@@ -74,7 +73,33 @@ export class MediaControl extends Component {
                 style={style}
                 mousePosition={this.state.mousePosition}
                 destroyOnClose={this.state.destroyOnClose}
-            >
+            > 
+              <div className="dialogtext">   
+              <div className="description-mod">   
+                <div className="alert-content-section">
+                    <div className="alert-content">
+                        <div className="pt-log pt-detail">
+                            <img src={require("../../img/cardalert" + this.state.alert.priority + ".png")} className="avatar" />
+                            <div className="side-text detail-1 side-text-padding">
+                                <div className={divstyle}>{this.state.alert.type}</div>
+                                <div className="pt-name list-header">{this.state.alert.resident}</div>
+                                <div className="pt-suite-no gray-text list-subheader mr-t-5">{this.state.alert.currentlocation}</div>
+                            </div>
+                        </div>
+
+                        <div className="pt-log pt-stat pt-stat-text textaligner">
+                            <div>
+                                <div className="help-stat list-header">
+                                    {this.state.alert.description}
+                                </div>
+                                <div className="elapsed-time gray-text side-text list-subheader mr-t-5">{this.state.alert.time} min ago</div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    </div><hr/>
+
                 {
                     (mediaType === "video")   // Conditional logic for selecting whether the alert has attached video or audio
                         ? <div><MediaPlayer media="video" source={this.state.src} /></div>
@@ -110,8 +135,8 @@ function MediaPlayer(props) {
         <div>
             {
                 (props.media === "video")   // Conditional logic for selecting whether the alert has attached video or audio
-                    ? <video controls autoPlay src={props.source} />
-                    : <audio controls autoPlay src={props.source} />
+                    ? <video controls controlsList="nodownload" autoPlay src={props.source} />
+                    : <audio controls controlsList="nodownload" autoPlay src={props.source} />
             }
         </div>
 

@@ -1,4 +1,4 @@
-import { REQUEST_ALERTS, RECEIVE_ALERTS, REQUEST_SEARCH } from '../constants';
+import { REQUEST_ALERTS, RECEIVE_ALERTS, REQUEST_SEARCH, UPDATE_ALERT_DATA } from '../constants';
 import { browserHistory } from 'react-router';
 import { annotateWithSearchData, filterAlertsWithKeyword } from '../constants/Utilities';
 
@@ -49,6 +49,21 @@ export default function datafetchReducer(state = defaultState, action) {
           searchresults: searchResults
         };
       }
+    case UPDATE_ALERT_DATA:
+      console.log("UPDATE ALERT DATA reducer");
+      let updatedAlerts = [];
+      
+      let alertId       = action.payload.alertid;
+      console.log(alertId);
+      let updateObject  = action.payload.updateobject;
+      console.log(updateObject);
+
+      // TODO, update updatedAlerts to contain the old alert updated
+       
+      return {
+        ...state,
+        alertsdata: updatedAlerts
+      }; 
     default:
       return state;
   }

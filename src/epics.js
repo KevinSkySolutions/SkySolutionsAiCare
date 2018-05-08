@@ -1,6 +1,6 @@
 import 'rxjs'; // TODO remove this
 import { combineEpics } from                        'redux-observable';
-import { WEB_API_URL, REQUEST_ALERTS_MOCK1, REQUEST_ALERTS_MOCK2,
+import { REQUEST_ALERTS_MOCK1, REQUEST_ALERTS_MOCK2,
     REQUEST_ALERTS, REQUEST_USER_DATA, REQUEST_LOGIN, REQUEST_FLOOR_DATA, 
     DIGEST_FLOOR_DATA, NAVIGATE_TO_ALERT } from     './constants';
 import { alertsdataActions, homepageActions, 
@@ -21,7 +21,7 @@ export const requestLogin = actions$ =>
         .ofType(REQUEST_LOGIN)
         .mergeMap(action =>
             ajax
-                .getJSON(`${WEB_API_URL}/login`)
+                .getJSON("/login")
                 .map((data) => {
                     return homepageActions.requestUserData()
                 })
@@ -40,7 +40,7 @@ export const requestUserData = actions$ =>
         .ofType(REQUEST_USER_DATA)
         .mergeMap(action =>
             ajax
-                .getJSON(`${WEB_API_URL}/userdata`)
+                .getJSON("/userdata")
                 .mergeMap((data) => Observable.of(
                     homepageActions.receiveUserData(data),
                     floorsdataActions.requestFloorsData()
@@ -61,7 +61,7 @@ export const requestFloorsData = actions$ =>
         .ofType(REQUEST_FLOOR_DATA)
         .mergeMap(action =>
             ajax
-                .getJSON(`${WEB_API_URL}/floorsdata`)
+                .getJSON("/floorsdata")
                 .mergeMap((data) => Observable.of(
                     floorsdataActions.receiveFloorsData(data),
                     alertsdataActions.requestAlertsData()
@@ -81,7 +81,7 @@ export const requestAlerts = actions$ =>
         .ofType(REQUEST_ALERTS)
         .mergeMap(action =>
             ajax
-                .getJSON(`${WEB_API_URL}/alertsdata`)
+                .getJSON("/alertsdata")
                 .mergeMap(data => Observable.of(
                     alertsdataActions.receiveAlertsData(data),
                     overlaydataActions.makeOverlaySummary(data),
@@ -127,7 +127,7 @@ export const requestAlertsMock1 = actions$ =>
         .ofType(REQUEST_ALERTS_MOCK1)
         .mergeMap(action =>
             ajax
-                .getJSON(`${WEB_API_URL}/futureAlertsData`)
+                .getJSON("/futureAlertsData")
                 .mergeMap(data => Observable.of(
                     alertsdataActions.receiveAlertsData(data),
                     overlaydataActions.makeOverlaySummary(data),
@@ -146,7 +146,7 @@ export const requestAlertsMock2 = actions$ =>
         .ofType(REQUEST_ALERTS_MOCK2)
         .mergeMap(action =>
             ajax
-                .getJSON(`${WEB_API_URL}/futureAlertsData2`)
+                .getJSON("/futureAlertsData2")
                 .mergeMap(data => Observable.of(
                     alertsdataActions.receiveAlertsData(data),
                     overlaydataActions.makeOverlaySummary(data),

@@ -51,7 +51,7 @@ class UpdateStatus extends Component {
     handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
-        if (status != "") {
+        if (this.state.status.length > 0) {
             this.props.dispatchaction_updateAlertData(this.state.alert.id, this.state.status);
         }
         this.onClose(e);

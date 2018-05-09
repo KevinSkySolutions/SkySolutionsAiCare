@@ -58,7 +58,18 @@ export default function datafetchReducer(state = defaultState, action) {
       let updateObject  = action.payload.updateobject;
       console.log(updateObject);
 
-      // TODO, update updatedAlerts to contain the old alert updated
+      var localAlertsCopy = state.alertsdata;
+      var arrayLength = localAlertsCopy.length;
+      var currentAlert = {};
+      for (var i = 0; i < arrayLength; i++) {
+        currentAlert = localAlertsCopy[i];
+
+        if (currentAlert.id == alertId) {
+          currentAlert.isnew = false;
+          currentAlert.description = updateObject;
+        }
+        updatedAlerts.push(currentAlert);
+      }
        
       return {
         ...state,

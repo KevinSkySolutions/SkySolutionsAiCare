@@ -80,7 +80,7 @@ export class UpdateStatus extends Component {
                         <input type="radio" name="status" value="Help Active" /><label htmlFor="Help Active">&nbsp;Help Active&nbsp;</label><br /><br />
                         <input type="radio" name="status" value="Dismiss" /><label htmlFor="Dismiss">&nbsp;Dismiss&nbsp;</label><br /><br /><hr />
                     </div>
-                    <div className="textaligner2"><button type="submit" >Update Status</button></div>
+                    <div className="textaligner2"><button type="submit" onClick={this.handleSubmit}>Update Status</button></div>
                 </form>
             </Dialog>
         );

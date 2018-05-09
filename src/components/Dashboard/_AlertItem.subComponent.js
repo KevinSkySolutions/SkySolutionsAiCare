@@ -91,8 +91,8 @@ class AlertItem extends Component {
 
                 <AlertHistory alerts={this.state.alert.history} />
                 {
-                    (this.state.alert.isnew==true )   // Conditional logic for selecting whether the alert has attached video or audio
-                        ? <audio autoPlay loop src="https://www.soundjay.com/button/beep-05.mp3" />
+                    (this.state.alert.isnew === true && (this.state.alert.media.audio === undefined))   // Conditional logic for selecting whether beep has to play for the new alert
+                        ? <audio autoPlay src="http://k003.kiwi6.com/hotlink/5bqgf29jwj/alert.mp3" />
                         : <div className="empty"></div>
                 }
             </div>

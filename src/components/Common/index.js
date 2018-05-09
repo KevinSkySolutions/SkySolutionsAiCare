@@ -74,7 +74,15 @@ export class MediaControl extends Component {
                 mousePosition={this.state.mousePosition}
                 destroyOnClose={this.state.destroyOnClose}
             > 
-              <div className="dialogtext">   
+              
+
+                {
+                    (mediaType === "video")   // Conditional logic for selecting whether the alert has attached video or audio
+                        ? <div><MediaPlayer media="video" source={this.state.src} /></div>
+                        : <div><MediaPlayer media="audio" source={this.state.src} /></div>
+                }
+                <hr/>
+                <div className="dialogtext">   
               <div className="description-mod">   
                 <div className="alert-content-section">
                     <div className="alert-content">
@@ -97,14 +105,8 @@ export class MediaControl extends Component {
                         </div>
                     </div>
                     </div>
-                    </div>
-                    </div><hr/>
-
-                {
-                    (mediaType === "video")   // Conditional logic for selecting whether the alert has attached video or audio
-                        ? <div><MediaPlayer media="video" source={this.state.src} /></div>
-                        : <div><MediaPlayer media="audio" source={this.state.src} /></div>
-                }
+                  </div>
+                </div>
 
             </Dialog>
         );

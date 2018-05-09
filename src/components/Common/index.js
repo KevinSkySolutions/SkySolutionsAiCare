@@ -20,6 +20,8 @@ export class MediaControl extends Component {
     }
 
     onClick = e => {
+
+        e.preventDefault();
         this.setState({
             mousePosition: {
                 x: e.pageX,
@@ -27,12 +29,15 @@ export class MediaControl extends Component {
             },
             visible: true,
         });
+        e.stopPropagation();
     }
 
     onClose = e => {
+        e.preventDefault();
         this.setState({
             visible: false,
         });
+        e.stopPropagation();
     }
 
     onDestroyOnCloseChange = e => {

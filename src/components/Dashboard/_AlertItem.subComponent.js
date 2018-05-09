@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { MediaControl } from '../Common';
-import { UpdateStatus } from '../Common/UpdateStatus/UpdateStatus'
+import UpdateStatus from '../Common/UpdateStatus/UpdateStatus';
 import { alertsdataActions } from '../../actions';
 import { bindActionCreators } from 'redux';
 

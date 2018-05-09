@@ -25,7 +25,7 @@ export class Search extends Component {
     }
 
     handleSubmit = e => {
-        e.preventDefault();
+        e.stopPropagation();
     }
 
     clearField = e => {
@@ -53,7 +53,7 @@ export class Search extends Component {
 
     showSearchDropdown = e => {
         if (this.state.showSearching === false) {
-            e.preventDefault();
+            e.stopPropagation();
             this.setState({
                 showSearching: true
             })

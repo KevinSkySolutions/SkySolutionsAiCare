@@ -21,7 +21,6 @@ export class MediaControl extends Component {
 
     onClick = e => {
 
-        e.preventDefault();
         this.setState({
             mousePosition: {
                 x: e.pageX,
@@ -33,7 +32,6 @@ export class MediaControl extends Component {
     }
 
     onClose = e => {
-        e.preventDefault();
         this.setState({
             visible: false,
         });
@@ -44,12 +42,14 @@ export class MediaControl extends Component {
         this.setState({
             destroyOnClose: e.target.checked,
         });
+        e.stopPropagation();
     }
 
     center = e => {
         this.setState({
             center: e.target.checked,
         });
+        e.stopPropagation();
     }
 
     render() {

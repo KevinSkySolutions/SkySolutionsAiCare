@@ -10,9 +10,9 @@
     "browser": "cross-env NODE_ENV=development babel-node ./server.js",
     "build": "webpack --config ./webpack.config.prod.js",
     "server": "npm run build && cross-env NODE_ENV=production babel-node ./server.js",
+    "transpile-server": "rimraf dist && cpy ./server/views/*.* ./dist/views && cpy ./server/views/**/*.* ./dist/views/layouts && cpy ./server/mock-data/*.* ./dist/mock-data && tsc -p \"./tsconfig.json\"",
     "devBuild": "webpack --config ./webpack.config.dev.js",
-    "devServer": "npm run build && cross-env NODE_ENV=development babel-node ./server.js",
-    "start": "npm run devBuild && ts-node -r tsconfig-paths/register --project ./tsconfig.json --cacheDirectory ./.npm/ts-node ./server/spawn-server/server.ts"
+    "start": "npm run devBuild && npm run transpile-server && node ./dist/spawn-server/server.js"
   },
   "author": "Rohit",
   "dependencies": {
@@ -64,6 +64,7 @@
     "babel-preset-stage-0": "6.5.0",
     "clean-webpack-plugin": "0.1.13",
     "copy-webpack-plugin": "3.0.1",
+    "cpy-cli": "^1.0.1",
     "cross-env": "2.0.0",
     "css-loader": "0.23.1",
     "css-mqpacker": "5.0.1",
@@ -76,10 +77,12 @@
     "eslint-plugin-react": "6.4.1",
     "express": "4.14.0",
     "extract-text-webpack-plugin": "1.0.1",
+    "forever": "^0.15.3",
     "jsdom": "9.8.0",
     "node-sass": "^4.8.3",
     "react-addons-test-utils": "15.3.2",
     "react-test-renderer": "15.3.2",
+    "rimraf": "^2.6.2",
     "sass-loader": "^6.0.7",
     "style-loader": "0.13.1",
     "stylelint": "7.5.0",

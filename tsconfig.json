@@ -1,29 +1,39 @@
 {
+    "compileOnSave": true,
     "compilerOptions": {
         "module": "commonjs",
-        "moduleResolution": "node",
         "target": "es5",
+        "lib": ["es5", "es6", "es2017","dom"],
+        "pretty": true,
+        "sourceMap": false,
+        "importHelpers": true,
+        "declaration": false,
+        "outDir": "./dist",
+        "strict": true,
         "noImplicitAny": false,
-        "lib": [
-            "es5",
-            "es6",
-            "dom"
-        ],
-        "strictNullChecks": false,
-        "sourceMap": true,
         "removeComments": true,
-        "emitDecoratorMetadata": true,
-        "experimentalDecorators": true,
         "preserveConstEnums": true,
+        "strictNullChecks": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "noUnusedLocals": false,
+        "noUnusedParameters": false,
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "skipLibCheck": true,
         "typeRoots": [
             "node_modules/@types"
-        ],
-        "baseUrl": "."    
+        ]
     },
-    "awesomeTypescriptLoaderOptions": {
-        "transpileOnly": true
-    },
+    "include": [
+        "server/**/*",
+        "server/spawn-server/server.ts"
+    ],
     "exclude": [
-        "node_modules"
+        "**/node_modules",
+        "**/dist",
+        "**/client/**/*"
     ]
 }

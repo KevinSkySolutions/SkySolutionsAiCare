@@ -4,3 +4,4 @@ npm-debug.log
 public
 yarn-error.log
 .npm
+dist/

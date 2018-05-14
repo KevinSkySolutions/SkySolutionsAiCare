@@ -150,12 +150,6 @@ body .content .nav-container ul li a {
   }
 }
 
-@media (min-width: 768px) {
-  .nav-list {
-    width: 550px;
-  }
-}
-
 @media (min-width: 1024px) {
   .nav-container {
     position: relative;
@@ -177,11 +171,11 @@ body .content .nav-container ul li a {
 @media (min-width: 1296px) {
   .nav-container {
     position: relative;
-    left: 360px;
+    left: 320px;
   }
 }
 
-@media (min-width: 1234px) {
+@media (min-width: 1234px) and (max-width: 1295px) {
   .nav-container {
     position: relative;
     left: 340px;

@@ -153,9 +153,28 @@ class OverlaySummary extends Component {
 
             index++; // Incrementing the variable since the priority levels start at 1
             let divstyle = ("alert-number" + index + " alert-number"); // Variable to decide which style to assign the alert based on the priority of the alert being passed
-            
+            let tooltip = "";
+
+
             if (index === 1) {
                 divstyle = ("alert-number" + index + " alert-numbers"); // Variable to decide which style to assign the alert based on the priority of the alert being passed
+                tooltip = "SOS"   
+            }
+
+            else if (index === 2) {
+                tooltip = "HIGH IMPACT"   
+            }
+
+            else if (index === 3) {
+                tooltip = "HIGH NOISE"   
+            }
+
+            else if (index === 4) {
+                tooltip = "MISSING"   
+            }
+
+            else if (index === 5) {
+                tooltip = "WAKING UP"   
             }
 
             let animstyle = "";
@@ -164,9 +183,10 @@ class OverlaySummary extends Component {
             }
 
             return (
-                <div className="alerts" key={keyValue}>
+                <div className="alerts tooltip" key={keyValue}>
                     <img className={animstyle} src={require("../../../img/alert" + index + ".png")} alt="" />
                     <div className={divstyle}>{alert}</div>
+                    <span className="tooltiptext">Alert Type:<br/>{tooltip}</span>
                 </div>
             );
         });

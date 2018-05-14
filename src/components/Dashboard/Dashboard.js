@@ -23,7 +23,8 @@ export class Dashboard extends Component {
     super(props);
 
     this.state = {  
-      flooralerts:  props.flooralerts           
+      flooralerts:  props.flooralerts,
+      user: props.userdata       
     };
   }
 
@@ -39,13 +40,14 @@ export class Dashboard extends Component {
     });
   }
 
+
   // the render method of this Container
   render() {
 
     return (
       <div className="content-dash">
 
-        <Header />
+        <Header user={this.props.user}/>
         <div className="content-body">
         <Overlay />
           <div>
@@ -74,7 +76,8 @@ export class Dashboard extends Component {
 const mapStateToProps = (state) => {
 
   return {      //Data for the overlay
-    flooralerts:  state.floorsdata.selection        //Getting the count for the total alerts in the facility };
+    flooralerts:  state.floorsdata.selection,        //Getting the count for the total alerts in the facility
+    userdata: state.userdata
   }
 };
 

@@ -16,7 +16,8 @@ class Header extends Component {
     super(props);
     this.state = {
       clicked: false,
-      menuClick: false
+      menuClick: false,
+      user: props.user
     }
   }
 
@@ -108,8 +109,9 @@ class Header extends Component {
                 <li onClick={this.mock2}>
                   <a href="#">Help</a>
                 </li>
-                <div className="user-wrap">
-                </div>
+                <li>
+                  <a href="#">Kim Sears</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -146,6 +148,9 @@ class BurgerMenu extends Component {
           </li>
           <li >
             <a href="#">Help</a>
+          </li>
+          <li>
+            <a href="#">Kim Sears</a>
           </li>
         </ul>
       </div>

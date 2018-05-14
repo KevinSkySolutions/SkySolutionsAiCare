@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
+  devtool: 'source-map',
   entry: [
     'webpack-hot-middleware/client',
     path.resolve(__dirname, 'src')

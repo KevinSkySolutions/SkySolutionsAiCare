@@ -1136,12 +1136,14 @@ video {
   position: fixed;
   left: 0;
   right: 0;
-  top: 0;
+  top: -40px;
   bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: auto;
-  margin: auto;
+  width: 50%;
+  height: 180px;
+  overflow-y: scroll;
+  margin-left: auto;
+  margin-top: 110px;
+  margin-right: auto;
   z-index: 99;
 }
 
@@ -1435,7 +1437,7 @@ input::-ms-clear, input::-webkit-clear {
 /* search popup styles end */
 
 
-@media (min-width: 1361px) and (max-width: 1390px) {
+@media (min-width: 1361px) and (max-width: 2500px) {
     body .content-dash .right-section {
         position: absolute;
         left: 810px;

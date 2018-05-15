@@ -12,7 +12,9 @@
     "server": "npm run build && cross-env NODE_ENV=production babel-node ./server.js",
     "transpile-server": "rimraf dist && cpy ./server/views/*.* ./dist/views && cpy ./server/views/**/*.* ./dist/views/layouts && cpy ./server/mock-data/*.* ./dist/mock-data && tsc -p \"./tsconfig.json\"",
     "devBuild": "webpack --config ./webpack.config.dev.js",
-    "start": "npm run devBuild && npm run transpile-server && node ./dist/spawn-server/server.js"
+    "start": "npm run devBuild && npm run transpile-server && node ./dist/spawn-server/server.js",
+    "watch-client": "webpack --config ./webpack.config.dev.js --watch",
+    "startDev": "npm run transpile-server && node ./dist/spawn-server/server.js"
   },
   "author": "Rohit",
   "dependencies": {

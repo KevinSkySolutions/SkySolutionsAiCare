@@ -28,7 +28,7 @@ class FloorMap extends Component {
   let items = this.state.alerts.alerts.map((alert, keyValue) => {  // Mapping all the relevant floor alerts on the right section of the page
                 
       return (
-       <FloorItem keyCopy={keyValue} alert={alert} selection={this.state.alerts.selectedalert}/>   
+       <FloorItem key={keyValue} keyCopy={keyValue} alert={alert} selection={this.state.alerts.selectedalert}/>   
       )
     })
 

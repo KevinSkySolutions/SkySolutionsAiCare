@@ -109,7 +109,10 @@ class Header extends Component {
                 <li onClick={this.mock2}>
                   <a href="#">Help</a>
                 </li>
-                <li>
+                <li >
+                  <a href="#">|</a>
+                </li>
+                <li className="username">
                   <a href="#">Kim Sears</a>
                 </li>
               </ul>

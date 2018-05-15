@@ -1538,6 +1538,22 @@ input::-ms-clear, input::-webkit-clear {
     }
 }
 
+@media(min-width: 1441px){
+    body .content-dash .right-section {
+        position: absolute;
+        left: 790px;
+        bottom: -30px;
+    }
+    .right-section {
+        max-width: 400px;
+    }
+
+    body .search-content-body .right-section {
+        position: absolute;
+        bottom: 130px;
+    }
+}
+
 
 @media (max-width: 1243px) and (min-width: 1215px){
     body .content-dash .right-section {

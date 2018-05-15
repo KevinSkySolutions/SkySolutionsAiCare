@@ -93,12 +93,19 @@ body .content .nav-container ul li a {
     padding-top: 25px;
     padding-bottom: 25px;
     width: 145px;
-    left: 165px;
+    left: 265px;
     z-index: 10;
     right: 20px;
     box-sizing: content-box;
     border-radius: 3px;
 }
+
+.username a {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
 
 .burger-menu-show ul {
   /*border: 2px solid black;*/
@@ -106,6 +113,8 @@ body .content .nav-container ul li a {
   width: 100px;
 
 }
+
+
 
 .burger-menu-show ul li{
   /*border: 2px solid black;*/
@@ -116,7 +125,7 @@ body .content .nav-container ul li a {
   .hamburger-menu {
     display: block;
     position: relative;
-    left:250px;
+    left:350px;
     top: 30px;
 
   }
@@ -160,7 +169,7 @@ body .content .nav-container ul li a {
 @media (min-width: 1180px) {
   .nav-container {
     position: relative;
-    left: 380px;
+    left: 320px;
   }
 }
 
@@ -178,7 +187,7 @@ body .content .nav-container ul li a {
 @media (min-width: 1234px) and (max-width: 1295px) {
   .nav-container {
     position: relative;
-    left: 340px;
+    left: 320px;
   }
 
 }
@@ -186,100 +195,95 @@ body .content .nav-container ul li a {
 @media (max-width: 1233px) {
   .nav-container {
     position: relative;
-    left: 320px;
+    left: 280px;
   } 
 }  
 
-@media (max-width: 1233px) {
-  .nav-container {
-    position: relative;
-    left: 310px;
-  } 
-} 
+
 
 @media (max-width: 1169px) {
   .nav-container {
     position: relative;
-    left: 290px;
+    left: 250px;
   } 
 } 
 
 @media (max-width: 1129px) {
   .nav-container {
     position: relative;
-    left: 280px;
+    left: 220px;
   } 
 } 
 
 @media (max-width: 1115px) {
   .nav-container {
     position: relative;
-    left: 270px;
+    left: 190px;
   } 
 } 
 
 @media (max-width: 1088px) {
   .nav-container {
     position: relative;
-    left: 250px;
+    left: 150px;
   } 
 }
 
 @media (max-width: 1068px) {
   .nav-container {
     position: relative;
-    left: 230px;
+    left: 120px;
   } 
 }
 @media (max-width: 1048px) {
   .nav-container {
     position: relative;
-    left: 210px;
+    left: 90px;
   } 
 }
 @media (max-width: 1024px) {
   .nav-container {
     position: relative;
-    left: 190px;
+    left: 70px;
   } 
 } 
 
 @media (max-width: 928px) {
   .nav-container {
     position: relative;
-    left: 170px;
+    left: 50px;
   } 
 }
 
 @media (max-width: 881px) {
   .nav-container {
     position: relative;
-    left: 150px;
+    left: 30px;
   } 
 }
 
 @media (max-width: 855px) {
   .hamburger-menu {
     position: relative;
-    left: 230px;
+    left: 350px;
   } 
 }  
 
 @media (max-width: 820px) {
   .hamburger-menu {
     position: relative;
-    left: 210px;
+    left: 330px;
   } 
   .burger-menu-show {
     position: absolute;
-    left: 145px;
+    left: 245px;
   }
 } 
 
 @media (max-width: 820px) {
   .hamburger-menu {
     position: relative;
-    left: 190px;
+    left: 300px;
   }
 } 
 
@@ -287,6 +291,6 @@ body .content .nav-container ul li a {
 
   .burger-menu-show {
     position: absolute;
-    left: 125px;
+    left: 225px;
   }
 } 

@@ -1129,6 +1129,12 @@
       "city": "Gwenborough",
       "zipcode": "92998-3874"
     },
+    "floor": 2,
+    "location": {
+      "room": "Suite 302",
+      "xpercent": 34,
+      "ypercent": 25
+    },
     "phone": "1-770-736-8031 x56442",
     "consulting": {
       "name": "Dr. Romaguera Crona",
@@ -1146,6 +1152,12 @@
       "suite": "Suite 879",
       "city": "Wisokyburgh",
       "zipcode": "90566-7771"
+    },
+    "floor": 3,
+    "location": {
+      "room": "Suite 302",
+      "xpercent": 44,
+      "ypercent": 95
     },
     "phone": "010-692-6593 x09125",
     "consulting": {
@@ -1165,6 +1177,12 @@
       "city": "McKenziehaven",
       "zipcode": "59590-4157"
     },
+    "floor": 2,
+    "location": {
+      "room": "Suite 302",
+      "xpercent": 14,
+      "ypercent": 85
+    },
     "phone": "1-463-123-4447",
     "consulting": {
       "name": "Dr. Romaguera Jacobson",
@@ -1182,6 +1200,12 @@
       "suite": "Apt. 692",
       "city": "South Elvis",
       "zipcode": "53919-4257"
+    },
+    "floor": 3,
+    "location": {
+      "room": "Suite 302",
+      "xpercent": 94,
+      "ypercent": 65
     },
     "phone": "493-170-9623 x156",
     "consulting": {
@@ -1201,6 +1225,12 @@
       "city": "Roscoeview",
       "zipcode": "33263"
     },
+    "floor": 3,
+    "location": {
+      "room": "Suite 302",
+      "xpercent": 54,
+      "ypercent": 15
+    },
     "phone": "(254)954-1289",
     "consulting": {
       "name": "Dr. Stacy Keebler",
@@ -1218,6 +1248,12 @@
       "suite": "Apt. 950",
       "city": "South Christy",
       "zipcode": "23505-1337"
+    },
+    "floor": 2,
+    "location": {
+      "room": "Suite 302",
+      "xpercent": 24,
+      "ypercent": 55
     },
     "phone": "1-477-935-8478 x6430",
     "consulting": {
@@ -1237,6 +1273,12 @@
       "city": "Howemouth",
       "zipcode": "58804-1099"
     },
+    "floor": 1,
+    "location": {
+      "room": "Suite 302",
+      "xpercent": 34,
+      "ypercent": 35
+    },
     "phone": "210.067.6132",
     "consulting": {
       "name": "Dr. Albert Johnson",
@@ -1254,6 +1296,12 @@
       "suite": "Suite 729",
       "city": "Aliyaview",
       "zipcode": "45169"
+    },
+    "floor": 2,
+    "location": {
+      "room": "Suite 302",
+      "xpercent": 14,
+      "ypercent": 65
     },
     "phone": "586.493.6943 x140",
     "consulting": {
@@ -1273,6 +1321,12 @@
       "city": "Bartholomebury",
       "zipcode": "76495-3109"
     },
+    "floor": 3,
+    "location": {
+      "room": "Suite 302",
+      "xpercent": 14,
+      "ypercent": 15
+    },
     "phone": "(775)976-6794 x41206",
     "consulting": {
       "name": "Dr. Rajeev Shivkumar",
@@ -1290,6 +1344,12 @@
       "suite": "Suite 198",
       "city": "Lebsackbury",
       "zipcode": "31428-2261"
+    },
+    "floor": 1,
+    "location": {
+      "room": "Suite 302",
+      "xpercent": 24,
+      "ypercent": 95
     },
     "phone": "024-648-3804",
     "consulting": {

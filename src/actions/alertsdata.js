@@ -1,7 +1,7 @@
 import { REQUEST_ALERTS, RECEIVE_ALERTS, 
     RESET_ALERT_EXPANSION, SET_ALERT_EXPANSION, 
     REQUEST_SEARCH, UPDATE_ALERT_DATA,
-    REQUEST_ALERTS_MOCK1, REQUEST_ALERTS_MOCK2 } from '../constants';
+    REQUEST_ALERTS_MOCK1, REQUEST_ALERTS_MOCK2, REQUEST_RESIDENTS_DATA, RECEIVE_RESIDENTS_DATA } from '../constants';
 
 export const alertsdataActions = {
     requestAlertsData,
@@ -10,6 +10,8 @@ export const alertsdataActions = {
     setAlertExpansion,
     requestSearch,
     updateAlertData,
+    requestResidentsData,
+    receiveResidentsData,
     /* ****** ALL MOCKS ****** */
     requestAlertsDataMock1,
     requestAlertsDataMock2
@@ -45,8 +47,8 @@ function setAlertExpansion(keyValue) {
     return { type: SET_ALERT_EXPANSION, payload: keyValue }
 }
 
-function updateAlertData(alertId, updateObject) {
-    return { type: UPDATE_ALERT_DATA, payload: { alertid: alertId, updateobject: updateObject } }
+function updateAlertData(alertId, updateObject, alertsData) {
+    return { type: UPDATE_ALERT_DATA, payload: { alertid: alertId, updateobject: updateObject, alertsdata: alertsData } }
 }
 
 /* ******************************* ALL MOCKS ***************************************** */
@@ -70,4 +72,19 @@ function requestAlertsDataMock2() {
  */
 function requestSearch(keyword) {
     return { type: REQUEST_SEARCH, payload: keyword };
+}
+
+/**
+ * Action to be raised immediately after login to fetch Residents data
+ */
+function requestResidentsData() {
+    return { type: REQUEST_RESIDENTS_DATA, payload: {} };
+}
+
+/**
+ * Raised as a response to valid data return from HTTP server
+ * @param Residentsdata an array of Residents received
+ */ 
+function receiveResidentsData(residentsdata) {
+    return { type: RECEIVE_RESIDENTS_DATA, payload: residentsdata };
 }

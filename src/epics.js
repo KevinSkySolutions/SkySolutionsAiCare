@@ -2,7 +2,7 @@ import 'rxjs'; // TODO remove this
 import { combineEpics } from                        'redux-observable';
 import { REQUEST_ALERTS_MOCK1, REQUEST_ALERTS_MOCK2,
     REQUEST_ALERTS, REQUEST_USER_DATA, REQUEST_LOGIN, REQUEST_FLOOR_DATA, 
-    DIGEST_FLOOR_DATA, NAVIGATE_TO_ALERT } from     './constants';
+    DIGEST_FLOOR_DATA, NAVIGATE_TO_ALERT, RECEIVE_ALERTS } from     './constants';
 import { alertsdataActions, homepageActions, 
     floorsdataActions, overlaydataActions } from    './actions';
 import { ajax } from                                'rxjs/observable/dom/ajax';
@@ -92,6 +92,27 @@ export const requestAlerts = actions$ =>
         );
 
 /**
+ * "requestResidents" invoked reactively upon success of fetching floors data
+ * once alerts data is available, its saved and also populated in the overlay
+ * @param {*} actions$ default parameter for each such epic
+ */
+export const requestResidents = actions$ =>
+
+    actions$
+        .ofType(RECEIVE_ALERTS)
+        .mergeMap(action =>
+            ajax
+                .getJSON("/patientsdata")
+                .mergeMap(data => Observable.of(
+                    alertsdataActions.receiveResidentsData(data)
+                ))
+                //.catch(error => Observable.of(alertsdataActions.requestAlertsDataFailed()))
+                .catch(error => Observable.of(alertsdataActions.receiveResidentsData(data)))
+        );
+
+
+
+/**
  * "navigateToAlert" invoked reactively upon user action
  * overlay closes as a side affect
  * @param {*} actions$ default parameter for each such epic
@@ -166,5 +187,6 @@ export default combineEpics(
     navigateToAlert,
     // below are for mock only
     requestAlertsMock1,
-    requestAlertsMock2
+    requestAlertsMock2,
+    requestResidents
 );

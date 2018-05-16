@@ -18,7 +18,16 @@ class Header extends Component {
       clicked: false,
       menuClick: false,
       user: props.user
-    }
+    };
+  }
+
+  componentWillReceiveProps(newProps) {
+
+    // TODO, conditionally setState only if changes are necessary
+    this.setState({
+      user: newProps.user
+    });
+    this.forceUpdate();
   }
 
   originaldata = () => {
@@ -113,7 +122,7 @@ class Header extends Component {
                   <a href="#">|</a>
                 </li>
                 <li className="username">
-                  <a href="#">Kim Sears</a>
+                  <a href="#">{this.state.user}</a>
                 </li>
               </ul>
             </div>
@@ -151,9 +160,6 @@ class BurgerMenu extends Component {
           </li>
           <li >
             <a href="#">Help</a>
-          </li>
-          <li>
-            <a href="#">Kim Sears</a>
           </li>
         </ul>
       </div>

@@ -24,7 +24,8 @@ export class Dashboard extends Component {
 
     this.state = {  
       flooralerts:  props.flooralerts,
-      user: props.userdata       
+      user: props.userdata,
+      residents: []       
     };
   }
 
@@ -36,8 +37,11 @@ export class Dashboard extends Component {
 
     // TODO, conditionally setState only if changes are necessary
     this.setState({  
-      flooralerts:  newProps.flooralerts
+      flooralerts:  newProps.flooralerts,
+      user: newProps.userdata,
+      residents: newProps.residentsdata
     });
+    this.forceUpdate();
   }
 
 
@@ -47,7 +51,7 @@ export class Dashboard extends Component {
     return (
       <div className="content-dash">
 
-        <Header user={this.props.user}/>
+        <Header user={this.state.user}/>
         <div className="content-body">
         <Overlay />
           <div>
@@ -55,7 +59,7 @@ export class Dashboard extends Component {
               <div className="left-section">
                 
 
-                <FloorMap alerts={this.state.flooralerts} />
+                <FloorMap />
               </div>
             </div>
 
@@ -77,7 +81,8 @@ const mapStateToProps = (state) => {
 
   return {      //Data for the overlay
     flooralerts:  state.floorsdata.selection,        //Getting the count for the total alerts in the facility
-    userdata: state.userdata
+    userdata: state.userdata.name,
+    residentsdata: state.dashboard.residentsdata
   }
 };
 

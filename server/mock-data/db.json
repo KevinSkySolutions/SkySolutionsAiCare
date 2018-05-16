@@ -116,7 +116,7 @@
     "resident": "Holly Mahmood",
     "type": "HIGH NOISE",
     "priority": 3,
-    "floor": 1,
+    "floor": 2,
     "currentlocation": "RM314",
     "icon": "female",
     "description": "Help Active",
@@ -1132,8 +1132,8 @@
     "floor": 2,
     "location": {
       "room": "Suite 302",
-      "xpercent": 34,
-      "ypercent": 25
+      "xpercent": 44,
+      "ypercent": 55
     },
     "phone": "1-770-736-8031 x56442",
     "consulting": {
@@ -1180,8 +1180,8 @@
     "floor": 2,
     "location": {
       "room": "Suite 302",
-      "xpercent": 14,
-      "ypercent": 85
+      "xpercent": 34,
+      "ypercent": 65
     },
     "phone": "1-463-123-4447",
     "consulting": {
@@ -1229,7 +1229,7 @@
     "location": {
       "room": "Suite 302",
       "xpercent": 54,
-      "ypercent": 15
+      "ypercent": 45
     },
     "phone": "(254)954-1289",
     "consulting": {
@@ -1252,8 +1252,8 @@
     "floor": 2,
     "location": {
       "room": "Suite 302",
-      "xpercent": 24,
-      "ypercent": 55
+      "xpercent": 34,
+      "ypercent": 75
     },
     "phone": "1-477-935-8478 x6430",
     "consulting": {
@@ -1300,7 +1300,7 @@
     "floor": 2,
     "location": {
       "room": "Suite 302",
-      "xpercent": 14,
+      "xpercent": 34,
       "ypercent": 65
     },
     "phone": "586.493.6943 x140",
@@ -1324,8 +1324,8 @@
     "floor": 3,
     "location": {
       "room": "Suite 302",
-      "xpercent": 14,
-      "ypercent": 15
+      "xpercent": 44,
+      "ypercent": 55
     },
     "phone": "(775)976-6794 x41206",
     "consulting": {

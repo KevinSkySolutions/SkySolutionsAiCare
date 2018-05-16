@@ -16,9 +16,16 @@ class UpdateStatus extends Component {
             center: false,
             mousePosition: {},
             alert: props.alert,
-            status: ""
+            status: "",
+            alertsdata: props.alertsdata
         };
     }
+
+    componentWillReceiveProps(newProps) {
+    this.setState({
+      alertsdata: newProps.alertsdata,
+    });
+  }
 
     onClick = e => {
         this.setState({
@@ -52,9 +59,10 @@ class UpdateStatus extends Component {
         e.preventDefault();
         e.stopPropagation();
         if (this.state.status.length > 0) {
-            this.props.dispatchaction_updateAlertData(this.state.alert.id, this.state.status);
+            this.props.dispatchaction_updateAlertData(this.state.alert.id, this.state.status, this.state.alertsdata);
         }
         this.onClose(e);
+        this.forceUpdate();
     }
 
     handleCheck = e => {
@@ -113,6 +121,13 @@ class UpdateStatus extends Component {
     }
 }
 
+const mapStateToProps = (state) => {
+
+    return {
+      alertsdata: state.dashboard.alertsdata
+    };
+};
+
 function mapDispatchToProps(dispatch) {
 
     let ac_updateAlertData = alertsdataActions.updateAlertData;
@@ -125,4 +140,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(null, mapDispatchToProps)(UpdateStatus);
+export default connect(mapStateToProps, mapDispatchToProps)(UpdateStatus);

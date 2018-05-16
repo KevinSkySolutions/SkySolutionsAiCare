@@ -13,15 +13,16 @@ class FloorItem extends Component {
       isClicked: false,
       selection: props.selection,
       indexKey: props.keyCopy
-
     };
-    console.log(this.state.alert);
   }
 
   componentWillReceiveProps(newProps) {
     this.setState({
-      alerts: newProps.alerts
+      alert: newProps.alert,
+      selection: newProps.selection,
+      indexKey: newProps.keyCopy
     });
+    this.forceUpdate();
   }
 
   onFocus = e => {  // Function for changing the state and expanding or collapsing the Alert
@@ -53,7 +54,7 @@ class FloorItem extends Component {
           {
            	(this.state.selection == this.state.indexKey)
               ?
-              (alert.isnew!=undefined)
+              (alert.isnew!=undefined && alert.isnew!=false)
                 ? 
                   <div>
                     <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/alertpositionpointer" + alert.priority + ".png")} />
@@ -65,7 +66,7 @@ class FloorItem extends Component {
                     <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/cardalert" + alert.priority + ".png")} />
                   </div>
               :
-              (alert.isnew!=undefined)
+              (alert.isnew!=undefined && alert.isnew!=false)
                 ?
                   <div>
                     <img style={divStyle} className={ "person-on-map" } src={require("../../img/alertpositionpointer" + alert.priority + ".png")} />

@@ -119,6 +119,9 @@ class Header extends Component {
                   <a href="#">Help</a>
                 </li>
                 <li >
+                  <a href="/">Logout</a>
+                </li>
+                <li >
                   <a href="#">|</a>
                 </li>
                 <li className="username">
@@ -160,6 +163,9 @@ class BurgerMenu extends Component {
           </li>
           <li >
             <a href="#">Help</a>
+          </li>
+          <li >
+            <a href="/">Logout</a>
           </li>
         </ul>
       </div>

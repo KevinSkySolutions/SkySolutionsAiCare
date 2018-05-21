@@ -162,14 +162,14 @@ body .content .nav-container ul li a {
 @media (min-width: 1024px) {
   .nav-container {
     position: relative;
-    left: 220px;
+    left: 240px;
   }
 }
 
 @media (min-width: 1180px) {
   .nav-container {
     position: relative;
-    left: 320px;
+    left: 300px;
   }
 }
 
@@ -180,14 +180,22 @@ body .content .nav-container ul li a {
 @media (min-width: 1296px) {
   .nav-container {
     position: relative;
-    left: 320px;
+    left: 290px;
   }
 }
 
 @media (min-width: 1234px) and (max-width: 1295px) {
   .nav-container {
     position: relative;
-    left: 320px;
+    left: 270px;
+  }
+
+}
+
+@media (min-width: 1430px) {
+  .nav-container {
+    position: relative;
+    left: 350px;
   }
 
 }
@@ -195,7 +203,7 @@ body .content .nav-container ul li a {
 @media (max-width: 1233px) {
   .nav-container {
     position: relative;
-    left: 280px;
+    left: 240px;
   } 
 }  
 
@@ -204,14 +212,14 @@ body .content .nav-container ul li a {
 @media (max-width: 1169px) {
   .nav-container {
     position: relative;
-    left: 250px;
+    left: 220px;
   } 
 } 
 
 @media (max-width: 1129px) {
   .nav-container {
     position: relative;
-    left: 220px;
+    left: 210px;
   } 
 } 
 
@@ -225,7 +233,7 @@ body .content .nav-container ul li a {
 @media (max-width: 1088px) {
   .nav-container {
     position: relative;
-    left: 150px;
+    left: 140px;
   } 
 }
 
@@ -238,7 +246,7 @@ body .content .nav-container ul li a {
 @media (max-width: 1048px) {
   .nav-container {
     position: relative;
-    left: 90px;
+    left: 100px;
   } 
 }
 @media (max-width: 1024px) {
@@ -251,14 +259,14 @@ body .content .nav-container ul li a {
 @media (max-width: 928px) {
   .nav-container {
     position: relative;
-    left: 50px;
+    left: 80px;
   } 
 }
 
 @media (max-width: 881px) {
   .nav-container {
     position: relative;
-    left: 30px;
+    left: 60px;
   } 
 }
 

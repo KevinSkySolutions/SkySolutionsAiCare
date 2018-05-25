@@ -1,19 +1,29 @@
 /**
  * This is the API end point to contact for data
  */
-export const WEB_API_URL            = process.env.NODE_HOST || 'http://localhost:8080';
+export const WEB_API_URL            = 'https://api.aiportal.co/bstream/api/v1/';
 
 /**
  * All actions that can be raised when user is not logged in
  */
-export const REQUEST_LOGIN          = 'A_REQUEST_LOGIN';
-export const REQUEST_USER_DATA      = 'A_REQUEST_USER_DATA';
-export const RECEIVE_USER_DATA      = 'A_RECEIVE_USER_DATA';
-export const REQUEST_LOGIN_FAILED   = 'A_REQUEST_LOGIN_FAILED';
-export const UPDATE_ALERT_DATA      = 'A_UPDATE_ALERT_DATA';
+export const REQUEST_LOGIN          	= 'A_REQUEST_LOGIN';
+export const REQUEST_USER_DATA      	= 'A_REQUEST_USER_DATA';
+export const RECEIVE_USER_DATA      	= 'A_RECEIVE_USER_DATA';
+export const REQUEST_LOGIN_FAILED   	= 'A_REQUEST_LOGIN_FAILED';
+export const UPDATE_ALERT_DATA      	= 'A_UPDATE_ALERT_DATA';
 // this action below is for mocking the future data
-export const REQUEST_ALERTS_MOCK1   = "MA_REQUEST_ALERTS_1";
-export const REQUEST_ALERTS_MOCK2   = "MA_REQUEST_ALERTS_2"
+export const REQUEST_ALERTS_MOCK1   	= "MA_REQUEST_ALERTS_1";
+export const REQUEST_ALERTS_MOCK2   	= "MA_REQUEST_ALERTS_2";
+export const REQUEST_ENTERPRISE_DATA	= 'A_REQUEST_ENTERPRISE_DATA';
+export const REQUEST_VENUE_DATA     	= 'A_REQUEST_VENUE_DATA';
+export const REQUEST_FLOOR_API_DATA   = 'A_REQUEST_FLOOR_API_DATA';
+export const REQUEST_BUILDING_DATA    = 'A_REQUEST_BUILDING_DATA';
+export const REQUEST_SENSOR_ALERT_DATA= 'A_REQUEST_SENSOR_ALERT_DATA';
+export const RECEIVE_ENTERPRISE_DATA	= 'A_RECEIVE_ENTERPRISE_DATA';
+export const RECEIVE_VENUE_DATA     	= 'A_RECEIVE_VENUE_DATA';
+export const RECEIVE_FLOOR_API_DATA   = 'A_RECEIVE_FLOOR_API_DATA';
+export const RECEIVE_BUILDING_DATA    = 'A_RECEIVE_BUILDING_DATA';
+export const RECEIVE_SENSOR_ALERT_DATA= 'A_RECEIVE_SENSOR_ALERT_DATA';
 
 /**
  * All actions that cab ne raised for dashboard refresh

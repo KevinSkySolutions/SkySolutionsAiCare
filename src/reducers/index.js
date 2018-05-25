@@ -1,15 +1,14 @@
 import { combineReducers } from 'redux';
 
-import homepageReducer from './homepage-reducer';
 import datafetchReducer from './datafetch-reducer';
-import userdataReducer from './userdata-reducer';
+
 
 const rootReducer = combineReducers({ 
-  homepage:  homepageReducer,
+  homepage:  datafetchReducer,
   dashboard: datafetchReducer,
   overlaydata: datafetchReducer,
   floorsdata: datafetchReducer,
-  userdata: userdataReducer
+  userdata: datafetchReducer
 });
 
 export default rootReducer;

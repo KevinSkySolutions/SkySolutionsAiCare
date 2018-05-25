@@ -81,7 +81,7 @@ const mapStateToProps = (state) => {
 
   return {      //Data for the overlay
     flooralerts:  state.floorsdata.selection,        //Getting the count for the total alerts in the facility
-    userdata: state.userdata.name,
+    userdata: state.userdata.userdata ,
     residentsdata: state.dashboard.residentsdata
   }
 };

@@ -1,10 +1,27 @@
 import 'rxjs'; // TODO remove this
 import { combineEpics } from                        'redux-observable';
-import { REQUEST_ALERTS_MOCK1, REQUEST_ALERTS_MOCK2,
-    REQUEST_ALERTS, REQUEST_USER_DATA, REQUEST_LOGIN, REQUEST_FLOOR_DATA, 
-    DIGEST_FLOOR_DATA, NAVIGATE_TO_ALERT, RECEIVE_ALERTS } from     './constants';
-import { alertsdataActions, homepageActions, 
-    floorsdataActions, overlaydataActions } from    './actions';
+
+import { REQUEST_ALERTS_MOCK1, 
+         REQUEST_ALERTS_MOCK2,
+         REQUEST_ALERTS, 
+         REQUEST_USER_DATA, 
+         REQUEST_LOGIN, 
+         REQUEST_FLOOR_DATA, 
+         DIGEST_FLOOR_DATA, 
+         NAVIGATE_TO_ALERT, 
+         RECEIVE_ALERTS,
+         REQUEST_FLOOR_API_DATA,
+         REQUEST_ENTERPRISE_DATA,
+         REQUEST_VENUE_DATA,
+         REQUEST_BUILDING_DATA,
+         REQUEST_SENSOR_ALERT_DATA,
+         WEB_API_URL } from     './constants';
+
+import { alertsdataActions, 
+         homepageActions, 
+         floorsdataActions, 
+         overlaydataActions } from    './actions';
+
 import { ajax } from                                'rxjs/observable/dom/ajax';
 import { Observable } from                          'rxjs';
 import { browserHistory } from                      'react-router';
@@ -23,7 +40,8 @@ export const requestLogin = actions$ =>
             ajax
                 .getJSON("/login")
                 .map((data) => {
-                    return homepageActions.requestUserData()
+                    return (
+                        homepageActions.requestUserData())
                 })
                 .catch(error => Observable.of(homepageActions.loginFailed()))
         );
@@ -43,7 +61,8 @@ export const requestUserData = actions$ =>
                 .getJSON("/userdata")
                 .mergeMap((data) => Observable.of(
                     homepageActions.receiveUserData(data),
-                    floorsdataActions.requestFloorsData()
+                    floorsdataActions.requestFloorsData(),
+                    homepageActions.requestEnterpriseData()
                 ))
             // TODO, retry and fail gracefully 
             // .catch(error => Observable.of(homepageActions.loginFailed()))
@@ -176,6 +195,111 @@ export const requestAlertsMock2 = actions$ =>
                 //.catch(error => Observable.of(alertsdataActions.requestAlertsDataFailed()))
                 .catch(error => Observable.of(alertsdataActions.receiveAlertsData(data)))
         );
+
+/**
+ * "requestEnterpriseData" invoked reactively upon success of requesting user data
+ * success would result in raising an action to receive Enterprise data and populate the state
+ * 
+ * @param {*} actions$ default parameter for each such epic
+ */
+export const requestEnterpriseData = actions$ =>
+
+    actions$
+        .ofType(REQUEST_ENTERPRISE_DATA)
+        .mergeMap(action =>
+            ajax
+                .getJSON("/enterpriseData")
+                .mergeMap((data) => Observable.of(
+                    homepageActions.receiveEnterpriseData(data),
+                    homepageActions.requestVenueData()
+                ))
+            // TODO, retry and fail gracefully 
+            // .catch(error => Observable.of(homepageActions.loginFailed()))
+        );
+
+/**
+ * "requestVenueData" invoked reactively upon success of requesting user data
+ * success would result in raising an action to receive Venue data and populate the state
+ * 
+ * @param {*} actions$ default parameter for each such epic
+ */
+export const requestVenueData = actions$ =>
+
+    actions$
+        .ofType(REQUEST_VENUE_DATA)
+        .mergeMap(action =>
+            ajax
+                .getJSON("/venueData")
+                .mergeMap((data) => Observable.of(
+                    homepageActions.receiveVenueData(data),
+                    homepageActions.requestBuildingData()
+                ))
+            // TODO, retry and fail gracefully 
+            // .catch(error => Observable.of(homepageActions.loginFailed()))
+        );
+
+/**
+ * "requestBuildingData" invoked reactively upon success of requesting user data
+ * success would result in raising an action to receive Building data and populate the state
+ * 
+ * @param {*} actions$ default parameter for each such epic
+ */
+export const requestBuildingData = actions$ =>
+
+    actions$
+        .ofType(REQUEST_BUILDING_DATA)
+        .mergeMap(action =>
+            ajax
+                .getJSON("/buildingData")
+                .mergeMap((data) => Observable.of(
+                    homepageActions.receiveBuildingData(data),
+                    homepageActions.requestFloorAPIData()
+                ))
+            // TODO, retry and fail gracefully 
+            // .catch(error => Observable.of(homepageActions.loginFailed()))
+        );
+
+/**
+ * "requestFloorAPIData" invoked reactively upon success of requesting user data
+ * success would result in raising an action to receive FloorAPI data and populate the state
+ * 
+ * @param {*} actions$ default parameter for each such epic
+ */
+export const requestFloorAPIData = actions$ =>
+
+    actions$
+        .ofType(REQUEST_FLOOR_API_DATA)
+        .mergeMap(action =>
+            ajax
+                .getJSON("/floorAPIData")
+                .mergeMap((data) => Observable.of(
+                    homepageActions.receiveFloorAPIData(data),
+                    homepageActions.requestSensorAlertData()
+                ))
+            // TODO, retry and fail gracefully 
+            // .catch(error => Observable.of(homepageActions.loginFailed()))
+        );
+
+/**
+ * "requestSensorAlertData" invoked reactively upon success of requesting user data
+ * success would result in raising an action to receive SensorAlert data and populate the state
+ * 
+ * @param {*} actions$ default parameter for each such epic
+ */
+export const requestSensorAlertData = actions$ =>
+
+    actions$
+        .ofType(REQUEST_SENSOR_ALERT_DATA)
+        .mergeMap(action =>
+            ajax
+                .getJSON("/sensorAlertData")
+                .mergeMap((data) => Observable.of(
+                    homepageActions.receiveSensorAlertData(data)
+                ))
+            // TODO, retry and fail gracefully 
+            // .catch(error => Observable.of(homepageActions.loginFailed()))
+        );
+
 /* ************************************************************************************* */
 
 export default combineEpics(
@@ -188,5 +312,10 @@ export default combineEpics(
     // below are for mock only
     requestAlertsMock1,
     requestAlertsMock2,
-    requestResidents
+    requestResidents,
+    requestEnterpriseData,
+    requestVenueData,
+    requestBuildingData,
+    requestFloorAPIData,
+    requestSensorAlertData
 );

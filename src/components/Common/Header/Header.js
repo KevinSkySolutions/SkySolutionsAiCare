@@ -72,6 +72,8 @@ class Header extends Component {
 
   render() {
 
+    let username = this.state.user.firstName + " " + this.state.user.lastName;
+
     return (
 
       <div>
@@ -125,7 +127,7 @@ class Header extends Component {
                   <a href="#">|</a>
                 </li>
                 <li className="username">
-                  <a href="#">{this.state.user}</a>
+                  <a href="#">{username}</a>
                 </li>
               </ul>
             </div>

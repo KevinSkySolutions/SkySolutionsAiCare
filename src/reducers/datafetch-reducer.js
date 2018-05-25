@@ -13,7 +13,22 @@ import { REQUEST_ALERTS,
          NAVIGATE_TO_ALERT,
          REQUEST_ALERTS_SUMMARY, 
          SET_OVERLAY_EXPANSION, 
-         RESET_OVERLAY_EXPANSION } from '../constants';
+         RESET_OVERLAY_EXPANSION,
+         REQUEST_LOGIN, 
+         REQUEST_LOGIN_FAILED, 
+         REQUEST_USER_DATA, 
+         RECEIVE_USER_DATA,
+         REQUEST_FLOOR_API_DATA,
+         REQUEST_ENTERPRISE_DATA,
+         REQUEST_VENUE_DATA,
+         REQUEST_SENSOR_ALERT_DATA,
+         REQUEST_BUILDING_DATA,
+         RECEIVE_FLOOR_API_DATA,
+         RECEIVE_ENTERPRISE_DATA,
+         RECEIVE_VENUE_DATA,
+         RECEIVE_BUILDING_DATA,
+         RECEIVE_SENSOR_ALERT_DATA  } from '../constants';
+
 import { browserHistory } from 'react-router';
 import { annotateWithSearchData, filterAlertsWithKeyword } from '../constants/Utilities';
 
@@ -27,7 +42,14 @@ const defaultState = { alertsdata: [], searchresults: [], residentsdata: [], sel
     floors: [],
     isExpanded:       false,
     summary:          [],
-    highlightsummary: [] };
+    highlightsummary: [],
+    isLoggingIn: false,
+    userdata: {},
+    buildingdata: {},
+    floorAPIdata: [],
+    enterprisedata: {},
+    venuedata: {},
+    sensoralertdata: [] };
 
 export default function datafetchReducer(state = defaultState, action) {
   switch (action.type) {
@@ -286,9 +308,7 @@ export default function datafetchReducer(state = defaultState, action) {
         let updatedAlerts = [];
         
         let alertId       = action.payload.alertid;
-        console.log(alertId);
         let updateObject  = action.payload.updateobject;
-        console.log(updateObject);
 
         var localAlertsCopy = state.alertsdata;
         var arrayLength = localAlertsCopy.length;
@@ -339,6 +359,70 @@ export default function datafetchReducer(state = defaultState, action) {
         highlightsummary: alertsHighlightsSummary
       };   
 
+    case RECEIVE_USER_DATA:
+
+      let userDataFromServer = action.payload;
+      userDataFromServer.defaultfloor = 1;
+
+      return {
+        ...state,
+        userdata: userDataFromServer
+      }
+
+    case REQUEST_LOGIN:
+
+      return {
+        ...state,
+        isLoggingIn: true
+      };   
+    case REQUEST_USER_DATA:
+
+      return {
+        ...state,
+        isLoggingIn: false
+      };
+    case REQUEST_LOGIN_FAILED:
+
+      return {
+        ...state,
+        isLoggingIn: false
+      };
+
+    case RECEIVE_ENTERPRISE_DATA:
+
+      return {
+        ...state,
+        enterprisedata: action.payload
+      };
+
+    case RECEIVE_VENUE_DATA:
+
+      return {
+        ...state,
+        venuedata: action.payload
+      };
+
+    case RECEIVE_BUILDING_DATA:
+
+      return {
+        ...state,
+        buildingdata: action.payload
+      };
+
+    case RECEIVE_FLOOR_API_DATA:
+
+      return {
+        ...state,
+        floorAPIdata: action.payload
+      };
+
+    case RECEIVE_SENSOR_ALERT_DATA:
+
+      return {
+        ...state,
+        sensoralertdata: action.payload
+      };  
+      
     default:
       return state;
   }

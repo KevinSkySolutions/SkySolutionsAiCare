@@ -2,16 +2,14 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Meta from 'react-helmet';
-import { browserHistory } from 'react-router'
 
-import { bindActionCreators } from 'redux';
-
-import { createaction_doLogin, REQUEST_LOGIN } from '../../actions';
 
 // import (  ) from '../../reducers';
 
-import Posts from '../Patients/Patients';
+import Patients from '../Patients/Patients';
 import Header from '../Common/Header/Header';
+
+import { homepageActions } from '../../actions';
 
 // Import can't be in conditional so use require.
 if (process.env.WEBPACK) {
@@ -38,38 +36,13 @@ export class HomePage extends Component {
     isLoggingIn: false
   }
 
-  // metadata for html
-  static getMeta() {
-    return {
-      title: 'AiCare Monitoring Portal',
-      link: [
-        {
-          rel: 'canonical',
-          href: 'http://localhost:3000'
-        }
-      ],
-      meta: [
-        {
-          charset: 'utf-8'
-        },
-        {
-          name: 'description', 
-          content: 'This is the monitoring portal for Ashby Ponds by AiCare'
-        }
-      ]
-    };
-  }
-
   // lifecycle method
   componentDidMount() {
     const { dispatch } = this.props;
   }
 
   // the render method
-  render() {    
-
-    // for use inside render
-    const head = HomePage.getMeta();
+  render() {
 
     return (
       <div className="bodyclass">
@@ -102,12 +75,7 @@ export class HomePage extends Component {
   }
 
   doLogin = (event) => {
-
-    // TODO: remove line below and redirect on state change in Redux
-    browserHistory.push('/dashboard');
-
-    // this.props.dispatch_createaction_doLogin("u", "p");
-    this.props.dispatch({ type: REQUEST_LOGIN, payload: {username: "username", passcode: "passcode"} });
+    this.props.dispatch(homepageActions.login("username", "password"));
   }
 
 }
@@ -123,15 +91,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-// adding callables to props
-const mapDispatchToProps = (dispatch, props) => {
-
-  return Object.assign({dispatch: dispatch}, bindActionCreators({
-    dispatch_createaction_doLogin:        
-      (userid, passcode) => {
-        dispatch(createaction_doLogin(userid, passcode));
-      }
-  }, dispatch));
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default connect(mapStateToProps)(HomePage);

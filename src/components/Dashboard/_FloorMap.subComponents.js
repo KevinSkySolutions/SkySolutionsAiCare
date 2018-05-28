@@ -12,14 +12,16 @@ class FloorMap extends Component {
     this.state = {
       alerts: props.flooralerts,
       isClicked: false,
-      residents: props.residentsdata
+      residents: props.residentsdata,
+      floorplan: props.floorplan
     };
   }
 
   componentWillReceiveProps(newProps) {
     this.setState({
       alerts: newProps.flooralerts,
-      residents: newProps.residentsdata
+      residents: newProps.residentsdata,
+      floorplan: newProps.floorplan
     });
     this.forceUpdate();
   }
@@ -34,7 +36,15 @@ class FloorMap extends Component {
       if (this.state.residents[i].floor == resident_object.floor) {
           resident_object.residents.push(this.state.residents[i]);
       }
-  };  
+  };
+
+  let floorplan_image ="";
+
+  for (var i = 0; i < this.state.floorplan.length; i++) {
+      if (this.state.floorplan[0].image.content !== undefined) {
+          floorplan_image = "data:image/jpeg;base64," + this.state.floorplan[0].image.content;
+      }
+  };   
 
   let alertsCopy = this.state.alerts;
   
@@ -55,7 +65,7 @@ class FloorMap extends Component {
    return (
 
      <div className="floor-image">
-        <img src={require("../../img/floorplan" + ((this.state.alerts.floor == undefined) ? "1" : this.state.alerts.floor) + ".jpg")} alt="" className="floor-map" />
+        <img src={floorplan_image} alt="" className="floor-map" />
           {items}
           {residents}    
       </div>
@@ -69,7 +79,8 @@ const mapStateToProps = (state) => {
 
     return {
       flooralerts:  state.floorsdata.selection,        //Getting the count for the total alerts in the facility
-      residentsdata: state.dashboard.residentsdata
+      residentsdata: state.dashboard.residentsdata,
+      floorplan: state.dashboard.floorAPIdata
     };
 };
 

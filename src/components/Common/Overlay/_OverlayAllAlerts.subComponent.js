@@ -27,9 +27,34 @@ class OverlayAllAlerts extends Component {
     }
 
     render() {
+
+
+
         return this.state.alerts.map((alert, keyValue) => {
+
+            let priority = 1
+
+            if (alert.alertType === "SOS") {
+                priority =  1    
+            }
+
+            else if (alert.alertType === "HIGH_IMPACT") {
+                priority =  2  
+            }
+
+            else if (alert.alertType === "HIGH NOISE") {
+                priority =  3  
+            }
+
+            else if (alert.alertType === "MISSING") {
+                priority =  4  
+            }
+
+            else if (alert.alertType === "POWER_OFF") {
+                priority =  5  
+            }
             
-            let divstyle  = ("type-of-alert alert-number" + alert.priority); // Variable to decide which style to assign the alert based on the priority of the alert being passed
+            let divstyle  = ("type-of-alert alert-number" + priority); // Variable to decide which style to assign the alert based on the priority of the alert being passed
 
             let classnameToApply    = "popup-card";
             "newalert-summary-animation"
@@ -40,17 +65,17 @@ class OverlayAllAlerts extends Component {
             return (
                 <div key={keyValue}>
                     <div className={ classnameToApply } id="alert_popups" >
-                        <div className="map-point" onClick={ () => this.onNavigate(alert.floor, alert.id, this.state.alerts) }>
-                            <img src={require("../../../img/location" + alert.priority + ".png")} className="avatar" />
+                        <div className="map-point" onClick={ () => this.onNavigate(1, alert.id, this.state.alerts) }>
+                            <img src={require("../../../img/location" + priority + ".png")} className="avatar" />
                         </div>
-                        <div className={divstyle}>{alert.type}</div>
+                        <div className={divstyle}>{alert.alertType}</div>
                         <div className="alert-content-section">
                             <div className="alert-content">
                                 <div className="pt-log pt-detail">
-                                    <img src={require("../../../img/cardalert" + alert.priority + ".png")} className="avatar" />
+                                    <img src={require("../../../img/cardalert" + priority + ".png")} className="avatar" />
                                     <div className="side-text detail-1 side-text-padding">
-                                        <div className="pt-name list-header">{alert.resident}</div>
-                                        <div className="pt-suite-no gray-text list-subheader mr-t-5">{alert.currentlocation}</div>
+                                        <div className="pt-name list-header">{alert.senior.firstName}</div>
+                                        <div className="pt-suite-no gray-text list-subheader mr-t-5">{alert.enterprise.description}</div>
                                     </div>
                                 </div>
                             </div>

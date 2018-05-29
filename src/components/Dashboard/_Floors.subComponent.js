@@ -33,19 +33,23 @@ export class Floors extends Component {
     }
 
     render() {
+
         return this.state.floors.map((floor, keyValue) => {
 
-            if (floor.floor == this.state.currentfloor) { // Conditional logic for deciding which floor is currently being viewed and showing the relevant data
+            if (keyValue + 1  == this.state.currentfloor) { // Conditional logic for deciding which floor is currently being viewed and showing the relevant data
                 return (
                     <li className="active" key={keyValue}>{this.state.currentfloor}</li>
-                );
+                );                
             }
 
             else {
                 return (
-                    <li key={keyValue} onClick={() => this.onSelectFloor(floor.floor)} >{floor.floor}</li>
+                    <li key={keyValue} onClick={() => this.onSelectFloor(keyValue + 1)} >{keyValue + 1}</li>
                 );
+
             }
+
+            
         })
     }
 }
@@ -53,8 +57,8 @@ export class Floors extends Component {
 const mapStateToProps = (state) => {
 
     return {
-        currentfloor:   state.floorsdata.selection.floor,   // Current floor being viewed
-        floors:         state.floorsdata.floors,                       // Floor data for displaying the different floors in the facility
+        currentfloor:   state.dashboard.selection.floor,   // Current floor being viewed
+        floors:         state.dashboard.floorAPIdata,                       // Floor data for displaying the different floors in the facility
         alertsdata:     state.dashboard.alertsdata
     };
 };

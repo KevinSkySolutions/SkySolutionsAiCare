@@ -4,11 +4,7 @@ import datafetchReducer from './datafetch-reducer';
 
 
 const rootReducer = combineReducers({ 
-  homepage:  datafetchReducer,
-  dashboard: datafetchReducer,
-  overlaydata: datafetchReducer,
-  floorsdata: datafetchReducer,
-  userdata: datafetchReducer
+  dashboard: datafetchReducer
 });
 
 export default rootReducer;

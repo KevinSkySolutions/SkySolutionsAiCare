@@ -14,7 +14,8 @@ export class AlertsList extends Component {
             alerts:             props.alerts,           // Making a copy of the alerts object for the entire facility for data manipulation
             currentfloor:       props.currentfloor,     // global indicator for current floor being viewed
             currentalert:       props.currentalert,     // global indicator for current key being expanded
-            currentselection:   props.currentselection  // global indicator for current alert being viewed
+            currentselection:   props.currentselection,  // global indicator for current alert being viewed
+            sensoralerts:       props.sensoralerts
         }
     }
 
@@ -24,13 +25,15 @@ export class AlertsList extends Component {
             alerts:             newProps.alerts, 
             currentfloor:       newProps.currentfloor,
             currentalert:       newProps.currentalert,
-            currentselection:   newProps.currentselection
+            currentselection:   newProps.currentselection,
+            sensoralerts:       newProps.sensoralerts
         });
         this.forceUpdate();
     }
 
     render() {
-        return this.state.alerts.map((alert, keyValue) => {  // Mapping all the relevant floor alerts on the right section of the page
+
+        return this.state.sensoralerts.map((alert, keyValue) => {  // Mapping all the relevant floor alerts on the right section of the page
             return (
                 <AlertItem 
                 key={keyValue} keyCopy={keyValue} alert={alert} 
@@ -45,10 +48,11 @@ const mapStateToProps = (state) => {
 
 
     return {
-        alerts:             state.floorsdata.selection.alerts,
-        currentfloor:       state.floorsdata.selection.floor,
-        currentalert:       state.floorsdata.selection.selectedalert,
-        currentselection:   state.floorsdata.selection.selectedalert
+        alerts:             state.dashboard.selection.alerts,
+        currentfloor:       state.dashboard.selection.floor,
+        currentalert:       state.dashboard.selection.selectedalert,
+        currentselection:   state.dashboard.selection.selectedalert,
+        sensoralerts:    state.dashboard.sensoralertdata
     };
 };
 export default connect(mapStateToProps)(AlertsList);

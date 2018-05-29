@@ -11,12 +11,30 @@ export function annotateWithSearchData(alerts) {
     var arrayLength = alerts.length;
     for (var i = 0; i < arrayLength; i++) {
         alerts[i].searchdata =  alerts[i].id                + spaceDelimiter;
-        alerts[i].searchdata += alerts[i].resident          + spaceDelimiter;
-        alerts[i].searchdata += alerts[i].type              + spaceDelimiter;
-        alerts[i].searchdata += alerts[i].currentlocation   + spaceDelimiter;
+        
+        alerts[i].searchdata += alerts[i].alertType              + spaceDelimiter;
+        alerts[i].searchdata += alerts[i].alertStatus   + spaceDelimiter;
         alerts[i].searchdata += alerts[i].description       + spaceDelimiter;
-        alerts[i].searchdata += alerts[i].location.room     + spaceDelimiter;
+        
+        if (alerts[i].senior.firstName === undefined){
+            alerts[i].searchdata += "Rgoer Goodell"        + spaceDelimiter;
+        }
 
+
+        else if (alerts[i].senior.firstName !== undefined){
+            alerts[i].searchdata += alerts[i].senior.firstName          + spaceDelimiter;
+        }
+
+        if (alerts[i].enterprise.name === undefined){
+            alerts[i].searchdata += "AiLiving Senior Center 2"     + spaceDelimiter;
+        }
+
+
+        else if (alerts[i].enterprise.name !== undefined){
+            alerts[i].searchdata += alerts[i].enterprise.name     + spaceDelimiter;
+        }
+
+        
         annotatedAlerts.push(alerts[i]);
     }
     return annotatedAlerts;

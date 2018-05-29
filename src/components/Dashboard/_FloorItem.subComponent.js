@@ -44,9 +44,31 @@ class FloorItem extends Component {
       // Variable to decide which style to assign the alert based on the priority of the alert being passed
       let divStyle = {
         color: 'white',
-        top: (alert.location.xpercent) * 4.2 + 'px',
-        left: (alert.location.ypercent) * 4.2 + 'px'
+        top: (alert.sensor.x) * 1.2 + 'px',
+        left: (alert.sensor.y) * 1.2 + 'px'
       };
+
+      let priority = 1
+
+        if (alert.alertType === "SOS") {
+            priority =  1    
+        }
+
+        else if (alert.alertType === "HIGH_IMPACT") {
+            priority =  2  
+        }
+
+        else if (alert.alertType === "HIGH NOISE") {
+            priority =  3  
+        }
+
+        else if (alert.alertType === "MISSING") {
+            priority =  4  
+        }
+
+        else if (alert.alertType === "POWER_OFF") {
+            priority =  5  
+        }
 
       return (
         <div onClick={this.onFocus}>
@@ -57,25 +79,25 @@ class FloorItem extends Component {
               (alert.isnew!=undefined && alert.isnew!=false)
                 ? 
                   <div>
-                    <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/alertpositionpointer" + alert.priority + ".png")} />
-                    <img style={divStyle} className={ "person-on-map-selected person-on-map-blink" } src={require("../../img/cardalert" + alert.priority + ".png")} />
+                    <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/alertpositionpointer" + priority + ".png")} />
+                    <img style={divStyle} className={ "person-on-map-selected person-on-map-blink" } src={require("../../img/cardalert" + priority + ".png")} />
                   </div>
                 :
                   <div>
                     
-                    <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/cardalert" + alert.priority + ".png")} />
+                    <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/cardalert" + priority + ".png")} />
                   </div>
               :
               (alert.isnew!=undefined && alert.isnew!=false)
                 ?
                   <div>
-                    <img style={divStyle} className={ "person-on-map" } src={require("../../img/alertpositionpointer" + alert.priority + ".png")} />
-                    <img style={divStyle} className={ "person-on-map person-on-map-blink" } src={require("../../img/cardalert" + alert.priority + ".png")} />
+                    <img style={divStyle} className={ "person-on-map" } src={require("../../img/alertpositionpointer" + priority + ".png")} />
+                    <img style={divStyle} className={ "person-on-map person-on-map-blink" } src={require("../../img/cardalert" + priority + ".png")} />
                   </div>
                 :
                   <div>
                     
-                    <img style={divStyle} className={ "person-on-map" } src={require("../../img/cardalert" + alert.priority + ".png")} />
+                    <img style={divStyle} className={ "person-on-map" } src={require("../../img/cardalert" + priority + ".png")} />
                   </div>
                 
           }

@@ -51,49 +51,72 @@ class AlertItem extends Component {
 
     render() {
 
+        let priority = 1
+
+        if (this.state.alert.alertType === "SOS") {
+            priority =  1    
+        }
+
+        else if (this.state.alert.alertType === "HIGH_IMPACT") {
+            priority =  2  
+        }
+
+        else if (this.state.alert.alertType === "HIGH NOISE") {
+            priority =  3  
+        }
+
+        else if (this.state.alert.alertType === "MISSING") {
+            priority =  4  
+        }
+
+        else if (this.state.alert.alertType === "POWER_OFF") {
+            priority =  5  
+        }
+
         let boxStyle = this.state.style;  // Variable for deciding the style of the expanded or collapsed Alert
-        let divstyle = ("type-of-alert alert-number" + this.state.alert.priority); // Variable to decide which style to assign the alert based on the priority of the alert being passed
+        let divstyle = ("type-of-alert alert-number" + priority); // Variable to decide which style to assign the alert based on the priority of the alert being passed
+
+        let alert_description = this.state.alert.description.slice(0,10);
 
         return (
             <div className={boxStyle} onClick={this.onFocus}>
-                <div className={divstyle}>{this.state.alert.type}</div>
+                <div className={divstyle}>{this.state.alert.alertType}</div>
                 <div className="alert-content-section">
                     <div className="alert-content">
                         <div className="pt-log pt-detail">
-                            <img src={require("../../img/cardalert" + this.state.alert.priority + ".png")} className="avatar1" />
+                            <img src={require("../../img/cardalert" + priority + ".png")} className="avatar1" />
                             <div className="side-text detail-1 side-text-padding">
-                                <div className="pt-name list-header">{this.state.alert.resident}</div>
-                                <div className="pt-suite-no gray-text list-subheader mr-t-5">{this.state.alert.currentlocation}</div>
+                                <div className="pt-name list-header">{this.state.alert.senior.firstName}</div>
+                                <div className="pt-suite-no gray-text list-subheader mr-t-5"></div>
                             </div>
                         </div>
 
                         <div className="pt-log pt-stat pt-stat-text">
                             <div>
                                 <div className="help-stat list-header">
-                                    {this.state.alert.description}
+                                    {alert_description}
                                 </div>
-                                <div className="elapsed-time gray-text side-text list-subheader mr-t-5">{this.state.alert.time} min ago</div>
+                                <div className="elapsed-time gray-text side-text list-subheader mr-t-5">{this.state.alert.createUtc} min ago</div>
                             </div>
                         </div>
                     </div>
                     <div className="alert-media">
                         {
-                            (this.state.alert.media.video == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
-                                ? ((this.state.alert.media.audio == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
-                                    ? <div></div>
-                                    : <MediaControl alert={this.state.alert} type={this.state.alert.priority} media="audio" source={ this.state.alert.media.audio } isnew={ this.state.alert.isnew==undefined? false: true } />
-                                )
-                                : <MediaControl type={this.state.alert.priority} media="video" source={ this.state.alert.media.video } isnew={ this.state.alert.isnew==undefined? false: true } />
+                            // (this.state.alert.media.video == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
+                            //     ? ((this.state.alert.media.audio == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
+                            //         ? <div></div>
+                            //         : <MediaControl alert={this.state.alert} type={priority} media="audio" source={ this.state.alert.media.audio } isnew={ this.state.alert.isnew==undefined? false: true } />
+                            //     )
+                            //     : <MediaControl type={priority} media="video" source={ this.state.alert.media.video } isnew={ this.state.alert.isnew==undefined? false: true } />
                         }
                     </div>
                     <UpdateStatus alert={this.state.alert}/>
                 </div>
 
-                <AlertHistory alerts={this.state.alert.history} />
                 {
-                    (this.state.alert.isnew === true && (this.state.alert.media.audio === undefined))   // Conditional logic for selecting whether beep has to play for the new alert
-                        ? <audio autoPlay src="http://k003.kiwi6.com/hotlink/5bqgf29jwj/alert.mp3" />
-                        : <div className="empty"></div>
+                    // (this.state.alert.isnew === true && (this.state.alert.media.audio === undefined))   // Conditional logic for selecting whether beep has to play for the new alert
+                    //     ? <audio autoPlay src="http://k003.kiwi6.com/hotlink/5bqgf29jwj/alert.mp3" />
+                    //     : <div className="empty"></div>
                 }
             </div>
         )

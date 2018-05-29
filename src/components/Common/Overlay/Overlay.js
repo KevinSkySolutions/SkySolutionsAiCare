@@ -116,11 +116,12 @@ export class Overlay extends Component {
 
 const mapStateToProps = (state) => {
 
+
     return {
-        clicked:    state.overlaydata.isExpanded,
-        summary:    state.overlaydata.summary,
-        highlights: state.overlaydata.highlightsummary,
-        currentfloor:   state.floorsdata.selection.floor
+        clicked:    state.dashboard.isExpanded,
+        summary:    state.dashboard.summary,
+        highlights: state.dashboard.highlightsummary,
+        currentfloor:   state.dashboard.selection.floor
     };
 };
 

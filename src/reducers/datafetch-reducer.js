@@ -71,11 +71,9 @@ export default function datafetchReducer(state = defaultState, action) {
         return dTime;
       });
 
-      let returnAlerts = annotateWithSearchData(alerts);
-
       return {
         ...state,
-        alertsdata: returnAlerts
+        alertsdata: alerts
       };
     case REQUEST_SEARCH:
       
@@ -98,7 +96,6 @@ export default function datafetchReducer(state = defaultState, action) {
     
 
       case RECEIVE_RESIDENTS_DATA:
-        console.log("RECEIVE_RESIDENTS_DATA reducer");
         let residents = action.payload;
 
         return {
@@ -304,7 +301,7 @@ export default function datafetchReducer(state = defaultState, action) {
       };
 
       case UPDATE_ALERT_DATA:
-        console.log("UPDATE ALERT DATA reducer");
+
         let updatedAlerts = [];
         
         let alertId       = action.payload.alertid;
@@ -418,9 +415,59 @@ export default function datafetchReducer(state = defaultState, action) {
 
     case RECEIVE_SENSOR_ALERT_DATA:
 
+      let sensoralertobject = action.payload;
+
+      sensoralertobject.sort(function (alert1, alert2) {
+        // Sort by count
+        var dtype = alert1.alertType - alert2.alertType;
+        if (dtype) return dtype;
+
+        // If there is a tie, sort by time
+        var dUTC = alert1.createUTC - alert2.createUTC;
+        return dUTC;
+      });
+
+      alertsSummary = [0, 0, 0, 0, 0];
+      alertsHighlightsSummary = [0, 0, 0, 0, 0];
+
+      //Loop for counting the number of alerts for each type of alert
+      for(var i = 0; i < sensoralertobject.length; i++) { 
+        let priority = 1
+
+        if (sensoralertobject[i].alertType === "SOS") {
+            priority =  1    
+        }
+
+        else if (sensoralertobject[i].alertType === "HIGH_IMPACT") {
+            priority =  2  
+        }
+
+        else if (sensoralertobject[i].alertType === "HIGH NOISE") {
+            priority =  3  
+        }
+
+        else if (sensoralertobject[i].alertType === "MISSING") {
+            priority =  4  
+        }
+
+        else if (sensoralertobject[i].alertType === "POWER_OFF") {
+            priority =  5  
+        }
+          
+          alertsSummary[priority-1]++;//incrementing the corresponding entry in the array for that alert
+          if (sensoralertobject[i].isnew) {
+            alertsHighlightsSummary[priority-1]++;
+          }
+      } 
+
+      let returnAlerts = annotateWithSearchData(sensoralertobject);
+
       return {
         ...state,
-        sensoralertdata: action.payload
+        sensoralertdata: sensoralertobject,
+        summary:          alertsSummary,
+        highlightsummary: alertsHighlightsSummary,
+        alertsdata: returnAlerts
       };  
       
     default:

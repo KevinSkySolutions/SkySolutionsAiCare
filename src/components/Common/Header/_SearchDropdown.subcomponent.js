@@ -26,9 +26,9 @@ export class SearchDropdown extends Component {
     }
 
     onResultClicked(key) {
-        console.log(key);
         this.props.dispatch(overlaydataActions.navigateToAlertOnMap(
-            this.state.results[key].floor,
+            // this.state.results[key].floor
+            1,
             this.state.results[key].id,
             this.state.alertsdata
         ));
@@ -40,7 +40,7 @@ export class SearchDropdown extends Component {
 
         let searchResults = this.props.results.map((result, keyValue) => {
             return (
-                <li onClick={e => this.onResultClicked(keyValue)} key={keyValue}>{result.resident} @ { result.location.room } | @ Floor { result.floor}</li>
+                <li onClick={e => this.onResultClicked(keyValue)} key={keyValue}>{result.senior.firstName} @ { result.enterprise.description }</li>
             )
         });
 

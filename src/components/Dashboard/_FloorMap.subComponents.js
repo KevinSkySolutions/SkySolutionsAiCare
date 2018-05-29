@@ -13,7 +13,8 @@ class FloorMap extends Component {
       alerts: props.flooralerts,
       isClicked: false,
       residents: props.residentsdata,
-      floorplan: props.floorplan
+      floorplan: props.floorplan,
+      sensoralerts: props.sensoralerts
     };
   }
 
@@ -21,7 +22,8 @@ class FloorMap extends Component {
     this.setState({
       alerts: newProps.flooralerts,
       residents: newProps.residentsdata,
-      floorplan: newProps.floorplan
+      floorplan: newProps.floorplan,
+      sensoralerts: newProps.sensoralerts
     });
     this.forceUpdate();
   }
@@ -46,9 +48,9 @@ class FloorMap extends Component {
       }
   };   
 
-  let alertsCopy = this.state.alerts;
+  let alertsCopy = this.state.sensoralerts;
   
-  let items = alertsCopy.alerts.map((alert, keyValue) => {  // Mapping all the relevant floor alerts on the right section of the page
+  let items = alertsCopy.map((alert, keyValue) => {  // Mapping all the relevant floor alerts on the right section of the page
                 
       return (
        <FloorItem key={keyValue} keyCopy={keyValue} alert={alert} selection={alertsCopy.selectedalert}/>   
@@ -67,7 +69,7 @@ class FloorMap extends Component {
      <div className="floor-image">
         <img src={floorplan_image} alt="" className="floor-map" />
           {items}
-          {residents}    
+          {residents}
       </div>
    );
     
@@ -78,9 +80,11 @@ class FloorMap extends Component {
 const mapStateToProps = (state) => {
 
     return {
-      flooralerts:  state.floorsdata.selection,        //Getting the count for the total alerts in the facility
+      flooralerts:  state.dashboard.selection,        //Getting the count for the total alerts in the facility
       residentsdata: state.dashboard.residentsdata,
-      floorplan: state.dashboard.floorAPIdata
+      floorplan: state.dashboard.floorAPIdata,
+      sensoralerts: state.dashboard.sensoralertdata
+
     };
 };
 
@@ -101,7 +105,7 @@ export default connect(mapStateToProps, mapDispatchToProps)(FloorMap);
 
 class ResidentItem extends Component {
 
-  constructor(props) {
+   constructor(props) {
     super(props);
 
     this.state = {

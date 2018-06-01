@@ -38,12 +38,16 @@ export const requestLogin = actions$ =>
         .ofType(REQUEST_LOGIN)
         .mergeMap(action =>
             ajax
-                .getJSON("/login")
-                .map((data) => {
-                    return (
-                        homepageActions.requestUserData())
+                .post(WEB_API_URL + 'careGiver/login/', {userName: action.payload.username, password: action.payload.password}, { 'Content-Type': 'application/x-www-form-urlencoded' })
+                .map((res) => {
+                    // console.log(res.response.enabled)
+                    if (res.response.enabled === true) {
+                       return (homepageActions.requestUserData())
+                    }
+                    
                 })
-                .catch(error => Observable.of(homepageActions.loginFailed()))
+            // TODO, retry and fail gracefully 
+            // .catch(error => Observable.of(homepageActions.loginFailed()))
         );
 
 /**
@@ -299,6 +303,7 @@ export const requestSensorAlertData = actions$ =>
             // TODO, retry and fail gracefully 
             // .catch(error => Observable.of(homepageActions.loginFailed()))
         );
+
 
 /* ************************************************************************************* */
 

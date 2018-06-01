@@ -37,7 +37,7 @@ receiveSensorAlertData
 */
 function login(username, password) {
 // TODO, pass the username and password fields to the backend
-return { type: REQUEST_LOGIN, payload: { } };1
+return { type: REQUEST_LOGIN, payload: {username: username, password: password } };
 }
 
 /**

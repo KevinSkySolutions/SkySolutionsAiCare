@@ -23,6 +23,10 @@ export class HomePage extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      username: "",
+      password: ""
+    }
   }
 
   // typechecking on the props for this component
@@ -41,6 +45,36 @@ export class HomePage extends Component {
     const { dispatch } = this.props;
   }
 
+  updateUsernameValue = e => {
+
+      if (e.target.value.length > 2) {
+
+          this.setState({
+              username: e.target.value
+          });
+      } else {
+          this.setState({
+              username: ""
+          });
+      }
+      
+  }
+
+  updatePwdValue = e => {
+
+      if (e.target.value.length > 2) {
+
+          this.setState({
+              password: e.target.value
+          });
+      } else {
+          this.setState({
+              password: ""
+          });
+      }
+      
+  }
+
   // the render method
   render() {
 
@@ -52,14 +86,14 @@ export class HomePage extends Component {
         </div>
         <div className="login-credentials-field-box">
             <img className="bg-container" src={require("../../img/logo.png")} />
-            <form className ="logindetails">
+            <form className ="logindetails" ref="form">
                 <div className ="information" >
                     <img className ="login-field-icon" src={require("../../img/email-icon.png")} />
-                    <input className ="login-input-field" type="text" placeholder="Email ID" />
+                    <input className ="login-input-field" type="text" placeholder="Username" onChange={this.updateUsernameValue}/>
                 </div>
                 <div className ="information">
                     <img className ="login-field-icon" src={require("../../img/password-icon.png")} />
-                    <input className ="login-input-field" type="password" placeholder="Password" />
+                    <input className ="login-input-field" type="password" placeholder="Password" onChange={this.updatePwdValue}/>
                 </div>
                 <div className ="forgot">
                     <a href="#">Forgot Password?</a>
@@ -74,8 +108,13 @@ export class HomePage extends Component {
     );
   }
 
-  doLogin = (event) => {
-    this.props.dispatch(homepageActions.login("username", "password"));
+  doLogin = e => {
+    this.props.dispatch(homepageActions.login(this.state.username, this.state.password));
+    this.refs.form.reset();
+    this.setState({
+      username: "",
+      password: ""
+    })
   }
 
 }

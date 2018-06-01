@@ -1,13 +1,13 @@
 import { REQUEST_LOGIN, 
     REQUEST_USER_DATA, 
-    REQUST_LOGIN_FAILED, 
-    RECEIVE_USER_DATA,
-    REQUEST_FLOOR_API_DATA,
-REQUEST_ENTERPRISE_DATA,
-REQUEST_VENUE_DATA,
-REQUEST_SENSOR_ALERT_DATA,
-REQUEST_BUILDING_DATA,
-    RECEIVE_FLOOR_API_DATA,
+REQUST_LOGIN_FAILED, 
+RECEIVE_USER_DATA,
+REQUEST_FLOOR_API_DATA,
+    REQUEST_ENTERPRISE_DATA,
+    REQUEST_VENUE_DATA,
+    REQUEST_SENSOR_ALERT_DATA,
+    REQUEST_BUILDING_DATA,
+RECEIVE_FLOOR_API_DATA,
 RECEIVE_ENTERPRISE_DATA,
 RECEIVE_VENUE_DATA,
 RECEIVE_BUILDING_DATA,
@@ -64,29 +64,29 @@ return { type: REQUST_LOGIN_FAILED, payload: {} };
 /**
 * Action to be raised when login request successful to fetch enterprise specific data and defaults
 */
-function requestEnterpriseData() {
-return { type: REQUEST_ENTERPRISE_DATA, payload: {} };
+function requestEnterpriseData(enterpriseId) {
+return { type: REQUEST_ENTERPRISE_DATA, payload: enterpriseId};
 }
 
 /**
 * Action to be raised when login request successful to fetch enterprise specific data and defaults
 */
-function requestVenueData() {
-return { type: REQUEST_VENUE_DATA, payload: {} };
+function requestVenueData(enterpriseId) {
+return { type: REQUEST_VENUE_DATA, payload: enterpriseId };
 }
 
 /**
 * Action to be raised when login request successful to fetch enterprise specific data and defaults
 */
-function requestFloorAPIData() {
-return { type: REQUEST_FLOOR_API_DATA, payload: {} };
+function requestFloorAPIData(buildingId) {
+return { type: REQUEST_FLOOR_API_DATA, payload: buildingId};
 }
 
 /**
 * Action to be raised when login request successful to fetch enterprise specific data and defaults
 */
-function requestBuildingData() {
-return { type: REQUEST_BUILDING_DATA, payload: {} };
+function requestBuildingData(enterpriseId) {
+return { type: REQUEST_BUILDING_DATA, payload: enterpriseId };
 }
 
 /**

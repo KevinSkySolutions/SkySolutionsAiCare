@@ -1,30 +1,13 @@
+import { browserHistory } from 'react-router';
+import { combineEpics } from 'redux-observable';
 import 'rxjs'; // TODO remove this
-import { combineEpics } from                        'redux-observable';
+import { Observable } from 'rxjs';
+import { ajax } from 'rxjs/observable/dom/ajax';
+import { alertsdataActions, floorsdataActions, homepageActions, overlaydataActions } from './actions';
+import { DIGEST_FLOOR_DATA, NAVIGATE_TO_ALERT, RECEIVE_ALERTS, REQUEST_ALERTS, REQUEST_ALERTS_MOCK1, REQUEST_ALERTS_MOCK2, REQUEST_BUILDING_DATA, REQUEST_ENTERPRISE_DATA, REQUEST_FLOOR_API_DATA, REQUEST_FLOOR_DATA, REQUEST_LOGIN, REQUEST_SENSOR_ALERT_DATA, REQUEST_USER_DATA, REQUEST_VENUE_DATA, WEB_API_URL } from './constants';
 
-import { REQUEST_ALERTS_MOCK1, 
-         REQUEST_ALERTS_MOCK2,
-         REQUEST_ALERTS, 
-         REQUEST_USER_DATA, 
-         REQUEST_LOGIN, 
-         REQUEST_FLOOR_DATA, 
-         DIGEST_FLOOR_DATA, 
-         NAVIGATE_TO_ALERT, 
-         RECEIVE_ALERTS,
-         REQUEST_FLOOR_API_DATA,
-         REQUEST_ENTERPRISE_DATA,
-         REQUEST_VENUE_DATA,
-         REQUEST_BUILDING_DATA,
-         REQUEST_SENSOR_ALERT_DATA,
-         WEB_API_URL } from     './constants';
 
-import { alertsdataActions, 
-         homepageActions, 
-         floorsdataActions, 
-         overlaydataActions } from    './actions';
 
-import { ajax } from                                'rxjs/observable/dom/ajax';
-import { Observable } from                          'rxjs';
-import { browserHistory } from                      'react-router';
 
 // import { withCookies, Cookies } from 'react-cookie';
 
@@ -39,9 +22,14 @@ export const requestLogin = actions$ =>
     actions$
         .ofType(REQUEST_LOGIN)
         .mergeMap(action =>
-            ajax
-                .post(WEB_API_URL + 'careGiver/login/', {userName: action.payload.username, password: action.payload.password}, { 'Content-Type': 'application/x-www-form-urlencoded' }, { credentials: 'same-origin'} )
-                .map((res) => {
+            ajax({
+              url: WEB_API_URL + 'careGiver/login/',
+              method: 'POST',
+              body: {userName: action.payload.username, password: action.payload.password},
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded'},
+              crossDomain: true,
+              withCredentials: true
+            }).map((res) => {
                     if (res.response.enabled === true) {
                         
                        return( homepageActions.requestUserData(),
@@ -215,11 +203,16 @@ export const requestEnterpriseData = actions$ =>
     actions$
         .ofType(REQUEST_ENTERPRISE_DATA)
         .mergeMap(action =>
-            ajax
-                .post(WEB_API_URL + 'enterprise/findById/', {id: action.payload}, { 'Content-Type': 'application/x-www-form-urlencoded' })
-                .mergeMap((data) => Observable.of(
-                    homepageActions.receiveEnterpriseData(data),
-                    homepageActions.requestVenueData(data.id)
+            ajax({
+                url: WEB_API_URL + 'enterprise/findById/',
+                method: 'POST',
+                body: { id: action.payload },
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                crossDomain: true,
+                withCredentials: true
+              }).mergeMap((data) => Observable.of(
+                    homepageActions.receiveEnterpriseData(data.response),
+                    homepageActions.requestVenueData(data.response.id)
                 ))
             // TODO, retry and fail gracefully 
             // .catch(error => Observable.of(homepageActions.loginFailed()))
@@ -236,11 +229,16 @@ export const requestVenueData = actions$ =>
     actions$
         .ofType(REQUEST_VENUE_DATA)
         .mergeMap(action =>
-            ajax
-                .post(WEB_API_URL + 'venue/find/', {enterpriseId: action.payload}, { 'Content-Type': 'application/x-www-form-urlencoded' })
-                .mergeMap((data) => Observable.of(
-                    homepageActions.receiveVenueData(data),
-                    homepageActions.requestBuildingData(action.payload)
+            ajax({
+                url: WEB_API_URL + 'venue/find/',
+                method: 'POST',
+                body: {enterpriseId: action.payload},
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                crossDomain: true,
+                withCredentials: true
+              }).mergeMap((data) => Observable.of(
+                    homepageActions.receiveVenueData(data.response[0]),
+                    homepageActions.requestBuildingData(data.response[0].id)
                 ))
             // TODO, retry and fail gracefully 
             // .catch(error => Observable.of(homepageActions.loginFailed()))
@@ -257,12 +255,20 @@ export const requestBuildingData = actions$ =>
     actions$
         .ofType(REQUEST_BUILDING_DATA)
         .mergeMap(action =>
-            ajax
-                .post(WEB_API_URL + 'building/find/', {enterpriseId: action.payload}, { 'Content-Type': 'application/x-www-form-urlencoded' })
+            ajax({
+                    url: WEB_API_URL + 'building/find/',
+                    method: 'POST',
+                    body: {venueId: action.payload},
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    crossDomain: true,
+                    withCredentials: true
+                  })
                 .mergeMap((data) => Observable.of(
-                    homepageActions.receiveBuildingData(data),
-                    homepageActions.requestFloorAPIData(data.id)
+                    homepageActions.receiveBuildingData(data.response[0]),
+                    homepageActions.requestFloorAPIData(data.response[0].id)
                 ))
+
+                
             // TODO, retry and fail gracefully 
             // .catch(error => Observable.of(homepageActions.loginFailed()))
         );
@@ -278,9 +284,14 @@ export const requestFloorAPIData = actions$ =>
     actions$
         .ofType(REQUEST_FLOOR_API_DATA)
         .mergeMap(action =>
-            ajax
-                .post(WEB_API_URL + 'floor/find/', {buildingId: action.payload}, { 'Content-Type': 'application/x-www-form-urlencoded' })
-                .mergeMap((data) => Observable.of(
+            ajax({
+                url: WEB_API_URL + 'floor/find/',
+                method: 'POST',
+                body: {buildingId: action.payload},
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                crossDomain: true,
+                withCredentials: true
+              }).mergeMap((data) => Observable.of(
                     homepageActions.receiveFloorAPIData(data),
                     homepageActions.requestSensorAlertData()
                 ))
@@ -299,15 +310,21 @@ export const requestSensorAlertData = actions$ =>
     actions$
         .ofType(REQUEST_SENSOR_ALERT_DATA)
         .mergeMap(action =>
-            ajax
-                .post(WEB_API_URL + 'sensorAlert/find/', {maxResults: 20}, { 'Content-Type': 'application/x-www-form-urlencoded' })
-                .mergeMap((data) => Observable.of(
-                    homepageActions.receiveSensorAlertData(data)
+            ajax({
+                url: WEB_API_URL + 'sensorAlert/find/',
+                method: 'POST',
+                body: {maxResults: 20},
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                crossDomain: true,
+                withCredentials: true
+              }).mergeMap((data) => Observable.of(
+                    homepageActions.receiveSensorAlertData(data.response)
                 ))
             // TODO, retry and fail gracefully 
             // .catch(error => Observable.of(homepageActions.loginFailed()))
         );
 
+        
 
 /* ************************************************************************************* */
 

@@ -1,17 +1,16 @@
+import { path as approot } from 'app-root-path';
+import { json, urlencoded } from 'body-parser';
 import * as cookieParser from 'cookie-parser';
 import * as express from 'express';
+import { NextFunction, Request, Response } from 'express';
 import * as expressHandlebars from 'express-handlebars';
-import * as favicon from 'serve-favicon';
-import * as methodOverride from 'method-override';
-import { Routes } from '../routes/routes';
 import { Logger } from 'log4js';
-import { AppMorgan, AppLogger } from '../logger/app.logger';
-import { path as approot } from 'app-root-path';
-
-import { Request, Response, NextFunction } from 'express';
-
+import * as methodOverride from 'method-override';
 import { join, resolve } from 'path';
-import { json, urlencoded } from 'body-parser';
+import * as favicon from 'serve-favicon';
+import { AppLogger, AppMorgan } from '../logger/app.logger';
+
+
 
 const logger: Logger = AppLogger('Express Configuration');
 
@@ -51,9 +50,8 @@ class ExpressApp {
     }
 
     private configureRoutes(): void {
-       this.express.use(new Routes().routes);
-       this.express.get("/dashboard", (req, res) => {
-           res.render(resolve(__dirname, "..", "views/layouts/dashboard"));
+       this.express.get("*", (req, res) => {
+           res.render(resolve(__dirname, "..", "views/layouts/index"));
        });
        logger.info("All express routes configured");
     }

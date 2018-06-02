@@ -10,7 +10,7 @@
     "browser": "cross-env NODE_ENV=development babel-node ./server.js",
     "build": "webpack --config ./webpack.config.prod.js",
     "server": "npm run build && cross-env NODE_ENV=production babel-node ./server.js",
-    "transpile-server": "rimraf dist && cpy ./server/views/*.* ./dist/views && cpy ./server/views/**/*.* ./dist/views/layouts && cpy ./server/mock-data/*.* ./dist/mock-data && tsc -p \"./tsconfig.json\"",
+    "transpile-server": "rimraf dist && cpy ./server/views/*.* ./dist/views && cpy ./server/views/**/*.* ./dist/views/layouts && tsc -p \"./tsconfig.json\"",
     "devBuild": "webpack --config ./webpack.config.dev.js",
     "start": "npm run devBuild && npm run transpile-server && node ./dist/spawn-server/server.js",
     "watch-client": "webpack --config ./webpack.config.dev.js --watch",

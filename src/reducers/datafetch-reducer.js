@@ -423,7 +423,7 @@ export default function datafetchReducer(state = defaultState, action) {
         if (dtype) return dtype;
 
         // If there is a tie, sort by time
-        var dUTC = alert1.createUTC - alert2.createUTC;
+        var dUTC = alert1.createUtc - alert2.createUtc;
         return dUTC;
       });
 

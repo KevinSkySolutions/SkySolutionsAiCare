@@ -292,7 +292,7 @@ export const requestFloorAPIData = actions$ =>
                 crossDomain: true,
                 withCredentials: true
               }).mergeMap((data) => Observable.of(
-                    homepageActions.receiveFloorAPIData(data),
+                    homepageActions.receiveFloorAPIData(data.response),
                     homepageActions.requestSensorAlertData()
                 ))
             // TODO, retry and fail gracefully 

@@ -462,6 +462,8 @@ export default function datafetchReducer(state = defaultState, action) {
 
       let returnAlerts = annotateWithSearchData(sensoralertobject);
 
+      browserHistory.push('/dashboard');
+
       return {
         ...state,
         sensoralertdata: sensoralertobject,

@@ -51,8 +51,8 @@ return { type: REQUEST_LOGIN_FAILED, payload: {} };
 /**
 * Action to be raised when login request successful to fetch enterprise specific data and defaults
 */
-function requestEnterpriseData(enterpriseId) {
-return { type: REQUEST_ENTERPRISE_DATA, payload: enterpriseId};
+function requestEnterpriseData(userdata) {
+return { type: REQUEST_ENTERPRISE_DATA, payload: userdata};
 }
 
 /**

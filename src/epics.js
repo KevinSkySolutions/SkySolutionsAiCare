@@ -33,7 +33,7 @@ export const requestLogin = actions$ =>
                     if (res.response.enabled === true) {
                         
                        return( homepageActions.requestUserData(),
-                               homepageActions.requestEnterpriseData(res.response.enterpriseId))
+                               homepageActions.requestEnterpriseData(res.response))
                     }
                     
                 })
@@ -206,7 +206,7 @@ export const requestEnterpriseData = actions$ =>
             ajax({
                 url: WEB_API_URL + 'enterprise/findById/',
                 method: 'POST',
-                body: { id: action.payload },
+                body: { id: action.payload.enterpriseId },
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 crossDomain: true,
                 withCredentials: true

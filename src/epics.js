@@ -37,8 +37,7 @@ export const requestLogin = actions$ =>
                     }
                     
                 })
-            // TODO, retry and fail gracefully 
-            // .catch(error => Observable.of(homepageActions.loginFailed()))
+            .catch(error => Observable.of(homepageActions.loginFailed()))
         );
 
 /**

@@ -109,8 +109,6 @@ export class HomePage extends Component {
         this.props.dispatch(homepageActions.login(this.state.username, this.state.password));
         // this.refs.form.reset();
         this.setState({
-            username: "",
-            password: "",
             isLoginFailed: true
         })
     }

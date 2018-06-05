@@ -32,7 +32,8 @@ export class HomePage extends Component {
 
     // defaultProps, props to load before first API call is made
     static defaultProps = {
-        isLoggingIn: false
+        isLoggingIn: false,
+        isLoginFailed: false
     }
 
     // lifecycle method
@@ -82,6 +83,7 @@ export class HomePage extends Component {
                     <div className="login-credentials-field-box">
                         <img className="bg-container" src={require("../../img/logo.png")} />
                         <form className="logindetails" ref="form">
+                            <p className="loginfailure">{this.props.isLoginFailed ? "Authentication failure!! Please login again." : ""}</p>
                             <div className="information" >
                                 <img className="login-field-icon" src={require("../../img/email-icon.png")} />
                                 <input className="login-input-field" type="text" placeholder="Username" onChange={this.updateUsernameValue} />
@@ -105,23 +107,25 @@ export class HomePage extends Component {
 
     doLogin = e => {
         this.props.dispatch(homepageActions.login(this.state.username, this.state.password));
-        this.refs.form.reset();
+        // this.refs.form.reset();
         this.setState({
             username: "",
-            password: ""
+            password: "",
+            isLoginFailed: true
         })
     }
-
 }
 
 // changes in state are copied onto props here
 const mapStateToProps = (state) => {
 
     // loading default props
-    const { isLoggingIn } = state;
+    const { isLoggingIn } = state.dashboard;
+    const { isLoginFailed } = state.dashboard;
 
     return {
-        isLoggingIn
+        isLoggingIn,
+        isLoginFailed
     };
 }
 

@@ -112,3 +112,8 @@
 .login-field-icon {
   margin-bottom: 10px;
 }
+
+.loginfailure {
+  color: red;
+  padding: 0;
+}

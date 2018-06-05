@@ -346,7 +346,8 @@ export default function datafetchReducer(state = defaultState, action) {
 
       return {
         ...state,
-        isLoggingIn: true
+        isLoggingIn: true,
+        isLoginFailed: false
       };   
     case REQUEST_USER_DATA:
 
@@ -358,6 +359,7 @@ export default function datafetchReducer(state = defaultState, action) {
 
       return {
         ...state,
+        isLoginFailed: true,
         isLoggingIn: false
       };
 

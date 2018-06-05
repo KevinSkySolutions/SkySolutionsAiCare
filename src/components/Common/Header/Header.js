@@ -121,14 +121,16 @@ class Header extends Component {
                   <a href="#">Help</a>
                 </li>
                 <li >
-                  <a href="/">Logout</a>
-                </li>
-                <li >
                   <a href="#">|</a>
                 </li>
-                <li className="username">
-                  <a href="#">{username}</a>
-                </li>
+                <div className="userbox">
+                  <li className="username">
+                    <a href="#">{username}</a>
+                  </li>
+                  <li >
+                    <a href="/">Logout</a>
+                  </li>
+                </div>  
               </ul>
             </div>
           </div>

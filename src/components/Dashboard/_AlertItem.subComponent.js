@@ -4,6 +4,7 @@ import { MediaControl } from '../Common';
 import UpdateStatus from '../Common/UpdateStatus/UpdateStatus';
 import { alertsdataActions } from '../../actions';
 import { bindActionCreators } from 'redux';
+import ReactDOM from 'react-dom';
 
 //Component for isolating each element of the Alerts List
 class AlertItem extends Component {
@@ -11,7 +12,7 @@ class AlertItem extends Component {
     constructor(props) {
         super(props);
         let styleToApply = props.isExpanded ? "description-mod-active" : "description-mod";
-        if (props.alert.isnew) {
+        if (props.alert.alertStatus === "INIT") {
             styleToApply += " glowanimationstyle";
         }
 
@@ -19,22 +20,30 @@ class AlertItem extends Component {
             alert:          props.alert,        // Making a copy of the alerts object for the entire facility for data manipulation
             indexKey:       props.keyCopy,
             isClicked:      props.isExpanded,   // Variable for keeping tracking whether an item has been clicked or not
-            style:          styleToApply        // Variable for Setting the style onClick so that it expands and collapses
+            style:          styleToApply,        // Variable for Setting the style onClick so that it expands and collapses
+            scrollId:       props.scrollId,
+            reference:      props.reference
         }
     }
 
     componentWillReceiveProps(newProps) {
 
         let newStyleToApply = ((newProps.isExpanded==undefined)||(newProps.isExpanded==false)) ? "description-mod" : "description-mod-active";
-        if (newProps.alert.isnew) {
+        if (newProps.alert.alertStatus === "INIT") {
             newStyleToApply += " glowanimationstyle";
         }
         this.setState({
             alert:          newProps.alert,
             indexKey:       (newProps.keyCopy==undefined? 0 : newProps.keyCopy),
             isClicked:      (newProps.isExpanded==undefined? false: newProps.isExpanded),
-            style:          newStyleToApply
+            style:          newStyleToApply,
+            scrollId:       newProps.scrollId,
+            reference:      newProps.reference
         });
+        this.forceUpdate();
+        if (this.state.alert.id === this.state.scrollId) {
+            this.handleScrollToElement();
+        }
     }
 
     onFocus = e => {  // Function for changing the state and expanding or collapsing the Alert
@@ -49,28 +58,36 @@ class AlertItem extends Component {
         
     }
 
+    handleScrollToElement() {
+      const tesNode = ReactDOM.findDOMNode(this.refs.scrollalert);
+      console.log(tesNode);
+      if (this.state.alert.id === this.state.scrollId){
+        window.scrollTo(0, tesNode.offsetTop);
+      }
+    }
+
     render() {
 
-        let priority = 1
+        let priority = 1;
 
         if (this.state.alert.alertType === "SOS") {
-            priority =  1    
+            priority =  1;    
         }
 
         else if (this.state.alert.alertType === "HIGH_IMPACT") {
-            priority =  2  
+            priority =  2;  
         }
 
         else if (this.state.alert.alertType === "HIGH NOISE") {
-            priority =  3  
+            priority =  3;  
         }
 
         else if (this.state.alert.alertType === "MISSING") {
-            priority =  4  
+            priority =  4;  
         }
 
         else if (this.state.alert.alertType === "POWER_OFF") {
-            priority =  5  
+            priority =  5;  
         }
 
         let boxStyle = this.state.style;  // Variable for deciding the style of the expanded or collapsed Alert
@@ -78,8 +95,10 @@ class AlertItem extends Component {
 
         let alert_description = this.state.alert.description.slice(0,10);
 
+        
+
         return (
-            <div className={boxStyle} onClick={this.onFocus}>
+            <div className={boxStyle} onClick={this.onFocus} ref={this.state.reference}>
                 <div className={divstyle}>{this.state.alert.alertType}</div>
                 <div className="alert-content-section">
                     <div className="alert-content">
@@ -105,16 +124,16 @@ class AlertItem extends Component {
                             // (this.state.alert.media.video == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
                             //     ? ((this.state.alert.media.audio == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
                             //         ? <div></div>
-                            //         : <MediaControl alert={this.state.alert} type={priority} media="audio" source={ this.state.alert.media.audio } isnew={ this.state.alert.isnew==undefined? false: true } />
+                            //         : <MediaControl alert={this.state.alert} type={priority} media="audio" source={ this.state.alert.media.audio } alertStatus={ this.state.alert.alertStatus==undefined? false: true } />
                             //     )
-                            //     : <MediaControl type={priority} media="video" source={ this.state.alert.media.video } isnew={ this.state.alert.isnew==undefined? false: true } />
+                            //     : <MediaControl type={priority} media="video" source={ this.state.alert.media.video } alertStatus={ this.state.alert.alertStatus==undefined? false: true } />
                         }
                     </div>
                     <UpdateStatus alert={this.state.alert}/>
                 </div>
 
                 {
-                    // (this.state.alert.isnew === true && (this.state.alert.media.audio === undefined))   // Conditional logic for selecting whether beep has to play for the new alert
+                    // (this.state.alert.alertStatus === "INIT" && (this.state.alert.media.audio === undefined))   // Conditional logic for selecting whether beep has to play for the new alert
                     //     ? <audio autoPlay src="http://k003.kiwi6.com/hotlink/5bqgf29jwj/alert.mp3" />
                     //     : <div className="empty"></div>
                 }

@@ -11,6 +11,7 @@ const defaultState = { alertsdata: [], searchresults: [], residentsdata: [], sel
         alerts: []
     }, 
     floors: [],
+    scrollId: 0,
     isExpanded:       false,
     summary:          [],
     highlightsummary: [],
@@ -205,7 +206,8 @@ export default function datafetchReducer(state = defaultState, action) {
 
         return {
             ...state,
-            selection: n_selection_object
+            selection: n_selection_object,
+            scrollId: n_alertid
       };
     case REQUEST_FLOOR_DATA:
 
@@ -251,7 +253,7 @@ export default function datafetchReducer(state = defaultState, action) {
           var obj = alertsData[i].priority;
           
           alertsSummary[obj-1]++;//incrementing the corresponding entry in the array for that alert
-          if (alertsData[i].isnew) {
+          if (alertsData[i].alertStatus === "INIT") {
             alertsHighlightsSummary[obj-1]++;
           }
       } 
@@ -319,7 +321,7 @@ export default function datafetchReducer(state = defaultState, action) {
           var obj = alertsData[i].priority;
           
           alertsSummary[obj-1]++;//incrementing the corresponding entry in the array for that alert
-          if (alertsData[i].isnew) {
+          if (alertsData[i].alertStatus === "INIT") {
             alertsHighlightsSummary[obj-1]++;
           }
       }

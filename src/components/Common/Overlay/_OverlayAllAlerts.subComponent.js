@@ -58,7 +58,7 @@ class OverlayAllAlerts extends Component {
 
             let classnameToApply    = "popup-card";
             "newalert-summary-animation"
-            if (alert.isnew) {
+            if (alert.alertStatus === "INIT") {
                 classnameToApply += " glowanimationstyle";
             }
 

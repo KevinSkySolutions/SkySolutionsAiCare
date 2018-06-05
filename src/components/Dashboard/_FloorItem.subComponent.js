@@ -48,26 +48,26 @@ class FloorItem extends Component {
         left: (alert.sensor.y) * 1.2 + 'px'
       };
 
-      let priority = 1
+      let priority = 1;
 
         if (alert.alertType === "SOS") {
-            priority =  1    
+            priority =  1;
         }
 
         else if (alert.alertType === "HIGH_IMPACT") {
-            priority =  2  
+            priority =  2;  
         }
 
         else if (alert.alertType === "HIGH NOISE") {
-            priority =  3  
+            priority =  3;  
         }
 
         else if (alert.alertType === "MISSING") {
-            priority =  4  
+            priority =  4;  
         }
 
         else if (alert.alertType === "POWER_OFF") {
-            priority =  5  
+            priority =  5;  
         }
 
       return (
@@ -76,7 +76,7 @@ class FloorItem extends Component {
           {
            	(this.state.selection == this.state.indexKey)
               ?
-              (alert.isnew!=undefined && alert.isnew!=false)
+              (alert.alertStatus === "INIT" && alert.isnew!=false)
                 ? 
                   <div>
                     <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/alertpositionpointer" + priority + ".png")} />

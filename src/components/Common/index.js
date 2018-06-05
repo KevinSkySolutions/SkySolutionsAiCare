@@ -6,7 +6,7 @@ export class MediaControl extends Component {
     constructor(props) {
         super(props);
         
-        let visibility = ((props.alert.isnew == undefined) ? false : true);
+        let visibility = ((props.alert.alertStatus  != "INIT") ? false : true);
 
         this.state = {
             visible:        visibility,

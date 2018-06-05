@@ -31,11 +31,19 @@ export const requestLogin = actions$ =>
               withCredentials: true
             }).map((res) => {
                     if (res.response.enabled === true) {
-                        
+                       ajax({
+                           url: '/api/savelogin',
+                           method: 'POST',
+                           body: res.response,
+                           headers: { 'Content-Type': 'application/json'},
+                           crossDomain: true,
+                           withCredentials: true
+                       }).subscribe(data =>  {
+                           console.log('Session saved: ', data);
+                       });
                        return( homepageActions.requestUserData(),
                                homepageActions.requestEnterpriseData(res.response))
                     }
-                    
                 })
             .catch(error => Observable.of(homepageActions.loginFailed()))
         );

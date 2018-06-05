@@ -1,6 +1,9 @@
 import { path as approot } from 'app-root-path';
 import { json, urlencoded } from 'body-parser';
+import * as crypto from 'crypto';
+import * as uuid from 'node-uuid';
 import * as cookieParser from 'cookie-parser';
+import * as session from 'express-session';
 import * as express from 'express';
 import { NextFunction, Request, Response } from 'express';
 import * as expressHandlebars from 'express-handlebars';
@@ -9,8 +12,6 @@ import * as methodOverride from 'method-override';
 import { join, resolve } from 'path';
 import * as favicon from 'serve-favicon';
 import { AppLogger, AppMorgan } from '../logger/app.logger';
-
-
 
 const logger: Logger = AppLogger('Express Configuration');
 
@@ -42,6 +43,17 @@ class ExpressApp {
             extended: false
         }));
         this.express.use(cookieParser());
+        this.express.use(session({
+            key: 'aiCare',
+            secret: 'skynurse_aicare',
+            resave: false,
+            saveUninitialized: false,
+            cookie: {
+                expires: 600000
+            }
+        }));        
+        
+        
         this.express.use(methodOverride());
         this.express.use(favicon(join(__dirname, '..', 'views', 'wrote.png')));
         this.express.use(this.ErrorHandler);
@@ -51,8 +63,20 @@ class ExpressApp {
 
     private configureRoutes(): void {
        this.express.get("*", (req, res) => {
-           res.render(resolve(__dirname, "..", "views/layouts/index"));
+           console.log('User Values:  => ', JSON.stringify(req.session.user_values));
+           if (req.session.user_values) {
+            res.render(resolve(__dirname, "..", "views/layouts/index"), {id : req.session.user_values.id, userName : req.session.user_values.userName, enterpriseId: req.session.user_values.enterpriseId});
+           } else {
+            res.render(resolve(__dirname, "..", "views/layouts/index"));
+           }
+           
        });
+
+       this.express.post("/api/savelogin", (req, res) => {
+            req.session.user_values = req.body;
+            res.json({sessionSaved: true});
+       });
+
        logger.info("All express routes configured");
     }
 

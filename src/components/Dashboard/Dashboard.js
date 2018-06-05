@@ -10,7 +10,7 @@ import Floors from        './_Floors.subComponent';
 import AlertsList from    './_AlertsList.subComponent';
 import FloorMap from      './_FloorMap.subComponents';
 
-import { alertsdataActions, overlaydataActions, floorsdataActions } from '../../actions';
+import { alertsdataActions, overlaydataActions, floorsdataActions, homepageActions } from '../../actions';
 
 // Import can't be in conditional so use require.
 if (process.env.WEBPACK) {
@@ -27,10 +27,16 @@ export class Dashboard extends Component {
       user: props.userdata,
       residents: []       
     };
+    
   }
 
   componentDidMount() {
     const { dispatch } = this.props;
+    window.onload = () => {
+      if (window.user && window.user.enterpriseId) {
+        homepageActions.requestEnterpriseData({enterpriseId : window.user.enterpriseId})
+      }
+    };
   }
 
   componentWillReceiveProps(newProps) {

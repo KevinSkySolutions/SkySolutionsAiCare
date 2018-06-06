@@ -320,7 +320,7 @@ export const requestSensorAlertData = actions$ =>
             ajax({
                 url: WEB_API_URL + 'sensorAlert/find/',
                 method: 'POST',
-                body: {maxResults: 20},
+                body: {maxResults: 50 },
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 crossDomain: true,
                 withCredentials: true

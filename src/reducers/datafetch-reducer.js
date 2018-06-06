@@ -7,7 +7,8 @@ import { annotateWithSearchData, filterAlertsWithKeyword } from '../constants/Ut
 const defaultState = { alertsdata: [], searchresults: [], residentsdata: [], selection: {
         selectedalert: -1,   // this indicates which of the alerts is expanded currently
         floormap: {}, 
-        floor: 1,   
+        floor: 1,
+        floorid:0,   
         alerts: []
     }, 
     floors: [],
@@ -120,6 +121,8 @@ export default function datafetchReducer(state = defaultState, action) {
         let floor_to_set = action.payload.floornumber;
         let alerts_change = action.payload.alertsdata;
 
+        let floor_id = state.floorAPIdata[floor_to_set-1].id;
+
         alerts_change.sort(function (alert1, alert2) {
             // Sort by count
             var dPriority = alert1.priority - alert2.priority;
@@ -133,13 +136,12 @@ export default function datafetchReducer(state = defaultState, action) {
         //Defining a temporary floor object for data manipulation
         let selection_object = JSON.parse(JSON.stringify(state.selection));
         selection_object.floor = floor_to_set; //assigning the selected floor to the temporary object from the payload of the action
-        let floorsDatas = state.floors;
-
+        let floorsDatas = state.floorAPIdata;
 
         //Loop for selecting the appropriate floormap with respect to the selected floor
         for (var i = 0; i < floorsDatas.length; i++) {
-            if (floorsDatas[i].floor == selection_object.floor) {
-                selection_object.floormap = floorsDatas[i].floormap;
+            if (floorsDatas[i].id == floor_id) {
+                selection_object.floormap = atob(floorsDatas[i].image.content);
             }
         };
 
@@ -147,7 +149,7 @@ export default function datafetchReducer(state = defaultState, action) {
        
         selection_object.alerts = []; // re initialize
         for (var i = 0; i < alerts_change.length; i++) {
-            if (alerts_change[i].floor == selection_object.floor) {
+            if (alerts_change[i].floorId == floor_id) {
                 selection_object.alerts.push(alerts_change[i]);
             }
         };
@@ -177,14 +179,15 @@ export default function datafetchReducer(state = defaultState, action) {
 
         //Defining a temporary floor object for data manipulation
         let n_selection_object = JSON.parse(JSON.stringify(state.selection));
-        n_selection_object.floor = n_floor_to_set; //assigning the selected floor to the temporary object from the payload of the action
-        let n_floorsDatas = state.floors;
+        n_selection_object.floorid = state.floorAPIdata[n_floor_to_set-1].id; //assigning the selected floor to the temporary object from the payload of the action
+        n_selection_object.floor = n_floor_to_set
+        let n_floorsDatas = state.floorAPIdata;
 
 
         //Loop for selecting the appropriate floormap with respect to the selected floor
         for (var i = 0; i < n_floorsDatas.length; i++) {
-            if (n_floorsDatas[i].floor == n_selection_object.floor) {
-                n_selection_object.floormap = n_floorsDatas[i].floormap;
+            if (n_floorsDatas[i].id == n_selection_object.floorid) {
+                n_selection_object.floormap = atob(n_floorsDatas[i].image.content);
             }
         };
 
@@ -192,7 +195,7 @@ export default function datafetchReducer(state = defaultState, action) {
        
         n_selection_object.alerts = []; // re initialize
         for (var i = 0; i < n_alerts_change.length; i++) {
-            if (n_alerts_change[i].floor == n_selection_object.floor) {
+            if (n_alerts_change[i].floorId == n_selection_object.floorid) {
                 n_selection_object.alerts.push(n_alerts_change[i]);
             }
         };
@@ -209,9 +212,11 @@ export default function datafetchReducer(state = defaultState, action) {
             selection: n_selection_object,
             scrollId: n_alertid
       };
+
     case REQUEST_FLOOR_DATA:
 
         return state;
+    
     case SET_ALERT_EXPANSION:
 
         let sae_selection = JSON.parse(JSON.stringify(state.selection));
@@ -221,6 +226,7 @@ export default function datafetchReducer(state = defaultState, action) {
             ...state,
             selection: sae_selection
         }
+    
     case RESET_ALERT_EXPANSION:
     
        let rae_selection = JSON.parse(JSON.stringify(state.selection));
@@ -230,6 +236,7 @@ export default function datafetchReducer(state = defaultState, action) {
            ...state,
            selection: rae_selection
        }
+    
     // mock only
     case RECEIVE_ALERTS:
     
@@ -395,9 +402,14 @@ export default function datafetchReducer(state = defaultState, action) {
 
     case RECEIVE_FLOOR_API_DATA:
 
+      floor_obj = JSON.parse(JSON.stringify(state.selection));
+
+      floor_obj.floormap = atob(action.payload[0].image.content);
+
       return {
         ...state,
-        floorAPIdata: action.payload
+        floorAPIdata: action.payload,
+        selection: floor_obj
       };
 
     case RECEIVE_SENSOR_ALERT_DATA:
@@ -416,6 +428,19 @@ export default function datafetchReducer(state = defaultState, action) {
 
       alertsSummary = [0, 0, 0, 0, 0];
       alertsHighlightsSummary = [0, 0, 0, 0, 0];
+
+      floor_id = state.floorAPIdata[state.selection.floor-1].id;
+
+      //Defining a temporary floor object for data manipulation
+      let sensor_selection_object = JSON.parse(JSON.stringify(state.selection));
+      sensor_selection_object.floor = 1; //assigning the selected floor to the temporary object from the payload of the action
+      sensor_selection_object.floorid = floor_id;
+      floorsDatas = state.floorAPIdata;
+
+
+      //Loop for selecting the appropriate alerts with respect to the selected floor based on the selected floor
+     
+      sensor_selection_object.alerts = []; // re initialize
 
       //Loop for counting the number of alerts for each type of alert
       for(var i = 0; i < sensoralertobject.length; i++) { 
@@ -440,9 +465,13 @@ export default function datafetchReducer(state = defaultState, action) {
         else if (sensoralertobject[i].alertType === "POWER_OFF") {
             priority =  5  
         }
-          
+        
+        if (sensoralertobject[i].floorId === floor_id) {
+            sensor_selection_object.alerts.push(sensoralertobject[i]);
+        }
+
         alertsSummary[priority-1]++;//incrementing the corresponding entry in the array for that alert
-        if (sensoralertobject[i].isnew) {
+        if (sensoralertobject[i].alertStatus === "INIT") {
           alertsHighlightsSummary[priority-1]++;
         }
       } 
@@ -456,7 +485,9 @@ export default function datafetchReducer(state = defaultState, action) {
         sensoralertdata: sensoralertobject,
         summary:          alertsSummary,
         highlightsummary: alertsHighlightsSummary,
-        alertsdata: returnAlerts
+        alertsdata: returnAlerts,
+        selection: sensor_selection_object
+
       };  
       
     default:

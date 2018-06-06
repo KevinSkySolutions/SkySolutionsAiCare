@@ -175,7 +175,7 @@ class OverlaySummary extends Component {
             }
 
             else if (index === 5) {
-                tooltip = "WAKING UP"   
+                tooltip = "POWER ON"   
             }
 
             let animstyle = "";

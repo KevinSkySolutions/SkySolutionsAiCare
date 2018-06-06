@@ -37,7 +37,7 @@ export class AlertsList extends Component {
 
         let reference = '';
 
-        return this.state.sensoralerts.map((alert, keyValue) => {  // Mapping all the relevant floor alerts on the right section of the page
+        return this.state.alerts.map((alert, keyValue) => {  // Mapping all the relevant floor alerts on the right section of the page
             
             if (alert.id === this.state.scrollId) {
                 reference = "scrollalert";

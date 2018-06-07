@@ -47,8 +47,8 @@ function setAlertExpansion(keyValue) {
     return { type: SET_ALERT_EXPANSION, payload: keyValue }
 }
 
-function updateAlertData(alertId, updateObject, alertsData) {
-    return { type: UPDATE_ALERT_DATA, payload: { alertid: alertId, updateobject: updateObject, alertsdata: alertsData } }
+function updateAlertData(alertId, updateObject,enterpriseId) {
+    return { type: UPDATE_ALERT_DATA, payload: { alertid: alertId, updateobject: updateObject, enterpriseId: enterpriseId } }
 }
 
 /* ******************************* ALL MOCKS ***************************************** */

@@ -21,7 +21,7 @@ export class HomePage extends Component {
         this.state = {
             username: "",
             password: "",
-            signin: props.signin
+            signin: props.signin    // Flag for the loader
         }
     }
 
@@ -51,7 +51,7 @@ export class HomePage extends Component {
     this.forceUpdate();
   }
 
-    updateUsernameValue = e => {
+    updateUsernameValue = e => {    // Function for updating the state with the string being input into the username field
 
         if (e.target.value.length > 2) {
 
@@ -66,7 +66,7 @@ export class HomePage extends Component {
 
     }
 
-    updatePwdValue = e => {
+    updatePwdValue = e => {    // Function for updating the state with the string being input into the password field
 
         if (e.target.value.length > 2) {
 
@@ -106,7 +106,7 @@ export class HomePage extends Component {
                                 <a href="#">Forgot Password?</a>
                             </div>
 
-                            {
+                            { // Conditionally showing the signin button or the loader
                               (this.state.signin === false)
                                 ? (<div className="signin">
                                       <input type="button" value="Sign In" onClick={this.doLogin} />
@@ -123,7 +123,7 @@ export class HomePage extends Component {
     }
 
     doLogin = e => {
-        this.props.dispatch(homepageActions.login(this.state.username, this.state.password));
+        this.props.dispatch(homepageActions.login(this.state.username, this.state.password));    // Dispatching the login action after clicking the signin button
         // this.refs.form.reset();
         this.setState({
             isLoginFailed: true
@@ -141,7 +141,7 @@ const mapStateToProps = (state) => {
     return {
         isLoggingIn,
         isLoginFailed,
-        signin: state.dashboard.signin
+        signin: state.dashboard.signin  // Flag for the loader
     };
 }
 

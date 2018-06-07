@@ -30,25 +30,17 @@ class FloorMap extends Component {
 
   render() {
 
-  let resident_object = { floor: undefined, residents: []}  
+  let resident_object = { floorid: undefined, residents: []}  
 
-  resident_object.floor = this.state.alerts.floor;  
+  resident_object.floorid = this.state.alerts.floorid;  
   resident_object.residents = []; // re initialize
   for (var i = 0; i < this.state.residents.length; i++) {
-      if (this.state.residents[i].floor == resident_object.floor) {
+      if (this.state.residents[i].floorId == resident_object.floorid) {
           resident_object.residents.push(this.state.residents[i]);
       }
   };
 
   let floorplan_image = this.state.alerts.floormap;
-
-  // for (var i = 0; i < this.state.floorplan.length; i++) {
-  //     if (this.state.floorplan[0].image.content !== undefined) {
-  //         floorplan_image = "data:image/jpeg;base64," + this.state.floorplan[0].image.content;
-  //     }
-  // };   
-
-
 
   let alertsCopy = this.state.alerts.alerts;
   
@@ -70,8 +62,8 @@ class FloorMap extends Component {
 
      <div className="floor-image">
         <img src={floorplan_image} alt="" className="floor-map" />
-          {items}
-          {residents}
+         {items}
+         {residents}
       </div>
    );
     
@@ -132,19 +124,19 @@ class ResidentItem extends Component {
       // Variable to decide which style to assign the resident based on the priority of the resident being passed
       let divStyle = {
         color: 'white',
-        top: (resident.location.xpercent) * 4.2 + 'px',
-        left: (resident.location.ypercent) * 4.2 + 'px'
+        top: (resident.sensor.x) * 1.2 + 'px',
+        left: (resident.sensor.y) * 1.2 + 'px'
       };
 
       let tipStyle = {
-        top: (resident.location.xpercent) * 4.2 + 'px',
-        left: (((resident.location.ypercent) * 4.2) - 100) + 'px'
+        top: (resident.sensor.x) * 1.2 + 'px',
+        left: (resident.sensor.y) * 1.2 + 'px'
       };
 
       return (
         <div className="tooltip1">
           <img style={divStyle} className={ "person-on-map" } src={require("../../img/person1.png")} />
-          <span className="tooltiptext" style={tipStyle}>Resident:<br/><i>{resident.name}</i></span>
+          <span className="tooltiptext" style={tipStyle}>Resident:<br/><i>{resident.senior.firstName}</i></span>
         </div>
       );
       

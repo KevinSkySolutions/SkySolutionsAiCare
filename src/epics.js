@@ -4,7 +4,7 @@ import 'rxjs'; // TODO remove this
 import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { alertsdataActions, floorsdataActions, homepageActions, overlaydataActions } from './actions';
-import { DIGEST_FLOOR_DATA, NAVIGATE_TO_ALERT, RECEIVE_ALERTS, REQUEST_ALERTS, REQUEST_ALERTS_MOCK1, REQUEST_ALERTS_MOCK2, REQUEST_BUILDING_DATA, REQUEST_ENTERPRISE_DATA, REQUEST_FLOOR_API_DATA, REQUEST_FLOOR_DATA, REQUEST_LOGIN, REQUEST_SENSOR_ALERT_DATA, REQUEST_USER_DATA, REQUEST_VENUE_DATA, WEB_API_URL } from './constants';
+import { DIGEST_FLOOR_DATA, NAVIGATE_TO_ALERT, RECEIVE_ALERTS, REQUEST_ALERTS, REQUEST_ALERTS_MOCK1, REQUEST_ALERTS_MOCK2, REQUEST_BUILDING_DATA, REQUEST_ENTERPRISE_DATA, REQUEST_FLOOR_API_DATA, REQUEST_FLOOR_DATA, REQUEST_LOGIN, REQUEST_SENSOR_ALERT_DATA, REQUEST_USER_DATA, REQUEST_VENUE_DATA, WEB_API_URL, UPDATE_ALERT_DATA } from './constants';
 
 
 
@@ -331,6 +331,30 @@ export const requestSensorAlertData = actions$ =>
             // .catch(error => Observable.of(homepageActions.loginFailed()))
         );
 
+/**
+ * "requestSensorAlertData" invoked reactively upon success of requesting user data
+ * success would result in raising an action to receive SensorAlert data and populate the state
+ * 
+ * @param {*} actions$ default parameter for each such epic
+ */
+export const updateAlertData = actions$ =>
+
+    actions$
+        .ofType(UPDATE_ALERT_DATA)
+        .mergeMap(action =>
+            ajax({
+                url: WEB_API_URL + 'sensorAlert/triggerEvent/',
+                method: 'POST',
+                body: {id: action.payload.alertid, alertEvent: action.payload.updateobject},
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                crossDomain: true,
+                withCredentials: true
+              }).mergeMap((data) => Observable.of(
+                    homepageActions.requestEnterpriseData(action.payload.enterpriseId)
+                ))
+            // TODO, retry and fail gracefully 
+            // .catch(error => Observable.of(homepageActions.loginFailed()))
+        );
         
 
 /* ************************************************************************************* */

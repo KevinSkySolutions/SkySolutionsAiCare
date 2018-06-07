@@ -1,4 +1,4 @@
-import { REQUEST_ALERTS, RECEIVE_ALERTS, REQUEST_SEARCH, UPDATE_ALERT_DATA, REQUEST_RESIDENTS_DATA, RECEIVE_RESIDENTS_DATA, REQUEST_FLOOR_DATA, RECEIVE_FLOOR_DATA, DIGEST_FLOOR_DATA, SELECT_FLOOR, SET_ALERT_EXPANSION, RESET_ALERT_EXPANSION, NAVIGATE_TO_ALERT, REQUEST_ALERTS_SUMMARY, SET_OVERLAY_EXPANSION, RESET_OVERLAY_EXPANSION, REQUEST_LOGIN, REQUEST_LOGIN_FAILED, REQUEST_USER_DATA, RECEIVE_USER_DATA, REQUEST_FLOOR_API_DATA, REQUEST_ENTERPRISE_DATA, REQUEST_VENUE_DATA, REQUEST_SENSOR_ALERT_DATA, REQUEST_BUILDING_DATA, RECEIVE_FLOOR_API_DATA, RECEIVE_ENTERPRISE_DATA, RECEIVE_VENUE_DATA, RECEIVE_BUILDING_DATA, RECEIVE_SENSOR_ALERT_DATA  } from '../constants';
+import { RECEIVE_ALERTS, REQUEST_SEARCH, UPDATE_ALERT_DATA, RECEIVE_RESIDENTS_DATA, REQUEST_FLOOR_DATA, DIGEST_FLOOR_DATA, SELECT_FLOOR, SET_ALERT_EXPANSION, RESET_ALERT_EXPANSION, NAVIGATE_TO_ALERT, REQUEST_ALERTS_SUMMARY, SET_OVERLAY_EXPANSION, RESET_OVERLAY_EXPANSION, REQUEST_LOGIN, REQUEST_LOGIN_FAILED, REQUEST_USER_DATA, RECEIVE_USER_DATA, REQUEST_FLOOR_API_DATA, REQUEST_ENTERPRISE_DATA, REQUEST_VENUE_DATA, REQUEST_SENSOR_ALERT_DATA, REQUEST_BUILDING_DATA, RECEIVE_FLOOR_API_DATA, RECEIVE_ENTERPRISE_DATA, RECEIVE_VENUE_DATA, RECEIVE_BUILDING_DATA, RECEIVE_SENSOR_ALERT_DATA  } from '../constants';
 
 import { browserHistory } from 'react-router';
 import { annotateWithSearchData, filterAlertsWithKeyword } from '../constants/Utilities';
@@ -11,7 +11,6 @@ const defaultState = { alertsdata: [], searchresults: [], residentsdata: [], sel
         floorid:0,   
         alerts: []
     }, 
-    floors: [],
     scrollId: 0,
     isExpanded:       false,
     summary:          [],
@@ -19,6 +18,7 @@ const defaultState = { alertsdata: [], searchresults: [], residentsdata: [], sel
     isLoggingIn: false,
     signin: false,
     userdata: {},
+    residentsdata: [],
     buildingdata: {},
     floorAPIdata: [],
     enterprisedata: {},
@@ -286,61 +286,61 @@ export default function datafetchReducer(state = defaultState, action) {
         isExpanded: false
       };
 
-    case UPDATE_ALERT_DATA:
+    // case UPDATE_ALERT_DATA:
 
-      let updatedAlerts = [];
+    //   let updatedAlerts = [];
       
-      let alertId       = action.payload.alertid;
-      let updateObject  = action.payload.updateobject;
+    //   let alertId       = action.payload.alertid;
+    //   let updateObject  = action.payload.updateobject;
 
-      var localAlertsCopy = state.alertsdata;
-      var arrayLength = localAlertsCopy.length;
-      var currentAlert = {};
-      for (var i = 0; i < arrayLength; i++) {
-        currentAlert = localAlertsCopy[i];
+    //   var localAlertsCopy = state.alertsdata;
+    //   var arrayLength = localAlertsCopy.length;
+    //   var currentAlert = {};
+    //   for (var i = 0; i < arrayLength; i++) {
+    //     currentAlert = localAlertsCopy[i];
 
-        if (currentAlert.id == alertId) {
-            currentAlert.isnew = false;
-          currentAlert.description = updateObject;
-        }
-        updatedAlerts.push(currentAlert);
-      }
+    //     if (currentAlert.id == alertId) {
+    //         currentAlert.isnew = false;
+    //       currentAlert.description = updateObject;
+    //     }
+    //     updatedAlerts.push(currentAlert);
+    //   }
       
-       //Defining a temporary floor object for data manipulation
-      floor_obj = JSON.parse(JSON.stringify(state.selection));
-      alertsdata = action.payload.alertsdata;
+    //    //Defining a temporary floor object for data manipulation
+    //   floor_obj = JSON.parse(JSON.stringify(state.selection));
+    //   alertsdata = action.payload.alertsdata;
 
-      //Loop for selecting the appropriate alerts with respect to the selected floor
-      floor_obj.alerts = [];
-      for (var i = 0; i < alertsdata.length; i++) {
-          if (alertsdata[i].floor == floor_obj.floor) {
-              floor_obj.alerts.push(alertsdata[i]);
-          }
-      };
+    //   //Loop for selecting the appropriate alerts with respect to the selected floor
+    //   floor_obj.alerts = [];
+    //   for (var i = 0; i < alertsdata.length; i++) {
+    //       if (alertsdata[i].floor == floor_obj.floor) {
+    //           floor_obj.alerts.push(alertsdata[i]);
+    //       }
+    //   };
 
-        // alerts summary overlay is digested data
-      // the intial values are 8 0s because we are assuming 8 levels of priority/type
-      alertsSummary = [0, 0, 0, 0, 0];
-      alertsHighlightsSummary = [0, 0, 0, 0, 0]
-      alertsData = action.payload.alertsdata;
+    //     // alerts summary overlay is digested data
+    //   // the intial values are 8 0s because we are assuming 8 levels of priority/type
+    //   alertsSummary = [0, 0, 0, 0, 0];
+    //   alertsHighlightsSummary = [0, 0, 0, 0, 0]
+    //   alertsData = action.payload.alertsdata;
 
-      //Loop for counting the number of alerts for each type of alert
-      for(var i = 0; i < alertsData.length; i++) { 
-          var obj = alertsData[i].priority;
+    //   //Loop for counting the number of alerts for each type of alert
+    //   for(var i = 0; i < alertsData.length; i++) { 
+    //       var obj = alertsData[i].priority;
           
-          alertsSummary[obj-1]++;//incrementing the corresponding entry in the array for that alert
-          if (alertsData[i].alertStatus === "INIT") {
-            alertsHighlightsSummary[obj-1]++;
-          }
-      }
+    //       alertsSummary[obj-1]++;//incrementing the corresponding entry in the array for that alert
+    //       if (alertsData[i].alertStatus === "INIT") {
+    //         alertsHighlightsSummary[obj-1]++;
+    //       }
+    //   }
        
-      return {
-        ...state,
-        alertsdata: updatedAlerts,
-        selection: floor_obj,
-        summary: alertsSummary,
-        highlightsummary: alertsHighlightsSummary
-      };   
+    //   return {
+    //     ...state,
+    //     alertsdata: updatedAlerts,
+    //     selection: floor_obj,
+    //     summary: alertsSummary,
+    //     highlightsummary: alertsHighlightsSummary
+    //   };   
 
     case RECEIVE_USER_DATA:
 
@@ -420,11 +420,24 @@ export default function datafetchReducer(state = defaultState, action) {
 
       let sensoralertobject = [];
 
+      let residentsonMap = [];
+
       for(var i = 0; i < sensoralertobject2.length; i++) { 
         
-        if (sensoralertobject2[i].alertStatus === "INIT" || sensoralertobject2[i].alertStatus === "PENDING") {
-            sensoralertobject.push(sensoralertobject2[i]);
+        for (var j = 0; j < state.floorAPIdata.length; j++) {
+          
+          if (sensoralertobject2[i].floorId === state.floorAPIdata[j].id) {
+            
+            if (sensoralertobject2[i].alertStatus === "INIT" || sensoralertobject2[i].alertStatus === "PENDING") {
+                sensoralertobject.push(sensoralertobject2[i]);
+            } else {
+              residentsonMap.push(sensoralertobject2[i]);
+            }
+
+          }
+
         }
+
       }
 
       sensoralertobject.sort(function (alert1, alert2) {
@@ -455,26 +468,26 @@ export default function datafetchReducer(state = defaultState, action) {
 
       //Loop for counting the number of alerts for each type of alert
       for(var i = 0; i < sensoralertobject.length; i++) { 
-        let priority = 1
+        let priority = 1;
 
         if (sensoralertobject[i].alertType === "SOS") {
-            priority =  1    
+            priority =  1;    
         }
 
         else if (sensoralertobject[i].alertType === "HIGH_IMPACT") {
-            priority =  2  
+            priority =  2;  
         }
 
         else if (sensoralertobject[i].alertType === "HIGH NOISE") {
-            priority =  3  
+            priority =  3;  
         }
 
         else if (sensoralertobject[i].alertType === "MISSING") {
-            priority =  4  
+            priority =  4;  
         }
 
         else if (sensoralertobject[i].alertType === "POWER_OFF") {
-            priority =  5  
+            priority =  5;  
         }
         
         if (sensoralertobject[i].floorId === floor_id) {
@@ -498,7 +511,8 @@ export default function datafetchReducer(state = defaultState, action) {
         highlightsummary: alertsHighlightsSummary,
         alertsdata: returnAlerts,
         selection: sensor_selection_object,
-        signin: false
+        signin: false,
+        residentsdata: residentsonMap
 
       };  
       

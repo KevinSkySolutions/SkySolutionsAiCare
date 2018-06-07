@@ -59,7 +59,7 @@ class UpdateStatus extends Component {
         e.preventDefault();
         e.stopPropagation();
         if (this.state.status.length > 0) {
-            this.props.dispatchaction_updateAlertData(this.state.alert.id, this.state.status, this.state.alertsdata);
+            this.props.dispatchaction_updateAlertData(this.state.alert.id, this.state.status, this.state.alert.enterpriseId);
         }
         this.onClose(e);
         this.forceUpdate();
@@ -98,14 +98,12 @@ class UpdateStatus extends Component {
                 destroyOnClose={this.state.destroyOnClose}
             >
             <div onClick={this.stopEventPropagation}>
-                <h1 className="rc-dialog-header">{this.state.alert.resident}</h1>
+                <h1 className="rc-dialog-header">{this.state.alert.senior.firstName}</h1>
                 <h2 className="rc-dialog-title"><span>Current&nbsp;Status:&nbsp;&nbsp;</span>{this.state.alert.description}</h2><br />
                 <form ref="form" >
                     <div className="textaligner" >
-                        <input type="radio" name="status" value="Assistance Required" onClick={this.handleCheck}/><label htmlFor="Assistance Required">&nbsp;Assistance Required&nbsp;</label><br /><br />
-                        <input type="radio" name="status" value="Help Dispatched" onClick={this.handleCheck}/><label htmlFor="Help Dispatched">&nbsp;Help Dispatched&nbsp;</label><br /><br />
-                        <input type="radio" name="status" value="Help Active" onClick={this.handleCheck}/><label htmlFor="Help Active">&nbsp;Help Active&nbsp;</label><br /><br />
-                        <input type="radio" name="status" value="Dismiss" onClick={this.handleCheck}/><label htmlFor="Dismiss">&nbsp;Dismiss&nbsp;</label><br /><br /><hr />
+                        <input type="radio" name="status" value="UPDATE" onClick={this.handleCheck}/><label htmlFor="UPDATE">&nbsp;UPDATE&nbsp;</label><br /><br />
+                        <input type="radio" name="status" value="CLOSE" onClick={this.handleCheck}/><label htmlFor="CLOSE">&nbsp;CLOSE&nbsp;</label><br /><br />
                     </div>
                     <div className="textaligner2"><button type="submit" onClick={this.handleSubmit}>Update Status</button></div>
                 </form>

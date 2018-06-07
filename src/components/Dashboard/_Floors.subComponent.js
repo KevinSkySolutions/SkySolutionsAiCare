@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { floorsdataActions, alertsdataActions } from '../../actions';
+import { floorsdataActions, alertsdataActions, homepageActions } from '../../actions';
 
 // Component for displaying the floors on the right and highlighting the floor relevant to the current user
 export class Floors extends Component {

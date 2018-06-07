@@ -17,6 +17,7 @@ const defaultState = { alertsdata: [], searchresults: [], residentsdata: [], sel
     summary:          [],
     highlightsummary: [],
     isLoggingIn: false,
+    signin: false,
     userdata: {},
     buildingdata: {},
     floorAPIdata: [],
@@ -376,7 +377,8 @@ export default function datafetchReducer(state = defaultState, action) {
 
       return {
         ...state,
-        userdata: action.payload
+        userdata: action.payload,
+        signin: true
       };
 
     case RECEIVE_ENTERPRISE_DATA:
@@ -414,7 +416,16 @@ export default function datafetchReducer(state = defaultState, action) {
 
     case RECEIVE_SENSOR_ALERT_DATA:
 
-      let sensoralertobject = action.payload;
+      let sensoralertobject2 = action.payload;
+
+      let sensoralertobject = [];
+
+      for(var i = 0; i < sensoralertobject2.length; i++) { 
+        
+        if (sensoralertobject2[i].alertStatus === "INIT" || sensoralertobject2[i].alertStatus === "PENDING") {
+            sensoralertobject.push(sensoralertobject2[i]);
+        }
+      }
 
       sensoralertobject.sort(function (alert1, alert2) {
         // Sort by count
@@ -486,7 +497,8 @@ export default function datafetchReducer(state = defaultState, action) {
         summary:          alertsSummary,
         highlightsummary: alertsHighlightsSummary,
         alertsdata: returnAlerts,
-        selection: sensor_selection_object
+        selection: sensor_selection_object,
+        signin: false
 
       };  
       

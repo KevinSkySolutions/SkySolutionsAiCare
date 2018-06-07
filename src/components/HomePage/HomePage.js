@@ -20,7 +20,8 @@ export class HomePage extends Component {
         super(props);
         this.state = {
             username: "",
-            password: ""
+            password: "",
+            signin: props.signin
         }
     }
 
@@ -40,6 +41,15 @@ export class HomePage extends Component {
     componentDidMount() {
         const { dispatch } = this.props;
     }
+
+    componentWillReceiveProps(newProps) {
+
+    // TODO, conditionally setState only if changes are necessary
+    this.setState({  
+      signin: newProps.signin
+    });
+    this.forceUpdate();
+  }
 
     updateUsernameValue = e => {
 
@@ -95,9 +105,16 @@ export class HomePage extends Component {
                             <div className="forgot">
                                 <a href="#">Forgot Password?</a>
                             </div>
-                            <div className="signin">
-                                <input type="button" value="Sign In" onClick={this.doLogin} />
-                            </div>
+
+                            {
+                              (this.state.signin === false)
+                                ? (<div className="signin">
+                                      <input type="button" value="Sign In" onClick={this.doLogin} />
+                                   </div>)
+                                : (<div className="loader"></div>)
+                            }
+
+                            
                         </form>
                     </div>
                 </div>
@@ -123,7 +140,8 @@ const mapStateToProps = (state) => {
 
     return {
         isLoggingIn,
-        isLoginFailed
+        isLoginFailed,
+        signin: state.dashboard.signin
     };
 }
 

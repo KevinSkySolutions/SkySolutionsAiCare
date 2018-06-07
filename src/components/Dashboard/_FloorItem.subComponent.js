@@ -76,11 +76,11 @@ class FloorItem extends Component {
           {
            	(this.state.selection == this.state.indexKey)
               ?
-              (alert.alertStatus === "INIT" && alert.isnew!=false)
+              (alert.alertStatus === "INIT")
                 ? 
                   <div>
                     <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/alertpositionpointer" + priority + ".png")} />
-                    <img style={divStyle} className={ "person-on-map-selected person-on-map-blink" } src={require("../../img/cardalert" + priority + ".png")} />
+                    <img style={divStyle} className={ "person-on-map-blink person-on-map-selected" } src={require("../../img/cardalert" + priority + ".png")} />
                   </div>
                 :
                   <div>
@@ -88,11 +88,11 @@ class FloorItem extends Component {
                     <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/cardalert" + priority + ".png")} />
                   </div>
               :
-              (alert.isnew!=undefined && alert.isnew!=false)
+              (alert.alertStatus === "INIT")
                 ?
                   <div>
                     <img style={divStyle} className={ "person-on-map" } src={require("../../img/alertpositionpointer" + priority + ".png")} />
-                    <img style={divStyle} className={ "person-on-map person-on-map-blink" } src={require("../../img/cardalert" + priority + ".png")} />
+                    <img style={divStyle} className={ "person-on-map-blink person-on-map" } src={require("../../img/cardalert" + priority + ".png")} />
                   </div>
                 :
                   <div>

@@ -20,7 +20,8 @@ export class Overlay extends Component {
             summary:    props.summary,
             highlights: props.highlights,
             currentfloor: props.currentfloor,
-            className: "floor-popup"
+            className: "floor-popup",
+            floors: props.floors
         }
     }
 
@@ -29,7 +30,8 @@ export class Overlay extends Component {
             clicked:        newProps.clicked,
             summary:        newProps.summary,
             highlights:     newProps.highlights,
-            currentfloor:   newProps.currentfloor
+            currentfloor:   newProps.currentfloor,
+            floors:         newProps.floors
         });
     }
 
@@ -56,6 +58,9 @@ export class Overlay extends Component {
     }
 
     render() {
+
+        let activeFloor = this.state.floors[(this.state.currentfloor)-1].name;
+
         return <div>
             {
                 // Conditional Logic for knowing whether the overlay i open or closed and consequently showing the relevant information
@@ -66,9 +71,8 @@ export class Overlay extends Component {
                                 <img src={require("../../../img/centerimage.png")} alt="" />
                                 <div className="heading-title">Epoch Elder Care</div>
                                 <div className="pagination">
-                                  <div className="floors-heading no-margin">Floors&nbsp;</div>
                                     <div className="pages">
-                                        <div className="page active">{this.state.currentfloor}</div>
+                                        <div className="page active">{activeFloor}</div>
                                         <div className="page-right-arrow">
                                             <img className="dialogbutton" src={require("../../../img/right-arrow.png")} alt="" onClick={this.showFloors}/>
                                             <div className={this.state.className}>
@@ -121,7 +125,8 @@ const mapStateToProps = (state) => {
         clicked:    state.dashboard.isExpanded,
         summary:    state.dashboard.summary,
         highlights: state.dashboard.highlightsummary,
-        currentfloor:   state.dashboard.selection.floor
+        currentfloor:   state.dashboard.selection.floor,
+        floors:     state.dashboard.floorAPIdata
     };
 };
 

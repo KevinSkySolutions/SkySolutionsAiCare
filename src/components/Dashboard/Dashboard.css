@@ -236,7 +236,7 @@ body .content-dash .right-section .description-mod-active {
     border-radius: 5px 5px 5px 40px;
     padding: 10px;
     margin-bottom: 10px;
-    height: 235px;
+    height: 115px;
     border: 1px solid #c2c5c7;
     background-color: #e0ebf3;
     padding-top: 6px;
@@ -512,7 +512,7 @@ body .content-dash .nav-container ul li {
     margin-left: 10px;
     cursor: pointer;
     position: relative;
-    left: 26px;
+    left: 60px;
     bottom: 28px;
 }
 
@@ -522,7 +522,7 @@ body .content-dash .nav-container ul li {
     position: absolute;
     top: -10px;
     left: 20px;
-    width: 92px;
+    width: 112px;
     z-index: 10;
     height: 38px;
     background-color: #fff;
@@ -582,7 +582,7 @@ body .content-dash .nav-container ul li {
     /* border-style: solid; */
     /* background-color: #828db0; */
     color: #fff;
-    width: 28px;
+    width: 108px;
     height: 28px;
     left: 8px;
     display: inline-block;
@@ -590,12 +590,13 @@ body .content-dash .nav-container ul li {
     vertical-align: center;
     line-height: 28px;
     margin-bottom: 9px;
-    background-image: url(../../img/morefloors.png);
+    background-color: #051c61;
+    /*background-image: url(../../img/morefloors.png);*/
     /* margin-left: 10px; */
 }
 
 .page.active {
-    background-image: url(../../img/floorselected.png);
+    /*background-image: url(../../img/floorselected.png);*/
     color: #fff;
 }
 

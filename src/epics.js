@@ -345,7 +345,7 @@ export const updateAlertData = actions$ =>
             ajax({
                 url: WEB_API_URL + 'sensorAlert/triggerEvent/',
                 method: 'POST',
-                body: {id: action.payload.alertid, alertEvent: action.payload.updateobject},
+                body: {id: action.payload.alertid, alertEvent: action.payload.updateobject, description: action.payload.description},
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 crossDomain: true,
                 withCredentials: true

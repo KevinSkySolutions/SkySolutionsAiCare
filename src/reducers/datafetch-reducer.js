@@ -408,6 +408,8 @@ export default function datafetchReducer(state = defaultState, action) {
 
       floor_obj.floormap = atob(action.payload[0].image.content);
 
+      browserHistory.push('/dashboard');
+
       return {
         ...state,
         floorAPIdata: action.payload,
@@ -502,7 +504,6 @@ export default function datafetchReducer(state = defaultState, action) {
 
       let returnAlerts = annotateWithSearchData(sensoralertobject);
 
-      browserHistory.push('/dashboard');
 
       return {
         ...state,

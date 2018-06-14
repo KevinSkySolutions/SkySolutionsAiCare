@@ -29,10 +29,16 @@ class FloorItem extends Component {
 
       if (this.state.isClicked === false) {  // If the Alert is collapsed then expand
           this.props.setAlertExpansion(this.state.indexKey);
+          this.setState({
+            isClicked: true
+          });
       }
 
-      else { // If the Alert is expanded then collapse
+      else if (this.state.isClicked === true) { // If the Alert is expanded then collapse
           this.props.resetAlertExpansion();
+          this.setState({
+            isClicked: false
+          });
       }
       
   }
@@ -44,6 +50,11 @@ class FloorItem extends Component {
       // Variable to decide which style to assign the alert based on the priority of the alert being passed
       let divStyle = {
         color: 'white',
+        top: (alert.sensor.x) * 1.2 + 'px',
+        left: (alert.sensor.y) * 1.2 + 'px'
+      };
+
+      let tipStyle = {
         top: (alert.sensor.x) * 1.2 + 'px',
         left: (alert.sensor.y) * 1.2 + 'px'
       };
@@ -71,37 +82,40 @@ class FloorItem extends Component {
         }
 
       return (
-        <div onClick={this.onFocus}>
-          
-          {
-           	(this.state.selection == this.state.indexKey)
-              ?
-              (alert.alertStatus === "INIT")
-                ? 
-                  <div>
-                    <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/alertpositionpointer" + priority + ".png")} />
-                    <img style={divStyle} className={ "person-on-map-blink person-on-map-selected" } src={require("../../img/cardalert" + priority + ".png")} />
-                  </div>
-                :
-                  <div>
-                    
-                    <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/cardalert" + priority + ".png")} />
-                  </div>
-              :
-              (alert.alertStatus === "INIT")
+        <div className="tooltip1">
+          <span className="tooltiptext" style={tipStyle}>Alert:<br/><i>{alert.senior.firstName}</i></span>
+          <div onClick={this.onFocus}>
+            
+            {
+              (this.state.selection == this.state.indexKey)
                 ?
-                  <div>
-                    <img style={divStyle} className={ "person-on-map" } src={require("../../img/alertpositionpointer" + priority + ".png")} />
-                    <img style={divStyle} className={ "person-on-map-blink person-on-map" } src={require("../../img/cardalert" + priority + ".png")} />
-                  </div>
+                (alert.alertStatus === "INIT")
+                  ? 
+                    <div>
+                      <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/alertpositionpointer" + priority + ".png")} />
+                      <img style={divStyle} className={ "person-on-map-blink person-on-map-selected" } src={require("../../img/cardalert" + priority + ".png")} />
+                    </div>
+                  :
+                    <div>
+                      
+                      <img style={divStyle} className={ "person-on-map-selected" } src={require("../../img/cardalert" + priority + ".png")} />
+                    </div>
                 :
-                  <div>
-                    
-                    <img style={divStyle} className={ "person-on-map" } src={require("../../img/cardalert" + priority + ".png")} />
-                  </div>
-                
-          }
-          
+                (alert.alertStatus === "INIT")
+                  ?
+                    <div>
+                      <img style={divStyle} className={ "person-on-map" } src={require("../../img/alertpositionpointer" + priority + ".png")} />
+                      <img style={divStyle} className={ "person-on-map-blink person-on-map" } src={require("../../img/cardalert" + priority + ".png")} />
+                    </div>
+                  :
+                    <div>
+                      
+                      <img style={divStyle} className={ "person-on-map" } src={require("../../img/cardalert" + priority + ".png")} />
+                    </div>
+                  
+            }
+            
+          </div>
         </div>
       );
       

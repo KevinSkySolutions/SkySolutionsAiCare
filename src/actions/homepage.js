@@ -1,6 +1,7 @@
-import { REQUEST_LOGIN_FAILED, RECEIVE_BUILDING_DATA, RECEIVE_ENTERPRISE_DATA, RECEIVE_FLOOR_API_DATA, RECEIVE_SENSOR_ALERT_DATA, RECEIVE_USER_DATA, RECEIVE_VENUE_DATA, REQUEST_BUILDING_DATA, REQUEST_ENTERPRISE_DATA, REQUEST_FLOOR_API_DATA, REQUEST_LOGIN, REQUEST_SENSOR_ALERT_DATA, REQUEST_USER_DATA, REQUEST_VENUE_DATA } from '../constants';
+import { REQUEST_LOGOUT, REQUEST_LOGIN_FAILED, RECEIVE_BUILDING_DATA, RECEIVE_ENTERPRISE_DATA, RECEIVE_FLOOR_API_DATA, RECEIVE_SENSOR_ALERT_DATA, RECEIVE_USER_DATA, RECEIVE_VENUE_DATA, REQUEST_BUILDING_DATA, REQUEST_ENTERPRISE_DATA, REQUEST_FLOOR_API_DATA, REQUEST_LOGIN, REQUEST_SENSOR_ALERT_DATA, REQUEST_USER_DATA, REQUEST_VENUE_DATA } from '../constants';
 
 export const homepageActions = {
+    logout,
     login,
     requestUserData,
     receiveUserData,
@@ -16,6 +17,16 @@ export const homepageActions = {
     receiveBuildingData,
     receiveSensorAlertData
 };
+
+/**
+* Action to be raised when user requests logout
+* @param {string} username username of the user
+* @param {string} password password provided by the user
+*/
+function logout() {
+    // TODO, pass the username and password fields to the backend
+    return { type: REQUEST_LOGOUT, payload: {} };
+}
 
 /**
 * Action to be raised when user requests login

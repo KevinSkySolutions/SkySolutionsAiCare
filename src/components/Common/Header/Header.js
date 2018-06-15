@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { alertsdataActions } from '../../../actions';
 import Search from './_Search.subcomponent';
+import { homepageActions } from '../../../actions/homepage';
 
 // Import can't be in conditional so use require.
 if (process.env.WEBPACK) {
@@ -129,7 +130,7 @@ class Header extends Component {
                   </li>
                   <div className="user-logout">
                     <div>
-                      <a href="/">Logout</a>
+                      <a href="javascript:void(0)" onClick={this.doLogout}>Logout</a>
                     </div>
                   </div>  
                 </div>  
@@ -147,6 +148,11 @@ class Header extends Component {
 
 
     );
+  }
+
+  doLogout = e => {
+    e.preventDefault();
+    this.props.logout();
   }
 }
 
@@ -171,7 +177,7 @@ class BurgerMenu extends Component {
             <a href="#">Help</a>
           </li>
           <li >
-            <a href="/">Logout</a>
+            <a href="javascript:void(0)" onClick={this.doLogout}>Logout</a>
           </li>
         </ul>
       </div>
@@ -189,7 +195,8 @@ function mapDispatchToProps(dispatch) {
     ...bindActionCreators({
       dispatchaction_mock1: ac_requestAlertsDataMock1,
       dispatchaction_mock2: ac_requestAlertsDataMock2,
-      dispatchaction_getdata: ac_requestAlerts
+      dispatchaction_getdata: ac_requestAlerts,
+      logout: homepageActions.logout
     },
       dispatch)
   }

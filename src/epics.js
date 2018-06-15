@@ -4,12 +4,30 @@ import 'rxjs'; // TODO remove this
 import { Observable } from 'rxjs';
 import { ajax } from 'rxjs/observable/dom/ajax';
 import { alertsdataActions, floorsdataActions, homepageActions, overlaydataActions } from './actions';
-import { DIGEST_FLOOR_DATA, NAVIGATE_TO_ALERT, RECEIVE_ALERTS, REQUEST_ALERTS, REQUEST_ALERTS_MOCK1, REQUEST_ALERTS_MOCK2, REQUEST_BUILDING_DATA, REQUEST_ENTERPRISE_DATA, REQUEST_FLOOR_API_DATA, REQUEST_FLOOR_DATA, REQUEST_LOGIN, REQUEST_SENSOR_ALERT_DATA, REQUEST_USER_DATA, REQUEST_VENUE_DATA, WEB_API_URL, UPDATE_ALERT_DATA } from './constants';
+import { DIGEST_FLOOR_DATA, NAVIGATE_TO_ALERT, RECEIVE_ALERTS, REQUEST_ALERTS, REQUEST_ALERTS_MOCK1, REQUEST_ALERTS_MOCK2, REQUEST_BUILDING_DATA, REQUEST_ENTERPRISE_DATA, REQUEST_FLOOR_API_DATA, REQUEST_FLOOR_DATA, REQUEST_LOGIN, REQUEST_SENSOR_ALERT_DATA, REQUEST_USER_DATA, REQUEST_VENUE_DATA, WEB_API_URL, UPDATE_ALERT_DATA, REQUEST_LOGOUT } from './constants';
 
 
 
 
 // import { withCookies, Cookies } from 'react-cookie';
+
+export const requestLogout = actions$ => actions$
+        .ofType(REQUEST_LOGOUT)
+        .map(() => {
+            ajax({
+                url: '/api/logout',
+                method: 'GET',
+                headers: { 'Content-Type': 'application/json'},
+                crossDomain: true,
+                withCredentials: true
+            }).subscribe(data =>  {
+                console.log('logout successfull: ', data);
+                browserHistory.push('/');
+            }, error => {
+                browserHistory.push('/');    
+            });
+            return { type: "NO_CLASH_TYPE" };
+        });
 
 /**
  * "requestLogin" invoked automatically when user presses login button
@@ -360,6 +378,7 @@ export const updateAlertData = actions$ =>
 /* ************************************************************************************* */
 
 export default combineEpics(
+    requestLogout,
     requestLogin,
     requestUserData,
     requestFloorsData,

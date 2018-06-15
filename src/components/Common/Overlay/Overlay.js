@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
 import { overlaydataActions } from '../../../actions';
-
+import Floors from '../../Dashboard/_Floors.subComponent';
 import OverlayAllAlerts from './_OverlayAllAlerts.subComponent';
 
-import Floors from '../../Dashboard/_Floors.subComponent';
+
+
 
 
 // Component for the expanding Overlay of the Dashboard Page and displaying the relevant information
@@ -58,9 +58,13 @@ export class Overlay extends Component {
     }
 
     render() {
-
-        let activeFloor = this.state.floors[(this.state.currentfloor)-1].name;
-
+        // TODO @Srini, need to check whether array is empty, without it you cannot get the name property
+        const floors = this.state.floors[(this.state.currentfloor)-1];
+        let activeFloor = "";
+        if (floors && floors.length > 0) {
+            let activeFloor = this.state.floors[(this.state.currentfloor)-1].name;
+        }
+        
         return <div>
             {
                 // Conditional Logic for knowing whether the overlay i open or closed and consequently showing the relevant information

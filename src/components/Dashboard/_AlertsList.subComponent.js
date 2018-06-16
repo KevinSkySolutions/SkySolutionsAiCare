@@ -23,7 +23,7 @@ export class AlertsList extends Component {
     componentWillReceiveProps(newProps) {  // Updating the state on receiving the new props after selecting a different floor
 
         this.setState({
-            alerts:             newProps.alerts, 
+            alerts:             newProps.alerts,
             currentfloor:       newProps.currentfloor,
             currentalert:       newProps.currentalert,
             currentselection:   newProps.currentselection,
@@ -37,23 +37,23 @@ export class AlertsList extends Component {
 
         let reference = '';
 
-        if (this.state.alerts.length > 0) { 
+        if (this.state.alerts.length > 0) {
             return this.state.alerts.map((alert, keyValue) => {  // Mapping all the relevant floor alerts on the right section of the page
-                   
+
                    if (alert.id === this.state.scrollId) {
                        reference = "scrollalert";
                    }
                    else reference = '';
-       
+
                    return (
-                       <AlertItem 
-                       key={keyValue} keyCopy={keyValue} alert={alert} 
+                       <AlertItem
+                       key={keyValue} keyCopy={keyValue} alert={alert}
                        isExpanded={this.state.currentselection==keyValue} scrollId={this.state.scrollId} reference={reference}/>
-                       
+
                    )
             })
         }else {
-            return (<div>There are no new alerts!</div>)
+          return (<div><div className="loader-alert"></div>Loading alerts...</div>)
         }
     }
 }

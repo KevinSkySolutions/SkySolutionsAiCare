@@ -3,14 +3,14 @@ import { REQUEST_ALERTS, RECEIVE_FLOOR_DATA, RECEIVE_ALERTS, REQUEST_SEARCH, UPD
 import { browserHistory } from 'react-router';
 import { annotateWithSearchData, filterAlertsWithKeyword } from '../constants/Utilities';
 
-// this is the dashboard reducer, responds to all ACTIONS raised from the Dashboard page. 
+// this is the dashboard reducer, responds to all ACTIONS raised from the Dashboard page.
 const defaultState = { alertsdata: [], searchresults: [], residentsdata: [], selection: {
         selectedalert: -1,   // this indicates which of the alerts is expanded currently
-        floormap: {}, 
+        floormap: {},
         floor: 1,
-        floorid:0,   
+        floorid:0,
         alerts: []
-    }, 
+    },
     scrollId: 0,
     isExpanded:       false,
     summary:          [],
@@ -50,15 +50,15 @@ export default function datafetchReducer(state = defaultState, action) {
         alertsdata: alerts
       };
     case REQUEST_SEARCH:
-      
+
       let keyword = action.payload;
       // keyword is invalid case
-      if ((keyword == undefined) || (keyword.length < 3)) {   
+      if ((keyword == undefined) || (keyword.length < 3)) {
         return {
           ...state,
           searchresults: []
         };
-      } 
+      }
       // keyword is valid, so proceed with search
       else {
         let searchResults = filterAlertsWithKeyword(state.alertsdata, keyword);
@@ -67,7 +67,7 @@ export default function datafetchReducer(state = defaultState, action) {
           searchresults: searchResults
         };
       }
-    
+
 
     case RECEIVE_RESIDENTS_DATA:
       let residents = action.payload;
@@ -147,7 +147,7 @@ export default function datafetchReducer(state = defaultState, action) {
         };
 
         //Loop for selecting the appropriate alerts with respect to the selected floor based on the selected floor
-       
+
         selection_object.alerts = []; // re initialize
         for (var i = 0; i < alerts_change.length; i++) {
             if (alerts_change[i].floorId == floor_id) {
@@ -193,7 +193,7 @@ export default function datafetchReducer(state = defaultState, action) {
         };
 
         //Loop for selecting the appropriate alerts with respect to the selected floor based on the selected floor
-       
+
         n_selection_object.alerts = []; // re initialize
         for (var i = 0; i < n_alerts_change.length; i++) {
             if (n_alerts_change[i].floorId == n_selection_object.floorid) {
@@ -217,7 +217,7 @@ export default function datafetchReducer(state = defaultState, action) {
     case REQUEST_FLOOR_DATA:
 
         return state;
-    
+
     case SET_ALERT_EXPANSION:
 
         let sae_selection = JSON.parse(JSON.stringify(state.selection));
@@ -227,9 +227,9 @@ export default function datafetchReducer(state = defaultState, action) {
             ...state,
             selection: sae_selection
         }
-    
+
     case RESET_ALERT_EXPANSION:
-    
+
        let rae_selection = JSON.parse(JSON.stringify(state.selection));
        rae_selection.selectedalert = -1;
 
@@ -237,10 +237,10 @@ export default function datafetchReducer(state = defaultState, action) {
            ...state,
            selection: rae_selection
        }
-    
+
     // mock only
     case RECEIVE_ALERTS:
-    
+
        let re_selection = JSON.parse(JSON.stringify(state.selection));
        re_selection.selectedalert   = -1;
        return {
@@ -257,14 +257,14 @@ export default function datafetchReducer(state = defaultState, action) {
       let alertsData = action.payload;
 
       //Loop for counting the number of alerts for each type of alert
-      for(var i = 0; i < alertsData.length; i++) { 
+      for(var i = 0; i < alertsData.length; i++) {
           var obj = alertsData[i].priority;
-          
+
           alertsSummary[obj-1]++;//incrementing the corresponding entry in the array for that alert
           if (alertsData[i].alertStatus === "INIT") {
             alertsHighlightsSummary[obj-1]++;
           }
-      } 
+      }
 
       return {
         ...state,
@@ -289,7 +289,7 @@ export default function datafetchReducer(state = defaultState, action) {
     // case UPDATE_ALERT_DATA:
 
     //   let updatedAlerts = [];
-      
+
     //   let alertId       = action.payload.alertid;
     //   let updateObject  = action.payload.updateobject;
 
@@ -305,7 +305,7 @@ export default function datafetchReducer(state = defaultState, action) {
     //     }
     //     updatedAlerts.push(currentAlert);
     //   }
-      
+
     //    //Defining a temporary floor object for data manipulation
     //   floor_obj = JSON.parse(JSON.stringify(state.selection));
     //   alertsdata = action.payload.alertsdata;
@@ -325,22 +325,22 @@ export default function datafetchReducer(state = defaultState, action) {
     //   alertsData = action.payload.alertsdata;
 
     //   //Loop for counting the number of alerts for each type of alert
-    //   for(var i = 0; i < alertsData.length; i++) { 
+    //   for(var i = 0; i < alertsData.length; i++) {
     //       var obj = alertsData[i].priority;
-          
+
     //       alertsSummary[obj-1]++;//incrementing the corresponding entry in the array for that alert
     //       if (alertsData[i].alertStatus === "INIT") {
     //         alertsHighlightsSummary[obj-1]++;
     //       }
     //   }
-       
+
     //   return {
     //     ...state,
     //     alertsdata: updatedAlerts,
     //     selection: floor_obj,
     //     summary: alertsSummary,
     //     highlightsummary: alertsHighlightsSummary
-    //   };   
+    //   };
 
     case RECEIVE_USER_DATA:
 
@@ -358,13 +358,12 @@ export default function datafetchReducer(state = defaultState, action) {
         ...state,
         isLoggingIn: true,
         isLoginFailed: false
-      };   
+      };
     case REQUEST_LOGOUT:
 
       return {
-        ...state,
-        isLoggingIn: false
-      };  
+        ...defaultState
+      };
     case REQUEST_USER_DATA:
 
       return {
@@ -430,12 +429,12 @@ export default function datafetchReducer(state = defaultState, action) {
 
       let residentsonMap = [];
 
-      for(var i = 0; i < sensoralertobject2.length; i++) { 
-        
+      for(var i = 0; i < sensoralertobject2.length; i++) {
+
         for (var j = 0; j < state.floorAPIdata.length; j++) {
-          
+
           if (sensoralertobject2[i].floorId === state.floorAPIdata[j].id) {
-            
+
             if (sensoralertobject2[i].alertStatus === "INIT" || sensoralertobject2[i].alertStatus === "PENDING") {
                 sensoralertobject.push(sensoralertobject2[i]);
             } else {
@@ -471,33 +470,33 @@ export default function datafetchReducer(state = defaultState, action) {
 
 
       //Loop for selecting the appropriate alerts with respect to the selected floor based on the selected floor
-     
+
       sensor_selection_object.alerts = []; // re initialize
 
       //Loop for counting the number of alerts for each type of alert
-      for(var i = 0; i < sensoralertobject.length; i++) { 
+      for(var i = 0; i < sensoralertobject.length; i++) {
         let priority = 1;
 
         if (sensoralertobject[i].alertType === "SOS") {
-            priority =  1;    
+            priority =  1;
         }
 
         else if (sensoralertobject[i].alertType === "HIGH_IMPACT") {
-            priority =  2;  
+            priority =  2;
         }
 
         else if (sensoralertobject[i].alertType === "HIGH NOISE") {
-            priority =  3;  
+            priority =  3;
         }
 
         else if (sensoralertobject[i].alertType === "MISSING") {
-            priority =  4;  
+            priority =  4;
         }
 
         else if (sensoralertobject[i].alertType === "POWER_OFF") {
-            priority =  5;  
+            priority =  5;
         }
-        
+
         if (sensoralertobject[i].floorId === floor_id) {
             sensor_selection_object.alerts.push(sensoralertobject[i]);
         }
@@ -506,7 +505,7 @@ export default function datafetchReducer(state = defaultState, action) {
         if (sensoralertobject[i].alertStatus === "INIT") {
           alertsHighlightsSummary[priority-1]++;
         }
-      } 
+      }
 
       let returnAlerts = annotateWithSearchData(sensoralertobject);
 
@@ -521,8 +520,8 @@ export default function datafetchReducer(state = defaultState, action) {
         signin: false,
         residentsdata: residentsonMap
 
-      };  
-      
+      };
+
     default:
       return state;
   }

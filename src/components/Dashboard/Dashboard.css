@@ -807,6 +807,9 @@ body .content-dash .nav-container ul li {
 
 .floor-image {
     position: relative;
+    top: 62px;
+    margin: auto;
+    width: 800px;
 }
 
 .dialogbutton {
@@ -1047,7 +1050,10 @@ video {
 /**********************END OF RC DIALOG**************************************************/
 
 
-
+.floor-map {
+    width: 800px;
+    height: 500px;
+}
 
 .main-heading-section {
   display: flex;

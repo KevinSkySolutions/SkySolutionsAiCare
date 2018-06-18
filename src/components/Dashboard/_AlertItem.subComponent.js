@@ -22,7 +22,8 @@ class AlertItem extends Component {
             isClicked:      props.isExpanded,   // Variable for keeping tracking whether an item has been clicked or not
             style:          styleToApply,        // Variable for Setting the style onClick so that it expands and collapses
             scrollId:       props.scrollId,
-            reference:      props.reference
+            reference:      props.reference,
+            flag:           props.flag
         }
     }
 
@@ -38,7 +39,8 @@ class AlertItem extends Component {
             isClicked:      (newProps.isExpanded==undefined? false: newProps.isExpanded),
             style:          newStyleToApply,
             scrollId:       newProps.scrollId,
-            reference:      newProps.reference
+            reference:      newProps.reference,
+            flag:           newProps.flag
         });
         this.forceUpdate();
         if (this.state.alert.id === this.state.scrollId) {
@@ -124,11 +126,11 @@ class AlertItem extends Component {
                             // (this.state.alert.media.video == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
                             //     ? ((this.state.alert.media.audio == undefined)   // Conditional logic for selecting whether the alert has attached video or audio
                             //         ? <div></div>
-                            //         : <MediaControl alert={this.state.alert} type={priority} media="audio" source={ this.state.alert.media.audio } alertStatus={ this.state.alert.alertStatus==undefined? false: true } />
+                            //         : <MediaControl alert={this.state.alert} type={priority} media="audio" source={ `data:audio/ogg;base64,${this.state.alert.audioList[0].content}` } alertStatus={ this.state.alert.alertStatus==undefined? false: true } />
                             //     )
                             //     : <MediaControl type={priority} media="video" source={ this.state.alert.media.video } alertStatus={ this.state.alert.alertStatus==undefined? false: true } />
                           (this.state.alert.alertStatus === 'INIT' && this.state.alert.audioList && this.state.alert.audioList.length > 0)
-                            ? <audio controls autoPlay src={`data:audio/ogg;base64,${this.state.alert.audioList[0].content}`}/> : <div className="empty" />
+                            ? <MediaControl alert={this.state.alert} type={priority} media="audio" source={ `data:audio/ogg;base64,${this.state.alert.audioList[0].content}`} flag={this.state.flag} /> : <div className="empty" />
                         }
                     </div>
                     <UpdateStatus alert={this.state.alert}/>

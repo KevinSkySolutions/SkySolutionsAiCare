@@ -70,7 +70,7 @@ export class Dashboard extends Component {
             </div>
 
             <div className="col-1 right-section">
-              <div><h1 className="alerts-heading no-margin">Alerts</h1></div>
+              <div><h1 className="alerts-heading">Alerts</h1></div>
               <div className="right-section-content">
 
                 <AlertsList />

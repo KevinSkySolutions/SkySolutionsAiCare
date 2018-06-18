@@ -33,6 +33,7 @@ export class Overlay extends Component {
             currentfloor:   newProps.currentfloor,
             floors:         newProps.floors
         });
+        this.forceUpdate();
     }
 
     onClick = e => { // For displaying the overlay
@@ -59,10 +60,11 @@ export class Overlay extends Component {
 
     render() {
         // TODO @Srini, need to check whether array is empty, without it you cannot get the name property
-        const floors = this.state.floors[(this.state.currentfloor)-1];
         let activeFloor = "";
-        if (floors && floors.length > 0) {
-            let activeFloor = this.state.floors[(this.state.currentfloor)-1].name;
+        if (this.state.floors[(this.state.currentfloor)-1] !== undefined) {
+            activeFloor = this.state.floors[(this.state.currentfloor)-1].name;
+        } else {
+            activeFloor = "Floor";
         }
         
         return <div>

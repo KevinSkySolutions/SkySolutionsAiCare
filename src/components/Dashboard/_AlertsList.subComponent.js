@@ -37,8 +37,23 @@ export class AlertsList extends Component {
 
         let reference = '';
 
+        let flag = "next";
+
+        let flagId = '';
+
+        for (var i = 0; i < this.state.alerts.length; ++i) {
+          if (this.state.alerts[i].alertStatus === 'INIT' && this.state.alerts[i].audioList && this.state.alerts[i].audioList.length > 0) {
+            flagId = this.state.alerts[i].id;
+          }
+        }
+
         if (this.state.alerts.length > 0) {
             return this.state.alerts.map((alert, keyValue) => {  // Mapping all the relevant floor alerts on the right section of the page
+
+                   if (flagId === alert.id) {
+                      flag = "first";
+                   }
+                   else flag = "next";
 
                    if (alert.id === this.state.scrollId) {
                        reference = "scrollalert";
@@ -48,7 +63,7 @@ export class AlertsList extends Component {
                    return (
                        <AlertItem
                        key={keyValue} keyCopy={keyValue} alert={alert}
-                       isExpanded={this.state.currentselection==keyValue} scrollId={this.state.scrollId} reference={reference}/>
+                       isExpanded={this.state.currentselection==keyValue} scrollId={this.state.scrollId} reference={reference} flag={flag} />
 
                    )
             })

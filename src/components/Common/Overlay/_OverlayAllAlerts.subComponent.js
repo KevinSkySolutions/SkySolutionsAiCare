@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-
+import { MediaControl } from '../';
 import { overlaydataActions } from '../../../actions';
 
 // Component for displaying all the alerts for the entire facility separately inside the overlay and also the relevant media
@@ -79,8 +79,15 @@ class OverlayAllAlerts extends Component {
                                     </div>
                                 </div>
                             </div>
+                            <div className="alert-media">
+                                {
+                                  (alert.alertStatus === 'INIT' && alert.audioList && alert.audioList.length > 0)
+                                    ? <MediaControl alert={alert} type={priority} media="audio" source={ `data:audio/ogg;base64,${alert.audioList[0].content}`} flag="overlay" /> : <div className="empty" />
+                                }
+                            </div>
                         </div>
                     </div>
+                    
                 </div>
             )
         });

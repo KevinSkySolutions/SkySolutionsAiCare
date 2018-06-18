@@ -5,7 +5,6 @@ import UpdateStatus from '../Common/UpdateStatus/UpdateStatus';
 import { alertsdataActions } from '../../actions';
 import { bindActionCreators } from 'redux';
 import ReactDOM from 'react-dom';
-import { ReactAudioPlayer } from 'react-audio-player';
 
 //Component for isolating each element of the Alerts List
 class AlertItem extends Component {

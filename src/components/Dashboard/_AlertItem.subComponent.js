@@ -5,6 +5,7 @@ import UpdateStatus from '../Common/UpdateStatus/UpdateStatus';
 import { alertsdataActions } from '../../actions';
 import { bindActionCreators } from 'redux';
 import ReactDOM from 'react-dom';
+import { ReactAudioPlayer } from 'react-audio-player';
 
 //Component for isolating each element of the Alerts List
 class AlertItem extends Component {
@@ -55,7 +56,7 @@ class AlertItem extends Component {
         else { // If the Alert is expanded then collapse
             this.props.resetAlertExpansion();
         }
-        
+
     }
 
     handleScrollToElement() {
@@ -71,23 +72,23 @@ class AlertItem extends Component {
         let priority = 1;
 
         if (this.state.alert.alertType === "SOS") {
-            priority =  1;    
+            priority =  1;
         }
 
         else if (this.state.alert.alertType === "HIGH_IMPACT") {
-            priority =  2;  
+            priority =  2;
         }
 
         else if (this.state.alert.alertType === "HIGH NOISE") {
-            priority =  3;  
+            priority =  3;
         }
 
         else if (this.state.alert.alertType === "MISSING") {
-            priority =  4;  
+            priority =  4;
         }
 
         else if (this.state.alert.alertType === "POWER_OFF") {
-            priority =  5;  
+            priority =  5;
         }
 
         let boxStyle = this.state.style;  // Variable for deciding the style of the expanded or collapsed Alert
@@ -95,7 +96,7 @@ class AlertItem extends Component {
 
         let alert_description = this.state.alert.description.slice(0,10);
 
-        
+
 
         return (
             <div className={boxStyle} onClick={this.onFocus} ref={this.state.reference}>
@@ -127,11 +128,12 @@ class AlertItem extends Component {
                             //         : <MediaControl alert={this.state.alert} type={priority} media="audio" source={ this.state.alert.media.audio } alertStatus={ this.state.alert.alertStatus==undefined? false: true } />
                             //     )
                             //     : <MediaControl type={priority} media="video" source={ this.state.alert.media.video } alertStatus={ this.state.alert.alertStatus==undefined? false: true } />
+                          (this.state.alert.alertStatus === 'INIT' && this.state.alert.audioList && this.state.alert.audioList.length > 0)
+                            ? <audio controls autoPlay src={`data:audio/ogg;base64,${this.state.alert.audioList[0].content}`}/> : <div className="empty" />
                         }
                     </div>
                     <UpdateStatus alert={this.state.alert}/>
                 </div>
-
                 {
                     // (this.state.alert.alertStatus === "INIT" && (this.state.alert.media.audio === undefined))   // Conditional logic for selecting whether beep has to play for the new alert
                     //     ? <audio autoPlay src="http://k003.kiwi6.com/hotlink/5bqgf29jwj/alert.mp3" />
@@ -149,7 +151,7 @@ function mapDispatchToProps(dispatch) {
         ...bindActionCreators({
             setAlertExpansion:      ac_setAlertExpansion,
             resetAlertExpansion:    ac_resetAlertExpansion
-        }, 
+        },
         dispatch)
     }
 }
@@ -160,9 +162,9 @@ export default connect(null, mapDispatchToProps)(AlertItem);
 function AlertHistory(props) {
 
     return props.alerts.map((alert, keyValue) => {
-  
+
       let divstyle = "dot iBlock type" + alert.priority; // Variable to decide which style to assign the alert based on the priority of the alert being passed
-  
+
       return (
         <div className="list-detail" key={keyValue}>
           <div className="call-status iBlock-wrap line-wrap">

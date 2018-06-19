@@ -16,21 +16,21 @@ export function annotateWithSearchData(alerts) {
         alerts[i].searchdata += alerts[i].alertStatus   + spaceDelimiter;
         alerts[i].searchdata += alerts[i].description       + spaceDelimiter;
         
-        if (alerts[i].senior.firstName === undefined){
-            alerts[i].searchdata += "Rgoer Goodell"        + spaceDelimiter;
+        if (alerts[i].senior === null && alerts[i].senior.firstName === undefined){
+            alerts[i].searchdata += "Roger Goodell"        + spaceDelimiter;
         }
 
 
-        else if (alerts[i].senior.firstName !== undefined){
+        else if (alerts[i].senior === null && alerts[i].senior.firstName !== undefined){
             alerts[i].searchdata += alerts[i].senior.firstName          + spaceDelimiter;
         }
 
-        if (alerts[i].enterprise.name === undefined){
+        if (alerts[i].enterprise === null && alerts[i].enterprise.name === undefined ){
             alerts[i].searchdata += "AiLiving Senior Center 2"     + spaceDelimiter;
         }
 
 
-        else if (alerts[i].enterprise.name !== undefined){
+        else if (alerts[i].enterprise === null && alerts[i].enterprise.name !== undefined){
             alerts[i].searchdata += alerts[i].enterprise.name     + spaceDelimiter;
         }
 

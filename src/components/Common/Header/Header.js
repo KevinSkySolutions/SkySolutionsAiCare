@@ -35,13 +35,6 @@ class Header extends Component {
     this.props.dispatchaction_getdata();
   }
 
-  mock1 = () => {
-    this.props.dispatchaction_mock1();
-  };
-
-  mock2 = () => {
-    this.props.dispatchaction_mock2();
-  };
 
   showSearch = e => {
     if (this.state.clicked === true) {
@@ -115,10 +108,10 @@ class Header extends Component {
                 <li onClick={this.originaldata}>
                   <a href="#">Facilities</a>
                 </li>
-                <li onClick={this.mock1}>
+                <li >
                   <a href="#">Reports</a>
                 </li>
-                <li onClick={this.mock2}>
+                <li >
                   <a href="#">Help</a>
                 </li>
                 <li >
@@ -187,14 +180,10 @@ class BurgerMenu extends Component {
 
 function mapDispatchToProps(dispatch) {
 
-  let ac_requestAlertsDataMock1 = alertsdataActions.requestAlertsDataMock1;
-  let ac_requestAlertsDataMock2 = alertsdataActions.requestAlertsDataMock2;
   let ac_requestAlerts = alertsdataActions.requestAlertsData;
 
   return {
     ...bindActionCreators({
-      dispatchaction_mock1: ac_requestAlertsDataMock1,
-      dispatchaction_mock2: ac_requestAlertsDataMock2,
       dispatchaction_getdata: ac_requestAlerts,
       logout: homepageActions.logout
     },

@@ -18,6 +18,7 @@ export class AlertsList extends Component {
             sensoralerts:       props.sensoralerts,
             scrollId:           props.scrollId
         }
+        console.log(this.state.alerts);
     }
 
     componentWillReceiveProps(newProps) {  // Updating the state on receiving the new props after selecting a different floor

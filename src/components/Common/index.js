@@ -102,7 +102,7 @@ export class MediaControl extends Component {
                             <div className="side-text detail-1 side-text-padding">
                                 <div className={divstyle}>{this.state.alertType}</div>
                                 <div className="pt-name list-header">{this.state.alert.senior.firstName}</div>
-                                <div className="pt-suite-no gray-text list-subheader mr-t-5">{this.state.alert.enterprise.description}</div>
+                                <div className="pt-suite-no gray-text list-subheader mr-t-5">Ai Care Living Center</div>
                             </div>
                         </div>
 

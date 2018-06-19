@@ -90,8 +90,8 @@ function requestBuildingData(enterpriseId) {
 /**
 * Action to be raised when login request successful to fetch enterprise specific data and defaults
 */
-function requestSensorAlertData() {
-    return { type: REQUEST_SENSOR_ALERT_DATA, payload: {} };
+function requestSensorAlertData(floorId) {
+    return { type: REQUEST_SENSOR_ALERT_DATA, payload: floorId };
 }
 
 /**

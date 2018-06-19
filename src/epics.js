@@ -8,13 +8,12 @@ import {
   NAVIGATE_TO_ALERT,
   RECEIVE_ALERTS,
   REQUEST_ALERTS,
-  REQUEST_ALERTS_MOCK1,
-  REQUEST_ALERTS_MOCK2,
   REQUEST_BUILDING_DATA,
   REQUEST_ENTERPRISE_DATA,
   REQUEST_FLOOR_API_DATA,
   REQUEST_FLOOR_DATA,
   REQUEST_LOGIN,
+  REQUEST_SENSOR_DATA,
   REQUEST_SENSOR_ALERT_DATA,
   REQUEST_USER_DATA,
   REQUEST_VENUE_DATA,
@@ -158,26 +157,6 @@ export const requestAlerts = actions$ =>
     );
 
 /**
- * "requestResidents" invoked reactively upon success of fetching floors data
- * once alerts data is available, its saved and also populated in the overlay
- * @param {*} actions$ default parameter for each such epic
- */
-export const requestResidents = actions$ =>
-
-  actions$
-    .ofType(RECEIVE_ALERTS)
-    .mergeMap(action =>
-      ajax
-        .getJSON('/patientsdata')
-        .mergeMap(data => Observable.of(
-          alertsdataActions.receiveResidentsData(data)
-        ))
-        //.catch(error => Observable.of(alertsdataActions.requestAlertsDataFailed()))
-        .catch(error => Observable.of(alertsdataActions.receiveResidentsData(data)))
-    );
-
-
-/**
  * "navigateToAlert" invoked reactively upon user action
  * overlay closes as a side affect
  * @param {*} actions$ default parameter for each such epic
@@ -309,7 +288,34 @@ export const requestFloorAPIData = actions$ =>
         })
           .mergeMap((data) => Observable.of(
             homepageActions.receiveFloorAPIData(data.response),
-            homepageActions.requestSensorAlertData()
+            alertsdataActions.requestSensorData(data.response[0].id),
+            homepageActions.requestSensorAlertData(data.response[0].id)
+          ))
+      // TODO, retry and fail gracefully
+      // .catch(error => Observable.of(homepageActions.loginFailed()))
+    );
+
+/**
+ * "requestSensorData" invoked reactively upon success of requesting user data
+ * success would result in raising an action to receive sensor data and populate the state
+ *
+ * @param {*} actions$ default parameter for each such epic
+ */
+export const requestSensorData = actions$ =>
+
+  actions$
+    .ofType(REQUEST_SENSOR_DATA)
+    .mergeMap(action =>
+        ajax({
+          url: WEB_API_URL + 'sensor/findByFloorId/',
+          method: 'POST',
+          body: { floorId: action.payload },
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          crossDomain: true,
+          withCredentials: true
+        })
+          .mergeMap((data) => Observable.of(
+            alertsdataActions.receiveSensorData(data.response)
           ))
       // TODO, retry and fail gracefully
       // .catch(error => Observable.of(homepageActions.loginFailed()))
@@ -327,9 +333,9 @@ export const requestSensorAlertData = actions$ =>
     .ofType(REQUEST_SENSOR_ALERT_DATA)
     .mergeMap(action =>
         ajax({
-          url: WEB_API_URL + 'sensorAlert/find/',
+          url: WEB_API_URL + 'sensorAlert/findWithSelect/',
           method: 'POST',
-          body: { maxResults: 50 },
+          body: { select: '["id", "description", "alertType", "alertStatus", "createUTC", "sensor:x", "sensor:y", "senior:firstName", "senior:lastName", "audioList", "enterprise:description","enterprise:name","floorId"]', noAlertStatus: 'DONE', maxResults: 50 },
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           crossDomain: true,
           withCredentials: true
@@ -382,11 +388,11 @@ export default combineEpics(
   requestAlerts,
   redirectToDashboard,
   navigateToAlert,
-  requestResidents,
   //below are API epics
   requestEnterpriseData,
   requestVenueData,
   requestBuildingData,
   requestFloorAPIData,
+  requestSensorData,
   requestSensorAlertData
 );

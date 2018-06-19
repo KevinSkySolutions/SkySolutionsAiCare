@@ -62,6 +62,13 @@ class OverlayAllAlerts extends Component {
                 classnameToApply += " glowanimationstyle";
             }
 
+            // TODO: REMOVE THE HARDCODED STRING
+            let alertLocation = "Ai Care Living Center";
+
+            // if (alert.enterprise !== null && alert.enterprise.name !== null) {
+            //     alertLocation = alert.enterprise.description;
+            // }
+
             return (
                 <div key={keyValue}>
                     <div className={ classnameToApply } id="alert_popups" >
@@ -75,7 +82,7 @@ class OverlayAllAlerts extends Component {
                                     <img src={require("../../../img/cardalert" + priority + ".png")} className="avatar" />
                                     <div className="side-text detail-1 side-text-padding">
                                         <div className="pt-name list-header">{alert.senior.firstName}</div>
-                                        <div className="pt-suite-no gray-text list-subheader mr-t-5">{alert.enterprise.description}</div>
+                                        <div className="pt-suite-no gray-text list-subheader mr-t-5">{alertLocation}</div>
                                     </div>
                                 </div>
                             </div>

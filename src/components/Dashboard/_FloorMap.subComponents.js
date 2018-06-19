@@ -33,9 +33,9 @@ class FloorMap extends Component {
     resident_object.floorid = this.state.alerts.floorid;
     resident_object.residents = []; // re initialize
     for (var i = 0; i < this.state.residents.length; i++) {
-      if (this.state.residents[i].floorId == resident_object.floorid) {
+      // if (this.state.residents[i].floorId == resident_object.floorid) {
         resident_object.residents.push(this.state.residents[i]);
-      }
+      // }
     }
 
     let floorplan_image = this.state.alerts.floormap;
@@ -104,25 +104,26 @@ class ResidentItem extends Component {
   }
 
   render() {
+    console.log(this.state.resident);
     let resident = this.state.resident; // Making a copy of the residents object for the relevant floor for data manipulation
     // Variable to decide which style to assign the resident based on the priority of the resident being passed
     let divStyle = {
       color: 'white',
       position: 'absolute',
-      top: (resident.sensor.y) + 'px',
-      left: (resident.sensor.x) + 'px'
+      top: (resident.y) + 'px',
+      left: (resident.x) + 'px'
     };
 
     let tipStyle = {
       position: 'absolute',
-      top: (resident.sensor.y) + 'px',
-      left: (resident.sensor.x) + 'px'
+      top: (resident.y) + 'px',
+      left: (resident.x) + 'px'
     };
 
     return (
       <div className="tooltip1">
         <img style={divStyle} className={'person-on-map'} src={require('../../img/person1.png')}/>
-        <span className="tooltiptext" style={tipStyle}>Resident:<br/><i>{resident.senior.firstName}</i></span>
+        <span className="tooltiptext" style={tipStyle}>Resident:<br/><i>{resident.name}</i></span>
       </div>
     );
   }

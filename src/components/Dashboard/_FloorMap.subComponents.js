@@ -55,7 +55,7 @@ class FloorMap extends Component {
     return (
       <div className="floor-image">
         <svg width="800" height="500">
-          <image x="0" y="0"  className="floor-map" xlinkHref={floorplan_image}>
+          <image x="0" y="0" width="800" height="500"  className="floor-map" xlinkHref={floorplan_image}>
           </image>
         </svg>
         {items}

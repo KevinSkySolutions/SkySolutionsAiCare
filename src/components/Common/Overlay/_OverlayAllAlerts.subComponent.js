@@ -22,7 +22,7 @@ class OverlayAllAlerts extends Component {
     }
 
     onNavigate = (floornumber, alertid, allalerts) => { // For displaying the overlay
-        
+
         this.props.navigateToAlert(floornumber, alertid, allalerts);
     }
 
@@ -35,25 +35,25 @@ class OverlayAllAlerts extends Component {
             let priority = 1;
 
             if (alert.alertType === "SOS") {
-                priority =  1;    
+                priority =  1;
             }
 
             else if (alert.alertType === "HIGH_IMPACT") {
-                priority =  2;  
+                priority =  2;
             }
 
             else if (alert.alertType === "HIGH NOISE") {
-                priority =  3;  
+                priority =  3;
             }
 
             else if (alert.alertType === "MISSING") {
-                priority =  4;  
+                priority =  4;
             }
 
             else if (alert.alertType === "POWER_OFF") {
-                priority =  5;  
+                priority =  5;
             }
-            
+
             let divstyle  = ("type-of-alert alert-number" + priority); // Variable to decide which style to assign the alert based on the priority of the alert being passed
 
             let classnameToApply    = "popup-card";
@@ -89,12 +89,12 @@ class OverlayAllAlerts extends Component {
                             <div className="alert-media">
                                 {
                                   (alert.alertStatus === 'INIT' && alert.audioList && alert.audioList.length > 0)
-                                    ? <MediaControl alert={alert} type={priority} media="audio" source={ `data:audio/ogg;base64,${alert.audioList[0].content}`} flag="overlay" /> : <div className="empty" />
+                                    ? <MediaControl alert={alert} type={priority} media="audio" source={ (navigator.userAgent.indexOf("Safari") > -1) ? `data:audio/mpeg;base64,${alert.audioList[0].content}` : `data:audio/ogg;base64,${alert.audioList[0].content}`} flag="overlay" /> : <div className="empty" />
                                 }
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             )
         });

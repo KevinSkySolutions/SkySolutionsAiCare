@@ -130,7 +130,7 @@ class AlertItem extends Component {
                             //     )
                             //     : <MediaControl type={priority} media="video" source={ this.state.alert.media.video } alertStatus={ this.state.alert.alertStatus==undefined? false: true } />
                           (this.state.alert.alertStatus === 'INIT' && this.state.alert.audioList && this.state.alert.audioList.length > 0)
-                            ? <MediaControl alert={this.state.alert} type={priority} media="audio" source={ `data:audio/ogg;base64,${this.state.alert.audioList[0].content}`} flag={this.state.flag} /> : <div className="empty" />
+                            ? <MediaControl alert={this.state.alert} type={priority} media="audio" source={ (navigator.userAgent.indexOf("Safari") > -1) ? `data:audio/mpeg;base64,${this.state.alert.audioList[0].content}` : `data:audio/ogg;base64,${this.state.alert.audioList[0].content}`} flag={this.state.flag} /> : <div className="empty" />
                         }
                     </div>
                     <UpdateStatus alert={this.state.alert}/>

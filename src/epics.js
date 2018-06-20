@@ -196,7 +196,7 @@ export const requestEnterpriseData = actions$ =>
     .ofType(REQUEST_ENTERPRISE_DATA)
     .mergeMap(action =>
         ajax({
-          url: WEB_API_URL + 'enterprise/findById/',
+          url: WEB_API_URL + 'enterprise/find',
           method: 'POST',
           body: { id: action.payload.enterpriseId },
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -204,8 +204,8 @@ export const requestEnterpriseData = actions$ =>
           withCredentials: true
         })
           .mergeMap((data) => Observable.of(
-            homepageActions.receiveEnterpriseData(data.response),
-            homepageActions.requestVenueData(data.response.id)
+            homepageActions.receiveEnterpriseData(data.response[0]),
+            homepageActions.requestVenueData(data.response[0].id)
           ))
       // TODO, retry and fail gracefully
       // .catch(error => Observable.of(homepageActions.loginFailed()))

@@ -19,6 +19,7 @@ class OverlayAllAlerts extends Component {
         this.setState({
             alerts: newProps.alerts
         });
+        this.forceUpdate();
     }
 
     onNavigate = (floornumber, alertid, allalerts) => { // For displaying the overlay
@@ -81,7 +82,7 @@ class OverlayAllAlerts extends Component {
                                 <div className="pt-log pt-detail">
                                     <img src={require("../../../img/cardalert" + priority + ".png")} className="avatar" />
                                     <div className="side-text detail-1 side-text-padding">
-                                        <div className="pt-name list-header">{alert.senior.firstName}</div>
+                                        <div className="pt-name list-header">{alert.senior.lastName}</div>
                                         <div className="pt-suite-no gray-text list-subheader mr-t-5">{alertLocation}</div>
                                     </div>
                                 </div>
@@ -104,7 +105,7 @@ class OverlayAllAlerts extends Component {
 const mapStateToProps = (state) => {
 
     return {
-        alerts: state.dashboard.alertsdata
+        alerts: state.dashboard.sensoralertdata
     };
 };
 

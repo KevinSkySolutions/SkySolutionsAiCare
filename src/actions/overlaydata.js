@@ -1,10 +1,12 @@
-import { REQUEST_ALERTS_SUMMARY, NAVIGATE_TO_ALERT, SET_OVERLAY_EXPANSION, RESET_OVERLAY_EXPANSION } from '../constants';
+import { REQUEST_ALERTS_SUMMARY, NAVIGATE_TO_ALERT, SET_OVERLAY_EXPANSION, RESET_OVERLAY_EXPANSION, REQUEST_OVERLAY_DATA, RECEIVE_OVERLAY_DATA } from '../constants';
 
 export const overlaydataActions = {
     makeOverlaySummary,
     setOverlayExpansion,
     resetOverlayExpansion,
-    navigateToAlertOnMap
+    navigateToAlertOnMap,
+    requestOverlayData,
+    receiveOverlayData
 };
 
 /**
@@ -13,6 +15,22 @@ export const overlaydataActions = {
  */
 function makeOverlaySummary(alertsdata) {
     return { type: REQUEST_ALERTS_SUMMARY, payload: alertsdata };
+}
+
+/**
+ * Action to be raised after reciveing new alerts
+ * @param alertsdata is the input data required to digest and make overlay summary
+ */
+function requestOverlayData() {
+    return { type: REQUEST_OVERLAY_DATA, payload: {} };
+}
+
+/**
+ * Action to be raised after reciveing new alerts
+ * @param alertsdata is the input data required to digest and make overlay summary
+ */
+function receiveOverlayData(alertsdata) {
+    return { type: RECEIVE_OVERLAY_DATA, payload: alertsdata };
 }
 
 /**

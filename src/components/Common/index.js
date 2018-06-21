@@ -101,7 +101,7 @@ export class MediaControl extends Component {
                             <img src={require("../../img/cardalert" + this.state.priority + ".png")} className="avatar" />
                             <div className="side-text detail-1 side-text-padding">
                                 <div className={divstyle}>{this.state.alertType}</div>
-                                <div className="pt-name list-header">{this.state.alert.senior.firstName}</div>
+                                <div className="pt-name list-header">{this.state.alert.senior.lastName}</div>
                                 <div className="pt-suite-no gray-text list-subheader mr-t-5">Ai Care Living Center</div>
                             </div>
                         </div>

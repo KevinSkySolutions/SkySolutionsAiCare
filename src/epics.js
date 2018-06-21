@@ -19,8 +19,8 @@ import {
   REQUEST_VENUE_DATA,
   WEB_API_URL,
   UPDATE_ALERT_DATA,
-  REQUEST_LOGOUT
-} from './constants';
+  REQUEST_LOGOUT,
+  REQUEST_OVERLAY_DATA } from './constants';
 
 
 // This logouts the from API session and also APP session.
@@ -289,7 +289,8 @@ export const requestFloorAPIData = actions$ =>
           .mergeMap((data) => Observable.of(
             homepageActions.receiveFloorAPIData(data.response),
             alertsdataActions.requestSensorData(data.response[0].id),
-            homepageActions.requestSensorAlertData(data.response[0].id)
+            homepageActions.requestSensorAlertData(data.response[0].id, 1),
+            overlaydataActions.requestOverlayData()
           ))
       // TODO, retry and fail gracefully
       // .catch(error => Observable.of(homepageActions.loginFailed()))
@@ -327,10 +328,10 @@ export const requestSensorData = actions$ =>
  *
  * @param {*} actions$ default parameter for each such epic
  */
-export const requestSensorAlertData = actions$ =>
+export const requestOverlayAlertData = actions$ =>
 
   actions$
-    .ofType(REQUEST_SENSOR_ALERT_DATA)
+    .ofType(REQUEST_OVERLAY_DATA)
     .mergeMap(action =>
         ajax({
           url: WEB_API_URL + 'sensorAlert/findWithSelect/',
@@ -341,7 +342,34 @@ export const requestSensorAlertData = actions$ =>
           withCredentials: true
         })
           .mergeMap((data) => Observable.of(
-            homepageActions.receiveSensorAlertData(data.response)
+            overlaydataActions.receiveOverlayData(data.response)
+          ))
+      // TODO, retry and fail gracefully
+      // .catch(error => Observable.of(homepageActions.loginFailed()))
+    );
+
+
+/**
+ * "requestSensorAlertData" invoked reactively upon success of requesting user data
+ * success would result in raising an action to receive SensorAlert data and populate the state
+ *
+ * @param {*} actions$ default parameter for each such epic
+ */
+export const requestSensorAlertData = actions$ =>
+
+  actions$
+    .ofType(REQUEST_SENSOR_ALERT_DATA)
+    .mergeMap(action =>
+        ajax({
+          url: WEB_API_URL + 'sensorAlert/findWithSelect/',
+          method: 'POST',
+          body: { floorId: action.payload.floorid , select: '["id", "description", "alertType", "alertStatus", "createUTC", "sensor:x", "sensor:y", "senior:firstName", "senior:lastName", "audioList", "enterprise:description","enterprise:name","floorId"]', noAlertStatus: 'DONE', maxResults: 50 },
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          crossDomain: true,
+          withCredentials: true
+        })
+          .mergeMap((data) => Observable.of(
+            homepageActions.receiveSensorAlertData(data.response, action.payload.floorid, action.payload.floor)
           ))
       // TODO, retry and fail gracefully
       // .catch(error => Observable.of(homepageActions.loginFailed()))
@@ -394,5 +422,6 @@ export default combineEpics(
   requestBuildingData,
   requestFloorAPIData,
   requestSensorData,
-  requestSensorAlertData
+  requestSensorAlertData,
+  requestOverlayAlertData
 );

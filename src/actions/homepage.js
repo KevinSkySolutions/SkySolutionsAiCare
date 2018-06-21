@@ -90,8 +90,8 @@ function requestBuildingData(enterpriseId) {
 /**
 * Action to be raised when login request successful to fetch enterprise specific data and defaults
 */
-function requestSensorAlertData(floorId) {
-    return { type: REQUEST_SENSOR_ALERT_DATA, payload: floorId };
+function requestSensorAlertData(floorId, floorNumber) {
+    return { type: REQUEST_SENSOR_ALERT_DATA, payload: {floorid: floorId, floor: floorNumber} };
 }
 
 /**
@@ -125,6 +125,6 @@ function receiveBuildingData(buildingdata) {
 /**
 * Action to be raised when login receive successful to fetch enterprise specific data and defaults
 */
-function receiveSensorAlertData(sensoralertdata) {
-    return { type: RECEIVE_SENSOR_ALERT_DATA, payload: sensoralertdata };
+function receiveSensorAlertData(sensoralertdata, floorId, floorNumber) {
+    return { type: RECEIVE_SENSOR_ALERT_DATA, payload: {sensoralertData: sensoralertdata, floorid: floorId, floor:floorNumber} };
 }

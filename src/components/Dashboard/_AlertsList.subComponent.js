@@ -15,10 +15,8 @@ export class AlertsList extends Component {
             currentfloor:       props.currentfloor,     // global indicator for current floor being viewed
             currentalert:       props.currentalert,     // global indicator for current key being expanded
             currentselection:   props.currentselection,  // global indicator for current alert being viewed
-            sensoralerts:       props.sensoralerts,
             scrollId:           props.scrollId
         }
-        console.log(this.state.alerts);
     }
 
     componentWillReceiveProps(newProps) {  // Updating the state on receiving the new props after selecting a different floor
@@ -28,7 +26,6 @@ export class AlertsList extends Component {
             currentfloor:       newProps.currentfloor,
             currentalert:       newProps.currentalert,
             currentselection:   newProps.currentselection,
-            sensoralerts:       newProps.sensoralerts,
             scrollId:           newProps.scrollId
         });
         this.forceUpdate();
@@ -69,7 +66,7 @@ export class AlertsList extends Component {
                    )
             })
         }else {
-          return (<div><div className="loader-alert"></div>Loading alerts...</div>)
+          return (<div><div className="loader-alert"></div>Waiting for new alerts...</div>)
         }
     }
 }
@@ -83,7 +80,6 @@ const mapStateToProps = (state) => {
         currentfloor:       state.dashboard.selection.floor,
         currentalert:       state.dashboard.selection.selectedalert,
         currentselection:   state.dashboard.selection.selectedalert,
-        sensoralerts:       state.dashboard.sensoralertdata,
         scrollId:           state.dashboard.scrollId
     };
 };

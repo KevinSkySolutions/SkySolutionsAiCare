@@ -40,6 +40,8 @@ export const UPDATE_ALERT_DATA      		= 'A_UPDATE_ALERT_DATA';
  * All actions that can be raised for the overlay
  */
 export const REQUEST_ALERTS_SUMMARY 		= 'A_REQUEST_ALERTS_SUMMARY';
+export const REQUEST_OVERLAY_DATA     	= 'A_REQUEST_OVERLAY_DATA';
+export const RECEIVE_OVERLAY_DATA     	= 'A_RECEIVE_OVERLAY_DATA';
 export const NAVIGATE_TO_ALERT      		= 'A_NAVIGATE_TO_ALERT';
 export const SET_OVERLAY_EXPANSION  		= 'A_SET_OVERLAY_EXPANSION';
 export const RESET_OVERLAY_EXPANSION  	= 'A_RESET_OVERLAY_EXPANSION';

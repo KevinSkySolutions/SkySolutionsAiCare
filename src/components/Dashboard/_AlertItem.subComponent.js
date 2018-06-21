@@ -107,7 +107,7 @@ class AlertItem extends Component {
                         <div className="pt-log pt-detail">
                             <img src={require("../../img/cardalert" + priority + ".png")} className="avatar1" />
                             <div className="side-text detail-1 side-text-padding">
-                                <div className="pt-name list-header">{this.state.alert.senior.firstName}</div>
+                                <div className="pt-name list-header">{this.state.alert.senior.lastName}</div>
                                 <div className="pt-suite-no gray-text list-subheader mr-t-5"></div>
                             </div>
                         </div>

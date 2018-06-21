@@ -109,7 +109,7 @@ class UpdateStatus extends Component {
                 destroyOnClose={this.state.destroyOnClose}
             >
             <div onClick={this.stopEventPropagation}>
-                <h1 className="rc-dialog-header">{this.state.alert.senior.firstName}</h1>
+                <h1 className="rc-dialog-header">{this.state.alert.senior.lastName}</h1>
                 <h2 className="rc-dialog-title"><span>Current&nbsp;Status:&nbsp;&nbsp;</span>{this.state.alert.description}</h2><br />
                 <form ref="form" >
                     <div className="textaligner" >

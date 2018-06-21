@@ -40,7 +40,7 @@ export class SearchDropdown extends Component {
         // TODO REMOVE AI CARE LIVING CENTER FROM ALERT CARD
         let searchResults = this.props.results.map((result, keyValue) => {
             return (
-                <li onClick={e => this.onResultClicked(keyValue)} key={keyValue}>{result.senior.firstName} @ Ai Care Living Center</li>
+                <li onClick={e => this.onResultClicked(keyValue)} key={keyValue}>{result.senior.lastName} @ Ai Care Living Center</li>
             )
         });
 

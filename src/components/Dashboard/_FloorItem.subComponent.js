@@ -74,7 +74,7 @@ class FloorItem extends Component {
 
     return (
       <div className="tooltip1">
-        <span className="tooltiptext" style={tipStyle}>Alert:<br/><i>{alert.senior.firstName}</i></span>
+        <span className="tooltiptext" style={tipStyle}>Alert:<br/><i>{alert.senior.lastName}</i></span>
         <div onClick={this.onFocus}>
 
           {

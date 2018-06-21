@@ -21,6 +21,7 @@ export class Overlay extends Component {
             highlights: props.highlights,
             currentfloor: props.currentfloor,
             className: "floor-popup",
+            enterprise: props.enterprise,
             floors: props.floors
         }
     }
@@ -75,7 +76,7 @@ export class Overlay extends Component {
                         <div className="main-heading-section">
                             <div className="center-image" >
                                 <img src={require("../../../img/centerimage.png")} alt="" />
-                                <div className="heading-title">Epoch Elder Care</div>
+                                <div className="heading-title">{this.state.enterprise.name}</div>
                                 <div className="pagination">
                                     <div className="pages">
                                         <div className="page active">{activeFloor}</div>
@@ -132,6 +133,7 @@ const mapStateToProps = (state) => {
         summary:    state.dashboard.summary,
         highlights: state.dashboard.highlightsummary,
         currentfloor:   state.dashboard.selection.floor,
+        enterprise:    state.dashboard.enterprisedata,
         floors:     state.dashboard.floorAPIdata
     };
 };
